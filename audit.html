@@ -389,6 +389,7 @@
         <p class="lla-qlead">We'll follow up with quick wins specific to your gaps — no generic advice.</p>
         <div class="lla-capture-fields">
           <input type="text" id="lla-cap-name" class="lla-text-input" placeholder="Your first name">
+          <input type="text" id="lla-cap-business" class="lla-text-input" placeholder="Business name">
           <input type="tel" id="lla-cap-phone" class="lla-text-input" placeholder="Phone number">
           <input type="email" id="lla-cap-email" class="lla-text-input" placeholder="Email address">
           <p id="lla-cap-error" class="lla-capture-error">Please fill in all fields to see your results.</p>
@@ -557,16 +558,17 @@
   var LLA_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwYPBARIfiPlXeDjrAmnG9wF1kX3X-qV66wB-XMLlBONWO7-kK9wIviSkx6BJrJKPM/exec';
 
   function llaSubmitCapture() {
-    const name  = document.getElementById('lla-cap-name').value.trim();
-    const phone = document.getElementById('lla-cap-phone').value.trim();
-    const email = document.getElementById('lla-cap-email').value.trim();
+    const name     = document.getElementById('lla-cap-name').value.trim();
+    const business = document.getElementById('lla-cap-business').value.trim();
+    const phone    = document.getElementById('lla-cap-phone').value.trim();
+    const email    = document.getElementById('lla-cap-email').value.trim();
     const errEl = document.getElementById('lla-cap-error');
-    if (!name || !phone || !email) { errEl.classList.add('show'); return; }
+    if (!name || !business || !phone || !email) { errEl.classList.add('show'); return; }
     errEl.classList.remove('show');
-    llaS.lead = { name, phone, email };
+    llaS.lead = { name, business, phone, email };
     const total = llaS.scores.reduce((a, b) => a + b, 0);
     const annualLeak = Math.round((total / (LLA_Q.length * 3)) * 8) * llaS.val * 12;
-    new Image().src = LLA_SHEET_URL + '?' + new URLSearchParams({ name, phone, email, annualLeak });
+    new Image().src = LLA_SHEET_URL + '?' + new URLSearchParams({ name, business, phone, email, annualLeak });
     llaShowResults();
   }
 
@@ -701,7 +703,7 @@
     llaS = { scores: [], cats: { response:0, followup:0, reviews:0, visibility:0, website:0 }, val: 500 };
     const inp = document.getElementById('lla-val-input');
     if (inp) inp.value = '';
-    ['lla-cap-name', 'lla-cap-phone', 'lla-cap-email'].forEach(id => {
+    ['lla-cap-name', 'lla-cap-business', 'lla-cap-phone', 'lla-cap-email'].forEach(id => {
       const el = document.getElementById(id); if (el) el.value = '';
     });
     const errEl = document.getElementById('lla-cap-error');
