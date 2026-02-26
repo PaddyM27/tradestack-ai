@@ -1,0 +1,18 @@
+# Dev tools (local only)
+node_modules/
+package.json
+package-lock.json
+serve.mjs
+screenshot.mjs
+
+# Screenshots & research (internal)
+temporary screenshots/
+competitor-screenshots/
+research/
+
+# Business docs (confidential — keep off public repo)
+BUSINESS_PLAN.md
+business-plan.html
+
+# Claude config
+.claude/
