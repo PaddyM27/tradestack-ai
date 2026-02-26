@@ -1565,12 +1565,7 @@
     llaS.lead = { name, phone, email };
     const total = llaS.scores.reduce((a, b) => a + b, 0);
     const annualLeak = Math.round((total / (LLA_Q.length * 3)) * 8) * llaS.val * 12;
-    fetch(LLA_SHEET_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ name, phone, email, annualLeak })
-    }).catch(function() {});
+    new Image().src = LLA_SHEET_URL + '?' + new URLSearchParams({ name, phone, email, annualLeak });
     llaShowResults();
   }
 
