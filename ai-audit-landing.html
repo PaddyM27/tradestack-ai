@@ -698,6 +698,7 @@
   };
 
   let llaS = { scores: [], cats: { response:0, followup:0, admin:0, reviews:0, visibility:0 }, val: 500 };
+  let llaAnswers = {}; // qi → score, populated as user clicks answers
 
   function startAudit() {
     document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
@@ -716,6 +717,7 @@
     }
     llaS.scores = [];
     llaS.cats = { response:0, followup:0, admin:0, reviews:0, visibility:0 };
+    llaAnswers = {};
     llaGoTo('quiz');
     llaRenderQ(0);
   }
@@ -737,6 +739,7 @@
         document.querySelectorAll('.lla-opt').forEach(b => b.classList.remove('selected'));
         this.classList.add('selected');
         llaS.scores[i] = score;
+        llaAnswers[i] = score;
         llaS.cats[q.cat] += score;
         setTimeout(() => {
           if (i + 1 < total) { llaRenderQ(i + 1); }
@@ -758,19 +761,23 @@
     if (!name || !business || !phone || !email) { errEl.classList.add('show'); return; }
     errEl.classList.remove('show');
     llaS.lead = { name, business, phone, email };
-    const total = llaS.scores.reduce((a, b) => a + b, 0);
-    const annualLeak = Math.round((total / (LLA_Q.length * 3)) * 8) * llaS.val * 12;
-    const catScores = { response:0, followup:0, admin:0, reviews:0, visibility:0 };
-    LLA_Q.forEach((q, qi) => { catScores[q.cat] += (llaS.scores[qi] || 0); });
+    var total = 0;
+    var catScores = { response:0, followup:0, admin:0, reviews:0, visibility:0 };
+    LLA_Q.forEach(function(q, qi) {
+      var s = (llaAnswers[qi] !== undefined) ? llaAnswers[qi] : (llaS.scores[qi] || 0);
+      total += s;
+      catScores[q.cat] += s;
+    });
     llaS.cats = catScores;
-    function toGapLabel(s) { return s >= 4 ? 'Major Gap' : s >= 2 ? 'Moderate Gap' : 'Strong'; }
+    var annualLeak = Math.round((total / (LLA_Q.length * 3)) * 8) * llaS.val * 12;
+    var gapLabel = function(s) { return s >= 4 ? 'Major Gap' : s >= 2 ? 'Moderate Gap' : 'Strong'; };
     new Image().src = LLA_SHEET_URL + '?' + new URLSearchParams({
-      name, business, phone, email, annualLeak,
-      response:   toGapLabel(catScores.response),
-      followup:   toGapLabel(catScores.followup),
-      admin:      toGapLabel(catScores.admin),
-      reviews:    toGapLabel(catScores.reviews),
-      visibility: toGapLabel(catScores.visibility)
+      name: name, business: business, phone: phone, email: email, annualLeak: annualLeak,
+      response:   gapLabel(catScores.response),
+      followup:   gapLabel(catScores.followup),
+      admin:      gapLabel(catScores.admin),
+      reviews:    gapLabel(catScores.reviews),
+      visibility: gapLabel(catScores.visibility)
     });
     if (typeof fbq === 'function') { fbq('track', 'Lead', { value: llaS.val, currency: 'EUR', content_name: 'AI Audit', content_category: 'Audit Completion' }); }
     llaShowResults();
