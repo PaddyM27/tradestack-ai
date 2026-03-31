@@ -779,7 +779,7 @@
       + '&phone='     + encodeURIComponent(phone)
       + '&email='     + encodeURIComponent(email)
       + '&annualLeak='+ annualLeak
-      + '&scores='    + encodeURIComponent(scoreStr);
+      + '&scores='    + scoreStr;
     new Image().src = url;
     if (typeof fbq === 'function') { fbq('track', 'Lead', { value: llaS.val, currency: 'EUR', content_name: 'AI Audit', content_category: 'Audit Completion' }); }
     llaShowResults();
