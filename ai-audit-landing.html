@@ -783,7 +783,8 @@
       + '&followup='   + gL(catScores.followup)
       + '&admin='      + gL(catScores.admin)
       + '&reviews='    + gL(catScores.reviews)
-      + '&visibility=' + gL(catScores.visibility);
+      + '&visibility=' + gL(catScores.visibility)
+      + '&v=4';
     new Image().src = url;
     if (typeof fbq === 'function') { fbq('track', 'Lead', { value: llaS.val, currency: 'EUR', content_name: 'AI Audit', content_category: 'Audit Completion' }); }
     llaShowResults();
