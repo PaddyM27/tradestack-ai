@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outreach Strategy — FlowBuild AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --charcoal:  #1C1917;
+      --charcoal2: #2D2926;
+      --amber:     #E8652A;
+      --amber-lt:  #F5804A;
+      --amber-dk:  #C4501B;
+      --cream:     #FAF9F6;
+      --cream-dk:  #EDE8DF;
+      --stone:     #9C8D83;
+      --stone-lt:  #C8BDB7;
+    }
+
+    html { font-size: 10pt; }
+    body {
+      background: #D4CFCA;
+      font-family: 'EB Garamond', Georgia, serif;
+      color: var(--charcoal);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Page shell ─── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      background: var(--cream);
+      margin: 0 auto 12mm;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    /* ─── Cover ─── */
+    .cover {
+      background: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+      min-height: 297mm;
+    }
+    .cover-top {
+      padding: 14mm 16mm 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .cover-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 13pt;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: white;
+    }
+    .cover-logo span { color: var(--amber); }
+    .logo-badge {
+      display: inline-block;
+      background: var(--amber);
+      color: white;
+      font-family: 'Syne', sans-serif;
+      font-size: 6pt;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 3px 6px;
+      border-radius: 2px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+      margin-left: 4px;
+    }
+    .cover-meta {
+      text-align: right;
+    }
+    .cover-meta-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 7pt;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .cover-meta-val {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .cover-hero {
+      padding: 0 16mm;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .cover-eyebrow {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 10mm;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cover-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--amber);
+    }
+    .cover-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 44pt;
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: white;
+      margin-bottom: 8mm;
+    }
+    .cover-title em {
+      color: var(--amber);
+      font-style: normal;
+    }
+    .cover-subtitle {
+      font-family: 'EB Garamond', serif;
+      font-size: 13pt;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.52);
+      max-width: 130mm;
+      font-style: italic;
+    }
+
+    /* Prong pills on cover */
+    .cover-prongs {
+      display: flex;
+      gap: 6mm;
+      margin-top: 10mm;
+    }
+    .cover-prong {
+      flex: 1;
+      padding: 5mm 6mm;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 3px;
+      background: rgba(255,255,255,0.04);
+    }
+    .cover-prong-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 22pt;
+      font-weight: 800;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 2mm;
+    }
+    .cover-prong-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 1.5mm;
+    }
+    .cover-prong-desc {
+      font-family: 'EB Garamond', serif;
+      font-size: 9pt;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.4;
+      font-style: italic;
+    }
+
+    .cover-bottom {
+      padding: 6mm 16mm;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cover-bottom-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 7pt;
+      color: rgba(255,255,255,0.28);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .cover-bottom-url {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: rgba(255,255,255,0.38);
+      letter-spacing: 0.04em;
+    }
+
+    /* Amber gradient line */
+    .amber-bar {
+      height: 3px;
+      background: linear-gradient(to right, var(--amber), var(--amber-lt), transparent);
+    }
+
+    /* ─── Interior pages ─── */
+    .doc-header {
+      padding: 8mm 16mm 6mm;
+      border-bottom: 1px solid var(--cream-dk);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .doc-header-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 9pt;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+    .doc-header-logo span { color: var(--amber); }
+    .doc-header-right {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 7pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+
+    .doc-footer {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 4mm 16mm;
+      border-top: 1px solid var(--cream-dk);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .doc-footer-meta {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 6.5pt;
+      color: var(--stone-lt);
+      letter-spacing: 0.06em;
+    }
+    .doc-footer-pg {
+      font-family: 'Syne', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 800;
+      color: var(--stone-lt);
+    }
+
+    /* ─── Body content ─── */
+    .page-body {
+      padding: 8mm 16mm 18mm;
+    }
+
+    /* Section heading */
+    .section-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 3mm;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 22pt;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      line-height: 1.05;
+      margin-bottom: 5mm;
+    }
+    .section-intro {
+      font-family: 'EB Garamond', serif;
+      font-size: 11pt;
+      line-height: 1.65;
+      color: #4A3F3A;
+      margin-bottom: 6mm;
+      max-width: 155mm;
+    }
+
+    /* Phase blocks */
+    .phase-block {
+      margin-bottom: 7mm;
+    }
+    .phase-num {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 1.5mm;
+    }
+    .phase-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 13pt;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      margin-bottom: 2.5mm;
+    }
+    .phase-body {
+      font-family: 'EB Garamond', serif;
+      font-size: 10.5pt;
+      line-height: 1.65;
+      color: #4A3F3A;
+    }
+
+    /* Step list */
+    .step-list {
+      list-style: none;
+      margin: 3mm 0;
+    }
+    .step-list li {
+      display: flex;
+      gap: 4mm;
+      margin-bottom: 2.5mm;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 5.5mm;
+      height: 5.5mm;
+      background: var(--amber);
+      color: white;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 7pt;
+      font-weight: 800;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .step-text {
+      font-family: 'EB Garamond', serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: #4A3F3A;
+    }
+    .step-text strong {
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    /* Bullet list */
+    .bullet-list {
+      list-style: none;
+      margin: 2mm 0;
+    }
+    .bullet-list li {
+      display: flex;
+      gap: 3mm;
+      margin-bottom: 2mm;
+      align-items: flex-start;
+      font-family: 'EB Garamond', serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: #4A3F3A;
+    }
+    .bullet-list li::before {
+      content: '—';
+      color: var(--amber);
+      flex-shrink: 0;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 700;
+      font-size: 9pt;
+      margin-top: 1px;
+    }
+    .bullet-list li strong {
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    /* Dark callout box */
+    .callout-dark {
+      background: var(--charcoal);
+      border-radius: 4px;
+      padding: 5mm 6mm;
+      margin: 4mm 0;
+    }
+    .callout-dark .callout-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 2mm;
+    }
+    .callout-dark p {
+      font-family: 'EB Garamond', serif;
+      font-size: 10.5pt;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.72);
+    }
+    .callout-dark p em {
+      color: white;
+      font-style: italic;
+    }
+
+    /* Amber callout box */
+    .callout-amber {
+      background: #FEF5EF;
+      border-left: 3px solid var(--amber);
+      border-radius: 3px;
+      padding: 4mm 5mm;
+      margin: 4mm 0;
+    }
+    .callout-amber .callout-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber-dk);
+      margin-bottom: 1.5mm;
+    }
+    .callout-amber p {
+      font-family: 'EB Garamond', serif;
+      font-size: 10.5pt;
+      line-height: 1.6;
+      color: #4A3F3A;
+    }
+    .callout-amber p strong {
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    /* Two column layout */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm;
+      margin: 4mm 0;
+    }
+    .col-card {
+      border: 1px solid var(--cream-dk);
+      border-radius: 4px;
+      padding: 5mm;
+    }
+    .col-card-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 1.5mm;
+    }
+    .col-card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 11pt;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      margin-bottom: 2mm;
+    }
+    .col-card p {
+      font-family: 'EB Garamond', serif;
+      font-size: 10pt;
+      line-height: 1.55;
+      color: #5A4E49;
+    }
+
+    /* Email template box */
+    .email-template {
+      background: #F5F1EC;
+      border: 1px solid var(--cream-dk);
+      border-radius: 4px;
+      margin: 3mm 0;
+      overflow: hidden;
+    }
+    .email-template-header {
+      background: var(--cream-dk);
+      padding: 2.5mm 4mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .email-template-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+    .email-template-day {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 600;
+      color: var(--amber-dk);
+      background: rgba(232,101,42,0.12);
+      padding: 1.5px 6px;
+      border-radius: 10px;
+    }
+    .email-template-body {
+      padding: 3.5mm 4mm;
+    }
+    .email-subject {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--charcoal);
+      margin-bottom: 2mm;
+    }
+    .email-subject span {
+      color: var(--stone);
+      font-weight: 400;
+      margin-right: 2px;
+    }
+    .email-body {
+      font-family: 'EB Garamond', serif;
+      font-size: 9.5pt;
+      line-height: 1.6;
+      color: #5A4E49;
+      white-space: pre-line;
+    }
+    .email-body em {
+      color: var(--amber-dk);
+      font-style: italic;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--cream-dk);
+      margin: 5mm 0;
+    }
+    .divider-amber {
+      height: 2px;
+      background: linear-gradient(to right, var(--amber), transparent);
+      margin: 4mm 0;
+    }
+
+    /* Table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 3mm 0;
+    }
+    .data-table th {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: white;
+      background: var(--charcoal);
+      padding: 3mm 4mm;
+      text-align: left;
+    }
+    .data-table th:first-child { border-radius: 3px 0 0 0; }
+    .data-table th:last-child { border-radius: 0 3px 0 0; }
+    .data-table td {
+      font-family: 'EB Garamond', serif;
+      font-size: 10pt;
+      line-height: 1.45;
+      color: #4A3F3A;
+      padding: 3mm 4mm;
+      border-bottom: 1px solid var(--cream-dk);
+      vertical-align: top;
+    }
+    .data-table tr:nth-child(even) td { background: #F5F0EB; }
+    .data-table td strong {
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .data-table .amber-cell {
+      color: var(--amber-dk);
+      font-weight: 600;
+    }
+
+    /* Tag / pill */
+    .tag {
+      display: inline-block;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 10px;
+    }
+    .tag-amber { background: rgba(232,101,42,0.12); color: var(--amber-dk); }
+    .tag-green { background: rgba(100,200,120,0.15); color: #2E7D32; }
+    .tag-dark  { background: var(--charcoal); color: white; }
+
+    /* Metric cards */
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4mm;
+      margin: 4mm 0;
+    }
+    .metric-card {
+      background: var(--charcoal);
+      border-radius: 4px;
+      padding: 4mm 4.5mm;
+    }
+    .metric-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 18pt;
+      font-weight: 800;
+      color: var(--amber);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 1.5mm;
+    }
+    .metric-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 7pt;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.3;
+    }
+
+    /* Week row */
+    .week-row {
+      display: flex;
+      gap: 3mm;
+      margin-bottom: 3mm;
+      align-items: flex-start;
+    }
+    .week-badge {
+      flex-shrink: 0;
+      background: var(--charcoal);
+      color: var(--amber);
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2mm 3.5mm;
+      border-radius: 3px;
+      min-width: 22mm;
+      text-align: center;
+    }
+    .week-content {
+      font-family: 'EB Garamond', serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: #4A3F3A;
+      padding-top: 1.5mm;
+    }
+    .week-content strong {
+      font-weight: 600;
+      color: var(--charcoal);
+      display: block;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 8.5pt;
+      margin-bottom: 1mm;
+    }
+
+    /* Tool card */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+      margin: 4mm 0;
+    }
+    .tool-card {
+      border: 1px solid var(--cream-dk);
+      border-radius: 4px;
+      padding: 4mm 5mm;
+      position: relative;
+    }
+    .tool-card.essential {
+      border-color: rgba(232,101,42,0.3);
+      background: #FFFAF6;
+    }
+    .tool-card-badge {
+      position: absolute;
+      top: 3mm;
+      right: 3.5mm;
+    }
+    .tool-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 10pt;
+      font-weight: 800;
+      color: var(--charcoal);
+      letter-spacing: -0.01em;
+      margin-bottom: 1mm;
+      margin-right: 18mm;
+    }
+    .tool-purpose {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 7pt;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 2mm;
+    }
+    .tool-desc {
+      font-family: 'EB Garamond', serif;
+      font-size: 9.5pt;
+      line-height: 1.5;
+      color: #5A4E49;
+    }
+    .tool-cost {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--amber-dk);
+      margin-top: 2mm;
+    }
+
+    /* Segmentation flowchart */
+    .flow-row {
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+      margin-bottom: 2.5mm;
+    }
+    .flow-box {
+      padding: 2.5mm 4mm;
+      border-radius: 3px;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 8pt;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .flow-box.source { background: var(--charcoal); color: white; }
+    .flow-box.check  { background: #F5F0EB; color: var(--charcoal); border: 1px solid var(--cream-dk); }
+    .flow-box.prong1 { background: rgba(232,101,42,0.12); color: var(--amber-dk); border: 1px solid rgba(232,101,42,0.25); }
+    .flow-box.prong2 { background: rgba(100,200,120,0.12); color: #2E7D32; border: 1px solid rgba(100,200,120,0.3); }
+    .flow-arrow {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 9pt;
+      color: var(--stone-lt);
+      flex-shrink: 0;
+    }
+    .flow-label {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 7pt;
+      font-weight: 600;
+      color: var(--stone);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* Print styles */
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      @page { margin: 0; size: A4 portrait; }
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 1 — COVER
+═══════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="amber-bar"></div>
+
+  <div class="cover-top">
+    <div class="cover-logo">
+      FLOW<span>BUILD</span><span class="logo-badge">AI</span>
+    </div>
+    <div class="cover-meta">
+      <span class="cover-meta-label">Prepared</span>
+      <span class="cover-meta-val">March 2026</span>
+    </div>
+  </div>
+
+  <div class="cover-hero">
+    <div class="cover-eyebrow">Outreach Playbook</div>
+    <h1 class="cover-title">Cold Outreach<br><em>Strategy</em></h1>
+    <p class="cover-subtitle">A step-by-step system for generating clients across Ireland — from lead list to booked call, using a two-pronged approach tailored to where each business actually is.</p>
+
+    <div class="cover-prongs">
+      <div class="cover-prong">
+        <div class="cover-prong-num">01</div>
+        <div class="cover-prong-label">No / Poor Website</div>
+        <div class="cover-prong-desc">Target businesses invisible online — offer a website that converts enquiries into booked jobs.</div>
+      </div>
+      <div class="cover-prong">
+        <div class="cover-prong-num">02</div>
+        <div class="cover-prong-label">Has Website</div>
+        <div class="cover-prong-desc">Target businesses with a website but leaking leads — offer AI automation to close the gaps.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <span class="cover-bottom-label">Confidential · Internal Use Only</span>
+    <span class="cover-bottom-url">flowbuildai.ie</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE 2 — OVERVIEW & SEGMENTATION
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span> <span class="logo-badge" style="font-size:5pt;">AI</span></div>
+    <div class="doc-header-right">Outreach Strategy · Overview</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-label">Section 01</div>
+    <h2 class="section-title">The Strategy at a Glance</h2>
+    <p class="section-intro">The core insight is simple: not every business needs the same pitch. By sorting prospects into two groups before you contact them, every message is relevant — and relevance is what gets replies.</p>
+
+    <div class="two-col">
+      <div class="col-card" style="border-color: rgba(232,101,42,0.3); background: #FFFAF6;">
+        <div class="col-card-label">Prong 01</div>
+        <div class="col-card-title">No / Poor Website</div>
+        <p><strong>Who:</strong> Businesses on Google Maps with no website, a broken one, or something that looks like it was built in 2008.</p>
+        <p style="margin-top: 2mm;"><strong>Pain:</strong> Invisible to customers searching online. Losing jobs to competitors who show up.</p>
+        <p style="margin-top: 2mm;"><strong>Offer:</strong> A fast, mobile-first website that turns Google visitors into booked enquiries.</p>
+        <p style="margin-top: 2mm;"><strong>Hook:</strong> <em>"Customers can't find you."</em></p>
+      </div>
+      <div class="col-card" style="border-color: rgba(100,200,120,0.3); background: #F6FBF7;">
+        <div class="col-card-label">Prong 02</div>
+        <div class="col-card-title">Has Website</div>
+        <p><strong>Who:</strong> Businesses with a functioning, decent website — but almost certainly leaking leads after hours.</p>
+        <p style="margin-top: 2mm;"><strong>Pain:</strong> Website exists but leads go cold. No follow-up, no automation, no system.</p>
+        <p style="margin-top: 2mm;"><strong>Offer:</strong> AI-powered systems to respond, follow up, and convert leads automatically.</p>
+        <p style="margin-top: 2mm;"><strong>Hook:</strong> <em>"You're leaking leads you don't know about."</em></p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Segmentation Flow</div>
+    <div style="font-family:'Syne',sans-serif;font-size:12pt;font-weight:800;letter-spacing:-0.02em;color:var(--charcoal);margin-bottom:4mm;">How to Sort Every Lead</div>
+
+    <div class="flow-row">
+      <div class="flow-box source">Outscraper Export</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box check">Website field empty?</div>
+      <div class="flow-arrow">→ Yes →</div>
+      <div class="flow-box prong1">Prong 1</div>
+    </div>
+    <div class="flow-row" style="margin-left: 40mm;">
+      <div class="flow-arrow">↓ No</div>
+    </div>
+    <div class="flow-row">
+      <div style="width: 37mm; flex-shrink:0;"></div>
+      <div class="flow-box check">Open the website — is it broken / terrible on mobile?</div>
+      <div class="flow-arrow">→ Yes →</div>
+      <div class="flow-box prong1">Prong 1</div>
+    </div>
+    <div class="flow-row" style="margin-left: 78mm;">
+      <div class="flow-arrow">↓ No — looks fine</div>
+    </div>
+    <div class="flow-row">
+      <div style="width: 75mm; flex-shrink:0;"></div>
+      <div class="flow-box prong2">Prong 2</div>
+    </div>
+
+    <div class="callout-amber" style="margin-top: 4mm;">
+      <div class="callout-label">Prioritisation tip</div>
+      <p>Leads with <strong>0–5 Google reviews</strong> are hungrier for business. Sort by review count in your sheet and work low-review leads first — they have the most to gain and the lowest scepticism about trying something new.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="display:flex; gap:5mm; align-items:stretch;">
+      <div style="flex:1; background:var(--charcoal); border-radius:4px; padding:4mm 5mm;">
+        <div style="font-family:'Inter Tight',sans-serif;font-size:6.5pt;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:2mm;">Target Market</div>
+        <div style="font-family:'Syne',sans-serif;font-size:12pt;font-weight:800;color:white;letter-spacing:-0.02em;margin-bottom:1mm;">All Trades · All Ireland</div>
+        <div style="font-family:'EB Garamond',serif;font-size:9.5pt;color:rgba(255,255,255,0.52);line-height:1.5;">Plumbers, electricians, builders, roofers, painters — any local trade business. Start with Dublin &amp; Cork, expand county by county.</div>
+      </div>
+      <div style="flex:1; background:var(--charcoal); border-radius:4px; padding:4mm 5mm;">
+        <div style="font-family:'Inter Tight',sans-serif;font-size:6.5pt;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:2mm;">Weekly Volume Target</div>
+        <div style="font-family:'Syne',sans-serif;font-size:12pt;font-weight:800;color:white;letter-spacing:-0.02em;margin-bottom:1mm;">50–200 Contacts</div>
+        <div style="font-family:'EB Garamond',serif;font-size:9.5pt;color:rgba(255,255,255,0.52);line-height:1.5;">Across email, LinkedIn, Instagram/Facebook, and WhatsApp. Scale the channels that show the highest reply rates.</div>
+      </div>
+      <div style="flex:1; background:var(--charcoal); border-radius:4px; padding:4mm 5mm;">
+        <div style="font-family:'Inter Tight',sans-serif;font-size:6.5pt;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:2mm;">Primary CTA</div>
+        <div style="font-family:'Syne',sans-serif;font-size:12pt;font-weight:800;color:white;letter-spacing:-0.02em;margin-bottom:1mm;">Reply to Email</div>
+        <div style="font-family:'EB Garamond',serif;font-size:9.5pt;color:rgba(255,255,255,0.52);line-height:1.5;">Low friction. No ask to book a call or click a link first. Start a conversation — sell from there. Prong 2 can also direct to the audit.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span class="doc-footer-meta">Confidential · FlowBuild AI · 2026</span>
+    <span class="doc-footer-pg">02</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE 3 — BUILDING THE LEAD LISTS
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span> <span class="logo-badge" style="font-size:5pt;">AI</span></div>
+    <div class="doc-header-right">Outreach Strategy · Phase 1</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-label">Phase 01</div>
+    <h2 class="section-title">Building Your Lead Lists</h2>
+    <p class="section-intro">The quality of your outreach is only as good as your list. This phase is about building a clean, segmented prospect database you can work systematically — not spray-and-pray.</p>
+
+    <div class="phase-block">
+      <div class="phase-num">Step 1</div>
+      <div class="phase-title">Scrape with Outscraper</div>
+      <p class="phase-body">Go to <strong>outscraper.com</strong> and run searches for each trade category across your target counties. This pulls directly from Google Maps and returns business name, phone, email, website, reviews, and rating.</p>
+
+      <div class="callout-dark" style="margin-top: 3mm;">
+        <div class="callout-label">Search Format to Use</div>
+        <p><em>"plumber Dublin"</em> · <em>"electrician Cork"</em> · <em>"roofer Galway"</em> · <em>"painter Limerick"</em> · <em>"builder Waterford"</em><br>Repeat for every trade + county combination. Start with the 5 largest counties first.</p>
+      </div>
+
+      <ul class="bullet-list" style="margin-top: 3mm;">
+        <li>Set results per search to <strong>200–500</strong> — enough to get started without overspending credits</li>
+        <li>Always export with: <strong>Name, Category, Phone, Email, Website, Reviews, Rating, Address</strong></li>
+        <li>Outscraper costs roughly <strong>€10–20</strong> to pull a few thousand leads — cheap for what you get</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="phase-block">
+      <div class="phase-num">Step 2</div>
+      <div class="phase-title">Set Up Your Master Google Sheet</div>
+      <p class="phase-body">Paste all exports into one master Google Sheet and add these columns:</p>
+
+      <table class="data-table" style="margin-top: 3mm;">
+        <tr>
+          <th>Column</th>
+          <th>What to put there</th>
+          <th>Used for</th>
+        </tr>
+        <tr>
+          <td><strong>Business Name</strong></td>
+          <td>From Outscraper</td>
+          <td>Personalisation field in Instantly</td>
+        </tr>
+        <tr>
+          <td><strong>Owner First Name</strong></td>
+          <td>Find via website/Google/LinkedIn</td>
+          <td>Personalisation — "Hi John"</td>
+        </tr>
+        <tr>
+          <td><strong>Email</strong></td>
+          <td>From Outscraper or Hunter.io</td>
+          <td>Sending address</td>
+        </tr>
+        <tr>
+          <td><strong>Phone</strong></td>
+          <td>From Outscraper</td>
+          <td>WhatsApp outreach</td>
+        </tr>
+        <tr>
+          <td><strong>Website</strong></td>
+          <td>From Outscraper</td>
+          <td>Segmentation + first line research</td>
+        </tr>
+        <tr>
+          <td><strong>Prong</strong></td>
+          <td>1 or 2 (after you check the website)</td>
+          <td>Which sequence to send</td>
+        </tr>
+        <tr>
+          <td><strong>First Line</strong></td>
+          <td>Your custom icebreaker sentence</td>
+          <td>Paste into Instantly as a merge field</td>
+        </tr>
+        <tr>
+          <td><strong>Status</strong></td>
+          <td>New / Sent / Replied / Booked</td>
+          <td>Pipeline tracking</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="phase-block">
+      <div class="phase-num">Step 3</div>
+      <div class="phase-title">Write Your Custom First Lines</div>
+      <p class="phase-body">This is the most important 20 minutes you'll spend per batch of leads. Open each website (or lack thereof) and write one sentence that proves you actually looked. Use this formula:</p>
+
+      <div class="callout-amber">
+        <div class="callout-label">The Formula</div>
+        <p><strong>[Specific observation about their business]</strong> + <strong>[Bridge to the pain]</strong></p>
+      </div>
+
+      <ul class="bullet-list" style="margin-top: 3mm;">
+        <li><strong>Prong 1:</strong> <em>"Noticed [Business Name] has 34 Google reviews but no website — a lot of customers won't call if they can't see your work first."</em></li>
+        <li><strong>Prong 1:</strong> <em>"Looked up [Business Name] on Google and the website link comes up as an error — easy thing to miss but it's costing you enquiries."</em></li>
+        <li><strong>Prong 2:</strong> <em>"Had a look at the [Business Name] site — looks solid, but I noticed there's no way to enquire after hours."</em></li>
+        <li><strong>Prong 2:</strong> <em>"Checked out [Business Name]'s site — most [trade] businesses in Ireland lose 4–6 jobs a month just from slow response times."</em></li>
+      </ul>
+
+      <div class="callout-amber" style="margin-top:3mm;">
+        <div class="callout-label">The Golden Rule</div>
+        <p>If the first line could be sent to <strong>anyone</strong>, rewrite it. It must be specific enough that the recipient knows you actually looked at their business.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span class="doc-footer-meta">Confidential · FlowBuild AI · 2026</span>
+    <span class="doc-footer-pg">03</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE 4 — EMAIL SEQUENCES: PRONG 1
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span> <span class="logo-badge" style="font-size:5pt;">AI</span></div>
+    <div class="doc-header-right">Outreach Strategy · Phase 2</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-label">Phase 02 · Prong 1</div>
+    <h2 class="section-title">Email Sequence: No / Poor Website</h2>
+    <p class="section-intro">Three emails over 10 days. Objective: start a reply. The pain is visible and obvious — your job is to make them feel it, not lecture them. Keep it short, conversational, and direct.</p>
+
+    <div class="email-template">
+      <div class="email-template-header">
+        <span class="email-template-label">Email 1 — Initial Outreach</span>
+        <span class="email-template-day">Day 1</span>
+      </div>
+      <div class="email-template-body">
+        <div class="email-subject"><span>Subject:</span> [Business Name] — quick question</div>
+        <div class="email-body">[Custom first line — your specific observation about their business]
+
+Most [trade] businesses don't realise how many jobs this is costing them — customers who found them on Google but couldn't see their work, get a quote, or book in.
+
+We build fast, mobile-first websites for trade businesses — designed to turn Google visitors into booked jobs, not just browsers.
+
+Worth a quick chat to see if it'd make sense for you?
+
+— Paddy
+FlowBuild AI</div>
+      </div>
+    </div>
+
+    <div class="email-template">
+      <div class="email-template-header">
+        <span class="email-template-label">Email 2 — Follow Up</span>
+        <span class="email-template-day">Day 5</span>
+      </div>
+      <div class="email-template-body">
+        <div class="email-subject"><span>Subject:</span> Re: [Business Name] — quick question</div>
+        <div class="email-body">Just circling back on this — I know you're probably flat out.
+
+One question: are you currently getting enquiries from Google, or is it mostly word of mouth?
+
+If it's mostly referrals, a website would open up a whole new stream. Happy to show you a few examples of what we've done for similar [trade] businesses.
+
+— Paddy</div>
+      </div>
+    </div>
+
+    <div class="email-template">
+      <div class="email-template-header">
+        <span class="email-template-label">Email 3 — Break-up</span>
+        <span class="email-template-day">Day 10</span>
+      </div>
+      <div class="email-template-body">
+        <div class="email-subject"><span>Subject:</span> Closing the loop</div>
+        <div class="email-body">Not going to keep pestering you — just wanted to leave this here:
+
+If you ever want to get [Business Name] showing up properly online and converting enquiries, that's exactly what we do.
+
+Reply any time — no pressure.
+
+— Paddy</div>
+      </div>
+    </div>
+
+    <div class="callout-amber">
+      <div class="callout-label">When They Reply</div>
+      <p>1. Acknowledge: <em>"Makes sense — most [trade] owners don't think about it until they realise how many jobs competitors are getting from Google."</em><br>
+      2. Qualify: <em>"What does most of your work come from currently?"</em><br>
+      3. Offer: <em>"I can put together a quick look at what we'd build for [Business Name] — usually takes a day or two. Want me to do that?"</em></p>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span class="doc-footer-meta">Confidential · FlowBuild AI · 2026</span>
+    <span class="doc-footer-pg">04</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE 5 — EMAIL SEQUENCES: PRONG 2
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span> <span class="logo-badge" style="font-size:5pt;">AI</span></div>
+    <div class="doc-header-right">Outreach Strategy · Phase 2</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-label">Phase 02 · Prong 2</div>
+    <h2 class="section-title">Email Sequence: Has Website</h2>
+    <p class="section-intro">These prospects already invested in a website — they care about their business. The angle is not "you're doing it wrong" but "you're probably leaving money on the table without knowing it." Lead with the audit.</p>
+
+    <div class="email-template">
+      <div class="email-template-header">
+        <span class="email-template-label">Email 1 — Initial Outreach</span>
+        <span class="email-template-day">Day 1</span>
+      </div>
+      <div class="email-template-body">
+        <div class="email-subject"><span>Subject:</span> [Business Name] — are you losing jobs after hours?</div>
+        <div class="email-body">[Custom first line — your specific observation about their website]
+
+We built a free 3-minute audit specifically for [trade] businesses that shows exactly where leads are slipping through the cracks — and what it's costing per year.
+
+Most owners are surprised. The average is €30–50k in missed revenue annually, just from response time and follow-up gaps.
+
+Take it here: flowbuildai.ie/audit
+
+Or if you'd rather I just tell you what I'd look at for [Business Name] specifically — happy to do that too. Just reply.
+
+— Paddy
+FlowBuild AI</div>
+      </div>
+    </div>
+
+    <div class="email-template">
+      <div class="email-template-header">
+        <span class="email-template-label">Email 2 — The Insight</span>
+        <span class="email-template-day">Day 5</span>
+      </div>
+      <div class="email-template-body">
+        <div class="email-subject"><span>Subject:</span> Re: [Business Name]</div>
+        <div class="email-body">Paddy here again — quick one.
+
+I had a look at [Business Name] and the thing I'd focus on first is [specific observation — e.g. "no way to enquire after hours", "no review follow-up system", "no automated quote follow-up"].
+
+That single gap is likely costing you a few jobs a month. We can usually fix it in under a week.
+
+Worth 15 minutes to walk through it?
+
+— Paddy</div>
+      </div>
+    </div>
+
+    <div class="email-template">
+      <div class="email-template-header">
+        <span class="email-template-label">Email 3 — Break-up</span>
+        <span class="email-template-day">Day 11</span>
+      </div>
+      <div class="email-template-body">
+        <div class="email-subject"><span>Subject:</span> Last one from me</div>
+        <div class="email-body">Won't keep cluttering your inbox.
+
+If the idea of having leads followed up automatically — without you lifting a finger — ever becomes relevant, that's what we do at FlowBuild AI.
+
+flowbuildai.ie/audit if you're ever curious.
+
+— Paddy</div>
+      </div>
+    </div>
+
+    <div class="callout-amber">
+      <div class="callout-label">When They Reply</div>
+      <p>If they haven't taken the audit: <em>"Brilliant — I'll pull up [Business Name] and walk you through what I'd look at. Can you tell me roughly how many enquiries you get in a typical week?"</em><br><br>
+      If they took the audit: <em>"Great — I can see your results. The biggest gap for you is [X]. That's the one I'd fix first. Want to jump on a quick call?"</em></p>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span class="doc-footer-meta">Confidential · FlowBuild AI · 2026</span>
+    <span class="doc-footer-pg">05</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE 6 — MULTI-CHANNEL: LINKEDIN, SOCIAL, WHATSAPP
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span> <span class="logo-badge" style="font-size:5pt;">AI</span></div>
+    <div class="doc-header-right">Outreach Strategy · Phase 3</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-label">Phase 03</div>
+    <h2 class="section-title">Multi-Channel Outreach</h2>
+    <p class="section-intro">Email is your primary channel — but being present across LinkedIn, Instagram, Facebook, and WhatsApp increases touchpoints and gets replies from people who never check their inbox. Layer these in after your email sequences are running.</p>
+
+    <div class="phase-block">
+      <div class="phase-num">Channel 1</div>
+      <div class="phase-title">LinkedIn</div>
+      <p class="phase-body">Search for business owners by trade + location. Send a connection request with a note (300 chars max), then message once accepted. Keep it one question — wait for a reply before saying anything about FlowBuild AI.</p>
+
+      <div class="email-template">
+        <div class="email-template-header">
+          <span class="email-template-label">Connection Request Note</span>
+          <span class="email-template-day">300 chars max</span>
+        </div>
+        <div class="email-template-body">
+          <div class="email-body">"Hi [Name] — came across [Business Name] while looking at [trade] businesses in [county]. Got an idea that might be worth 2 mins of your time. Happy to connect."</div>
+        </div>
+      </div>
+
+      <div class="email-template">
+        <div class="email-template-header">
+          <span class="email-template-label">Message 1 — After Accepted</span>
+        </div>
+        <div class="email-template-body">
+          <div class="email-body">"Thanks for connecting [Name]. Quick question — are you finding most of your new jobs come through word of mouth, or are you getting much from Google / your website? Asking because there's usually a big gap there for [trade] businesses and I think I could show you something useful."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="phase-block">
+      <div class="phase-num">Channel 2</div>
+      <div class="phase-title">Instagram &amp; Facebook DMs</div>
+      <p class="phase-body">Search by trade + county on both platforms to find business pages. Message the page directly — keep it extremely casual, like a text from a real person. One question only. Do not pitch on the first message.</p>
+
+      <div class="email-template">
+        <div class="email-template-header">
+          <span class="email-template-label">DM Template — Instagram &amp; Facebook</span>
+        </div>
+        <div class="email-template-body">
+          <div class="email-body">"Hey [Name] — love the work on your page. Quick question: are you getting many enquiries through here or mainly referrals? I help [trade] businesses in Ireland set up systems so they never miss a lead — just wondering if it's something you've ever looked at?"</div>
+        </div>
+      </div>
+
+      <ul class="bullet-list" style="margin-top:2mm;">
+        <li>Do <strong>not</strong> automate Instagram or Facebook DMs — accounts get banned and it kills credibility</li>
+        <li>Do this manually in 30-minute batches — 10–15 DMs per session is sustainable</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="phase-block">
+      <div class="phase-num">Channel 3</div>
+      <div class="phase-title">WhatsApp / SMS</div>
+      <p class="phase-body">Only use when you have a mobile number from Outscraper. This is the most personal channel — treat it that way. Keep it short, send during business hours (9–5), and never follow up more than once.</p>
+
+      <div class="email-template">
+        <div class="email-template-header">
+          <span class="email-template-label">WhatsApp Template</span>
+        </div>
+        <div class="email-template-body">
+          <div class="email-body">"Hi [Name], Paddy here from FlowBuild AI. I help [trade] businesses in Ireland stop losing leads to missed calls and slow follow-up. Would it be worth a quick chat? No pressure at all — just thought it might be relevant to [Business Name]."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-dark">
+      <div class="callout-label">Channel Priority</div>
+      <p>Start with <em>email only</em> in Week 1–2. Add LinkedIn in Week 2. Add Instagram/Facebook in Week 4. Add WhatsApp selectively for warm leads or high-priority prospects. <em>Don't spread yourself thin before you know what's converting.</em></p>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span class="doc-footer-meta">Confidential · FlowBuild AI · 2026</span>
+    <span class="doc-footer-pg">06</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE 7 — TOOLS STACK
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span> <span class="logo-badge" style="font-size:5pt;">AI</span></div>
+    <div class="doc-header-right">Outreach Strategy · Tools</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-label">Tools &amp; Software</div>
+    <h2 class="section-title">Your Tech Stack</h2>
+    <p class="section-intro">Keep the stack lean to start. You can run the full system on ~€60/month in Month 1. Add tools only when a gap is clearly costing you time or results.</p>
+
+    <div class="tool-grid">
+      <div class="tool-card essential">
+        <div class="tool-card-badge"><span class="tag tag-amber">Essential</span></div>
+        <div class="tool-name">Outscraper</div>
+        <div class="tool-purpose">Lead Scraping</div>
+        <div class="tool-desc">Pulls Google Maps data in bulk — business name, phone, email, website, reviews, rating. Your primary source for building lead lists. Pay-as-you-go.</div>
+        <div class="tool-cost">~€10–20 per 2,000 leads · outscraper.com</div>
+      </div>
+      <div class="tool-card essential">
+        <div class="tool-card-badge"><span class="tag tag-amber">Essential</span></div>
+        <div class="tool-name">Instantly.ai</div>
+        <div class="tool-purpose">Email Sending &amp; Warmup</div>
+        <div class="tool-desc">Manages cold email sequences, warmup, and reply tracking. You already have this. Make sure email warmup is running on your sending domain before you start.</div>
+        <div class="tool-cost">~€37/month (Growth) · instantly.ai</div>
+      </div>
+      <div class="tool-card essential">
+        <div class="tool-card-badge"><span class="tag tag-amber">Essential</span></div>
+        <div class="tool-name">Sending Domain</div>
+        <div class="tool-purpose">Email Infrastructure</div>
+        <div class="tool-desc">Never send cold outreach from flowbuildai.ie. Buy a separate domain (e.g. getflowbuild.ie) from Blacknight and set up a Google Workspace mailbox on it.</div>
+        <div class="tool-cost">~€10/yr domain + €6/month Workspace · blacknight.com</div>
+      </div>
+      <div class="tool-card essential">
+        <div class="tool-card-badge"><span class="tag tag-amber">Essential</span></div>
+        <div class="tool-name">Google Sheets</div>
+        <div class="tool-purpose">Lead Management</div>
+        <div class="tool-desc">Master list for all prospects. Track prong, status, custom first line, channel, and outcome. Free, simple, and easily imported into Instantly.</div>
+        <div class="tool-cost">Free · sheets.google.com</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-badge"><span class="tag tag-dark">Should-Have</span></div>
+        <div class="tool-name">Hunter.io</div>
+        <div class="tool-purpose">Email Finding</div>
+        <div class="tool-desc">Finds business owner emails from a domain or company name. Use when Outscraper doesn't return an email. Free plan gives 25/month to start.</div>
+        <div class="tool-cost">Free → €34/month · hunter.io</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-badge"><span class="tag tag-dark">Should-Have</span></div>
+        <div class="tool-name">Screaming Frog</div>
+        <div class="tool-purpose">Website Checking</div>
+        <div class="tool-desc">Bulk-checks whether websites are live, broken, or erroring. Massively speeds up the Prong 1/2 sorting process when you have hundreds of leads to check. Free up to 500 URLs.</div>
+        <div class="tool-cost">Free (500 URLs) · screamingfrog.co.uk</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="font-family:'Syne',sans-serif;font-size:11pt;font-weight:800;letter-spacing:-0.02em;color:var(--charcoal);margin-bottom:3mm;">Month 1 Budget</div>
+
+    <table class="data-table">
+      <tr>
+        <th>Tool</th>
+        <th>Cost</th>
+        <th>Notes</th>
+      </tr>
+      <tr>
+        <td><strong>Outscraper</strong></td>
+        <td class="amber-cell">~€15 one-off</td>
+        <td>Enough for 2,000+ leads to start</td>
+      </tr>
+      <tr>
+        <td><strong>Sending domain + Google Workspace</strong></td>
+        <td class="amber-cell">~€7/month</td>
+        <td>Set up immediately — warmup takes 2–3 weeks</td>
+      </tr>
+      <tr>
+        <td><strong>Instantly.ai Growth</strong></td>
+        <td class="amber-cell">~€37/month</td>
+        <td>Already have this</td>
+      </tr>
+      <tr>
+        <td><strong>Hunter.io / Screaming Frog</strong></td>
+        <td class="amber-cell">€0</td>
+        <td>Free tiers sufficient for Month 1</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;color:var(--charcoal);"><strong>Total</strong></td>
+        <td class="amber-cell"><strong>~€59/month</strong></td>
+        <td>Add GoHighLevel (~€97/month) once you land your first client — it becomes your delivery platform</td>
+      </tr>
+    </table>
+
+    <div class="callout-amber" style="margin-top:4mm;">
+      <div class="callout-label">GoHighLevel — Worth Flagging</div>
+      <p>At ~€97/month, GoHighLevel is both a CRM and the platform you use to <strong>deliver</strong> the automation services you're selling to Prong 2 clients. It pays for itself on the first client. Add it once the first deal is closed.</p>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span class="doc-footer-meta">Confidential · FlowBuild AI · 2026</span>
+    <span class="doc-footer-pg">07</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE 8 — LAUNCH TIMELINE & METRICS
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span> <span class="logo-badge" style="font-size:5pt;">AI</span></div>
+    <div class="doc-header-right">Outreach Strategy · Launch Plan</div>
+  </div>
+
+  <div class="page-body">
+    <div class="section-label">Phase 04</div>
+    <h2 class="section-title">Launch Timeline</h2>
+    <p class="section-intro">Roll out one channel at a time. Trying to run everything at once leads to chaos — validate email first, then layer in the other channels as you build momentum.</p>
+
+    <div style="margin-bottom: 5mm;">
+      <div class="week-row">
+        <div class="week-badge">Week 1</div>
+        <div class="week-content">
+          <strong>Build lists · Launch Prong 1 email</strong>
+          Scrape 200 leads from Dublin &amp; Cork. Sort into Prong 1 vs 2. Write custom first lines for Prong 1 batch. Set up Instantly sequence and launch. Start domain warmup if not already running.
+        </div>
+      </div>
+      <div class="week-row">
+        <div class="week-badge">Week 2</div>
+        <div class="week-content">
+          <strong>Launch Prong 2 · Add LinkedIn</strong>
+          Upload and launch Prong 2 email sequence. Start manual LinkedIn connection requests for the same lead list. Begin replying to any email responses — use the reply framework.
+        </div>
+      </div>
+      <div class="week-row">
+        <div class="week-badge">Week 3</div>
+        <div class="week-content">
+          <strong>Review · Expand geography</strong>
+          Check reply rates for both prongs. Kill any subject lines under 3% after 100 sends and rewrite them. Scrape 200 more leads from Galway, Limerick, and Waterford. Keep the best-performing sequences running.
+        </div>
+      </div>
+      <div class="week-row">
+        <div class="week-badge">Week 4</div>
+        <div class="week-content">
+          <strong>Add social channels · Optimise</strong>
+          Start Instagram and Facebook DM outreach in 30-min batches. Use WhatsApp selectively for your highest-priority leads. A/B test one subject line variable. Target: at least 1–2 live conversations by end of week.
+        </div>
+      </div>
+      <div class="week-row">
+        <div class="week-badge">Week 5+</div>
+        <div class="week-content">
+          <strong>Weekly cadence</strong>
+          Scrape → segment → write first lines → send → reply → iterate. Scale channels and volume based on what's converting. Add GoHighLevel after first deal closes.
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Key Metrics</div>
+    <div style="font-family:'Syne',sans-serif;font-size:12pt;font-weight:800;letter-spacing:-0.02em;color:var(--charcoal);margin-bottom:3mm;">What to Track Every Week</div>
+
+    <div class="metric-row">
+      <div class="metric-card">
+        <div class="metric-num">5–10%</div>
+        <div class="metric-label">Reply Rate Target</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">2–4%</div>
+        <div class="metric-label">Positive Reply Rate</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">1–2</div>
+        <div class="metric-label">Live Convos / Week</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">&lt;3%</div>
+        <div class="metric-label">Kill &amp; Rewrite Below This</div>
+      </div>
+    </div>
+
+    <div class="callout-amber" style="margin-top:2mm;">
+      <div class="callout-label">Benchmarks for context</div>
+      <p>The industry average for cold email is <strong>1–3% reply rate</strong>. If you're hitting 5%+ with the smart hybrid approach, you're well ahead of the curve. Prong 1 will likely outperform Prong 2 early on — the pain is more urgent and the first line practically writes itself.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="font-family:'Syne',sans-serif;font-size:12pt;font-weight:800;letter-spacing:-0.02em;color:var(--charcoal);margin-bottom:3mm;">Instantly.ai Setup Checklist</div>
+
+    <ul class="bullet-list">
+      <li><strong>Sending domain purchased</strong> and DNS configured (SPF, DKIM, DMARC)</li>
+      <li><strong>Email warmup running</strong> for minimum 2–3 weeks before first send</li>
+      <li><strong>Two sequences built</strong> — one for Prong 1, one for Prong 2</li>
+      <li><strong>Custom first line</strong> set as a personalisation variable (column in your import CSV)</li>
+      <li><strong>Tags applied</strong> to every lead: Prong1-NoWebsite / Prong1-PoorWebsite / Prong2</li>
+      <li><strong>Daily send limit</strong> set to max 50/day per inbox to stay out of spam</li>
+    </ul>
+  </div>
+
+  <div class="doc-footer">
+    <span class="doc-footer-meta">Confidential · FlowBuild AI · 2026</span>
+    <span class="doc-footer-pg">08</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE 9 — BACK COVER
+═══════════════════════════════════════════ -->
+<div class="page cover" style="justify-content: space-between;">
+  <div class="amber-bar"></div>
+
+  <div class="cover-top">
+    <div class="cover-logo">
+      FLOW<span>BUILD</span><span class="logo-badge">AI</span>
+    </div>
+  </div>
+
+  <div style="padding: 0 16mm; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+    <div style="font-family:'Inter Tight',sans-serif;font-size:7pt;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);margin-bottom:8mm;display:flex;align-items:center;gap:10px;">
+      <span style="display:block;width:24px;height:2px;background:var(--amber);"></span>
+      The Closing Thought
+    </div>
+    <div style="font-family:'Syne',sans-serif;font-size:28pt;font-weight:800;letter-spacing:-0.03em;color:white;line-height:1.1;margin-bottom:7mm;">The system only works<br>if you <em style="color:var(--amber);font-style:normal;">actually run it.</em></div>
+    <p style="font-family:'EB Garamond',serif;font-size:13pt;line-height:1.7;color:rgba(255,255,255,0.52);font-style:italic;max-width:130mm;">Most people build the sequences, do one batch, get no instant results, and stop. The businesses that win at cold outreach treat it like a weekly habit — 2 hours on Monday to scrape and prep, sequences running in the background all week, replies handled daily. Volume and consistency beat any clever tactic.</p>
+
+    <div style="margin-top:10mm;padding:5mm 6mm;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:4px;max-width:130mm;">
+      <div style="font-family:'Inter Tight',sans-serif;font-size:6.5pt;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:2mm;">The Weekly Habit</div>
+      <div style="font-family:'EB Garamond',serif;font-size:11pt;color:rgba(255,255,255,0.72);line-height:1.6;">Monday: Scrape + segment + write first lines → Launch batch<br>Daily: Check replies, respond fast, move convos forward<br>Friday: Review metrics, kill what isn't working, plan next week</div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <span class="cover-bottom-label">info@flowbuildai.ie · flowbuildai.ie</span>
+    <span class="cover-bottom-url">Confidential · 2026</span>
+  </div>
+</div>
+
+</body>
+</html>

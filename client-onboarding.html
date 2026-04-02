@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Discovery & Onboarding — FlowBuild AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --charcoal:  #1C1917;
+    --charcoal2: #2D2926;
+    --amber:     #E8652A;
+    --amber-lt:  #F5804A;
+    --amber-dk:  #C4501B;
+    --cream:     #FAF9F6;
+    --cream-dk:  #EDE8DF;
+    --stone:     #9C8D83;
+    --stone-lt:  #C8BDB7;
+  }
+
+  html { font-size: 10pt; }
+  body {
+    background: #CCC8C3;
+    font-family: 'Inter Tight', sans-serif;
+    color: var(--charcoal);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Page shell ─── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background: var(--cream);
+    margin: 0 auto 10mm;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  /* ─── Doc header (interior pages) ─── */
+  .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10mm 14mm 0;
+    margin-bottom: 4mm;
+  }
+  .doc-header-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+  }
+  .doc-header-logo span { color: var(--amber); }
+  .doc-logo-badge {
+    display: inline-block;
+    background: var(--amber);
+    color: white;
+    font-family: 'Syne', sans-serif;
+    font-size: 5.5pt;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 2px 5px;
+    border-radius: 2px;
+    vertical-align: middle;
+    position: relative; top: -1px; margin-left: 3px;
+  }
+  .doc-header-center {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+  .doc-header-right {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 7pt;
+    color: var(--stone-lt);
+    letter-spacing: 0.06em;
+  }
+  .doc-rule {
+    height: 1px;
+    background: var(--cream-dk);
+    margin: 0 14mm 7mm;
+  }
+  .amber-strip {
+    height: 2.5px;
+    background: var(--amber);
+    margin: 0 14mm 7mm;
+  }
+
+  /* ─── Page content area ─── */
+  .page-content {
+    padding: 0 14mm 10mm;
+  }
+
+  /* ─── Section eyebrow + title ─── */
+  .section-eyebrow {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .section-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 18px; height: 1.5px;
+    background: var(--amber);
+  }
+  .section-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 26pt;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--charcoal);
+    margin-bottom: 2mm;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--amber);
+  }
+  .section-note {
+    font-family: 'EB Garamond', serif;
+    font-size: 10.5pt;
+    font-style: italic;
+    color: var(--stone);
+    margin-bottom: 8mm;
+    line-height: 1.55;
+    max-width: 150mm;
+    border-left: 2px solid var(--cream-dk);
+    padding-left: 4mm;
+  }
+
+  /* ─── Ghost section number ─── */
+  .ghost-num {
+    position: absolute;
+    font-family: 'EB Garamond', serif;
+    font-weight: 700;
+    font-size: 220pt;
+    color: var(--charcoal);
+    opacity: 0.025;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    right: -8mm;
+    top: 20mm;
+  }
+
+  /* ─── Field system ─── */
+  .fields-grid {
+    display: grid;
+    gap: 0 18mm;
+  }
+  .fields-grid-2 { grid-template-columns: 1fr 1fr; }
+  .fields-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  .field-group { margin-bottom: 7mm; }
+  .field-label {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--stone);
+    display: block;
+    margin-bottom: 3mm;
+  }
+  .field-line {
+    border: none;
+    border-bottom: 1px solid var(--stone-lt);
+    width: 100%;
+    height: 6mm;
+    display: block;
+    background: transparent;
+  }
+  .field-line-tall {
+    border: none;
+    border-bottom: 1px solid var(--stone-lt);
+    width: 100%;
+    height: 10mm;
+    display: block;
+  }
+  .field-lines-3 .field-line { margin-bottom: 4mm; }
+
+  /* Multiple writing lines */
+  .write-lines { display: flex; flex-direction: column; gap: 5mm; }
+  .write-line {
+    border-bottom: 1px solid var(--stone-lt);
+    height: 6mm;
+    width: 100%;
+  }
+
+  /* ─── Yes / No / option toggles ─── */
+  .toggle-row {
+    display: flex;
+    gap: 10mm;
+    margin-top: 1mm;
+    align-items: center;
+  }
+  .toggle-opt {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 500;
+    color: var(--charcoal);
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+  }
+  .toggle-circle {
+    width: 4mm; height: 4mm;
+    border: 1.5px solid var(--stone);
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .toggle-sq {
+    width: 4mm; height: 4mm;
+    border: 1.5px solid var(--stone);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* ─── Section divider ─── */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--cream-dk);
+    margin: 7mm 0;
+  }
+
+  /* ─── Highlight box ─── */
+  .highlight-box {
+    background: var(--cream-dk);
+    border-left: 3px solid var(--amber);
+    padding: 4mm 5mm;
+    margin-bottom: 6mm;
+    border-radius: 0 2px 2px 0;
+  }
+  .highlight-box-label {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 2mm;
+  }
+  .highlight-box p {
+    font-family: 'EB Garamond', serif;
+    font-size: 10pt;
+    font-style: italic;
+    color: var(--stone);
+    line-height: 1.5;
+  }
+
+  /* ─── Page footer ─── */
+  .page-footer {
+    position: absolute;
+    bottom: 7mm;
+    left: 14mm; right: 14mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--cream-dk);
+    padding-top: 3mm;
+  }
+  .page-footer-left {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 6.5pt;
+    color: var(--stone-lt);
+    letter-spacing: 0.06em;
+  }
+  .page-footer-right {
+    font-family: 'Syne', sans-serif;
+    font-size: 6.5pt;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: var(--stone-lt);
+    text-transform: uppercase;
+  }
+  .page-footer-right span { color: var(--amber); }
+
+  /* ─── Priority matrix (internal page) ─── */
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 7mm;
+  }
+  .matrix-table th {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(250,249,246,0.45);
+    padding: 0 3mm 4mm;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .matrix-table th:first-child { text-align: left; padding-left: 0; }
+  .matrix-table td {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 9pt;
+    font-weight: 500;
+    color: rgba(250,249,246,0.85);
+    padding: 4mm 3mm;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+    vertical-align: middle;
+  }
+  .matrix-table td:first-child {
+    text-align: left;
+    padding-left: 0;
+    font-weight: 600;
+    color: white;
+  }
+  .matrix-circle {
+    display: inline-block;
+    width: 5mm; height: 5mm;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+  }
+  .matrix-circle-amber {
+    border-color: var(--amber);
+  }
+
+  /* ─── Service tier badges ─── */
+  .tier-options {
+    display: flex;
+    gap: 6mm;
+    margin-top: 2mm;
+  }
+  .tier-badge {
+    flex: 1;
+    border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: 3px;
+    padding: 4mm 5mm;
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+  }
+  .tier-badge-sq {
+    width: 4.5mm; height: 4.5mm;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    flex-shrink: 0;
+  }
+  .tier-badge-label {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    color: rgba(250,249,246,0.8);
+  }
+
+  /* ─── Dark page ─── */
+  .page-dark {
+    background: var(--charcoal);
+  }
+  .page-dark .doc-header-logo { color: white; }
+  .page-dark .doc-header-center { color: rgba(255,255,255,0.35); }
+  .page-dark .doc-header-right { color: rgba(255,255,255,0.25); }
+  .page-dark .doc-rule { background: rgba(255,255,255,0.08); }
+  .page-dark .section-title { color: white; }
+  .page-dark .section-note { color: rgba(250,249,246,0.5); border-color: rgba(255,255,255,0.1); }
+  .page-dark .field-label { color: rgba(250,249,246,0.45); }
+  .page-dark .field-line { border-color: rgba(255,255,255,0.12); }
+  .page-dark .write-line { border-color: rgba(255,255,255,0.12); }
+  .page-dark .section-divider { border-color: rgba(255,255,255,0.08); }
+  .page-dark .toggle-opt { color: rgba(250,249,246,0.8); }
+  .page-dark .toggle-circle { border-color: rgba(255,255,255,0.3); }
+  .page-dark .page-footer { border-color: rgba(255,255,255,0.08); }
+  .page-dark .page-footer-left { color: rgba(255,255,255,0.2); }
+  .page-dark .page-footer-right { color: rgba(255,255,255,0.2); }
+  .page-dark .ghost-num { color: white; opacity: 0.03; }
+
+  /* ─── Cover ─── */
+  .cover {
+    background: var(--charcoal);
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .cover-amber-strip {
+    height: 4px;
+    background: var(--amber);
+    width: 100%;
+  }
+  .cover-top {
+    padding: 12mm 14mm 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .cover-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 12pt;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: white;
+  }
+  .cover-logo span { color: var(--amber); }
+  .cover-logo-badge {
+    display: inline-block;
+    background: var(--amber); color: white;
+    font-size: 6pt; font-weight: 800;
+    letter-spacing: 0.06em;
+    padding: 3px 6px; border-radius: 2px;
+    vertical-align: middle; position: relative; top: -1px; margin-left: 4px;
+  }
+  .cover-date-badge {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 7pt; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 5px 10px; border-radius: 2px;
+  }
+  .cover-body {
+    flex: 1;
+    padding: 0 14mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .cover-eyebrow {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 7.5pt; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 5mm;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .cover-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 20px; height: 1.5px;
+    background: var(--amber);
+  }
+  .cover-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 44pt;
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: white;
+    margin-bottom: 4mm;
+  }
+  .cover-title em {
+    font-style: italic;
+    color: var(--amber);
+  }
+  .cover-subtitle {
+    font-family: 'EB Garamond', serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: rgba(250,249,246,0.5);
+    line-height: 1.5;
+    max-width: 140mm;
+    margin-bottom: 14mm;
+  }
+  .cover-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16mm;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 8mm;
+    margin-bottom: 10mm;
+  }
+  .cover-field-label {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 6.5pt; font-weight: 700;
+    letter-spacing: 0.13em; text-transform: uppercase;
+    color: rgba(250,249,246,0.4);
+    display: block; margin-bottom: 3mm;
+  }
+  .cover-field-line {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    height: 7mm;
+    width: 100%;
+    display: block;
+    margin-bottom: 7mm;
+  }
+  .cover-intro-box {
+    background: rgba(255,255,255,0.04);
+    border-left: 3px solid var(--amber);
+    padding: 5mm 6mm;
+    border-radius: 0 3px 3px 0;
+    margin-bottom: 8mm;
+  }
+  .cover-intro-box p {
+    font-family: 'EB Garamond', serif;
+    font-size: 11pt;
+    font-style: italic;
+    color: rgba(250,249,246,0.65);
+    line-height: 1.65;
+  }
+  .cover-intro-box strong {
+    font-style: normal;
+    color: rgba(250,249,246,0.88);
+    font-weight: 600;
+  }
+  .cover-bottom {
+    padding: 0 14mm 10mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .cover-doc-type {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 6.5pt; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+  .cover-page-count {
+    font-family: 'EB Garamond', serif;
+    font-size: 9pt;
+    font-style: italic;
+    color: rgba(255,255,255,0.25);
+  }
+  .cover-ghost {
+    position: absolute;
+    font-family: 'EB Garamond', serif;
+    font-weight: 700;
+    font-size: 320pt;
+    color: white;
+    opacity: 0.02;
+    line-height: 1;
+    bottom: -30mm;
+    right: -12mm;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ─── Sections checklist style ─── */
+  .section-index {
+    display: flex;
+    flex-direction: column;
+    gap: 3mm;
+    margin-top: 6mm;
+  }
+  .section-index-row {
+    display: flex;
+    align-items: center;
+    gap: 5mm;
+    padding: 2.5mm 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .section-index-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 11pt;
+    font-weight: 600;
+    color: var(--amber);
+    width: 7mm;
+    flex-shrink: 0;
+  }
+  .section-index-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 11pt;
+    color: rgba(250,249,246,0.75);
+    flex: 1;
+  }
+  .section-index-tag {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 6pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(250,249,246,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+  .section-index-tag-internal {
+    color: var(--amber);
+    border-color: rgba(232,101,42,0.35);
+  }
+
+  /* ─── Back cover ─── */
+  .back-cover {
+    background: var(--charcoal);
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    page-break-after: avoid;
+  }
+
+  @media print {
+    *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    @page { margin: 0; size: A4 portrait; }
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     COVER
+══════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-amber-strip"></div>
+  <div class="cover-top">
+    <div class="cover-logo">FLOW<span>BUILD</span><span class="cover-logo-badge">AI</span></div>
+    <div class="cover-date-badge">March 2026</div>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-eyebrow">Client Discovery</div>
+    <div class="cover-title">Deep Dive<br><em>Onboarding</em><br>Report.</div>
+    <div class="cover-subtitle">A structured discovery session to understand your business before we build or change anything.</div>
+
+    <div class="cover-fields">
+      <div>
+        <span class="cover-field-label">Client / Business Name</span>
+        <div class="cover-field-line"></div>
+      </div>
+      <div>
+        <span class="cover-field-label">Owner Name</span>
+        <div class="cover-field-line"></div>
+      </div>
+      <div>
+        <span class="cover-field-label">Discovery Call Date</span>
+        <div class="cover-field-line"></div>
+      </div>
+      <div>
+        <span class="cover-field-label">FlowBuild Consultant</span>
+        <div class="cover-field-line"></div>
+      </div>
+    </div>
+
+    <div class="cover-intro-box">
+      <p>"This session helps us understand your business deeply <strong>before we touch anything.</strong> There are no wrong answers — the more honest you are, the faster we'll get you results. Everything discussed stays between us."</p>
+    </div>
+
+    <div class="section-index">
+      <div class="section-index-row">
+        <span class="section-index-num">01</span>
+        <span class="section-index-name">Business Snapshot</span>
+        <span class="section-index-tag">Client</span>
+      </div>
+      <div class="section-index-row">
+        <span class="section-index-num">02</span>
+        <span class="section-index-name">Services &amp; Revenue</span>
+        <span class="section-index-tag">Client</span>
+      </div>
+      <div class="section-index-row">
+        <span class="section-index-num">03</span>
+        <span class="section-index-name">The Customer</span>
+        <span class="section-index-tag">Client</span>
+      </div>
+      <div class="section-index-row">
+        <span class="section-index-num">04</span>
+        <span class="section-index-name">Online Presence Audit</span>
+        <span class="section-index-tag">Agency Pre-fill</span>
+      </div>
+      <div class="section-index-row">
+        <span class="section-index-num">05</span>
+        <span class="section-index-name">The Lead Problem</span>
+        <span class="section-index-tag">Client</span>
+      </div>
+      <div class="section-index-row">
+        <span class="section-index-num">06</span>
+        <span class="section-index-name">Competition</span>
+        <span class="section-index-tag">Client</span>
+      </div>
+      <div class="section-index-row">
+        <span class="section-index-num">07</span>
+        <span class="section-index-name">Goals &amp; Timeline</span>
+        <span class="section-index-tag">Client</span>
+      </div>
+      <div class="section-index-row">
+        <span class="section-index-num">08</span>
+        <span class="section-index-name">Past Agency Experience</span>
+        <span class="section-index-tag">Client</span>
+      </div>
+      <div class="section-index-row">
+        <span class="section-index-num">09</span>
+        <span class="section-index-name">Brand &amp; Identity</span>
+        <span class="section-index-tag">Client</span>
+      </div>
+      <div class="section-index-row">
+        <span class="section-index-num">10</span>
+        <span class="section-index-name">Agency Priority Assessment</span>
+        <span class="section-index-tag section-index-tag-internal">Internal Only</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-doc-type">Confidential · FlowBuild AI · 2026</div>
+    <div class="cover-page-count">10 sections · 12 pages</div>
+  </div>
+  <div class="cover-ghost">01</div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 1 — BUSINESS SNAPSHOT
+══════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span><span class="doc-logo-badge">AI</span></div>
+    <div class="doc-header-center">Client Discovery · Business Snapshot</div>
+    <div class="doc-header-right">01 / 10</div>
+  </div>
+  <div class="amber-strip"></div>
+  <div class="page-content">
+    <div class="ghost-num">1</div>
+    <div class="section-eyebrow">Section 01</div>
+    <div class="section-title">Business<br>Snapshot.</div>
+    <div class="section-note">Quick facts about the business. Fill this in first — it gives us the foundation everything else is built on.</div>
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">Business / Trading Name</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Industry / Trade Type</span>
+        <div class="field-line"></div>
+      </div>
+    </div>
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">Owner's Full Name</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Years Trading</span>
+        <div class="field-line"></div>
+      </div>
+    </div>
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">Best Mobile Number</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Best Email Address</span>
+        <div class="field-line"></div>
+      </div>
+    </div>
+
+    <div class="fields-grid fields-grid-3">
+      <div class="field-group">
+        <span class="field-label">Business Address / Base</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Service Area / Counties</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Number of Staff</span>
+        <div class="field-line"></div>
+      </div>
+    </div>
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">Normal Business Hours</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Do you offer out-of-hours call-outs?</span>
+        <div class="toggle-row">
+          <div class="toggle-opt"><span class="toggle-circle"></span> Yes</div>
+          <div class="toggle-opt"><span class="toggle-circle"></span> No</div>
+          <div class="toggle-opt"><span class="toggle-circle"></span> Sometimes</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">Current Website URL (if any)</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Happy with the current website?</span>
+        <div class="toggle-row">
+          <div class="toggle-opt"><span class="toggle-circle"></span> Yes</div>
+          <div class="toggle-opt"><span class="toggle-circle"></span> No</div>
+          <div class="toggle-opt"><span class="toggle-circle"></span> Don't have one</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="field-group">
+      <span class="field-label">In one sentence — what does your business do for customers?</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-left">Confidential · FlowBuild AI · 2026</div>
+    <div class="page-footer-right">FLOW<span>BUILD</span> AI</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 2 — SERVICES & REVENUE
+══════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span><span class="doc-logo-badge">AI</span></div>
+    <div class="doc-header-center">Client Discovery · Services &amp; Revenue</div>
+    <div class="doc-header-right">02 / 10</div>
+  </div>
+  <div class="amber-strip"></div>
+  <div class="page-content">
+    <div class="ghost-num">2</div>
+    <div class="section-eyebrow">Section 02</div>
+    <div class="section-title">Services &amp;<br><em>Revenue.</em></div>
+    <div class="section-note">Where the money comes from. Understanding which services drive the most revenue tells us exactly where to focus first.</div>
+
+    <div class="field-group">
+      <span class="field-label">Full list of services / jobs you offer</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="field-group" style="margin-top:2mm;">
+      <span class="field-label">Top 3 services that generate the most revenue (rank them 1–3)</span>
+      <div class="fields-grid fields-grid-3" style="margin-top:2mm;">
+        <div>
+          <span class="field-label" style="color:var(--amber);">1st</span>
+          <div class="field-line"></div>
+        </div>
+        <div>
+          <span class="field-label">2nd</span>
+          <div class="field-line"></div>
+        </div>
+        <div>
+          <span class="field-label">3rd</span>
+          <div class="field-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fields-grid fields-grid-3">
+      <div class="field-group">
+        <span class="field-label">Average Job / Customer Value (€)</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Monthly Revenue Target (€)</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Current Monthly Revenue (€)</span>
+        <div class="field-line"></div>
+      </div>
+    </div>
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">Inbound enquiries / leads per month (rough)</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Close rate — % of enquiries you convert to jobs</span>
+        <div class="field-line"></div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">Seasonal patterns — busiest months vs. quietest months</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">Is there a service you want MORE of?</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Is there a job type you'd rather stop doing?</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-left">Confidential · FlowBuild AI · 2026</div>
+    <div class="page-footer-right">FLOW<span>BUILD</span> AI</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 3 — THE CUSTOMER
+══════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span><span class="doc-logo-badge">AI</span></div>
+    <div class="doc-header-center">Client Discovery · The Customer</div>
+    <div class="doc-header-right">03 / 10</div>
+  </div>
+  <div class="amber-strip"></div>
+  <div class="page-content">
+    <div class="ghost-num">3</div>
+    <div class="section-eyebrow">Section 03</div>
+    <div class="section-title">The<br><em>Customer.</em></div>
+    <div class="section-note">Who you're serving and why they choose you. This shapes every piece of copy, every ad, and every page we build for you.</div>
+
+    <div class="field-group">
+      <span class="field-label">Describe your ideal customer — who are they, where are they, what do they need?</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">How do most customers currently find you? (tick all that apply)</span>
+      <div style="display:flex;flex-wrap:wrap;gap:3mm 8mm;margin-top:2mm;">
+        <div class="toggle-opt"><span class="toggle-sq"></span> Word of mouth / referral</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Google search</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Google Maps</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Facebook</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Instagram</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Leaflets / signage</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Repeat customers</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Other: <div class="write-line" style="width:30mm;display:inline-block;vertical-align:bottom;"></div></div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="field-group">
+      <span class="field-label">Why do customers choose you over competitors? (in their words if possible)</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">Why do some potential customers NOT choose you? (be honest)</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">Average customer lifetime value — do they come back? Refer others?</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">What do your best customers have in common?</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-left">Confidential · FlowBuild AI · 2026</div>
+    <div class="page-footer-right">FLOW<span>BUILD</span> AI</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 4 — ONLINE PRESENCE AUDIT
+══════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span><span class="doc-logo-badge">AI</span></div>
+    <div class="doc-header-center">Client Discovery · Online Presence Audit</div>
+    <div class="doc-header-right">04 / 10</div>
+  </div>
+  <div class="amber-strip"></div>
+  <div class="page-content">
+    <div class="ghost-num">4</div>
+    <div class="section-eyebrow">Section 04</div>
+    <div class="section-title">Online Presence<br><em>Audit.</em></div>
+    <div class="section-note">Agency pre-fills this before the call where possible. Confirm details with the client during the session. This gives us the baseline we're starting from.</div>
+
+    <div class="highlight-box">
+      <div class="highlight-box-label">Agency — complete before the call</div>
+      <p>Check their website, Google Business Profile, social media, and Google search results before sitting down with this client. Pre-filling this section makes the conversation faster and more impressive.</p>
+    </div>
+
+    <div class="fields-grid fields-grid-2">
+      <div>
+        <div class="field-group">
+          <span class="field-label">Website — exists?</span>
+          <div class="toggle-row">
+            <div class="toggle-opt"><span class="toggle-circle"></span> Yes</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> No</div>
+          </div>
+        </div>
+        <div class="field-group">
+          <span class="field-label">Mobile-friendly?</span>
+          <div class="toggle-row">
+            <div class="toggle-opt"><span class="toggle-circle"></span> Yes</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> No</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> Poor</div>
+          </div>
+        </div>
+        <div class="field-group">
+          <span class="field-label">Enquiry form / booking — working?</span>
+          <div class="toggle-row">
+            <div class="toggle-opt"><span class="toggle-circle"></span> Yes</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> No</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> Phone only</div>
+          </div>
+        </div>
+        <div class="field-group">
+          <span class="field-label">Google Business Profile — claimed?</span>
+          <div class="toggle-row">
+            <div class="toggle-opt"><span class="toggle-circle"></span> Yes, verified</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> Unclaimed</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> Unknown</div>
+          </div>
+        </div>
+        <div class="field-group">
+          <span class="field-label">Google review count</span>
+          <div class="field-line"></div>
+        </div>
+        <div class="field-group">
+          <span class="field-label">Average Google star rating</span>
+          <div class="field-line"></div>
+        </div>
+      </div>
+      <div>
+        <div class="field-group">
+          <span class="field-label">Social media — platforms active on</span>
+          <div style="display:flex;flex-direction:column;gap:2.5mm;margin-top:2mm;">
+            <div class="toggle-opt"><span class="toggle-sq"></span> Facebook — followers: <div class="write-line" style="width:20mm;display:inline-block;vertical-align:bottom;"></div></div>
+            <div class="toggle-opt"><span class="toggle-sq"></span> Instagram — followers: <div class="write-line" style="width:20mm;display:inline-block;vertical-align:bottom;"></div></div>
+            <div class="toggle-opt"><span class="toggle-sq"></span> TikTok</div>
+            <div class="toggle-opt"><span class="toggle-sq"></span> LinkedIn</div>
+            <div class="toggle-opt"><span class="toggle-sq"></span> None</div>
+          </div>
+        </div>
+        <div class="field-group" style="margin-top:4mm;">
+          <span class="field-label">Posting frequency on social media</span>
+          <div class="toggle-row" style="flex-wrap:wrap;gap:2mm;">
+            <div class="toggle-opt"><span class="toggle-circle"></span> Daily</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> Weekly</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> Occasionally</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> Never</div>
+          </div>
+        </div>
+        <div class="field-group">
+          <span class="field-label">Running paid ads?</span>
+          <div class="toggle-row">
+            <div class="toggle-opt"><span class="toggle-circle"></span> Yes</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> No</div>
+          </div>
+        </div>
+        <div class="field-group">
+          <span class="field-label">If yes — platform + monthly spend</span>
+          <div class="field-line"></div>
+        </div>
+        <div class="field-group">
+          <span class="field-label">How do they track leads currently?</span>
+          <div class="toggle-row" style="flex-wrap:wrap;gap:2mm;">
+            <div class="toggle-opt"><span class="toggle-circle"></span> CRM</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> Spreadsheet</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> Phone / memory</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> Nothing</div>
+          </div>
+        </div>
+        <div class="field-group">
+          <span class="field-label">Analytics / Meta Pixel installed?</span>
+          <div class="toggle-row">
+            <div class="toggle-opt"><span class="toggle-circle"></span> Yes</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> No</div>
+            <div class="toggle-opt"><span class="toggle-circle"></span> Unknown</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-left">Confidential · FlowBuild AI · 2026</div>
+    <div class="page-footer-right">FLOW<span>BUILD</span> AI</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 5 — THE LEAD PROBLEM
+══════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span><span class="doc-logo-badge">AI</span></div>
+    <div class="doc-header-center">Client Discovery · The Lead Problem</div>
+    <div class="doc-header-right">05 / 10</div>
+  </div>
+  <div style="height:2.5px;background:var(--amber);margin:0 14mm 7mm;"></div>
+  <div class="page-content">
+    <div class="ghost-num">5</div>
+    <div class="section-eyebrow">Section 05 — Most Important</div>
+    <div class="section-title">The Lead<br><em>Problem.</em></div>
+    <div class="section-note">This is the core of what FlowBuild AI fixes. Push for honest, specific answers — most clients underestimate how many leads they're losing until they think carefully about it.</div>
+
+    <div class="highlight-box">
+      <div class="highlight-box-label">Key insight to share with the client</div>
+      <p>"85% of people who reach an unanswered business never try again. They don't leave a voicemail — they Google the next one." Let that land before asking the questions below.</p>
+    </div>
+
+    <div class="fields-grid fields-grid-3">
+      <div class="field-group">
+        <span class="field-label">Inbound calls/enquiries per week (rough)</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Estimated missed calls per week</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Fastest response to a new enquiry</span>
+        <div class="field-line"></div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">When you miss a call — what happens to that person right now?</span>
+      <div class="toggle-row" style="flex-wrap:wrap;gap:2.5mm 8mm;margin-bottom:3mm;">
+        <div class="toggle-opt"><span class="toggle-circle"></span> Goes to voicemail</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> I call back when I can</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> Auto-text reply sent</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> Nothing — they just don't hear back</div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">After-hours enquiries (evenings / weekends) — how are they handled?</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">When you send a quote and don't hear back — what do you do?</span>
+      <div class="toggle-row" style="flex-wrap:wrap;gap:2.5mm 8mm;margin-bottom:3mm;">
+        <div class="toggle-opt"><span class="toggle-circle"></span> Automated follow-up sequence</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> I follow up manually 2–3 times</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> One follow-up, then leave it</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> Nothing — too busy to chase</div>
+      </div>
+    </div>
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">Any automation currently in place? (What?)</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Honest estimate — jobs lost to slow response in last 3 months</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-left">Confidential · FlowBuild AI · 2026</div>
+    <div class="page-footer-right">FLOW<span>BUILD</span> AI</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 6 — COMPETITION
+══════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span><span class="doc-logo-badge">AI</span></div>
+    <div class="doc-header-center">Client Discovery · Competition</div>
+    <div class="doc-header-right">06 / 10</div>
+  </div>
+  <div class="amber-strip"></div>
+  <div class="page-content">
+    <div class="ghost-num">6</div>
+    <div class="section-eyebrow">Section 06</div>
+    <div class="section-title"><em>Competition.</em></div>
+    <div class="section-note">Understanding the competitive landscape shapes positioning, messaging, and which gaps we exploit. Ask them to name real competitors — not generic answers.</div>
+
+    <div class="field-group">
+      <span class="field-label">Name your 3 main local competitors</span>
+      <div class="fields-grid fields-grid-3" style="margin-top:2mm;">
+        <div>
+          <span class="field-label" style="color:var(--amber);">Competitor 1</span>
+          <div class="field-line"></div>
+          <span class="field-label" style="margin-top:2mm;">Their website / social</span>
+          <div class="field-line"></div>
+        </div>
+        <div>
+          <span class="field-label">Competitor 2</span>
+          <div class="field-line"></div>
+          <span class="field-label" style="margin-top:2mm;">Their website / social</span>
+          <div class="field-line"></div>
+        </div>
+        <div>
+          <span class="field-label">Competitor 3</span>
+          <div class="field-line"></div>
+          <span class="field-label" style="margin-top:2mm;">Their website / social</span>
+          <div class="field-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="field-group">
+      <span class="field-label">What do your competitors do better than you right now? (be honest)</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">What do you do better than them?</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">How do you differentiate — in one clear sentence?</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Any competitor (inside or outside your trade) you genuinely admire?</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-left">Confidential · FlowBuild AI · 2026</div>
+    <div class="page-footer-right">FLOW<span>BUILD</span> AI</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 7 — GOALS & TIMELINE
+══════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span><span class="doc-logo-badge">AI</span></div>
+    <div class="doc-header-center">Client Discovery · Goals &amp; Timeline</div>
+    <div class="doc-header-right">07 / 10</div>
+  </div>
+  <div class="amber-strip"></div>
+  <div class="page-content">
+    <div class="ghost-num">7</div>
+    <div class="section-eyebrow">Section 07</div>
+    <div class="section-title">Goals &amp;<br><em>Timeline.</em></div>
+    <div class="section-note">Define success before we start. Vague goals create bad relationships. Push for specific, measurable answers — "more leads" isn't good enough.</div>
+
+    <div class="field-group">
+      <span class="field-label">Single biggest business challenge right now</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">What's held you back from fixing it until now?</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">What does success look like in 90 days? (specific &amp; measurable)</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">What does success look like in 12 months?</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">Monthly marketing / tech investment budget range</span>
+      <div style="display:flex;flex-wrap:wrap;gap:3mm 8mm;margin-top:2mm;">
+        <div class="toggle-opt"><span class="toggle-circle"></span> Under €300/mo</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> €300–€600/mo</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> €600–€1,000/mo</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> €1,000–€2,000/mo</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> €2,000+/mo</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> Flexible — depends on ROI</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">Who makes final decisions? (approvals, sign-off)</span>
+        <div class="field-line"></div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Preferred communication channel with us</span>
+        <div class="toggle-row">
+          <div class="toggle-opt"><span class="toggle-circle"></span> WhatsApp</div>
+          <div class="toggle-opt"><span class="toggle-circle"></span> Email</div>
+          <div class="toggle-opt"><span class="toggle-circle"></span> Phone call</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">How often do you want progress updates from us?</span>
+      <div class="toggle-row">
+        <div class="toggle-opt"><span class="toggle-circle"></span> Weekly</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> Fortnightly</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> Monthly</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> Only when something changes</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-left">Confidential · FlowBuild AI · 2026</div>
+    <div class="page-footer-right">FLOW<span>BUILD</span> AI</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 8 — PAST AGENCY EXPERIENCE
+══════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span><span class="doc-logo-badge">AI</span></div>
+    <div class="doc-header-center">Client Discovery · Past Agency Experience</div>
+    <div class="doc-header-right">08 / 10</div>
+  </div>
+  <div class="amber-strip"></div>
+  <div class="page-content">
+    <div class="ghost-num">8</div>
+    <div class="section-eyebrow">Section 08 — Critical</div>
+    <div class="section-title">Past Agency<br><em>Experience.</em></div>
+    <div class="section-note">Asking about past failures prevents 40% of campaign misalignment. These questions build trust and uncover the real reasons they're looking for a new solution now.</div>
+
+    <div class="field-group">
+      <span class="field-label">Have you worked with a marketing agency, web designer, or tech supplier before?</span>
+      <div class="toggle-row">
+        <div class="toggle-opt"><span class="toggle-circle"></span> Yes — multiple</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> Yes — one</div>
+        <div class="toggle-opt"><span class="toggle-circle"></span> No — first time</div>
+      </div>
+    </div>
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">What worked? What are you proud of from past partnerships?</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">What didn't work? What frustrated you most?</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="field-group">
+      <span class="field-label">What do you want us to do <em style="font-style:italic;color:var(--amber);">differently</em> from previous suppliers?</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">What would make you stop working with us?</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">What is the one thing you definitely don't want us to do?</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">What concerns you most about starting this partnership?</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-left">Confidential · FlowBuild AI · 2026</div>
+    <div class="page-footer-right">FLOW<span>BUILD</span> AI</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 9 — BRAND & IDENTITY
+══════════════════════════════════════ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span><span class="doc-logo-badge">AI</span></div>
+    <div class="doc-header-center">Client Discovery · Brand &amp; Identity</div>
+    <div class="doc-header-right">09 / 10</div>
+  </div>
+  <div class="amber-strip"></div>
+  <div class="page-content">
+    <div class="ghost-num">9</div>
+    <div class="section-eyebrow">Section 09</div>
+    <div class="section-title">Brand &amp;<br><em>Identity.</em></div>
+    <div class="section-note">Everything we build needs to look and sound like them — not generic. Even if they've never thought about brand before, these questions surface what matters to them.</div>
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">Do you have a logo?</span>
+        <div class="toggle-row">
+          <div class="toggle-opt"><span class="toggle-circle"></span> Yes — files available</div>
+          <div class="toggle-opt"><span class="toggle-circle"></span> Yes — can't find files</div>
+          <div class="toggle-opt"><span class="toggle-circle"></span> No logo</div>
+        </div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Brand colours (if known)</span>
+        <div class="field-line"></div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">Write 3–5 words that describe your brand / the feeling you want customers to have</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">Brand voice — how do you want to sound? (tick all that apply)</span>
+      <div style="display:flex;flex-wrap:wrap;gap:3mm 8mm;margin-top:2mm;">
+        <div class="toggle-opt"><span class="toggle-sq"></span> Casual &amp; friendly</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Professional &amp; formal</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Straight-talking / blunt</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Warm &amp; personal</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Technical &amp; detailed</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Plain English, no jargon</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div class="fields-grid fields-grid-2">
+      <div class="field-group">
+        <span class="field-label">Any websites or brands you like the look of? (competitors or other industries)</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Any websites or styles you definitely want to avoid?</span>
+        <div class="write-lines">
+          <div class="write-line"></div>
+          <div class="write-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">Photos / videos available — what do you have?</span>
+      <div style="display:flex;flex-wrap:wrap;gap:3mm 8mm;margin-top:2mm;">
+        <div class="toggle-opt"><span class="toggle-sq"></span> Professional photos</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Phone photos of work</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Videos of jobs</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Team / headshots</div>
+        <div class="toggle-opt"><span class="toggle-sq"></span> Nothing yet</div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <span class="field-label">Any content you're proud of? (testimonials, case studies, Google reviews worth highlighting)</span>
+      <div class="write-lines">
+        <div class="write-line"></div>
+        <div class="write-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-left">Confidential · FlowBuild AI · 2026</div>
+    <div class="page-footer-right">FLOW<span>BUILD</span> AI</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 10 — AGENCY PRIORITY ASSESSMENT (INTERNAL)
+══════════════════════════════════════ -->
+<div class="page page-dark">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span><span class="doc-logo-badge">AI</span></div>
+    <div class="doc-header-center">Agency Internal · Priority Assessment</div>
+    <div class="doc-header-right">10 / 10</div>
+  </div>
+  <div style="height:1px;background:rgba(255,255,255,0.08);margin:0 14mm 7mm;"></div>
+  <div class="page-content">
+    <div class="ghost-num">10</div>
+    <div class="section-eyebrow">Section 10 — Internal Use Only</div>
+    <div class="section-title" style="color:white;">Agency Priority<br><em>Assessment.</em></div>
+    <div class="section-note">Complete this section <strong style="color:rgba(250,249,246,0.8);font-style:normal;">after</strong> the discovery call — not during. This is your internal debrief. Do not share with the client.</div>
+
+    <div style="margin-bottom:6mm;">
+      <span class="field-label" style="color:rgba(250,249,246,0.45);margin-bottom:4mm;display:block;">Gap Priority Matrix — rate each area after the call</span>
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Area</th>
+            <th>High Priority</th>
+            <th>Medium</th>
+            <th>Low / OK</th>
+            <th style="text-align:left;padding-left:5mm;">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Response Speed</td>
+            <td><span class="matrix-circle matrix-circle-amber"></span></td>
+            <td><span class="matrix-circle"></span></td>
+            <td><span class="matrix-circle"></span></td>
+            <td style="text-align:left;padding-left:5mm;"><div style="border-bottom:1px solid rgba(255,255,255,0.1);width:100%;height:5mm;"></div></td>
+          </tr>
+          <tr>
+            <td>Lead Follow-Up</td>
+            <td><span class="matrix-circle matrix-circle-amber"></span></td>
+            <td><span class="matrix-circle"></span></td>
+            <td><span class="matrix-circle"></span></td>
+            <td style="text-align:left;padding-left:5mm;"><div style="border-bottom:1px solid rgba(255,255,255,0.1);width:100%;height:5mm;"></div></td>
+          </tr>
+          <tr>
+            <td>Online Presence</td>
+            <td><span class="matrix-circle matrix-circle-amber"></span></td>
+            <td><span class="matrix-circle"></span></td>
+            <td><span class="matrix-circle"></span></td>
+            <td style="text-align:left;padding-left:5mm;"><div style="border-bottom:1px solid rgba(255,255,255,0.1);width:100%;height:5mm;"></div></td>
+          </tr>
+          <tr>
+            <td>Website Quality</td>
+            <td><span class="matrix-circle matrix-circle-amber"></span></td>
+            <td><span class="matrix-circle"></span></td>
+            <td><span class="matrix-circle"></span></td>
+            <td style="text-align:left;padding-left:5mm;"><div style="border-bottom:1px solid rgba(255,255,255,0.1);width:100%;height:5mm;"></div></td>
+          </tr>
+          <tr>
+            <td>Reviews / Reputation</td>
+            <td><span class="matrix-circle matrix-circle-amber"></span></td>
+            <td><span class="matrix-circle"></span></td>
+            <td><span class="matrix-circle"></span></td>
+            <td style="text-align:left;padding-left:5mm;"><div style="border-bottom:1px solid rgba(255,255,255,0.1);width:100%;height:5mm;"></div></td>
+          </tr>
+          <tr>
+            <td>Social Media</td>
+            <td><span class="matrix-circle matrix-circle-amber"></span></td>
+            <td><span class="matrix-circle"></span></td>
+            <td><span class="matrix-circle"></span></td>
+            <td style="text-align:left;padding-left:5mm;"><div style="border-bottom:1px solid rgba(255,255,255,0.1);width:100%;height:5mm;"></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-bottom:6mm;">
+      <span class="field-label" style="color:rgba(250,249,246,0.45);margin-bottom:4mm;display:block;">Recommended Service Tier</span>
+      <div class="tier-options">
+        <div class="tier-badge"><span class="tier-badge-sq"></span><span class="tier-badge-label">Website Only</span></div>
+        <div class="tier-badge"><span class="tier-badge-sq"></span><span class="tier-badge-label">Automation Only</span></div>
+        <div class="tier-badge"><span class="tier-badge-sq"></span><span class="tier-badge-label">Website + Automation</span></div>
+        <div class="tier-badge"><span class="tier-badge-sq"></span><span class="tier-badge-label">Full Package</span></div>
+      </div>
+    </div>
+
+    <div class="fields-grid fields-grid-2" style="gap:0 12mm;">
+      <div>
+        <div class="field-group">
+          <span class="field-label" style="color:rgba(250,249,246,0.45);">Quick Wins — what can we fix in the first 30 days?</span>
+          <div class="write-lines">
+            <div class="write-line"></div>
+            <div class="write-line"></div>
+            <div class="write-line"></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <span class="field-label" style="color:rgba(250,249,246,0.45);">Red Flags / Concerns from this call</span>
+          <div class="write-lines">
+            <div class="write-line"></div>
+            <div class="write-line"></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="field-group">
+          <span class="field-label" style="color:rgba(250,249,246,0.45);">Agreed First Action</span>
+          <div class="write-lines">
+            <div class="write-line"></div>
+            <div class="write-line"></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <span class="field-label" style="color:rgba(250,249,246,0.45);">Owner</span>
+          <div class="write-line"></div>
+        </div>
+        <div class="field-group">
+          <span class="field-label" style="color:rgba(250,249,246,0.45);">Deadline</span>
+          <div class="write-line"></div>
+        </div>
+        <div class="field-group">
+          <span class="field-label" style="color:rgba(250,249,246,0.45);">Overall impression / gut feel</span>
+          <div class="write-lines">
+            <div class="write-line"></div>
+            <div class="write-line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer" style="border-color:rgba(255,255,255,0.08);">
+    <div class="page-footer-left" style="color:rgba(255,255,255,0.2);">Internal Use Only · Do Not Share with Client</div>
+    <div class="page-footer-right" style="color:rgba(255,255,255,0.2);">FLOW<span style="color:var(--amber);">BUILD</span> AI</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     BACK COVER
+══════════════════════════════════════ -->
+<div class="page back-cover">
+  <div style="height:4px;background:var(--amber);"></div>
+  <div style="padding:14mm 14mm 0;display:flex;justify-content:space-between;align-items:flex-start;">
+    <div class="cover-logo" style="font-family:'Syne',sans-serif;font-size:12pt;font-weight:800;letter-spacing:-0.01em;text-transform:uppercase;color:white;">FLOW<span style="color:var(--amber);">BUILD</span><span class="cover-logo-badge">AI</span></div>
+    <div style="font-family:'Inter Tight',sans-serif;font-size:7pt;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);">Client Discovery Report</div>
+  </div>
+
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:14mm;">
+    <div style="font-family:'Inter Tight',sans-serif;font-size:7.5pt;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);margin-bottom:5mm;display:flex;align-items:center;gap:6px;">
+      <span style="display:inline-block;width:20px;height:1.5px;background:var(--amber);"></span>
+      Next Steps
+    </div>
+    <div style="font-family:'EB Garamond',serif;font-size:36pt;font-weight:700;line-height:1.05;letter-spacing:-0.03em;color:white;margin-bottom:4mm;">
+      Within 48 hours<br>of this call,<br><em style="color:var(--amber);">we move.</em>
+    </div>
+    <div style="font-family:'EB Garamond',serif;font-size:12pt;font-style:italic;color:rgba(250,249,246,0.5);line-height:1.6;max-width:130mm;margin-bottom:12mm;">
+      No waiting two weeks for a proposal. No radio silence. We'll send you a clear summary of what we found, what we recommend, and what happens next — within 48 hours.
+    </div>
+
+    <div style="display:flex;gap:8mm;padding-top:8mm;border-top:1px solid rgba(255,255,255,0.08);">
+      <div>
+        <div style="font-family:'Inter Tight',sans-serif;font-size:6.5pt;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:2mm;">Website</div>
+        <div style="font-family:'Inter Tight',sans-serif;font-size:9pt;font-weight:600;color:rgba(250,249,246,0.75);">flowbuildai.ie</div>
+      </div>
+      <div style="border-left:1px solid rgba(255,255,255,0.08);padding-left:8mm;">
+        <div style="font-family:'Inter Tight',sans-serif;font-size:6.5pt;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:2mm;">Email</div>
+        <div style="font-family:'Inter Tight',sans-serif;font-size:9pt;font-weight:600;color:rgba(250,249,246,0.75);">info@flowbuildai.ie</div>
+      </div>
+      <div style="border-left:1px solid rgba(255,255,255,0.08);padding-left:8mm;">
+        <div style="font-family:'Inter Tight',sans-serif;font-size:6.5pt;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:2mm;">Free Audit</div>
+        <div style="font-family:'Inter Tight',sans-serif;font-size:9pt;font-weight:600;color:rgba(250,249,246,0.75);">flowbuildai.ie/audit</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 14mm 10mm;display:flex;justify-content:space-between;align-items:flex-end;">
+    <div style="font-family:'Inter Tight',sans-serif;font-size:6.5pt;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.15);">Confidential · FlowBuild AI · 2026</div>
+    <div style="font-family:'EB Garamond',serif;font-size:9pt;font-style:italic;color:rgba(255,255,255,0.2);">Built for Irish businesses.</div>
+  </div>
+</div>
+
+</body>
+</html>

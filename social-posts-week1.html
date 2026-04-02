@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlowBuild AI — Week 1 Social Posts</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #1C1917;
+    --amber: #E8652A;
+    --cream: #FAF9F6;
+    --cream-dark: #F0EDE8;
+    --white: #FFFFFF;
+    --muted: #9E9189;
+    --slide-w: 360px;
+    --slide-h: 450px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ECEAE6;
+    color: var(--charcoal);
+    padding: 48px 32px;
+  }
+
+  /* Page header */
+  .page-header {
+    max-width: 1400px;
+    margin: 0 auto 56px;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    border-bottom: 1px solid #D4CFC9;
+    padding-bottom: 24px;
+  }
+  .page-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--charcoal);
+  }
+  .page-logo span { color: var(--amber); }
+  .page-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--charcoal);
+  }
+  .page-date {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Post block */
+  .post-block {
+    max-width: 1400px;
+    margin: 0 auto 72px;
+  }
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .post-day {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    background: var(--amber);
+    padding: 5px 12px;
+    border-radius: 2px;
+    color: white;
+  }
+  .post-platform {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .post-pillar {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--charcoal);
+    border: 1px solid #C8C2BB;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+  .post-format {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+
+  .post-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+  }
+
+  /* Slides row */
+  .slides-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+  }
+
+  /* Individual slide */
+  .slide {
+    width: var(--slide-w);
+    height: var(--slide-h);
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  /* Slide label */
+  .slide-num {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    z-index: 10;
+  }
+
+  /* Dark slide base */
+  .slide-dark {
+    background: var(--charcoal);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px 28px 32px;
+  }
+  .slide-dark::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--amber);
+  }
+  .slide-dark .slide-num { color: var(--white); }
+
+  /* Cream slide base */
+  .slide-cream {
+    background: var(--cream);
+    color: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px 28px 32px;
+  }
+  .slide-cream .slide-num { color: var(--charcoal); }
+
+  /* Logo — appears bottom right of every slide */
+  .slide-logo {
+    position: absolute;
+    bottom: 14px;
+    right: 16px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 9px;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    line-height: 1;
+  }
+  .slide-dark .slide-logo { color: var(--white); }
+  .slide-dark .slide-logo .logo-b { color: var(--amber); }
+  .slide-cream .slide-logo { color: var(--charcoal); }
+  .slide-cream .slide-logo .logo-b { color: var(--amber); }
+  .slide-logo .logo-badge {
+    font-size: 7px;
+    background: var(--amber);
+    color: white;
+    padding: 1px 3px;
+    border-radius: 1px;
+    margin-left: 3px;
+    letter-spacing: 0.06em;
+  }
+
+  /* Big stat / number — hero element */
+  .big-stat {
+    font-family: 'EB Garamond', serif;
+    font-weight: 700;
+    font-size: 100px;
+    line-height: 0.85;
+    color: var(--amber);
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+  }
+  .big-stat-sm {
+    font-size: 72px;
+  }
+  .big-stat-med {
+    font-size: 84px;
+  }
+
+  /* Amber anchor number (top-left corner of cream slides) */
+  .anchor-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--amber);
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    opacity: 0.18;
+  }
+
+  .amber-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+
+  /* Slide heading */
+  .slide-heading {
+    font-family: 'EB Garamond', serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .slide-heading em {
+    font-style: italic;
+    color: var(--amber);
+  }
+  .slide-dark .slide-heading { color: var(--white); }
+  .slide-cream .slide-heading { color: var(--charcoal); }
+
+  .slide-body {
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  .slide-dark .slide-body { color: rgba(250,249,246,0.80); }
+  .slide-cream .slide-body { color: #4A403A; }
+
+  /* Amber rule/divider */
+  .amber-rule {
+    width: 32px;
+    height: 2px;
+    background: var(--amber);
+    margin-bottom: 12px;
+    flex-shrink: 0;
+  }
+
+  /* Bullet list */
+  .bullet-list {
+    list-style: none;
+    margin-top: 10px;
+  }
+  .bullet-list li {
+    font-size: 13px;
+    line-height: 1.5;
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  .slide-dark .bullet-list li { color: rgba(250,249,246,0.85); }
+  .bullet-list li::before {
+    content: '—';
+    color: var(--amber);
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+  }
+
+  /* CTA box on slide */
+  .slide-cta {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    padding: 6px 12px;
+    border-radius: 2px;
+    margin-top: 12px;
+  }
+
+  /* Day label pill on slide */
+  .day-label {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid rgba(232,101,42,0.4);
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+
+  /* Caption block */
+  .caption-block {
+    background: white;
+    border-left: 3px solid var(--amber);
+    padding: 20px 24px;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 12px;
+  }
+  .caption-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .caption-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--charcoal);
+    white-space: pre-line;
+  }
+  .caption-note {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+  .hashtags {
+    font-size: 12px;
+    color: #7A6E66;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+
+  /* Section divider */
+  .section-rule {
+    max-width: 1400px;
+    margin: 0 auto 56px;
+    border: none;
+    border-top: 1px solid #D4CFC9;
+  }
+
+  /* Ghost large number on cover-style slides */
+  .ghost-num {
+    position: absolute;
+    font-family: 'EB Garamond', serif;
+    font-size: 240px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--amber);
+    opacity: 0.06;
+    top: -30px;
+    right: -20px;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Stat row */
+  .stat-row {
+    display: flex;
+    gap: 0;
+    margin-top: 14px;
+    border-top: 1px solid rgba(250,249,246,0.12);
+    padding-top: 14px;
+  }
+  .stat-item { flex: 1; }
+  .stat-item + .stat-item { border-left: 1px solid rgba(250,249,246,0.12); padding-left: 12px; }
+  .stat-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--amber);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 10px;
+    color: rgba(250,249,246,0.55);
+    margin-top: 3px;
+    line-height: 1.3;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="page-logo">FLOW<span>BUILD</span> <span style="font-size:11px;background:var(--amber);color:white;padding:2px 5px;border-radius:2px;vertical-align:middle;margin-left:2px;">AI</span></div>
+  <div class="page-title">Week 1 Social Posts — March 2026</div>
+  <div class="page-date">5 posts · 21 slides · Mon–Fri</div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════
+     POST 1 — MONDAY · CAROUSEL · HIDDEN PROBLEM
+     ═══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-meta">
+    <span class="post-day">Monday</span>
+    <span class="post-platform">Instagram + Facebook</span>
+    <span class="post-format">Carousel · 5 Slides</span>
+    <span class="post-pillar">Pillar 1 — The Hidden Problem</span>
+  </div>
+  <div class="post-title">"3 Jobs You Probably Lost This Week"</div>
+
+  <div class="slides-row">
+
+    <!-- Slide 1 — Hook (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">1 / 5</span>
+      <div class="ghost-num">3</div>
+      <div class="big-stat">3</div>
+      <div class="slide-heading">Jobs you probably lost this week.</div>
+      <div class="slide-body" style="font-style:italic;margin-top:4px;color:rgba(250,249,246,0.55);">And you don't even know about them.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 2 (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">2 / 5</span>
+      <div class="anchor-num">01</div>
+      <div class="amber-label">The missed call</div>
+      <div class="slide-heading">The missed call at 7:14pm.</div>
+      <div class="slide-body">They rang. You were finishing a job. They didn't leave a voicemail. They called the next person on Google.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 3 (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">3 / 5</span>
+      <div class="anchor-num">02</div>
+      <div class="amber-label">The dead quote</div>
+      <div class="slide-heading">The quote you sent on Tuesday.</div>
+      <div class="slide-body">No follow-up. No reminder. They went with someone who chased them.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 4 (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">4 / 5</span>
+      <div class="anchor-num">03</div>
+      <div class="amber-label">The overnight enquiry</div>
+      <div class="slide-heading">The Google enquiry at 11pm.</div>
+      <div class="slide-body">No response until morning. They booked someone else by 8am.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 5 — CTA (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">5 / 5</span>
+      <div style="margin-bottom:auto;padding-top:32px;">
+        <div style="font-family:'EB Garamond',serif;font-size:48px;font-weight:700;color:var(--amber);line-height:1;letter-spacing:-0.02em;">85%</div>
+        <div style="font-size:13px;color:rgba(250,249,246,0.7);margin-top:6px;line-height:1.5;max-width:240px;">of people who can't reach a business never try again.</div>
+      </div>
+      <div class="amber-rule"></div>
+      <div class="slide-heading" style="font-size:20px;">Find out what you're losing.</div>
+      <div class="slide-body" style="margin-top:4px;">Free 3-min audit:</div>
+      <div style="font-size:13px;font-weight:600;color:var(--amber);margin-top:4px;">flowbuildai.ie/audit</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+  </div>
+
+  <div class="caption-block">
+    <div class="caption-label">Caption — Instagram &amp; Facebook</div>
+    <div class="caption-text">Most Irish service businesses don't lose jobs because they're bad at their trade. They lose them in the gaps — the missed call, the slow follow-up, the enquiry that went unanswered overnight.
+
+Swipe to see the 3 most common ones.
+
+Free Lead Leak Audit — link in bio 👆</div>
+    <div class="caption-note">Facebook: post audit link in first comment after publishing — not in caption body.</div>
+    <div class="hashtags">#IrishBusiness #LocalBusiness #LeadGeneration #Tradespeople #IrishTrades #SmallBusiness #ServiceBusiness</div>
+  </div>
+</div>
+
+<hr class="section-rule">
+
+<!-- ═══════════════════════════════════════════
+     POST 2 — TUESDAY · STATIC · INDUSTRY TRUTH
+     ═══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-meta">
+    <span class="post-day">Tuesday</span>
+    <span class="post-platform">Instagram</span>
+    <span class="post-format">Static · 1 Image</span>
+    <span class="post-pillar">Pillar 3 — Industry Truth</span>
+  </div>
+  <div class="post-title">"The 85% Stat"</div>
+
+  <div class="slides-row">
+
+    <!-- Single static image (dark) -->
+    <div class="slide slide-dark" style="width:var(--slide-w);justify-content:center;align-items:flex-start;gap:0;">
+      <span class="slide-num" style="top:auto;left:auto;bottom:52px;right:16px;font-size:8px;">STATIC</span>
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--amber);opacity:0.3;"></div>
+      <div style="padding-top:40px;width:100%;">
+        <div style="font-family:'EB Garamond',serif;font-size:110px;font-weight:700;color:var(--amber);line-height:0.85;letter-spacing:-0.03em;text-align:center;">85%</div>
+        <div style="width:40px;height:2px;background:var(--amber);margin:18px auto;"></div>
+        <div style="font-family:'EB Garamond',serif;font-size:16px;font-style:italic;color:rgba(250,249,246,0.85);text-align:center;line-height:1.5;padding:0 24px;">of people who reach an unanswered business <strong style="font-style:normal;color:white;">never try again.</strong></div>
+        <div style="margin-top:20px;padding:0 24px;">
+          <div style="border-top:1px solid rgba(250,249,246,0.12);padding-top:16px;font-size:12px;color:rgba(250,249,246,0.5);line-height:1.6;text-align:center;">They don't leave a voicemail. They don't send a text.<br>They Google the next one.</div>
+        </div>
+      </div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+  </div>
+
+  <div class="caption-block">
+    <div class="caption-label">Caption — Instagram</div>
+    <div class="caption-text">That call you missed yesterday? There's an 85% chance they're already booked with someone else.
+
+The good news: there's a fix. And it takes 72 hours to set up.
+
+Free Lead Leak Audit → link in bio</div>
+    <div class="hashtags">#BusinessStats #IrishBusiness #MissedCalls #LocalTrades #ServiceBusiness #LeadGeneration</div>
+  </div>
+</div>
+
+<hr class="section-rule">
+
+<!-- ═══════════════════════════════════════════
+     POST 3 — WEDNESDAY · CAROUSEL · THE SOLUTION
+     ═══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-meta">
+    <span class="post-day">Wednesday</span>
+    <span class="post-platform">Facebook</span>
+    <span class="post-format">Carousel · 6 Slides</span>
+    <span class="post-pillar">Pillar 2 — The Solution Shown</span>
+  </div>
+  <div class="post-title">"Here's What Happens in 72 Hours"</div>
+
+  <div class="slides-row">
+
+    <!-- Slide 1 — Hook (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">1 / 6</span>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div style="font-family:'EB Garamond',serif;font-size:80px;font-weight:700;font-style:italic;color:var(--amber);line-height:0.9;letter-spacing:-0.02em;">72<br>hours.</div>
+      </div>
+      <div class="amber-rule"></div>
+      <div class="slide-heading" style="font-size:17px;">Here's what happens when you sign up to FlowBuild AI.</div>
+      <div class="slide-body" style="margin-top:4px;font-style:italic;color:rgba(250,249,246,0.5);">Day by day.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 2 — Day 1 (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">2 / 6</span>
+      <div class="anchor-num" style="font-size:56px;top:20px;right:20px;opacity:0.1;">1</div>
+      <div class="day-label">Day 1</div>
+      <div class="slide-heading">We audit your current setup.</div>
+      <div class="slide-body">Where are you losing leads right now? Missed calls? No website? Slow follow-up? We find it first — before we touch anything.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 3 — Day 2 (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">3 / 6</span>
+      <div class="anchor-num" style="font-size:56px;top:20px;right:20px;opacity:0.1;">2</div>
+      <div class="day-label">Day 2</div>
+      <div class="slide-heading">We build it.</div>
+      <div class="slide-body">Website, AI booking system, or both — depending on what you need. No waiting weeks. No back-and-forth. We build fast.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 4 — Day 3 (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">4 / 6</span>
+      <div class="anchor-num" style="font-size:56px;top:20px;right:20px;opacity:0.1;">3</div>
+      <div class="day-label">Day 3</div>
+      <div class="slide-heading">It goes live.</div>
+      <div class="slide-body">Your phone system is connected. Enquiries are being captured. You don't miss a call while you're on the roof.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 5 — After (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">5 / 6</span>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div style="font-family:'EB Garamond',serif;font-size:22px;font-weight:600;color:rgba(250,249,246,0.6);font-style:italic;">After 72 hours:</div>
+      </div>
+      <ul class="bullet-list" style="margin-bottom:8px;">
+        <li>Missed calls answered automatically</li>
+        <li>Every enquiry gets an immediate response</li>
+        <li>You're booked while you sleep</li>
+        <li>No lock-in. No contracts beyond 90 days.</li>
+      </ul>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 6 — CTA (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">6 / 6</span>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div class="amber-label">Free · 3 minutes · No sales call</div>
+      </div>
+      <div class="slide-heading">Find out what you're losing before we fix it.</div>
+      <div style="font-size:13px;font-weight:600;color:var(--amber);margin-top:10px;">flowbuildai.ie/audit</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+  </div>
+
+  <div class="caption-block">
+    <div class="caption-label">Caption — Facebook</div>
+    <div class="caption-text">Most website and automation companies take weeks to deliver anything.
+
+We're live in 72 hours. Here's exactly what that looks like — swipe through.
+
+(Free Lead Leak Audit in the first comment 👇)</div>
+    <div class="caption-note">First comment (post immediately after publishing): "👉 Find out exactly where you're losing leads: flowbuildai.ie/audit"</div>
+    <div class="hashtags">#IrishBusiness #AIAutomation #LocalBusiness #Tradespeople #ServiceBusiness #72Hours</div>
+  </div>
+</div>
+
+<hr class="section-rule">
+
+<!-- ═══════════════════════════════════════════
+     POST 4 — THURSDAY · STATIC · BRAND / VALUES
+     ═══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-meta">
+    <span class="post-day">Thursday</span>
+    <span class="post-platform">Instagram</span>
+    <span class="post-format">Static · 1 Image</span>
+    <span class="post-pillar">Pillar 5 — Brand / Who We Are</span>
+  </div>
+  <div class="post-title">"Built for Irish Businesses"</div>
+
+  <div class="slides-row">
+
+    <!-- Single static image (cream) -->
+    <div class="slide slide-cream" style="justify-content:flex-start;padding-top:36px;">
+      <span class="slide-num" style="top:14px;left:auto;right:16px;color:var(--muted);font-size:8px;">STATIC</span>
+      <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--amber);opacity:0.35;"></div>
+      <div style="font-family:'EB Garamond',serif;font-size:40px;font-weight:700;line-height:1.05;letter-spacing:-0.02em;color:var(--charcoal);margin-bottom:6px;">Built for<br>Irish businesses.</div>
+      <div style="font-family:'EB Garamond',serif;font-size:40px;font-weight:600;font-style:italic;line-height:1.05;letter-spacing:-0.02em;color:var(--amber);margin-bottom:24px;">Not American<br>tech companies.</div>
+      <div style="width:32px;height:2px;background:var(--amber);margin-bottom:18px;"></div>
+      <div style="font-size:12.5px;color:#5A4E48;line-height:1.7;max-width:280px;">No jargon. No lock-in beyond 90 days. No support team in a different timezone.<br><br>Just a system that works — built by people who understand how local business actually runs in Ireland.</div>
+      <div class="slide-logo" style="bottom:14px;">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+  </div>
+
+  <div class="caption-block">
+    <div class="caption-label">Caption — Instagram</div>
+    <div class="caption-text">Most AI tools are built for Silicon Valley startups.
+
+FlowBuild AI is built for the plumber in Cork, the cleaner in Galway, the beautician in Dublin who's run off their feet and can't afford to miss another lead.
+
+Different problem. Different solution.
+
+Free Lead Leak Audit — link in bio.</div>
+    <div class="hashtags">#IrishBusiness #MadeInIreland #SupportIrish #LocalBusiness #SME #IrishEntrepreneur</div>
+  </div>
+</div>
+
+<hr class="section-rule">
+
+<!-- ═══════════════════════════════════════════
+     POST 5 — FRIDAY · CAROUSEL · SOCIAL PROOF
+     ═══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-meta">
+    <span class="post-day">Friday</span>
+    <span class="post-platform">Instagram + Facebook</span>
+    <span class="post-format">Carousel · 5 Slides</span>
+    <span class="post-pillar">Pillar 4 — Social Proof / Data</span>
+  </div>
+  <div class="post-title">"What 100 Lead Leak Audits Revealed"</div>
+
+  <div class="slides-row">
+
+    <!-- Slide 1 — Hook (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">1 / 5</span>
+      <div class="ghost-num" style="font-size:200px;top:-10px;right:-10px;opacity:0.05;">100</div>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div style="font-family:'EB Garamond',serif;font-size:86px;font-weight:700;color:var(--amber);line-height:0.85;letter-spacing:-0.03em;">100</div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(250,249,246,0.45);margin-top:8px;">Lead Leak Audits</div>
+      </div>
+      <div class="amber-rule"></div>
+      <div class="slide-heading" style="font-size:20px;">Here's what we found.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 2 — €43k (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">2 / 5</span>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(232,101,42,0.8);margin-bottom:8px;">Average revenue at risk</div>
+        <div style="font-family:'EB Garamond',serif;font-size:72px;font-weight:700;color:var(--amber);line-height:0.85;letter-spacing:-0.03em;">€43k</div>
+        <div style="font-size:11px;color:rgba(250,249,246,0.4);margin-top:6px;letter-spacing:0.06em;">per year, per business</div>
+      </div>
+      <div style="font-size:13px;color:rgba(250,249,246,0.7);line-height:1.6;">That's the gap between what Irish service businesses earn and what they could earn — just from fixing how they handle leads.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 3 — Gap 1 (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">3 / 5</span>
+      <div class="anchor-num" style="font-size:64px;opacity:0.12;">78</div>
+      <div class="amber-label">Gap #1 — Most common</div>
+      <div style="font-family:'EB Garamond',serif;font-size:42px;font-weight:700;color:var(--amber);line-height:0.85;letter-spacing:-0.02em;margin-bottom:10px;">78/100</div>
+      <div class="slide-heading" style="font-size:18px;">No system for missed calls.</div>
+      <div class="slide-body" style="margin-top:6px;">78 out of 100 businesses had zero follow-up on missed calls. A competitor with a basic AI system wins those jobs every time.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 4 — Gap 2 (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">4 / 5</span>
+      <div class="anchor-num" style="font-size:56px;opacity:0.12;">67</div>
+      <div class="amber-label">Gap #2</div>
+      <div style="font-family:'EB Garamond',serif;font-size:52px;font-weight:700;color:var(--amber);line-height:0.85;letter-spacing:-0.02em;margin-bottom:10px;">67%</div>
+      <div class="slide-heading" style="font-size:18px;">No online presence.</div>
+      <div class="slide-body" style="margin-top:6px;">67% of customers research a business online before calling. For half the businesses we audited, there was nothing to find.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 5 — CTA (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">5 / 5</span>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div style="font-family:'EB Garamond',serif;font-size:42px;font-weight:700;color:white;line-height:1.1;letter-spacing:-0.02em;">What's your<br><em style="color:var(--amber);">number?</em></div>
+      </div>
+      <div class="amber-rule"></div>
+      <div class="slide-body">Find out in 3 minutes. Free. No sales call required.</div>
+      <div style="font-size:13px;font-weight:600;color:var(--amber);margin-top:8px;">flowbuildai.ie/audit</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+  </div>
+
+  <div class="caption-block">
+    <div class="caption-label">Caption — Instagram &amp; Facebook</div>
+    <div class="caption-text">100 audits. 100 Irish trades and service businesses. Here's what the data actually says about what's being lost every year.
+
+Your number might surprise you.
+
+Free Lead Leak Audit — link in bio 👆</div>
+    <div class="caption-note">Facebook: post audit link in first comment — "👉 Take the free audit here: flowbuildai.ie/audit"</div>
+    <div class="hashtags">#IrishBusiness #LeadGeneration #LocalBusiness #BusinessData #ServiceBusiness #Tradespeople</div>
+  </div>
+</div>
+
+
+<!-- Stories note -->
+<div style="max-width:1400px;margin:0 auto 48px;background:white;border-radius:4px;padding:24px 28px;border-left:3px solid var(--charcoal);">
+  <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--charcoal);margin-bottom:14px;">Daily Stories — This Week</div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Mon</div>
+      <div style="font-size:12px;color:#4A403A;line-height:1.5;">Repurpose Slide 1 of Post 1 → add link sticker to audit</div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Tue</div>
+      <div style="font-size:12px;color:#4A403A;line-height:1.5;">Poll: "Do you have a system for missed calls?" — Yes / No</div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Wed</div>
+      <div style="font-size:12px;color:#4A403A;line-height:1.5;">Post 3 carousel slides as Stories sequence → link sticker</div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Thu</div>
+      <div style="font-size:12px;color:#4A403A;line-height:1.5;">Brand post quote card as Story → link sticker</div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Fri</div>
+      <div style="font-size:12px;color:#4A403A;line-height:1.5;">"Swipe to see what 100 audits revealed" → link sticker to audit</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlowBuild AI — Meta Ad Creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,800&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amber:    #E8652A;
+    --coal:     #1C1917;
+    --coal-2:   #242120;
+    --coal-mid: #6B6560;
+    --cream:    #FAF9F6;
+    --c70:      rgba(250,249,246,0.7);
+    --c40:      rgba(250,249,246,0.4);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter Tight', sans-serif;
+    background: #111110;
+    color: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── PAGE SHELL ── */
+  .page-header {
+    padding: 56px 72px 44px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 40px;
+  }
+  .wm { font-weight: 800; font-size: 16px; letter-spacing: -0.04em; display: flex; align-items: center; }
+  .wm .b { color: var(--amber); }
+  .wm-badge { background: var(--amber); color: var(--coal); font-size: 8px; font-weight: 800; letter-spacing: 0.04em; padding: 3px 5px; border-radius: 3px; margin-left: 4px; }
+  .hdr-h1 { font-family: 'EB Garamond', serif; font-size: 42px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+  .hdr-h1 em { color: var(--amber); font-style: italic; }
+  .hdr-meta { font-size: 11px; color: var(--coal-mid); margin-top: 8px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .budget-pill { display: inline-block; border: 1px solid rgba(232,101,42,0.35); border-radius: 100px; padding: 7px 16px; font-size: 11px; color: var(--amber); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 14px; }
+
+  .sec-head { padding: 44px 72px 16px; display: flex; align-items: center; gap: 16px; }
+  .sec-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); white-space: nowrap; }
+  .sec-line { flex: 1; height: 1px; background: rgba(255,255,255,0.06); }
+
+  /* ── GALLERY — 3 columns, 4:5 frames ── */
+  .gallery {
+    padding: 8px 72px 56px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .slot { display: flex; flex-direction: column; gap: 12px; }
+  .slot.wide { grid-column: span 2; }
+  .slot-lbl { display: flex; align-items: center; justify-content: space-between; }
+  .ang { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); }
+  .ang-note { font-size: 11px; color: var(--coal-mid); }
+
+  /* 4:5 ad frame with container queries */
+  .frame {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    container-type: inline-size;
+  }
+
+  /* shared grain */
+  .gr::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 5;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  /* shared logo helper */
+  .logo-wm { font-weight: 800; font-size: 5.5cqw; letter-spacing: -0.04em; display: flex; align-items: center; gap: 1cqw; }
+  .logo-wm .lb { color: var(--amber); }
+  .logo-wm .lbx { background: var(--amber); color: var(--coal); font-size: 4.5cqw; font-weight: 800; padding: 0.8cqw 2cqw; border-radius: 1.5px; display: inline-block; }
+
+  /* ═══════════════════════════════════════
+     AD 1 — REVENUE LEAK
+     Charcoal. Big amber number. Minimal copy.
+  ═══════════════════════════════════════ */
+  .ad1 {
+    background: var(--coal);
+    width: 100%; height: 100%;
+    padding: 10cqw;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  /* amber glow bottom-left */
+  .ad1::before {
+    content: ''; position: absolute; bottom: -15%; left: -15%;
+    width: 65%; height: 65%;
+    background: radial-gradient(circle, rgba(232,101,42,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  /* grain */
+  .ad1::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+  .ad1 > * { position: relative; z-index: 1; }
+
+  .a1-top { margin-bottom: auto; }
+  .a1-tag { font-size: 5.5cqw; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: 4cqw; }
+
+  .a1-hero { }
+  .a1-num { font-family: 'EB Garamond', serif; font-size: 19cqw; font-weight: 700; line-height: 0.85; color: var(--amber); letter-spacing: -0.03em; }
+  .a1-sub { font-family: 'EB Garamond', serif; font-style: italic; font-size: 7cqw; color: var(--c70); margin-top: 3cqw; line-height: 1.4; }
+
+  .a1-mid { margin-top: 5cqw; margin-bottom: auto; }
+  .a1-divider { width: 7cqw; height: 1px; background: rgba(232,101,42,0.4); margin-bottom: 4cqw; }
+  .a1-body { font-size: 6.5cqw; color: var(--c70); line-height: 1.55; }
+
+  .a1-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 5cqw; }
+  .a1-cta { font-size: 5.5cqw; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--amber); border: 1px solid rgba(232,101,42,0.4); border-radius: 100px; padding: 1.5cqw 4cqw; white-space: nowrap; }
+
+  /* ═══════════════════════════════════════
+     AD 2 — 72 HOURS
+     Top amber (big 72) / bottom dark (copy)
+  ═══════════════════════════════════════ */
+  .ad2 { width: 100%; height: 100%; display: flex; flex-direction: column; }
+
+  .a2-top {
+    flex: 1.4;
+    background: var(--amber);
+    padding: 10cqw 10cqw 7cqw;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    position: relative; overflow: hidden;
+  }
+  .a2-top::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+  }
+  .a2-num { font-family: 'EB Garamond', serif; font-size: 44cqw; font-weight: 800; line-height: 0.8; color: var(--coal); letter-spacing: -0.04em; position: relative; z-index: 1; }
+  .a2-unit { font-size: 11cqw; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coal); position: relative; z-index: 1; margin-top: 2cqw; }
+
+  .a2-bot {
+    background: var(--coal);
+    padding: 8cqw 10cqw 10cqw;
+    display: flex; flex-direction: column; gap: 6cqw;
+    position: relative;
+  }
+  .a2-bot::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+  .a2-copy { font-family: 'EB Garamond', serif; font-style: italic; font-size: 9cqw; color: var(--c70); line-height: 1.45; position: relative; z-index: 1; }
+  .a2-foot { display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
+  .a2-nocon { font-size: 6cqw; font-weight: 700; color: var(--amber); white-space: nowrap; }
+
+  /* ═══════════════════════════════════════
+     AD 3 — IDENTITY
+     Trade-specific. Bold, direct.
+  ═══════════════════════════════════════ */
+  .ad3 {
+    background: var(--coal);
+    width: 100%; height: 100%;
+    padding: 10cqw;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  /* grid lines */
+  .ad3::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size: 16.66% 16.66%;
+  }
+  /* grain */
+  .ad3::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 5;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  }
+  .ad3 > * { position: relative; z-index: 6; }
+
+  .a3-top { margin-bottom: auto; }
+  .a3-tag { font-size: 6cqw; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 3cqw; }
+  .a3-name { font-family: 'EB Garamond', serif; font-size: 16cqw; font-weight: 700; line-height: 0.9; color: var(--cream); letter-spacing: -0.02em; }
+
+  .a3-stat { margin-top: auto; margin-bottom: auto; padding: 7cqw 0; }
+  .a3-big { font-family: 'EB Garamond', serif; font-size: 20cqw; font-weight: 700; color: var(--amber); line-height: 1; }
+  .a3-stat-text { font-size: 7cqw; color: var(--c70); line-height: 1.5; margin-top: 2cqw; }
+
+  .a3-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+  .a3-cta { font-size: 6.5cqw; font-weight: 700; color: var(--amber); border-bottom: 1px solid rgba(232,101,42,0.45); padding-bottom: 0.8cqw; white-space: nowrap; }
+
+  /* ═══════════════════════════════════════
+     AD 4 — BEFORE / AFTER
+     Split vertical panels. Own container.
+  ═══════════════════════════════════════ */
+  .ad4 { width: 100%; height: 100%; display: flex; }
+
+  .a4-l {
+    flex: 1; background: #1d1a18; padding: 10% 8%;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative; overflow: hidden;
+    container-type: inline-size;
+  }
+  .a4-l::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(150deg, rgba(160,35,35,0.1) 0%, transparent 50%);
+  }
+  .a4-r {
+    flex: 1; background: var(--coal); padding: 10% 8%;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative; overflow: hidden;
+    border-left: 1px solid rgba(232,101,42,0.15);
+    container-type: inline-size;
+  }
+  .a4-r::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(150deg, rgba(232,101,42,0.07) 0%, transparent 50%);
+  }
+
+  /* text in panels uses their own cqw */
+  .a4-lbl { font-size: 7.5cqw; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5cqw; position: relative; z-index: 1; }
+  .a4-l .a4-lbl { color: rgba(200,70,70,0.65); }
+  .a4-r .a4-lbl { color: var(--amber); }
+
+  .a4-items { display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
+  .a4-item { display: flex; align-items: flex-start; gap: 3cqw; position: relative; z-index: 1; }
+  .a4-ic { font-size: 7cqw; flex-shrink: 0; line-height: 1.2; }
+  .a4-tx { font-size: 7cqw; line-height: 1.3; }
+  .a4-l .a4-tx { color: rgba(250,249,246,0.3); text-decoration: line-through; text-decoration-color: rgba(180,50,50,0.35); }
+  .a4-r .a4-tx { color: var(--c70); }
+
+  .a4-ft { font-size: 7cqw; font-weight: 700; margin-top: 7cqw; position: relative; z-index: 1; }
+  .a4-l .a4-ft { color: rgba(200,60,60,0.4); }
+  .a4-r .a4-ft { color: var(--amber); }
+
+  .ba-badge {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    z-index: 20; background: #1d1a18; border: 1px solid var(--amber);
+    border-radius: 100px; padding: 2cqw 4.5cqw;
+    font-size: 5.5cqw; font-weight: 800; color: var(--amber);
+    letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
+  }
+
+  /* ═══════════════════════════════════════
+     AD 5 — SOCIAL PROOF
+     Full amber. Testimonial.
+  ═══════════════════════════════════════ */
+  .ad5 {
+    background: var(--amber);
+    width: 100%; height: 100%;
+    padding: 10cqw;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .ad5::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+  }
+  .a5-qm {
+    font-family: 'EB Garamond', serif; font-size: 35cqw; line-height: 0.6;
+    color: var(--coal); opacity: 0.12;
+    position: absolute; top: 4cqw; left: 5cqw; pointer-events: none; z-index: 0;
+  }
+  .ad5 > * { position: relative; z-index: 1; }
+
+  .a5-result { margin-bottom: auto; }
+  .a5-n { font-family: 'EB Garamond', serif; font-size: 20cqw; font-weight: 800; line-height: 0.85; color: var(--coal); letter-spacing: -0.03em; }
+  .a5-lbl { font-size: 6.5cqw; font-weight: 600; color: rgba(28,25,23,0.55); margin-top: 2.5cqw; line-height: 1.3; }
+
+  .a5-quote { margin-top: auto; margin-bottom: auto; padding: 4cqw 0; }
+  .a5-q { font-family: 'EB Garamond', serif; font-style: italic; font-size: 8.5cqw; line-height: 1.4; color: var(--coal); opacity: 0.82; }
+
+  .a5-foot { display: flex; align-items: flex-end; justify-content: space-between; margin-top: auto; }
+  .a5-nm { font-size: 6cqw; font-weight: 600; color: rgba(28,25,23,0.65); white-space: nowrap; }
+
+  /* Dark logo version for amber bg */
+  .logo-wm-dark { font-weight: 800; font-size: 5.5cqw; letter-spacing: -0.04em; color: var(--coal); display: flex; align-items: center; gap: 1cqw; }
+  .logo-wm-dark .lb { opacity: 0.45; }
+  .logo-wm-dark .lbx { background: var(--coal); color: var(--amber); font-size: 4cqw; font-weight: 800; padding: 0.8cqw 1.8cqw; border-radius: 1.5px; display: inline-block; }
+
+  /* ── NOTES ── */
+  .notes { padding: 0 72px 80px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .nc { background: var(--coal-2); border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; padding: 24px; }
+  .nc.ft { border-color: rgba(232,101,42,0.2); background: rgba(232,101,42,0.04); }
+  .nc-n { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 7px; }
+  .nc-t { font-family: 'EB Garamond', serif; font-size: 19px; font-weight: 600; color: var(--cream); margin-bottom: 7px; }
+  .nc-b { font-size: 12.5px; color: var(--coal-mid); line-height: 1.65; }
+  .nc-h { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 12px; font-style: italic; color: rgba(250,249,246,0.3); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div>
+    <h1 class="hdr-h1">5 Static Ad Creatives<br>for <em>Meta — Phase 1</em></h1>
+    <p class="hdr-meta">FlowBuild AI &nbsp;·&nbsp; Lead Generation &nbsp;·&nbsp; Irish Trades &amp; Services &nbsp;·&nbsp; 4:5 Format</p>
+  </div>
+  <div style="text-align:right">
+    <div class="wm">FLOW<span class="b">BUILD</span><span class="wm-badge">AI</span></div>
+    <div class="budget-pill">Under €500 / month</div>
+  </div>
+</header>
+
+<div class="sec-head">
+  <span class="sec-lbl">Ad Creatives — 1080 × 1350 (4:5)</span>
+  <div class="sec-line"></div>
+  <span style="font-size:11px;color:var(--coal-mid);white-space:nowrap">Start with 01 + 03</span>
+</div>
+
+<div class="gallery">
+
+  <!-- ─── AD 01: REVENUE LEAK ─── -->
+  <div class="slot">
+    <div class="slot-lbl">
+      <span class="ang">01 — Revenue Leak</span>
+      <span class="ang-note">Loss aversion · Run first</span>
+    </div>
+    <div class="frame gr">
+      <div class="ad1">
+
+        <div class="a1-top">
+          <div class="a1-tag">The Revenue Leak</div>
+          <div class="a1-hero">
+            <div class="a1-num">€100,800</div>
+            <div class="a1-sub">lost per year.<br>Entirely preventable.</div>
+          </div>
+        </div>
+
+        <div class="a1-mid">
+          <div class="a1-divider"></div>
+          <div class="a1-body">
+            Missed calls. No follow-up.<br>
+            Invisible on Google.
+          </div>
+        </div>
+
+        <div class="a1-foot">
+          <div class="logo-wm">FLOW<span class="lb">BUILD</span><span class="lbx">AI</span></div>
+          <div class="a1-cta">Free Audit →</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── AD 02: 72 HOURS ─── -->
+  <div class="slot">
+    <div class="slot-lbl">
+      <span class="ang">02 — 72 Hours</span>
+      <span class="ang-note">Speed + no risk</span>
+    </div>
+    <div class="frame">
+      <div class="ad2">
+
+        <div class="a2-top">
+          <div class="a2-num">72</div>
+          <div class="a2-unit">Hours</div>
+        </div>
+
+        <div class="a2-bot">
+          <div class="a2-copy">
+            Live before the weekend.<br>
+            No contract. No lock-in.
+          </div>
+          <div class="a2-foot">
+            <div class="logo-wm">FLOW<span class="lb">BUILD</span><span class="lbx">AI</span></div>
+            <div class="a2-nocon">Free 2-min Audit →</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── AD 03: IDENTITY ─── -->
+  <div class="slot">
+    <div class="slot-lbl">
+      <span class="ang">03 — Identity</span>
+      <span class="ang-note">Pattern interrupt · Duplicate per trade</span>
+    </div>
+    <div class="frame gr">
+      <div class="ad3">
+
+        <div class="a3-top">
+          <div class="a3-tag">Attention</div>
+          <div class="a3-name">Dublin<br>Plumbers.</div>
+        </div>
+
+        <div class="a3-stat">
+          <div class="a3-big">6</div>
+          <div class="a3-stat-text">
+            qualified leads lost per month<br>to missed calls alone.
+          </div>
+        </div>
+
+        <div class="a3-foot">
+          <div class="a3-cta">Free 2-min Audit →</div>
+          <div class="logo-wm">FLOW<span class="lb">BUILD</span><span class="lbx">AI</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── AD 04: BEFORE / AFTER ─── -->
+  <div class="slot wide">
+    <div class="slot-lbl">
+      <span class="ang">04 — Before / After</span>
+      <span class="ang-note">Visual contrast · Best as retargeting</span>
+    </div>
+    <div class="frame">
+      <div class="ad4">
+
+        <div class="a4-l">
+          <div class="a4-lbl">Without a system</div>
+          <div class="a4-items">
+            <div class="a4-item">
+              <span class="a4-ic" style="color:rgba(200,70,70,0.65)">✕</span>
+              <span class="a4-tx">Missed calls = lost jobs</span>
+            </div>
+            <div class="a4-item">
+              <span class="a4-ic" style="color:rgba(200,70,70,0.65)">✕</span>
+              <span class="a4-tx">Quotes sent, never followed up</span>
+            </div>
+            <div class="a4-item">
+              <span class="a4-ic" style="color:rgba(200,70,70,0.65)">✕</span>
+              <span class="a4-tx">Invisible on Google Maps</span>
+            </div>
+            <div class="a4-item">
+              <span class="a4-ic" style="color:rgba(200,70,70,0.65)">✕</span>
+              <span class="a4-tx">Feast or famine income</span>
+            </div>
+            <div class="a4-item">
+              <span class="a4-ic" style="color:rgba(200,70,70,0.65)">✕</span>
+              <span class="a4-tx">No online presence</span>
+            </div>
+          </div>
+          <div class="a4-ft">€100k/yr in preventable loss</div>
+        </div>
+
+        <div class="ba-badge">VS</div>
+
+        <div class="a4-r">
+          <div class="a4-lbl">With FlowBuild AI</div>
+          <div class="a4-items">
+            <div class="a4-item">
+              <span class="a4-ic" style="color:var(--amber)">✓</span>
+              <span class="a4-tx">SMS response in 60 seconds</span>
+            </div>
+            <div class="a4-item">
+              <span class="a4-ic" style="color:var(--amber)">✓</span>
+              <span class="a4-tx">Automated follow-up sequences</span>
+            </div>
+            <div class="a4-item">
+              <span class="a4-ic" style="color:var(--amber)">✓</span>
+              <span class="a4-tx">Top 3 Google in 90 days</span>
+            </div>
+            <div class="a4-item">
+              <span class="a4-ic" style="color:var(--amber)">✓</span>
+              <span class="a4-tx">Consistent leads all year</span>
+            </div>
+            <div class="a4-item">
+              <span class="a4-ic" style="color:var(--amber)">✓</span>
+              <span class="a4-tx">Live in 72 hours. No lock-in.</span>
+            </div>
+          </div>
+          <div class="a4-ft">Free 2-min audit →</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── AD 05: SOCIAL PROOF ─── -->
+  <div class="slot">
+    <div class="slot-lbl">
+      <span class="ang">05 — Social Proof</span>
+      <span class="ang-note">Use when you have a real win</span>
+    </div>
+    <div class="frame">
+      <div class="ad5">
+        <span class="a5-qm">"</span>
+
+        <div class="a5-result">
+          <div class="a5-n">+14</div>
+          <div class="a5-lbl">qualified leads<br>in the first 30 days</div>
+        </div>
+
+        <div class="a5-quote">
+          <div class="a5-q">
+            "Live on Friday. Three new calls booked by Monday morning."
+          </div>
+        </div>
+
+        <div class="a5-foot">
+          <div class="a5-nm">— Ciarán Murphy</div>
+          <div class="logo-wm-dark">FLOW<span class="lb">BUILD</span><span class="lbx">AI</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- NOTES -->
+<div class="sec-head">
+  <span class="sec-lbl">Strategic Notes</span>
+  <div class="sec-line"></div>
+</div>
+
+<div class="notes">
+  <div class="nc">
+    <div class="nc-n">01 — Revenue Leak</div>
+    <div class="nc-t">Lead with loss aversion</div>
+    <div class="nc-b">€100,800 is specific, credible, and tied directly to the audit. Loss framing consistently outperforms gain framing for this audience.</div>
+    <div class="nc-h">"None of it is skill. All of it is system."</div>
+  </div>
+  <div class="nc">
+    <div class="nc-n">02 — 72 Hours</div>
+    <div class="nc-t">Obliterate the main objection</div>
+    <div class="nc-b">Trades owners have been burned by slow agencies. Speed + no lock-in removes every barrier in one headline. The amber split stops the scroll.</div>
+    <div class="nc-h">"Live before the weekend."</div>
+  </div>
+  <div class="nc">
+    <div class="nc-n">03 — Identity</div>
+    <div class="nc-t">Speak to one person exactly</div>
+    <div class="nc-b">Clone for every trade: Electricians, Roofers, Landscapers, Dentists. Same template, different first two lines. Specificity makes it feel built for them.</div>
+    <div class="nc-h">"Attention Dublin Plumbers." — stops the scroll cold.</div>
+  </div>
+  <div class="nc">
+    <div class="nc-n">04 — Before / After</div>
+    <div class="nc-t">Show the transformation</div>
+    <div class="nc-b">Side-by-side contrast beats asking the reader to imagine. Best as a retargeting ad for people who've seen Ad 01. Also works as a 10-card carousel.</div>
+    <div class="nc-h">One problem per carousel card → one solution per card.</div>
+  </div>
+  <div class="nc">
+    <div class="nc-n">05 — Social Proof</div>
+    <div class="nc-t">A real result beats every claim</div>
+    <div class="nc-b">The amber background breaks pattern entirely. Replace the placeholder with a real name and verified result. Run this only after your first client win is documented.</div>
+    <div class="nc-h">The number must be real. It comes up in every sales call.</div>
+  </div>
+  <div class="nc ft">
+    <div class="nc-n">Launch Order</div>
+    <div class="nc-t">Which to run first</div>
+    <div class="nc-b">
+      <strong style="color:var(--cream)">Week 1–2:</strong> Ad 01 + Ad 03 (Plumbers)<br><br>
+      <strong style="color:var(--cream)">Week 3–4:</strong> Add Ad 02 based on CTR data<br><br>
+      <strong style="color:var(--cream)">Month 2+:</strong> Ad 04 retargeting + Ad 05 when live
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

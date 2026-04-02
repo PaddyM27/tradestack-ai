@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Strategy — FlowBuild AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amber:    #E8652A;
+      --amber-lt: #F5804A;
+      --amber-dk: #C4501B;
+      --char:     #1C1917;
+      --char2:    #2D2926;
+      --cream:    #FAF9F6;
+      --cream-dk: #EDE8DF;
+      --stone:    #9C8D83;
+      --stone-lt: #C8BDB7;
+      --rule:     #DDD7CF;
+    }
+
+    html { font-size: 10pt; }
+    body {
+      background: #C8BDB7;
+      font-family: 'EB Garamond', Georgia, serif;
+      color: var(--char);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Page ─── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 10mm;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    /* ─── COVER ─── */
+    .cover {
+      background: var(--cream);
+      min-height: 297mm;
+      display: flex;
+      flex-direction: column;
+    }
+    .cover-amber-strip {
+      background: var(--amber);
+      height: 8mm;
+      flex-shrink: 0;
+    }
+    .cover-body {
+      flex: 1;
+      padding: 14mm 16mm 10mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .cover-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12mm;
+    }
+    .cover-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 13pt;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--char);
+    }
+    .cover-logo span { color: var(--amber); }
+    .logo-badge {
+      display: inline-block;
+      background: var(--amber);
+      color: white;
+      font-family: 'Syne', sans-serif;
+      font-size: 6pt;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 3px 6px;
+      border-radius: 2px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+      margin-left: 4px;
+    }
+    .cover-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 7pt;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+      border: 1px solid var(--rule);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* Big editorial number on cover */
+    .cover-big-num {
+      font-family: 'EB Garamond', serif;
+      font-size: 180pt;
+      font-weight: 700;
+      letter-spacing: -0.06em;
+      line-height: 0.88;
+      color: var(--cream-dk);
+      position: absolute;
+      right: -8mm;
+      top: 40mm;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 1;
+    }
+    .cover-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 6mm;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cover-eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+    .cover-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 56pt;
+      font-weight: 600;
+      line-height: 0.96;
+      letter-spacing: -0.02em;
+      color: var(--char);
+      margin-bottom: 7mm;
+    }
+    .cover-title em {
+      font-style: italic;
+      color: var(--amber);
+    }
+    .cover-desc {
+      font-family: 'EB Garamond', serif;
+      font-size: 12pt;
+      line-height: 1.6;
+      color: var(--stone);
+      max-width: 120mm;
+      font-style: italic;
+    }
+
+    /* Cover stat row */
+    .cover-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4mm;
+      margin-top: 10mm;
+    }
+    .cover-stat {
+      padding: 4mm 5mm;
+      border-top: 2px solid var(--char);
+    }
+    .cover-stat-num {
+      font-family: 'EB Garamond', serif;
+      font-size: 26pt;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 1.5mm;
+    }
+    .cover-stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 7pt;
+      font-weight: 500;
+      color: var(--stone);
+      line-height: 1.45;
+    }
+
+    .cover-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--rule);
+      padding-top: 4mm;
+      margin-top: 6mm;
+    }
+    .cover-bottom-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 7pt;
+      color: var(--stone-lt);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ─── Interior page chrome ─── */
+    .doc-header {
+      padding: 7mm 16mm 5mm;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .doc-header-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 9pt;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--char);
+    }
+    .doc-header-logo span { color: var(--amber); }
+    .doc-header-right {
+      font-family: 'Inter', sans-serif;
+      font-size: 7pt;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+    .doc-footer {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 4mm 16mm;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .doc-footer-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 6.5pt;
+      color: var(--stone-lt);
+      letter-spacing: 0.06em;
+    }
+    .doc-footer-pg {
+      font-family: 'Syne', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 800;
+      color: var(--stone-lt);
+    }
+    .page-body {
+      padding: 7mm 16mm 18mm;
+    }
+
+    /* ─── Typography ─── */
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 2.5mm;
+    }
+    .section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 28pt;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--char);
+      margin-bottom: 4mm;
+    }
+    .intro-text {
+      font-family: 'EB Garamond', serif;
+      font-size: 11pt;
+      line-height: 1.7;
+      color: #5A4E49;
+      max-width: 160mm;
+      margin-bottom: 5mm;
+    }
+
+    /* ─── Pull quote ─── */
+    .pull-quote {
+      border-left: 3px solid var(--amber);
+      padding: 3mm 5mm 3mm 6mm;
+      margin: 4mm 0;
+    }
+    .pull-quote p {
+      font-family: 'EB Garamond', serif;
+      font-size: 13pt;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--char);
+    }
+    .pull-quote-attr {
+      font-family: 'Inter', sans-serif;
+      font-size: 7pt;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-top: 2mm;
+    }
+
+    /* ─── Stat bar ─── */
+    .stat-bar {
+      background: var(--char);
+      border-radius: 4px;
+      padding: 5mm 7mm;
+      display: flex;
+      gap: 6mm;
+      align-items: stretch;
+      margin: 4mm 0;
+    }
+    .stat-item {
+      flex: 1;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      padding-right: 6mm;
+    }
+    .stat-item:last-child { border-right: none; padding-right: 0; }
+    .stat-num {
+      font-family: 'EB Garamond', serif;
+      font-size: 28pt;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 2mm;
+    }
+    .stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 7pt;
+      color: rgba(255,255,255,0.52);
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
+    /* ─── Audience cards ─── */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+      margin: 4mm 0;
+    }
+    .audience-card {
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 5mm;
+    }
+    .audience-card.primary { border-color: var(--amber); background: #FFFAF6; }
+    .audience-card-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 1.5mm;
+    }
+    .audience-card-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 14pt;
+      font-weight: 600;
+      color: var(--char);
+      margin-bottom: 2mm;
+      letter-spacing: -0.01em;
+    }
+    .audience-card p {
+      font-family: 'EB Garamond', serif;
+      font-size: 10pt;
+      line-height: 1.55;
+      color: #5A4E49;
+    }
+    .audience-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2mm;
+      margin-top: 3mm;
+    }
+    .atag {
+      font-family: 'Inter', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--char);
+      background: var(--cream-dk);
+      padding: 2px 7px;
+      border-radius: 10px;
+    }
+    .atag.amber { background: rgba(232,101,42,0.12); color: var(--amber-dk); }
+
+    /* ─── Pillar table ─── */
+    .pillar-row {
+      display: flex;
+      gap: 3mm;
+      margin-bottom: 3mm;
+      align-items: flex-start;
+    }
+    .pillar-num {
+      flex-shrink: 0;
+      width: 7mm; height: 7mm;
+      background: var(--char);
+      color: var(--amber);
+      font-family: 'Syne', sans-serif;
+      font-size: 8.5pt;
+      font-weight: 800;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .pillar-body { flex: 1; }
+    .pillar-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--char);
+      letter-spacing: -0.01em;
+      margin-bottom: 1mm;
+    }
+    .pillar-desc {
+      font-family: 'EB Garamond', serif;
+      font-size: 10pt;
+      line-height: 1.5;
+      color: #5A4E49;
+    }
+    .pillar-pct {
+      flex-shrink: 0;
+      font-family: 'EB Garamond', serif;
+      font-size: 16pt;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: -0.02em;
+      min-width: 14mm;
+      text-align: right;
+      padding-top: 1mm;
+    }
+
+    /* ─── Divider ─── */
+    .divider {
+      height: 1px;
+      background: var(--rule);
+      margin: 5mm 0;
+    }
+    .divider-amber {
+      height: 2px;
+      background: linear-gradient(to right, var(--amber), transparent);
+      margin: 4mm 0;
+    }
+
+    /* ─── Format card ─── */
+    .format-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+      margin: 3mm 0;
+    }
+    .format-card {
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 4mm 5mm;
+    }
+    .format-card.carousel { border-left: 3px solid var(--amber); }
+    .format-card.static-img { border-left: 3px solid var(--char); }
+    .format-card-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 1.5mm;
+    }
+    .format-card-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 13pt;
+      font-weight: 600;
+      color: var(--char);
+      margin-bottom: 2mm;
+      letter-spacing: -0.01em;
+    }
+    .format-card p {
+      font-family: 'EB Garamond', serif;
+      font-size: 10pt;
+      line-height: 1.55;
+      color: #5A4E49;
+    }
+
+    /* ─── Bullet list ─── */
+    .blist { list-style: none; margin: 2mm 0; }
+    .blist li {
+      display: flex;
+      gap: 3mm;
+      margin-bottom: 2mm;
+      font-family: 'EB Garamond', serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: #5A4E49;
+    }
+    .blist li::before {
+      content: '—';
+      color: var(--amber);
+      flex-shrink: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      font-weight: 700;
+      margin-top: 1.5px;
+    }
+    .blist li strong { font-weight: 600; color: var(--char); }
+
+    /* ─── Content idea card ─── */
+    .idea-block { margin-bottom: 5mm; }
+    .idea-pillar-head {
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+      margin-bottom: 3mm;
+    }
+    .idea-pillar-badge {
+      background: var(--char);
+      color: var(--amber);
+      font-family: 'Inter', sans-serif;
+      font-size: 6pt;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2mm 3.5mm;
+      border-radius: 3px;
+    }
+    .idea-pillar-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--char);
+    }
+    .idea-list { list-style: none; }
+    .idea-item {
+      display: flex;
+      gap: 3mm;
+      margin-bottom: 2mm;
+      align-items: flex-start;
+    }
+    .idea-format {
+      flex-shrink: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 6pt;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 10px;
+      margin-top: 1.5px;
+      min-width: 16mm;
+      text-align: center;
+    }
+    .idea-format.carousel { background: rgba(232,101,42,0.12); color: var(--amber-dk); }
+    .idea-format.static   { background: rgba(28,25,23,0.08);   color: var(--char); }
+    .idea-text {
+      font-family: 'EB Garamond', serif;
+      font-size: 10.5pt;
+      line-height: 1.5;
+      color: #3D3532;
+      font-style: italic;
+    }
+
+    /* ─── Schedule table ─── */
+    .sched-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 3mm 0;
+    }
+    .sched-table th {
+      font-family: 'Inter', sans-serif;
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: white;
+      background: var(--char);
+      padding: 3mm 4mm;
+      text-align: left;
+    }
+    .sched-table td {
+      font-family: 'EB Garamond', serif;
+      font-size: 10.5pt;
+      line-height: 1.4;
+      color: #4A3F3A;
+      padding: 2.5mm 4mm;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: middle;
+    }
+    .sched-table tr:nth-child(even) td { background: #F5F0EB; }
+    .sched-table td strong { font-weight: 600; color: var(--char); }
+    .sched-table td.amber { color: var(--amber-dk); font-weight: 600; }
+
+    /* ─── Design spec blocks ─── */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+      margin: 3mm 0;
+    }
+    .spec-card {
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 4mm;
+      text-align: center;
+    }
+    .spec-swatch {
+      width: 100%;
+      height: 8mm;
+      border-radius: 3px;
+      margin-bottom: 2mm;
+    }
+    .spec-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 600;
+      color: var(--stone);
+      margin-bottom: 1mm;
+    }
+    .spec-val {
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--char);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Dark callout ─── */
+    .dark-box {
+      background: var(--char);
+      border-radius: 4px;
+      padding: 5mm 6mm;
+      margin: 4mm 0;
+    }
+    .dark-box-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 2mm;
+    }
+    .dark-box p {
+      font-family: 'EB Garamond', serif;
+      font-size: 10.5pt;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.72);
+    }
+    .dark-box p em { color: white; font-style: italic; }
+    .dark-box p strong { font-weight: 600; color: white; }
+
+    /* ─── Amber callout ─── */
+    .amber-box {
+      background: #FEF5EF;
+      border-left: 3px solid var(--amber);
+      border-radius: 3px;
+      padding: 3.5mm 5mm;
+      margin: 3mm 0;
+    }
+    .amber-box-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber-dk);
+      margin-bottom: 1.5mm;
+    }
+    .amber-box p {
+      font-family: 'EB Garamond', serif;
+      font-size: 10.5pt;
+      line-height: 1.6;
+      color: #4A3F3A;
+    }
+    .amber-box p strong { font-weight: 600; color: var(--char); }
+
+    /* ─── Funnel steps ─── */
+    .funnel-row {
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+      margin-bottom: 3mm;
+    }
+    .funnel-step {
+      flex: 1;
+      padding: 3.5mm 4mm;
+      border-radius: 3px;
+      text-align: center;
+    }
+    .funnel-step.s1 { background: var(--char); }
+    .funnel-step.s2 { background: var(--char2); }
+    .funnel-step.s3 { background: rgba(28,25,23,0.08); }
+    .funnel-step.s4 { background: rgba(232,101,42,0.12); }
+    .funnel-step-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 6pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1mm;
+    }
+    .funnel-step.s1 .funnel-step-label,
+    .funnel-step.s2 .funnel-step-label { color: rgba(255,255,255,0.45); }
+    .funnel-step.s3 .funnel-step-label,
+    .funnel-step.s4 .funnel-step-label { color: var(--stone); }
+    .funnel-step-val {
+      font-family: 'EB Garamond', serif;
+      font-size: 10pt;
+      line-height: 1.3;
+      font-style: italic;
+    }
+    .funnel-step.s1 .funnel-step-val,
+    .funnel-step.s2 .funnel-step-val { color: white; }
+    .funnel-step.s3 .funnel-step-val { color: var(--char); }
+    .funnel-step.s4 .funnel-step-val { color: var(--amber-dk); }
+    .funnel-arrow {
+      color: var(--stone-lt);
+      font-size: 11pt;
+      flex-shrink: 0;
+    }
+
+    /* ─── Metric table ─── */
+    .metric-row-wrap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3mm;
+      margin: 3mm 0;
+    }
+    .metric-card {
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 4mm;
+      text-align: center;
+    }
+    .metric-num {
+      font-family: 'EB Garamond', serif;
+      font-size: 22pt;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 1.5mm;
+    }
+    .metric-lbl {
+      font-family: 'Inter', sans-serif;
+      font-size: 6.5pt;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--stone);
+      line-height: 1.4;
+    }
+
+    /* ─── Bio mockup ─── */
+    .bio-mock {
+      background: #F5F0EB;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 5mm 6mm;
+      margin: 3mm 0;
+      font-family: 'Inter', sans-serif;
+    }
+    .bio-mock-handle {
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--char);
+      margin-bottom: 1mm;
+    }
+    .bio-mock-text {
+      font-size: 9pt;
+      line-height: 1.5;
+      color: #4A3F3A;
+    }
+    .bio-mock-link {
+      font-size: 9pt;
+      color: var(--amber);
+      font-weight: 600;
+      margin-top: 1mm;
+    }
+
+    /* ─── Back cover ─── */
+    .backcover {
+      background: var(--char);
+      min-height: 297mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .bc-amber-strip {
+      background: var(--amber);
+      height: 8mm;
+      flex-shrink: 0;
+    }
+    .bc-body {
+      flex: 1;
+      padding: 14mm 16mm 12mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ─── Print ─── */
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      @page { margin: 0; size: A4 portrait; }
+      body { background: white; }
+      .page { margin: 0; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ PAGE 1 — COVER ═══ -->
+<div class="page cover">
+  <div class="cover-amber-strip"></div>
+  <div class="cover-body">
+    <div class="cover-top-row">
+      <div class="cover-logo">FLOW<span>BUILD</span><span class="logo-badge">AI</span></div>
+      <div class="cover-tag">March 2026</div>
+    </div>
+
+    <!-- Ghost editorial number -->
+    <div class="cover-big-num" aria-hidden="true">2</div>
+
+    <div class="cover-content">
+      <div class="cover-eyebrow">Social Media Playbook</div>
+      <h1 class="cover-title">Facebook &amp;<br><em>Instagram</em><br>Strategy</h1>
+      <p class="cover-desc">A research-backed growth system for building FlowBuild AI's presence across Facebook and Instagram — driving brand trust and funnelling local business owners to the Lead Leak Audit.</p>
+
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">93%</div>
+          <div class="cover-stat-label">of Irish trades &amp; service businesses use Facebook or Instagram</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">3.1×</div>
+          <div class="cover-stat-label">higher engagement from carousels vs. single static images</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">35%</div>
+          <div class="cover-stat-label">more enquiries for businesses with an active social presence</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-bottom">
+      <span class="cover-bottom-text">Confidential · Internal Use Only</span>
+      <span class="cover-bottom-text">flowbuildai.ie</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ PAGE 2 — AUDIENCE + ANGLE ═══ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span> <span class="logo-badge" style="font-size:5pt;">AI</span></div>
+    <div class="doc-header-right">Social Strategy · Audience & Angle</div>
+  </div>
+  <div class="page-body">
+
+    <div class="section-label">Who We're Talking To</div>
+    <h2 class="section-title">Target Audience</h2>
+    <p class="intro-text">FlowBuild AI serves both Irish trades and service businesses. Social content must speak to both without feeling generic. The unifying truth: <em>they're all time-poor, phone-dependent, and losing leads they don't know about.</em></p>
+
+    <div class="audience-grid">
+      <div class="audience-card primary">
+        <div class="audience-card-label">Primary · Trades</div>
+        <div class="audience-card-title">Irish Trade Businesses</div>
+        <p>Owner-operators who are on the tools every day. Miss calls. Forget to follow up. Rely almost entirely on word of mouth and don't have time to think about marketing.</p>
+        <div class="audience-tag-row">
+          <span class="atag">Plumbers</span><span class="atag">Electricians</span><span class="atag">Builders</span>
+          <span class="atag">Roofers</span><span class="atag">Painters</span><span class="atag">Landscapers</span>
+        </div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-card-label">Secondary · Services</div>
+        <div class="audience-card-title">Local Service Businesses</div>
+        <p>Any local Irish SMB running on referrals and phone calls. Same pain as trades: missed enquiries, no follow-up system, weak or no digital presence.</p>
+        <div class="audience-tag-row">
+          <span class="atag">Cleaning</span><span class="atag">Beauty</span><span class="atag">Fitness</span>
+          <span class="atag">Childcare</span><span class="atag">Auto Repair</span><span class="atag">Tutoring</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="amber-box" style="margin-top:2mm;">
+      <div class="amber-box-label">Content Framing Rule</div>
+      <p>Write to the pain, not the trade. <strong>"You're losing jobs to slow response times"</strong> lands for every business in this audience — no need to say "tradesperson" in every post.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">The Core Angle</div>
+    <h2 class="section-title" style="font-size:22pt;">The Local Business Owner's<br><em>Unfair Advantage</em></h2>
+
+    <p class="intro-text" style="margin-bottom:4mm;">The businesses winning locally aren't necessarily the best — they're the ones who respond fastest, show up online, and never miss a lead. FlowBuild AI gives local businesses the same systems big companies use, without the headcount.</p>
+
+    <div style="margin: 4mm 0;">
+      <div class="funnel-row">
+        <div class="funnel-step s1">
+          <div class="funnel-step-label">Step 1</div>
+          <div class="funnel-step-val">"That's my problem."</div>
+        </div>
+        <div class="funnel-arrow">→</div>
+        <div class="funnel-step s2">
+          <div class="funnel-step-label">Step 2</div>
+          <div class="funnel-step-val">"I didn't know you could fix that."</div>
+        </div>
+        <div class="funnel-arrow">→</div>
+        <div class="funnel-step s3">
+          <div class="funnel-step-label">Step 3</div>
+          <div class="funnel-step-val">"I need this."</div>
+        </div>
+        <div class="funnel-arrow">→</div>
+        <div class="funnel-step s4">
+          <div class="funnel-step-label">Step 4</div>
+          <div class="funnel-step-val">Take the free audit →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dark-box">
+      <div class="dark-box-label">Central CTA — Every Post Points Here</div>
+      <p>The <em>free Lead Leak Audit</em> at <strong>flowbuildai.ie/audit</strong> is the hook. 3 minutes, personalised revenue figure, zero friction. Every piece of content ultimately points to it.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Platform Roles</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin-top:2mm;">
+      <div style="border:1px solid var(--rule); border-radius:4px; padding:4mm 5mm;">
+        <div style="font-family:'Inter',sans-serif;font-size:7pt;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:2mm;">Facebook</div>
+        <div style="font-family:'EB Garamond',serif;font-size:12pt;font-weight:600;color:var(--char);margin-bottom:1.5mm;">Trust &amp; Lead Generation</div>
+        <p style="font-family:'EB Garamond',serif;font-size:10pt;line-height:1.55;color:#5A4E49;">Primary platform for 30–55 year-old business owners. Best for community building, longer-form content, and direct lead gen. 60% of Irish trades cite Facebook as most effective.</p>
+      </div>
+      <div style="border:1px solid var(--rule); border-radius:4px; padding:4mm 5mm;">
+        <div style="font-family:'Inter',sans-serif;font-size:7pt;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-bottom:2mm;">Instagram</div>
+        <div style="font-family:'EB Garamond',serif;font-size:12pt;font-weight:600;color:var(--char);margin-bottom:1.5mm;">Visual Credibility &amp; Discovery</div>
+        <p style="font-family:'EB Garamond',serif;font-size:10pt;line-height:1.55;color:#5A4E49;">Younger business owners (25–40). Visual authority and brand discoverability. Algorithm rewards saves and carousel interactions. Funnel toward bio link → audit.</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="doc-footer">
+    <span class="doc-footer-meta">Confidential · FlowBuild AI · 2026</span>
+    <span class="doc-footer-pg">02</span>
+  </div>
+</div>
+
+
+<!-- ═══ PAGE 3 — THE 5 PILLARS ═══ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span> <span class="logo-badge" style="font-size:5pt;">AI</span></div>
+    <div class="doc-header-right">Social Strategy · Content Pillars</div>
+  </div>
+  <div class="page-body">
+
+    <div class="section-label">What We Post About</div>
+    <h2 class="section-title">The 5 Content Pillars</h2>
+    <p class="intro-text">Every post belongs to one of five pillars. The mix is intentional — heavy on awareness and education first, building toward proof as clients come in. This prevents the account from looking like a constant sales pitch.</p>
+
+    <div class="divider-amber"></div>
+
+    <div class="pillar-row">
+      <div class="pillar-num">1</div>
+      <div class="pillar-body">
+        <div class="pillar-name">The Hidden Problem</div>
+        <div class="pillar-desc">Surface pain they feel every day but haven't named. Make them feel seen before you've mentioned FlowBuild AI once. The best performing awareness content — earns saves and shares.</div>
+      </div>
+      <div class="pillar-pct">30%</div>
+    </div>
+
+    <div class="divider" style="margin: 3mm 0;"></div>
+
+    <div class="pillar-row">
+      <div class="pillar-num">2</div>
+      <div class="pillar-body">
+        <div class="pillar-name">The Solution Shown</div>
+        <div class="pillar-desc">What's possible with a proper website or AI automation. Show the transformation — not the product features. "Before: 2 calls a week. After: booked out 3 weeks in advance."</div>
+      </div>
+      <div class="pillar-pct">25%</div>
+    </div>
+
+    <div class="divider" style="margin: 3mm 0;"></div>
+
+    <div class="pillar-row">
+      <div class="pillar-num">3</div>
+      <div class="pillar-body">
+        <div class="pillar-name">Industry Truth</div>
+        <div class="pillar-desc">Stats, data, and uncomfortable facts about local business in the digital age. Builds authority without selling. "67% of people research a business online before calling — what do they find when they search for you?"</div>
+      </div>
+      <div class="pillar-pct">20%</div>
+    </div>
+
+    <div class="divider" style="margin: 3mm 0;"></div>
+
+    <div class="pillar-row">
+      <div class="pillar-num">4</div>
+      <div class="pillar-body">
+        <div class="pillar-name">Social Proof</div>
+        <div class="pillar-desc">Results, testimonials, outcomes. Build toward this — start with aggregate Lead Leak Audit data, transition to client results as they come in. Never fabricate specifics.</div>
+      </div>
+      <div class="pillar-pct">15%</div>
+    </div>
+
+    <div class="divider" style="margin: 3mm 0;"></div>
+
+    <div class="pillar-row">
+      <div class="pillar-num">5</div>
+      <div class="pillar-body">
+        <div class="pillar-name">Brand / Who We Are</div>
+        <div class="pillar-desc">Origin story, values, why FlowBuild AI exists. The posts that build likeability and trust in the people behind it. "Two locals. No middlemen. No lock-in." Creates the emotional connection that the other pillars can't.</div>
+      </div>
+      <div class="pillar-pct">10%</div>
+    </div>
+
+    <div class="divider-amber" style="margin-top: 5mm;"></div>
+
+    <div class="section-label" style="margin-top:5mm;">Content Voice — Direct, Specific, Grounded, Driven</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin-top:3mm;">
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-size:7pt;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#2E7D32;margin-bottom:2mm;">Say this</div>
+        <ul class="blist">
+          <li>"You're losing around 6 leads a month. We can fix that in 72 hours."</li>
+          <li>"Your phone rings while you're on the roof. Our system answers."</li>
+          <li>"More leads. Less chaos. Live in 72 hours."</li>
+          <li>"We don't do reports. We do results."</li>
+          <li>"Built for Irish trades and services — not American tech companies."</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-size:7pt;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#C62828;margin-bottom:2mm;">Never say this</div>
+        <ul class="blist">
+          <li>"Innovative / cutting-edge / disruptive"</li>
+          <li>"Passionate / excited / delighted"</li>
+          <li>"Synergy / ecosystem / leverage"</li>
+          <li>"Journey / transformation / empower"</li>
+          <li>"Scale sustainably / best-in-class / world-class"</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <div class="doc-footer">
+    <span class="doc-footer-meta">Confidential · FlowBuild AI · 2026</span>
+    <span class="doc-footer-pg">03</span>
+  </div>
+</div>
+
+
+<!-- ═══ PAGE 4 — CONTENT FORMATS ═══ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span> <span class="logo-badge" style="font-size:5pt;">AI</span></div>
+    <div class="doc-header-right">Social Strategy · Content Formats</div>
+  </div>
+  <div class="page-body">
+
+    <div class="section-label">How We Post</div>
+    <h2 class="section-title">Content Formats</h2>
+    <p class="intro-text">Two formats only — carousels and static images. No video for now. Each has a specific role. Carousels dominate because they force interaction, and interaction signals quality to the algorithm.</p>
+
+    <div class="stat-bar">
+      <div class="stat-item">
+        <div class="stat-num">60%</div>
+        <div class="stat-label">of all posts should be carousels — 3.1× higher engagement than static</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">40%</div>
+        <div class="stat-label">static images — faster to produce, best for punchy single-idea posts</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4–7</div>
+        <div class="stat-label">slides per carousel max — one bold idea per slide, no cluttered layouts</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label" style="margin-bottom:3mm;">Carousel Types</div>
+
+    <div class="format-grid">
+      <div class="format-card carousel">
+        <div class="format-card-label">Carousel Format 1</div>
+        <div class="format-card-title">PAS — Problem · Agitate · Solve</div>
+        <p>Most powerful format. Slide 1: bold hook. Slides 2–3: make it feel real and costly. Slides 4–5: solution reveal. Final slide: CTA to audit. Use for Pillars 1 &amp; 2.</p>
+      </div>
+      <div class="format-card carousel">
+        <div class="format-card-label">Carousel Format 2</div>
+        <div class="format-card-title">List — "X things costing you jobs"</div>
+        <p>One insight per slide. EB Garamond header, Inter body, amber number as the anchor. Great for Pillar 3 (Industry Truth) — highly shareable and saveable.</p>
+      </div>
+      <div class="format-card carousel">
+        <div class="format-card-label">Carousel Format 3</div>
+        <div class="format-card-title">Before / After</div>
+        <p>2–3 slides. Slide 1: the problem state. Slide 2: the fixed state. No faces needed — use mockups, iconography, text overlay. Works for both website and automation service.</p>
+      </div>
+      <div class="format-card carousel">
+        <div class="format-card-label">Carousel Format 4</div>
+        <div class="format-card-title">How It Works</div>
+        <p>Explainer carousel — "Here's how we fix it in 72 hours." Clear step-by-step, no jargon. 4–6 slides. Good for Pillar 2 and converting warmer audiences.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label" style="margin-bottom:3mm;">Static Image Types</div>
+
+    <div class="format-grid">
+      <div class="format-card static-img">
+        <div class="format-card-label">Static Type 1</div>
+        <div class="format-card-title">The Bold Stat</div>
+        <p>One number, big, amber. Supporting context in smaller Inter. Dark charcoal background. "67% of customers research online before calling. What do they find when they look for you?"</p>
+      </div>
+      <div class="format-card static-img">
+        <div class="format-card-label">Static Type 2</div>
+        <div class="format-card-title">The Single Hook</div>
+        <p>Short sharp copy. EB Garamond italic for the hook, Inter for the follow-up line. "You missed 3 calls last week. Your competitor didn't." — no embellishment needed.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Visual Design Spec</div>
+    <div class="spec-grid" style="margin-top:2mm;">
+      <div class="spec-card">
+        <div class="spec-swatch" style="background:#1C1917;"></div>
+        <div class="spec-label">Dark Slide</div>
+        <div class="spec-val">#1C1917</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-swatch" style="background:#FAF9F6; border:1px solid #DDD7CF;"></div>
+        <div class="spec-label">Light Slide</div>
+        <div class="spec-val">#FAF9F6</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-swatch" style="background:#E8652A;"></div>
+        <div class="spec-label">Amber Accent</div>
+        <div class="spec-val">#E8652A</div>
+      </div>
+    </div>
+
+    <ul class="blist" style="margin-top:2mm;">
+      <li><strong>Format:</strong> 1080×1350 (4:5) preferred for feed — takes up more screen real estate than square</li>
+      <li><strong>Heading:</strong> EB Garamond 600–700, large, tight letter-spacing</li>
+      <li><strong>Body:</strong> Inter 400, generous line-height</li>
+      <li><strong>Logo:</strong> Reversed logo (FLOW white + BUILD amber + AI badge) bottom-right on every slide</li>
+      <li><strong>Faceless rule:</strong> No stock photos of people. Bold type, iconography, data visuals, UI mockup screenshots</li>
+    </ul>
+
+  </div>
+  <div class="doc-footer">
+    <span class="doc-footer-meta">Confidential · FlowBuild AI · 2026</span>
+    <span class="doc-footer-pg">04</span>
+  </div>
+</div>
+
+
+<!-- ═══ PAGE 5 — CONTENT BANK ═══ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span> <span class="logo-badge" style="font-size:5pt;">AI</span></div>
+    <div class="doc-header-right">Social Strategy · Content Bank</div>
+  </div>
+  <div class="page-body">
+
+    <div class="section-label">Week 1–4 Content Bank</div>
+    <h2 class="section-title">Ready-to-Make Posts</h2>
+    <p class="intro-text">20 specific post ideas — enough to fill the first month without thinking. Produce these in two batch sessions. Each idea notes the pillar, format, and the hook copy to use.</p>
+
+    <div class="idea-block">
+      <div class="idea-pillar-head">
+        <div class="idea-pillar-badge">Pillar 1</div>
+        <div class="idea-pillar-name">The Hidden Problem — 30% of posts</div>
+      </div>
+      <ul class="idea-list">
+        <li class="idea-item"><span class="idea-format static">Static</span><span class="idea-text">"What happens to your missed calls after 6pm?"</span></li>
+        <li class="idea-item"><span class="idea-format carousel">Carousel</span><span class="idea-text">"You sent the quote. They never replied. Here's why." — the follow-up gap explained</span></li>
+        <li class="idea-item"><span class="idea-format carousel">Carousel</span><span class="idea-text">"3 jobs you probably lost this week — without knowing it." — list format, 4 slides</span></li>
+        <li class="idea-item"><span class="idea-format static">Static</span><span class="idea-text">"Your competitor just set up an AI system. Here's what that means for you."</span></li>
+        <li class="idea-item"><span class="idea-format static">Static</span><span class="idea-text">"Most local businesses lose €30–50k a year to this. Do you?" — CTA to audit</span></li>
+      </ul>
+    </div>
+
+    <div class="idea-block">
+      <div class="idea-pillar-head">
+        <div class="idea-pillar-badge">Pillar 2</div>
+        <div class="idea-pillar-name">The Solution Shown — 25% of posts</div>
+      </div>
+      <ul class="idea-list">
+        <li class="idea-item"><span class="idea-format carousel">Carousel</span><span class="idea-text">"How a local electrician in Cork gets 12 enquiries while he sleeps." — mini case study</span></li>
+        <li class="idea-item"><span class="idea-format carousel">Carousel</span><span class="idea-text">"What FlowBuild AI actually does — in plain English." — 6-slide how it works</span></li>
+        <li class="idea-item"><span class="idea-format carousel">Carousel</span><span class="idea-text">"Before: no website, 2 calls a week. After: booked out 3 weeks in advance."</span></li>
+        <li class="idea-item"><span class="idea-format carousel">Carousel</span><span class="idea-text">"The 72-hour fix for a business that keeps missing leads." — process reveal</span></li>
+        <li class="idea-item"><span class="idea-format static">Static</span><span class="idea-text">"Never miss a booking while you're on the job." — AI booking system teaser</span></li>
+      </ul>
+    </div>
+
+    <div class="idea-block">
+      <div class="idea-pillar-head">
+        <div class="idea-pillar-badge">Pillar 3</div>
+        <div class="idea-pillar-name">Industry Truth — 20% of posts</div>
+      </div>
+      <ul class="idea-list">
+        <li class="idea-item"><span class="idea-format static">Static</span><span class="idea-text">"67% of people research a service business online before calling. What do they find when they search for you?"</span></li>
+        <li class="idea-item"><span class="idea-format static">Static</span><span class="idea-text">"1 in 3 local businesses gets a job through social media every week. Most aren't even trying."</span></li>
+        <li class="idea-item"><span class="idea-format carousel">Carousel</span><span class="idea-text">"The businesses showing up first on Google aren't the best. They're just the ones who showed up." — SEO/visibility truth</span></li>
+        <li class="idea-item"><span class="idea-format carousel">Carousel</span><span class="idea-text">"Irish service businesses: here's what your digital presence is actually costing you." — data-led carousel</span></li>
+      </ul>
+    </div>
+
+    <div class="idea-block">
+      <div class="idea-pillar-head">
+        <div class="idea-pillar-badge">Pillar 4</div>
+        <div class="idea-pillar-name">Social Proof — 15% (build toward)</div>
+      </div>
+      <ul class="idea-list">
+        <li class="idea-item"><span class="idea-format static">Static</span><span class="idea-text">"Out of the first 100 Lead Leak Audits, average annual revenue at risk: €43,000." — audit aggregate data</span></li>
+        <li class="idea-item"><span class="idea-format carousel">Carousel</span><span class="idea-text">First client result — anonymised business type + specific outcome once first client is signed</span></li>
+      </ul>
+    </div>
+
+    <div class="idea-block">
+      <div class="idea-pillar-head">
+        <div class="idea-pillar-badge">Pillar 5</div>
+        <div class="idea-pillar-name">Brand / Who We Are — 10%</div>
+      </div>
+      <ul class="idea-list">
+        <li class="idea-item"><span class="idea-format carousel">Carousel</span><span class="idea-text">"Why we built FlowBuild AI — and who it's actually for." — origin story, 5 slides</span></li>
+        <li class="idea-item"><span class="idea-format static">Static</span><span class="idea-text">"Two locals. No middlemen. No lock-in. That's the whole deal."</span></li>
+        <li class="idea-item"><span class="idea-format static">Static</span><span class="idea-text">"We don't do reports. We do results." — conviction brand post</span></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="doc-footer">
+    <span class="doc-footer-meta">Confidential · FlowBuild AI · 2026</span>
+    <span class="doc-footer-pg">05</span>
+  </div>
+</div>
+
+
+<!-- ═══ PAGE 6 — SCHEDULE + SETUP + METRICS ═══ -->
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo">FLOW<span>BUILD</span> <span class="logo-badge" style="font-size:5pt;">AI</span></div>
+    <div class="doc-header-right">Social Strategy · Schedule & Setup</div>
+  </div>
+  <div class="page-body">
+
+    <div class="section-label">When &amp; Where to Post</div>
+    <h2 class="section-title">Posting Schedule</h2>
+    <p class="intro-text">3–4 posts per week. Consistency beats volume at this stage. Batch-create 10–12 posts in one sitting per week so you're never scrambling day-to-day.</p>
+
+    <table class="sched-table">
+      <tr>
+        <th>Day</th>
+        <th>Platform</th>
+        <th>Format</th>
+        <th>Pillar</th>
+      </tr>
+      <tr>
+        <td><strong>Monday</strong></td>
+        <td>Instagram + Facebook</td>
+        <td class="amber">Carousel</td>
+        <td>Hidden Problem</td>
+      </tr>
+      <tr>
+        <td><strong>Tuesday</strong></td>
+        <td>Instagram</td>
+        <td>Static</td>
+        <td>Industry Truth</td>
+      </tr>
+      <tr>
+        <td><strong>Wednesday</strong></td>
+        <td>Facebook</td>
+        <td class="amber">Carousel</td>
+        <td>The Solution</td>
+      </tr>
+      <tr>
+        <td><strong>Thursday</strong></td>
+        <td>Instagram</td>
+        <td>Static</td>
+        <td>Brand / Values</td>
+      </tr>
+      <tr>
+        <td><strong>Friday</strong></td>
+        <td>Instagram + Facebook</td>
+        <td class="amber">Carousel</td>
+        <td>Social Proof / Results</td>
+      </tr>
+    </table>
+
+    <ul class="blist" style="margin-top:3mm;">
+      <li><strong>Stories daily</strong> — repurpose feed posts, run polls ("Do you have a website?"), link sticker to audit</li>
+      <li><strong>Facebook:</strong> Always post audit link in first comment — Facebook penalises external links in captions</li>
+      <li><strong>Scheduling:</strong> Use Meta Business Suite (free) or Later to batch-schedule the week in one session</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Profile Setup — Do This First</div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4mm; margin:3mm 0;">
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-size:7.5pt;font-weight:700;color:var(--char);margin-bottom:2mm;">Instagram Bio</div>
+        <div class="bio-mock">
+          <div class="bio-mock-handle">@flowbuildai</div>
+          <div class="bio-mock-text">Helping Irish local businesses<br>stop losing leads.<br>Free 3-min Lead Leak Audit 👇</div>
+          <div class="bio-mock-link">flowbuildai.ie/audit</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-size:7.5pt;font-weight:700;color:var(--char);margin-bottom:2mm;">Facebook Page</div>
+        <ul class="blist">
+          <li><strong>About:</strong> "AI systems for Irish trades and service businesses. Website design, AI booking &amp; automation — live in 72 hours, no lock-in."</li>
+          <li><strong>Cover image:</strong> Adapt og-image.png to 820×312</li>
+          <li><strong>Page button:</strong> Learn More → flowbuildai.ie/audit</li>
+          <li><strong>Pin a post</strong> linking directly to the audit</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="amber-box">
+      <div class="amber-box-label">Template System</div>
+      <p>Build 4 reusable Canva/Figma templates before creating any content: <strong>(1)</strong> Dark PAS carousel slide <strong>(2)</strong> Light list carousel slide <strong>(3)</strong> Dark static single image <strong>(4)</strong> Before/After split frame. Every post then takes minutes, not an hour.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label">What to Measure Every Week</div>
+
+    <div class="metric-row-wrap">
+      <div class="metric-card">
+        <div class="metric-num">1–3%</div>
+        <div class="metric-lbl">Save Rate Target</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">5–10</div>
+        <div class="metric-lbl">Audit Clicks / Week</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">↑</div>
+        <div class="metric-lbl">Reach Growing Week-on-Week</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">+ve</div>
+        <div class="metric-lbl">Net New Follows Weekly</div>
+      </div>
+    </div>
+
+    <ul class="blist" style="margin-top:2mm;">
+      <li><strong>Saves</strong> are the most important signal — they tell you the content was worth bookmarking</li>
+      <li><strong>Profile visits from posts</strong> — is content creating curiosity? Track the trend, not the absolute number</li>
+      <li><strong>Audit link clicks</strong> — the only metric that directly connects social to revenue. Track via the audit page analytics</li>
+      <li>Review metrics every Friday. Kill any format getting no saves after 5 posts. Double down on what earns them</li>
+    </ul>
+
+  </div>
+  <div class="doc-footer">
+    <span class="doc-footer-meta">Confidential · FlowBuild AI · 2026</span>
+    <span class="doc-footer-pg">06</span>
+  </div>
+</div>
+
+
+<!-- ═══ PAGE 7 — BACK COVER ═══ -->
+<div class="page backcover">
+  <div class="bc-amber-strip"></div>
+  <div class="bc-body">
+
+    <div style="font-family:'Inter',sans-serif;font-size:7pt;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);margin-bottom:8mm;display:flex;align-items:center;gap:10px;">
+      <span style="display:block;width:24px;height:2px;background:var(--amber);"></span>
+      The One Thing
+    </div>
+
+    <h2 style="font-family:'EB Garamond',serif;font-size:38pt;font-weight:600;line-height:1.05;letter-spacing:-0.02em;color:white;margin-bottom:7mm;">The account that posts<br>consistently for 90 days<br>will <em style="color:var(--amber);font-style:italic;">beat every account</em><br>that posted perfectly<br>for two weeks.</h2>
+
+    <p style="font-family:'EB Garamond',serif;font-size:12pt;line-height:1.7;color:rgba(255,255,255,0.52);font-style:italic;max-width:130mm;margin-bottom:10mm;">Most brands overthink the content and underdo the frequency. The algorithm rewards consistency above all else. Produce in batches, schedule in advance, never miss a week — and the audience will build itself.</p>
+
+    <div style="border:1px solid rgba(255,255,255,0.1);border-radius:4px;padding:5mm 6mm;background:rgba(255,255,255,0.04);max-width:140mm;">
+      <div style="font-family:'Inter',sans-serif;font-size:6.5pt;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:2.5mm;">The Weekly Rhythm</div>
+      <div style="font-family:'EB Garamond',serif;font-size:11pt;color:rgba(255,255,255,0.72);line-height:1.65;">
+        <strong style="color:white;font-weight:600;">Monday:</strong> 2-hour batch — produce 10 posts for the week, schedule in Meta Business Suite<br>
+        <strong style="color:white;font-weight:600;">Daily:</strong> Check comments and DMs — reply within 24 hours, always<br>
+        <strong style="color:white;font-weight:600;">Friday:</strong> Review saves and audit clicks — kill what's not working, note what is
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:4mm;margin-top:12mm;">
+      <div style="font-family:'Syne',sans-serif;font-size:13pt;font-weight:800;letter-spacing:-0.01em;color:white;text-transform:uppercase;">FLOW<span style="color:var(--amber);">BUILD</span><span style="display:inline-block;background:var(--amber);color:white;font-family:'Syne',sans-serif;font-size:7pt;font-weight:800;letter-spacing:0.04em;padding:3px 6px;border-radius:2px;margin-left:5px;vertical-align:middle;position:relative;top:-1px;">AI</span></div>
+      <div style="width:1px;height:16px;background:rgba(255,255,255,0.2);"></div>
+      <div style="font-family:'Inter',sans-serif;font-size:8pt;color:rgba(255,255,255,0.38);letter-spacing:0.04em;">info@flowbuildai.ie · flowbuildai.ie</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

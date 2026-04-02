@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlowBuild AI — Week 2 Social Posts</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #1C1917;
+    --amber: #E8652A;
+    --cream: #FAF9F6;
+    --cream-dark: #F0EDE8;
+    --white: #FFFFFF;
+    --muted: #9E9189;
+    --slide-w: 360px;
+    --slide-h: 450px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ECEAE6;
+    color: var(--charcoal);
+    padding: 48px 32px;
+  }
+
+  .page-header {
+    max-width: 1400px;
+    margin: 0 auto 56px;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    border-bottom: 1px solid #D4CFC9;
+    padding-bottom: 24px;
+  }
+  .page-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--charcoal);
+  }
+  .page-logo span { color: var(--amber); }
+  .page-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--charcoal);
+  }
+  .page-date {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .post-block {
+    max-width: 1400px;
+    margin: 0 auto 72px;
+  }
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .post-day {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--amber);
+    padding: 5px 12px;
+    border-radius: 2px;
+    color: white;
+  }
+  .post-platform {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .post-pillar {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--charcoal);
+    border: 1px solid #C8C2BB;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+  .post-format {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .post-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+  }
+
+  .slides-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+  }
+
+  .slide {
+    width: var(--slide-w);
+    height: var(--slide-h);
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .slide-num {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    z-index: 10;
+  }
+
+  .slide-dark {
+    background: var(--charcoal);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px 28px 32px;
+  }
+  .slide-dark::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--amber);
+  }
+  .slide-dark .slide-num { color: var(--white); }
+
+  .slide-cream {
+    background: var(--cream);
+    color: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px 28px 32px;
+  }
+  .slide-cream .slide-num { color: var(--charcoal); }
+
+  .slide-logo {
+    position: absolute;
+    bottom: 14px;
+    right: 16px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 9px;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    line-height: 1;
+  }
+  .slide-dark .slide-logo { color: var(--white); }
+  .slide-dark .slide-logo .logo-b { color: var(--amber); }
+  .slide-cream .slide-logo { color: var(--charcoal); }
+  .slide-cream .slide-logo .logo-b { color: var(--amber); }
+  .slide-logo .logo-badge {
+    font-size: 7px;
+    background: var(--amber);
+    color: white;
+    padding: 1px 3px;
+    border-radius: 1px;
+    margin-left: 3px;
+    letter-spacing: 0.06em;
+  }
+
+  .big-stat {
+    font-family: 'EB Garamond', serif;
+    font-weight: 700;
+    font-size: 100px;
+    line-height: 0.85;
+    color: var(--amber);
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+  }
+  .big-stat-sm { font-size: 72px; }
+  .big-stat-med { font-size: 84px; }
+
+  .anchor-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--amber);
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    opacity: 0.18;
+  }
+
+  .amber-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+
+  .slide-heading {
+    font-family: 'EB Garamond', serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .slide-heading em { font-style: italic; color: var(--amber); }
+  .slide-dark .slide-heading { color: var(--white); }
+  .slide-cream .slide-heading { color: var(--charcoal); }
+
+  .slide-body {
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  .slide-dark .slide-body { color: rgba(250,249,246,0.80); }
+  .slide-cream .slide-body { color: #4A403A; }
+
+  .amber-rule {
+    width: 32px;
+    height: 2px;
+    background: var(--amber);
+    margin-bottom: 12px;
+    flex-shrink: 0;
+  }
+
+  .bullet-list {
+    list-style: none;
+    margin-top: 10px;
+  }
+  .bullet-list li {
+    font-size: 13px;
+    line-height: 1.5;
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  .slide-dark .bullet-list li { color: rgba(250,249,246,0.85); }
+  .bullet-list li::before {
+    content: '—';
+    color: var(--amber);
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+  }
+
+  .check-list {
+    list-style: none;
+    margin-top: 10px;
+  }
+  .check-list li {
+    font-size: 13px;
+    line-height: 1.5;
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 5px;
+  }
+  .slide-dark .check-list li { color: rgba(250,249,246,0.85); }
+  .slide-cream .check-list li { color: #4A403A; }
+  .check-list li::before {
+    content: '✓';
+    color: var(--amber);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  .slide-cta {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    padding: 6px 12px;
+    border-radius: 2px;
+    margin-top: 12px;
+  }
+
+  .day-label {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid rgba(232,101,42,0.4);
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+
+  .caption-block {
+    background: white;
+    border-left: 3px solid var(--amber);
+    padding: 20px 24px;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 12px;
+  }
+  .caption-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .caption-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--charcoal);
+    white-space: pre-line;
+  }
+  .caption-note {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+  .hashtags {
+    font-size: 12px;
+    color: #7A6E66;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+
+  .section-rule {
+    max-width: 1400px;
+    margin: 0 auto 56px;
+    border: none;
+    border-top: 1px solid #D4CFC9;
+  }
+
+  .ghost-num {
+    position: absolute;
+    font-family: 'EB Garamond', serif;
+    font-size: 240px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--amber);
+    opacity: 0.06;
+    top: -30px;
+    right: -20px;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 0;
+    margin-top: 14px;
+    border-top: 1px solid rgba(250,249,246,0.12);
+    padding-top: 14px;
+  }
+  .stat-item { flex: 1; }
+  .stat-item + .stat-item { border-left: 1px solid rgba(250,249,246,0.12); padding-left: 12px; }
+  .stat-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--amber);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 10px;
+    color: rgba(250,249,246,0.55);
+    margin-top: 3px;
+    line-height: 1.3;
+  }
+
+  /* Time label (for Day in the Life) */
+  .time-label {
+    font-family: 'EB Garamond', serif;
+    font-size: 48px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--amber);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .mode-tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+  .mode-tag-manual { background: rgba(200,80,80,0.15); color: #E57373; }
+  .mode-tag-auto { background: rgba(100,200,120,0.15); color: #7CCC8A; }
+
+  @media print {
+    body { background: white; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="page-logo">FLOW<span>BUILD</span> <span style="font-size:11px;background:var(--amber);color:white;padding:2px 5px;border-radius:2px;vertical-align:middle;margin-left:2px;">AI</span></div>
+  <div class="page-title">Week 2 Social Posts — AI Integration</div>
+  <div class="page-date">5 posts · 27 slides · Mon–Fri</div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════
+     POST 1 — MONDAY · CAROUSEL · ADMIN TIME BLEED
+     ═══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-meta">
+    <span class="post-day">Monday</span>
+    <span class="post-platform">Instagram + Facebook</span>
+    <span class="post-format">Carousel · 6 Slides</span>
+    <span class="post-pillar">Pillar — The Hidden Cost of Manual</span>
+  </div>
+  <div class="post-title">"The 16-Hour Week"</div>
+
+  <div class="slides-row">
+
+    <!-- Slide 1 — Hook (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">1 / 6</span>
+      <div class="ghost-num">16</div>
+      <div class="big-stat">16</div>
+      <div class="slide-heading">Hours. Every week. Doing work that should be automated.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 2 — The Breakdown (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">2 / 6</span>
+      <div class="anchor-num">01</div>
+      <div class="amber-label">Where the time goes</div>
+      <div class="slide-heading">Here's where Irish business owners are bleeding hours every week.</div>
+      <ul class="bullet-list" style="margin-top:8px;">
+        <li style="color:#4A403A;">Scheduling &amp; rescheduling</li>
+        <li style="color:#4A403A;">Chasing unpaid invoices</li>
+        <li style="color:#4A403A;">Answering the same 6 questions</li>
+        <li style="color:#4A403A;">Following up on quotes gone quiet</li>
+      </ul>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 3 — The Maths (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">3 / 6</span>
+      <div class="anchor-num" style="font-size:52px;opacity:0.12;">52</div>
+      <div class="amber-label">The maths</div>
+      <div style="font-family:'EB Garamond',serif;font-size:17px;font-weight:600;color:var(--charcoal);line-height:1.5;margin-bottom:12px;">16 hrs a week = 2 full days<br>2 full days × 52 weeks =</div>
+      <div style="font-family:'EB Garamond',serif;font-size:52px;font-weight:700;color:var(--amber);line-height:0.9;letter-spacing:-0.03em;margin-bottom:10px;">3 weeks</div>
+      <div class="slide-body">That's a holiday you never took.<br>That's a hire you never made.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 4 — The Real Cost (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">4 / 6</span>
+      <div class="amber-label">The real cost</div>
+      <div class="slide-heading">At €50/hr, that's</div>
+      <div style="font-family:'EB Garamond',serif;font-size:60px;font-weight:700;color:var(--amber);line-height:0.85;letter-spacing:-0.03em;margin-bottom:10px;">€41,600</div>
+      <div class="slide-body">in owner time every year.<br>Doing admin a system could handle in seconds.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 5 — The Shift (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">5 / 6</span>
+      <div style="margin-bottom:auto;padding-top:32px;">
+        <div class="amber-label">After AI</div>
+        <div class="slide-heading" style="font-size:20px;">AI handles it.</div>
+      </div>
+      <ul class="check-list">
+        <li>Booking confirmations</li>
+        <li>Invoice sending</li>
+        <li>FAQ replies</li>
+        <li>Quote follow-ups</li>
+      </ul>
+      <div style="margin-top:12px;font-size:13px;font-style:italic;color:rgba(250,249,246,0.55);">You handle: the actual work.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 6 — CTA (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">6 / 6</span>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div class="amber-label">Free · 3 minutes · No sales call</div>
+      </div>
+      <div class="amber-rule"></div>
+      <div class="slide-heading">Find out how many hours your business is wasting.</div>
+      <div style="font-size:13px;font-weight:600;color:var(--amber);margin-top:10px;">flowbuildai.ie/audit</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+  </div>
+
+  <div class="caption-block">
+    <div class="caption-label">Caption — Instagram &amp; Facebook</div>
+    <div class="caption-text">Most business owners don't realise how much time they spend working for the business instead of on it.
+
+16 hours a week on admin. That's not a workflow — that's a second job.
+
+The AI Audit shows you exactly what can be automated and what it's worth. Free, takes 3 minutes.
+
+Link in bio.</div>
+    <div class="hashtags">#IrishBusiness #SmallBusiness #BusinessOwner #AIAutomation #ServiceBusiness #Tradespeople #IrishEntrepreneur</div>
+  </div>
+</div>
+
+<hr class="section-rule">
+
+<!-- ═══════════════════════════════════════════
+     POST 2 — TUESDAY · CAROUSEL · 24/7 AI ANGLE
+     ═══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-meta">
+    <span class="post-day">Tuesday</span>
+    <span class="post-platform">Instagram + Facebook</span>
+    <span class="post-format">Carousel · 5 Slides</span>
+    <span class="post-pillar">Pillar — Missed Revenue / Work-Life</span>
+  </div>
+  <div class="post-title">"Your Business at 11pm"</div>
+
+  <div class="slides-row">
+
+    <!-- Slide 1 — Hook (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">1 / 5</span>
+      <div style="margin-bottom:auto;padding-top:32px;">
+        <div style="font-family:'EB Garamond',serif;font-size:64px;font-weight:700;font-style:italic;color:white;line-height:0.9;letter-spacing:-0.02em;">11:07pm.</div>
+        <div style="font-size:13px;color:rgba(250,249,246,0.55);margin-top:10px;font-style:italic;">Someone just enquired about your services.</div>
+      </div>
+      <div class="amber-rule"></div>
+      <div class="slide-heading" style="font-size:20px;">What happens next?</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 2 — The Stat (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">2 / 5</span>
+      <div style="margin-bottom:auto;padding-top:32px;">
+        <div style="font-family:'EB Garamond',serif;font-size:96px;font-weight:700;color:var(--amber);line-height:0.85;letter-spacing:-0.03em;">80%</div>
+        <div style="font-size:13px;color:rgba(250,249,246,0.7);margin-top:8px;line-height:1.6;max-width:260px;">of people who reach voicemail <strong style="color:white;">won't call back.</strong> They've already moved on.</div>
+      </div>
+      <div style="font-size:11px;font-style:italic;color:rgba(250,249,246,0.35);">They called the next person on Google.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 3 — The Contrast (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">3 / 5</span>
+      <div style="display:flex;flex-direction:column;height:100%;justify-content:center;gap:0;padding-top:36px;">
+        <div style="margin-bottom:16px;">
+          <div style="font-size:9px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#C85555;margin-bottom:6px;">Without AI</div>
+          <div style="font-size:12.5px;color:#5A4E48;line-height:1.6;">Enquiry at 11pm → voicemail → next Google result → job gone.</div>
+        </div>
+        <div style="width:100%;height:1px;background:#E0D8D0;margin-bottom:16px;"></div>
+        <div>
+          <div style="font-size:9px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#4A9E6A;margin-bottom:6px;">With AI</div>
+          <div style="font-size:12.5px;color:#5A4E48;line-height:1.6;">Enquiry at 11pm → instant reply in 60 seconds → booked in your calendar before midnight.</div>
+        </div>
+      </div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 4 — The Number (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">4 / 5</span>
+      <div class="anchor-num" style="font-size:48px;opacity:0.1;">€</div>
+      <div class="amber-label">The real cost</div>
+      <div class="slide-heading">Contractors missing 5–10 calls a week lose</div>
+      <div style="font-family:'EB Garamond',serif;font-size:44px;font-weight:700;color:var(--amber);line-height:0.9;letter-spacing:-0.03em;margin-top:8px;margin-bottom:8px;">€45k–€120k</div>
+      <div class="slide-body">a year. To faster competitors.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 5 — CTA (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">5 / 5</span>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div class="amber-label">Free · 3 minutes</div>
+      </div>
+      <div class="amber-rule"></div>
+      <div class="slide-heading">Your business should work while you don't.</div>
+      <div style="font-size:13px;font-weight:600;color:var(--amber);margin-top:10px;">flowbuildai.ie/audit</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+  </div>
+
+  <div class="caption-block">
+    <div class="caption-label">Caption — Instagram &amp; Facebook</div>
+    <div class="caption-text">This is the one that stings.
+
+You've done the hard part — built the reputation, put yourself out there, got the ad in front of the right person. And then they hit voicemail at 11pm.
+
+80% don't call back. They've already called someone else.
+
+AI fixes this. It doesn't sleep.
+
+Take the free audit — link in bio.</div>
+    <div class="hashtags">#IrishBusiness #AIAutomation #MissedCalls #ServiceBusiness #LocalBusiness #Tradespeople</div>
+  </div>
+</div>
+
+<hr class="section-rule">
+
+<!-- ═══════════════════════════════════════════
+     POST 3 — WEDNESDAY · CAROUSEL · FOLLOW-UP
+     ═══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-meta">
+    <span class="post-day">Wednesday</span>
+    <span class="post-platform">Instagram + Facebook</span>
+    <span class="post-format">Carousel · 6 Slides</span>
+    <span class="post-pillar">Pillar — Revenue Recovery</span>
+  </div>
+  <div class="post-title">"The Follow-Up Nobody Sends"</div>
+
+  <div class="slides-row">
+
+    <!-- Slide 1 — Hook (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">1 / 6</span>
+      <div class="ghost-num" style="font-size:180px;opacity:0.05;">73</div>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div style="font-family:'EB Garamond',serif;font-size:96px;font-weight:700;color:var(--amber);line-height:0.85;letter-spacing:-0.03em;">73%</div>
+        <div style="font-size:13px;color:rgba(250,249,246,0.6);margin-top:8px;line-height:1.5;">of business leads are never followed up on.</div>
+      </div>
+      <div class="amber-rule"></div>
+      <div class="slide-heading" style="font-size:18px;">That's not a sales problem.<br>That's a system problem.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 2 — The Reality (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">2 / 6</span>
+      <div class="anchor-num">02</div>
+      <div class="amber-label">Sound familiar?</div>
+      <div class="slide-heading">You send the quote. You wait. Nothing.</div>
+      <div class="slide-body" style="margin-top:8px;">So you move on. Assume they went elsewhere.<br><br>Meanwhile — they haven't bought from anyone yet.<br><br>They're just waiting.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 3 — The Data (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">3 / 6</span>
+      <div class="anchor-num" style="font-size:52px;opacity:0.1;">70</div>
+      <div class="amber-label">The data</div>
+      <div style="font-family:'EB Garamond',serif;font-size:52px;font-weight:700;color:var(--amber);line-height:0.85;letter-spacing:-0.03em;margin-bottom:10px;">70%</div>
+      <div class="slide-heading" style="font-size:19px;">of all conversions come from follow-ups.</div>
+      <div class="slide-body" style="margin-top:6px;">Not the first message. The follow-up.<br><br>The businesses winning those jobs aren't better.<br>They just show up again.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 4 — The Sequence (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">4 / 6</span>
+      <div class="amber-label">The automated sequence</div>
+      <div class="slide-heading">Sent automatically.<br>While you're on the tools.</div>
+      <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="background:var(--amber);color:white;font-size:9px;font-weight:800;padding:3px 7px;border-radius:2px;flex-shrink:0;letter-spacing:0.06em;">Day 1</div>
+          <div style="font-size:12px;color:#4A403A;line-height:1.4;">"Just checking you got the quote through"</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="background:var(--charcoal);color:white;font-size:9px;font-weight:800;padding:3px 7px;border-radius:2px;flex-shrink:0;letter-spacing:0.06em;">Day 3</div>
+          <div style="font-size:12px;color:#4A403A;line-height:1.4;">"Any questions on what's included?"</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="background:var(--charcoal);color:white;font-size:9px;font-weight:800;padding:3px 7px;border-radius:2px;flex-shrink:0;letter-spacing:0.06em;">Day 7</div>
+          <div style="font-size:12px;color:#4A403A;line-height:1.4;">"Slot is still available if you want to get started"</div>
+        </div>
+      </div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 5 — The Result (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">5 / 6</span>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div class="amber-label">The result</div>
+        <div style="font-family:'EB Garamond',serif;font-size:80px;font-weight:700;color:var(--amber);line-height:0.85;letter-spacing:-0.03em;">320%</div>
+        <div style="font-size:13px;color:rgba(250,249,246,0.6);margin-top:8px;line-height:1.5;max-width:260px;">more revenue for businesses running automated follow-up sequences vs. sending once and hoping.</div>
+      </div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 6 — CTA (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">6 / 6</span>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div class="amber-label">Free · 3 minutes · No sales call</div>
+      </div>
+      <div class="amber-rule"></div>
+      <div class="slide-heading">Stop leaving jobs in the outbox.</div>
+      <div style="font-size:13px;font-weight:600;color:var(--amber);margin-top:10px;">flowbuildai.ie/audit</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+  </div>
+
+  <div class="caption-block">
+    <div class="caption-label">Caption — Instagram &amp; Facebook</div>
+    <div class="caption-text">The quote follow-up is the most valuable message most small businesses never send.
+
+You send the quote, hear nothing, assume they went elsewhere, and move on.
+
+But they haven't bought from anyone yet. They're just waiting.
+
+AI sends Day 1, Day 3, Day 7 — automatically. The businesses winning those jobs aren't better. They just show up again.
+
+Free AI Audit — link in bio.</div>
+    <div class="caption-note">Facebook: post audit link in first comment after publishing.</div>
+    <div class="hashtags">#IrishBusiness #QuoteFollowUp #AIAutomation #ServiceBusiness #LocalTrades #SmallBusiness</div>
+  </div>
+</div>
+
+<hr class="section-rule">
+
+<!-- ═══════════════════════════════════════════
+     POST 4 — THURSDAY · CAROUSEL · GOOGLE REVIEWS
+     ═══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-meta">
+    <span class="post-day">Thursday</span>
+    <span class="post-platform">Instagram</span>
+    <span class="post-format">Carousel · 5 Slides</span>
+    <span class="post-pillar">Pillar — Reputation = Revenue</span>
+  </div>
+  <div class="post-title">"What Your Google Reviews Are Worth"</div>
+
+  <div class="slides-row">
+
+    <!-- Slide 1 — Hook (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">1 / 5</span>
+      <div style="margin-bottom:auto;padding-top:32px;">
+        <div style="font-family:'EB Garamond',serif;font-size:32px;font-weight:700;color:white;line-height:1.15;letter-spacing:-0.02em;">Your Google reviews<br>are worth more than<br>you think.</div>
+      </div>
+      <div class="amber-rule"></div>
+      <div class="slide-body" style="font-style:italic;color:rgba(250,249,246,0.55);">Here's the maths.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 2 — The Stats (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">2 / 5</span>
+      <div class="amber-label">The numbers</div>
+      <div class="slide-heading">Businesses with strong Google reviews:</div>
+      <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;gap:10px;align-items:center;">
+          <div style="font-family:'EB Garamond',serif;font-size:28px;font-weight:700;color:var(--amber);line-height:1;width:64px;flex-shrink:0;">+18%</div>
+          <div style="font-size:12px;color:#4A403A;line-height:1.4;">average revenue uplift</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <div style="font-family:'EB Garamond',serif;font-size:28px;font-weight:700;color:var(--amber);line-height:1;width:64px;flex-shrink:0;">+31%</div>
+          <div style="font-size:12px;color:#4A403A;line-height:1.4;">more spending from customers</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <div style="font-family:'EB Garamond',serif;font-size:28px;font-weight:700;color:var(--amber);line-height:1;width:64px;flex-shrink:0;">89%</div>
+          <div style="font-size:12px;color:#4A403A;line-height:1.4;">of people check reviews before hiring</div>
+        </div>
+      </div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 3 — The Gap (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">3 / 5</span>
+      <div class="anchor-num">03</div>
+      <div class="amber-label">The reality</div>
+      <div class="slide-heading">Most service businesses ask for reviews:</div>
+      <ul class="bullet-list" style="margin-top:10px;">
+        <li style="color:#4A403A;">Occasionally</li>
+        <li style="color:#4A403A;">Only if they remember</li>
+        <li style="color:#4A403A;">Only to their best customers</li>
+      </ul>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid #E0D8D0;">
+        <div style="font-size:13px;font-style:italic;color:#7A6E66;">The result: 4 reviews in 3 years.</div>
+      </div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 4 — The Fix (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">4 / 5</span>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div class="amber-label">The fix</div>
+        <div class="slide-heading">An automated review request. After every single job.</div>
+      </div>
+      <div style="font-size:13px;color:rgba(250,249,246,0.7);line-height:1.6;margin-bottom:8px;">Not some jobs. <em style="font-style:italic;color:white;">Every job.</em><br>No awkward asking. No forgetting.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 5 — CTA (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">5 / 5</span>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div class="amber-label">Free · 3 minutes</div>
+      </div>
+      <div class="amber-rule"></div>
+      <div class="slide-heading">More reviews.<br>More trust.<br>More jobs.</div>
+      <div style="font-size:13px;font-weight:600;color:var(--amber);margin-top:10px;">flowbuildai.ie/audit</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+  </div>
+
+  <div class="caption-block">
+    <div class="caption-label">Caption — Instagram</div>
+    <div class="caption-text">Irish service businesses are sitting on a reputation goldmine they never dig.
+
+Businesses with strong reviews earn 18% more revenue on average. Customers spend 31% more. 89% of people check before hiring.
+
+But most only ask for reviews occasionally — if they remember.
+
+An automated review request after every completed job changes that.
+
+Free AI Audit — link in bio.</div>
+    <div class="hashtags">#GoogleReviews #IrishBusiness #LocalBusiness #Reputation #ServiceBusiness #AIAutomation #Tradespeople</div>
+  </div>
+</div>
+
+<hr class="section-rule">
+
+<!-- ═══════════════════════════════════════════
+     POST 5 — FRIDAY · CAROUSEL · DAY IN THE LIFE
+     ═══════════════════════════════════════════ -->
+<div class="post-block">
+  <div class="post-meta">
+    <span class="post-day">Friday</span>
+    <span class="post-platform">Instagram + Facebook</span>
+    <span class="post-format">Carousel · 7 Slides</span>
+    <span class="post-pillar">Pillar — Transformation / Clarity</span>
+  </div>
+  <div class="post-title">"A Day in the Life: Manual vs Automated"</div>
+
+  <div class="slides-row">
+
+    <!-- Slide 1 — Hook (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">1 / 7</span>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div style="font-family:'EB Garamond',serif;font-size:17px;font-style:italic;color:rgba(250,249,246,0.5);margin-bottom:12px;">Two business owners.<br>Same trade. Same day.</div>
+        <div style="font-family:'EB Garamond',serif;font-size:34px;font-weight:700;color:white;line-height:1.1;letter-spacing:-0.02em;">One runs on manual.<br>One runs on AI.</div>
+      </div>
+      <div class="amber-rule"></div>
+      <div class="slide-body" style="font-style:italic;color:rgba(250,249,246,0.55);">Here's the difference.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 2 — Manual 7am (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">2 / 7</span>
+      <div style="position:absolute;top:14px;right:16px;"><span class="mode-tag mode-tag-manual">Manual</span></div>
+      <div class="time-label">7am.</div>
+      <div class="slide-heading" style="font-size:20px;">Wakes up to 3 missed calls.</div>
+      <div class="slide-body" style="margin-top:6px;">Spends 45 minutes returning them. One voicemail just says "call me back" — no name, no job type. Calls back twice. No answer.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 3 — Manual 12pm (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">3 / 7</span>
+      <div style="position:absolute;top:14px;right:16px;"><span class="mode-tag mode-tag-manual">Manual</span></div>
+      <div class="time-label">12pm.</div>
+      <div class="slide-heading" style="font-size:20px;">Stops work to answer a pricing question.</div>
+      <div class="slide-body" style="margin-top:6px;">Checks the calendar manually. Tells the customer he'll confirm and call back. Gets back to the job. Forgets to call back.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 4 — Manual 6pm (cream) -->
+    <div class="slide slide-cream">
+      <span class="slide-num">4 / 7</span>
+      <div style="position:absolute;top:14px;right:16px;"><span class="mode-tag mode-tag-manual">Manual</span></div>
+      <div class="time-label">6pm.</div>
+      <div class="slide-heading" style="font-size:20px;">Gets home. Still has to send 2 quotes.</div>
+      <div class="slide-body" style="margin-top:6px;">Writes the same email he's written 40 times. Goes to follow up on a quote from Tuesday. Can't find the thread. Gives up.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 5 — Auto 7am (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">5 / 7</span>
+      <div style="position:absolute;top:14px;right:16px;"><span class="mode-tag mode-tag-auto">Automated</span></div>
+      <div class="time-label" style="color:var(--amber);">7am.</div>
+      <div class="slide-heading">Wakes up. 2 new bookings overnight.</div>
+      <div class="slide-body" style="margin-top:6px;">Customers were handled by AI at 9pm and 11pm. Qualified, answered, booked. Calendar already updated.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 6 — Auto 12pm (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">6 / 7</span>
+      <div style="position:absolute;top:14px;right:16px;"><span class="mode-tag mode-tag-auto">Automated</span></div>
+      <div class="time-label" style="color:var(--amber);">12pm.</div>
+      <div class="slide-heading">Customer asks about pricing. AI replies in seconds.</div>
+      <div class="slide-body" style="margin-top:6px;">Full FAQ answered automatically. They book a survey for Thursday. He's still on the tools. Never interrupted.</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+    <!-- Slide 7 — CTA (dark) -->
+    <div class="slide slide-dark">
+      <span class="slide-num">7 / 7</span>
+      <div style="margin-bottom:auto;padding-top:28px;">
+        <div style="font-family:'EB Garamond',serif;font-size:20px;font-style:italic;color:rgba(250,249,246,0.55);margin-bottom:12px;">This isn't the future.</div>
+        <div style="font-family:'EB Garamond',serif;font-size:26px;font-weight:700;color:white;line-height:1.15;letter-spacing:-0.01em;">This is how some of your competitors are already working.</div>
+      </div>
+      <div class="amber-rule"></div>
+      <div style="font-size:13px;font-weight:600;color:var(--amber);">Free AI Audit → flowbuildai.ie/audit</div>
+      <div class="slide-logo">FLOW<span class="logo-b">BUILD</span><span class="logo-badge">AI</span></div>
+    </div>
+
+  </div>
+
+  <div class="caption-block">
+    <div class="caption-label">Caption — Instagram &amp; Facebook</div>
+    <div class="caption-text">The gap between a business that runs you and a business you run is mostly systems.
+
+Not talent. Not harder work.
+
+The right automations mean nights, weekends, and lunch breaks stay yours. Enquiries get answered. Quotes get followed up. Reviews get requested.
+
+Without you lifting a finger.
+
+See what's available for your specific business — free AI Audit at the link in bio.</div>
+    <div class="caption-note">Facebook: post audit link in first comment — "👉 Free AI Audit: flowbuildai.ie/audit"</div>
+    <div class="hashtags">#AIAutomation #IrishBusiness #WorkSmarter #ServiceBusiness #Tradespeople #BusinessSystems #SmallBusiness</div>
+  </div>
+</div>
+
+
+<!-- Stories note -->
+<div style="max-width:1400px;margin:0 auto 48px;background:white;border-radius:4px;padding:24px 28px;border-left:3px solid var(--charcoal);">
+  <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--charcoal);margin-bottom:14px;">Daily Stories — This Week</div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Mon</div>
+      <div style="font-size:12px;color:#4A403A;line-height:1.5;">Repurpose Slide 1 (big "16") as Story → link sticker to audit</div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Tue</div>
+      <div style="font-size:12px;color:#4A403A;line-height:1.5;">Poll: "Do you answer calls after 8pm?" — Yes / No</div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Wed</div>
+      <div style="font-size:12px;color:#4A403A;line-height:1.5;">Post the Day 1/3/7 sequence slide as a Story → link sticker</div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Thu</div>
+      <div style="font-size:12px;color:#4A403A;line-height:1.5;">Question box: "How many Google reviews do you have?" → reply with tips</div>
+    </div>
+    <div>
+      <div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Fri</div>
+      <div style="font-size:12px;color:#4A403A;line-height:1.5;">"Which one are you?" — Manual or Automated → swipe to compare → audit link</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

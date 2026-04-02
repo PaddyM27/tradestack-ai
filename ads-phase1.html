@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlowBuild AI — Phase 1 Ad Creatives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amber:    #E8652A;
+    --coal:     #1C1917;
+    --coal-2:   #242120;
+    --coal-mid: #6B6560;
+    --cream:    #FAF9F6;
+    --c70:      rgba(250,249,246,0.7);
+    --c60:      rgba(250,249,246,0.6);
+    --c40:      rgba(250,249,246,0.4);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter Tight', sans-serif;
+    background: #111110;
+    color: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── PAGE SHELL ── */
+  .page-header {
+    padding: 56px 72px 44px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 40px;
+  }
+  .wm { font-weight: 800; font-size: 16px; letter-spacing: -0.04em; display: flex; align-items: center; }
+  .wm .b { color: var(--amber); }
+  .wm-badge { background: var(--amber); color: var(--coal); font-size: 8px; font-weight: 800; letter-spacing: 0.04em; padding: 3px 5px; border-radius: 3px; margin-left: 4px; }
+  .hdr-h1 { font-family: 'EB Garamond', serif; font-size: 42px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+  .hdr-h1 em { color: var(--amber); font-style: italic; }
+  .hdr-meta { font-size: 11px; color: var(--coal-mid); margin-top: 8px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .sec-head { padding: 44px 72px 16px; display: flex; align-items: center; gap: 16px; }
+  .sec-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); white-space: nowrap; }
+  .sec-line { flex: 1; height: 1px; background: rgba(255,255,255,0.06); }
+
+  /* ── GALLERY — 2 columns ── */
+  .gallery {
+    padding: 8px 72px 80px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .slot { display: flex; flex-direction: column; gap: 14px; }
+  .slot-lbl { display: flex; align-items: center; justify-content: space-between; }
+  .ang { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); }
+  .ang-note { font-size: 11px; color: var(--coal-mid); }
+
+  /* ── 4:5 frame with container queries ── */
+  .frame {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    container-type: inline-size;
+  }
+
+  /* ── SHARED: logos ── */
+  .logo-light {
+    font-weight: 800; font-size: 4.5cqw; letter-spacing: -0.04em;
+    color: var(--cream); display: flex; align-items: center; gap: 0.8cqw;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .logo-light .lb { color: var(--amber); }
+  .logo-light .lbx {
+    background: var(--amber); color: var(--coal);
+    font-size: 3.3cqw; font-weight: 800;
+    padding: 0.6cqw 1.4cqw; border-radius: 2px; display: inline-block;
+  }
+  .logo-dark {
+    font-weight: 800; font-size: 4.5cqw; letter-spacing: -0.04em;
+    color: var(--coal); display: flex; align-items: center; gap: 0.8cqw;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .logo-dark .lb { color: var(--amber); }
+  .logo-dark .lbx {
+    background: var(--coal); color: var(--cream);
+    font-size: 3.3cqw; font-weight: 800;
+    padding: 0.6cqw 1.4cqw; border-radius: 2px; display: inline-block;
+  }
+  /* amber-background logo: charcoal text, dark AI badge */
+  .logo-coal {
+    font-weight: 800; font-size: 4.5cqw; letter-spacing: -0.04em;
+    color: rgba(28,25,23,0.55); display: flex; align-items: center; gap: 0.8cqw;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .logo-coal .lbx {
+    background: var(--coal); color: var(--amber);
+    font-size: 3.3cqw; font-weight: 800;
+    padding: 0.6cqw 1.4cqw; border-radius: 2px; display: inline-block;
+  }
+
+  /* ── SHARED: grain SVG ── */
+  .gr::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 8;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  }
+
+  /* ═══════════════════════════════════════
+     AD 01 — THE MISSED CALL
+     Charcoal. Huge italic headline. Amber glow.
+     Emotion hook. "That missed call at 2pm?"
+  ═══════════════════════════════════════ */
+  .ad1 {
+    background: var(--coal);
+    width: 100%; height: 100%;
+    padding: 10cqw;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  /* warm amber glow — bottom-left quadrant */
+  .ad1::before {
+    content: ''; position: absolute;
+    bottom: -20%; left: -20%;
+    width: 80%; height: 75%;
+    background: radial-gradient(circle, rgba(232,101,42,0.14) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  /* grain */
+  .ad1::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+  .ad1 > * { position: relative; z-index: 1; }
+
+  .a1-eyebrow {
+    font-size: 5cqw; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--amber);
+    margin-bottom: auto;
+  }
+  .a1-headline {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13cqw; font-weight: 600;
+    line-height: 1.0; color: var(--cream);
+    letter-spacing: -0.025em;
+  }
+  .a1-subhead {
+    font-family: 'EB Garamond', serif;
+    font-size: 7.5cqw; font-weight: 400;
+    color: var(--c70); line-height: 1.25;
+    margin-top: 2.5cqw; letter-spacing: -0.01em;
+  }
+  .a1-mid { margin-top: 5cqw; margin-bottom: auto; }
+  .a1-rule { width: 7cqw; height: 1px; background: rgba(232,101,42,0.4); margin-bottom: 3.5cqw; }
+  .a1-body {
+    font-size: 5.5cqw; color: var(--c60); line-height: 1.6;
+  }
+  .a1-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 4cqw;
+  }
+  .a1-cta {
+    font-size: 5cqw; font-weight: 700; color: var(--amber);
+    border: 1px solid rgba(232,101,42,0.5); border-radius: 100px;
+    padding: 1.5cqw 3.5cqw; white-space: nowrap; letter-spacing: 0.03em;
+    flex-shrink: 0;
+  }
+
+  /* ═══════════════════════════════════════
+     AD 02 — THE HONEST MATHS
+     Full amber. Enormous number. Logic hook.
+     Scroll-stop: every other ad is dark.
+  ═══════════════════════════════════════ */
+  .ad2 {
+    background: var(--amber);
+    width: 100%; height: 100%;
+    padding: 10cqw;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .ad2::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+  }
+  .ad2 > * { position: relative; z-index: 1; }
+
+  .a2-eyebrow {
+    font-size: 5cqw; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: rgba(28,25,23,0.45);
+    margin-bottom: auto;
+  }
+  .a2-num-block { margin-bottom: auto; }
+  .a2-label {
+    font-size: 7cqw; font-weight: 600; letter-spacing: -0.01em;
+    color: rgba(28,25,23,0.5); margin-bottom: 1.5cqw;
+  }
+  .a2-number {
+    font-family: 'EB Garamond', serif;
+    font-size: 23cqw; font-weight: 700;
+    line-height: 0.85; color: var(--coal);
+    letter-spacing: -0.04em;
+  }
+  .a2-body-block { }
+  .a2-rule { width: 7cqw; height: 1px; background: rgba(28,25,23,0.2); margin-bottom: 4cqw; }
+  .a2-body {
+    font-size: 6cqw; color: rgba(28,25,23,0.6); line-height: 1.55;
+  }
+  .a2-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 6cqw;
+  }
+  .a2-cta {
+    font-size: 5cqw; font-weight: 700;
+    color: var(--cream); background: var(--coal);
+    border-radius: 100px; padding: 1.5cqw 3.5cqw;
+    white-space: nowrap; letter-spacing: 0.03em; flex-shrink: 0;
+  }
+
+  /* ═══════════════════════════════════════
+     AD 03 — YOU ALREADY KNOW
+     Charcoal. Subtle grid. Trust + authority.
+     Sutherland obliquity: validate, don't convince.
+  ═══════════════════════════════════════ */
+  .ad3 {
+    background: var(--coal);
+    width: 100%; height: 100%;
+    padding: 10cqw;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  /* subtle architectural grid */
+  .ad3::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size: 14.28% 14.28%;
+  }
+  .ad3::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+  .ad3 > * { position: relative; z-index: 1; }
+
+  .a3-eyebrow {
+    font-size: 5cqw; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--amber);
+    margin-bottom: auto;
+  }
+  .a3-headline {
+    font-family: 'EB Garamond', serif;
+    font-size: 10.5cqw; font-weight: 500;
+    line-height: 1.05; color: var(--cream);
+    letter-spacing: -0.02em;
+    margin-bottom: auto;
+  }
+  .a3-lower { }
+  .a3-rule { width: 7cqw; height: 1px; background: rgba(232,101,42,0.4); margin-bottom: 3cqw; }
+  .a3-body {
+    font-size: 5.5cqw; color: var(--c60); line-height: 1.6;
+  }
+  .a3-bridge {
+    font-size: 5.5cqw; font-weight: 600; color: var(--c70);
+    line-height: 1.5; margin-top: 3cqw;
+  }
+  .a3-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 4cqw;
+  }
+  .a3-cta {
+    font-size: 5cqw; font-weight: 700;
+    color: var(--coal); background: var(--amber);
+    border-radius: 100px; padding: 1.5cqw 3.5cqw;
+    white-space: nowrap; letter-spacing: 0.03em; flex-shrink: 0;
+  }
+
+  /* ═══════════════════════════════════════
+     AD 04 — THE SYSTEM SIGNAL
+     Cream background. Charcoal type. Identity.
+     Scroll-stop: light card in dark feed.
+     "Growing businesses don't do their own marketing."
+  ═══════════════════════════════════════ */
+  .ad4 {
+    background: var(--cream);
+    width: 100%; height: 100%;
+    padding: 10cqw;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .ad4::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  }
+  .ad4 > * { position: relative; z-index: 1; }
+
+  .a4-eyebrow {
+    font-size: 5cqw; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: rgba(28,25,23,0.3);
+    margin-bottom: auto;
+  }
+  .a4-headline {
+    font-family: 'EB Garamond', serif;
+    font-size: 11cqw; font-weight: 600;
+    line-height: 1.05; color: var(--coal);
+    letter-spacing: -0.025em;
+  }
+  .a4-rule { width: 7cqw; height: 2px; background: var(--amber); margin-top: 4cqw; margin-bottom: 4cqw; }
+  .a4-body {
+    font-size: 5cqw; color: rgba(28,25,23,0.6); line-height: 1.65;
+  }
+  .a4-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: auto;
+  }
+  .a4-cta {
+    font-size: 5cqw; font-weight: 700;
+    color: var(--cream); background: var(--amber);
+    border-radius: 100px; padding: 1.5cqw 3.5cqw;
+    white-space: nowrap; letter-spacing: 0.03em; flex-shrink: 0;
+  }
+
+  /* ── NOTES ── */
+  .notes { padding: 0 72px 80px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .nc { background: var(--coal-2); border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; padding: 22px; }
+  .nc-n { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 6px; }
+  .nc-t { font-family: 'EB Garamond', serif; font-size: 17px; font-weight: 600; color: var(--cream); margin-bottom: 6px; }
+  .nc-b { font-size: 12px; color: var(--coal-mid); line-height: 1.65; }
+  .nc-seq { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 11px; font-style: italic; color: rgba(250,249,246,0.28); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div>
+    <h1 class="hdr-h1">Phase 1 Ad Creatives<br>for <em>Meta — Irish Market</em></h1>
+    <p class="hdr-meta">FlowBuild AI &nbsp;·&nbsp; Lead Leak Audit Campaign &nbsp;·&nbsp; Static Only &nbsp;·&nbsp; 4:5 Format</p>
+  </div>
+  <div style="text-align:right">
+    <div class="wm">FLOW<span class="b">BUILD</span><span class="wm-badge">AI</span></div>
+    <div style="font-size:11px;color:var(--coal-mid);margin-top:10px;letter-spacing:0.06em">Broad audience · Information gathering</div>
+  </div>
+</header>
+
+<div class="sec-head">
+  <span class="sec-lbl">Ad Creatives — 1080 × 1350 (4:5)</span>
+  <div class="sec-line"></div>
+  <span style="font-size:11px;color:var(--coal-mid);white-space:nowrap">Start with 01 + 02 — run simultaneously</span>
+</div>
+
+<div class="gallery">
+
+  <!-- ─── AD 01: THE MISSED CALL ─── -->
+  <div class="slot">
+    <div class="slot-lbl">
+      <span class="ang">01 — The Missed Call</span>
+      <span class="ang-note">Emotion hook · Run first · Broad targeting</span>
+    </div>
+    <div class="frame">
+      <div class="ad1">
+
+        <div class="a1-eyebrow">FlowBuild AI</div>
+
+        <div>
+          <div class="a1-headline">That missed<br>call at 2pm?</div>
+          <div class="a1-subhead">They'd probably rung<br>someone else by 3.</div>
+        </div>
+
+        <div class="a1-mid">
+          <div class="a1-rule"></div>
+          <div class="a1-body">
+            It happens every day.<br>
+            Not because of price.<br>
+            Just because of the gap.
+          </div>
+        </div>
+
+        <div class="a1-foot">
+          <div class="logo-light">FLOW<span class="lb">BUILD</span><span class="lbx">AI</span></div>
+          <div class="a1-cta">Your Number →</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── AD 02: THE HONEST MATHS ─── -->
+  <div class="slot">
+    <div class="slot-lbl">
+      <span class="ang">02 — The Honest Maths</span>
+      <span class="ang-note">Logic hook · Run first · Amber scroll-stop</span>
+    </div>
+    <div class="frame">
+      <div class="ad2">
+
+        <div class="a2-eyebrow">Quick maths.</div>
+
+        <div class="a2-num-block">
+          <div class="a2-label">Irish business owners</div>
+          <div class="a2-number">€41,600</div>
+        </div>
+
+        <div class="a2-body-block">
+          <div class="a2-rule"></div>
+          <div class="a2-body">
+            Miss 3 enquiries a week at €400 each.<br>
+            That's what walks out the door every year.
+          </div>
+        </div>
+
+        <div class="a2-foot">
+          <div class="logo-coal">FLOW<span>BUILD</span><span class="lbx">AI</span></div>
+          <div class="a2-cta">My Number →</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── AD 03: YOU ALREADY KNOW ─── -->
+  <div class="slot">
+    <div class="slot-lbl">
+      <span class="ang">03 — You Already Know</span>
+      <span class="ang-note">Trust hook · Add at week 3 · Validation angle</span>
+    </div>
+    <div class="frame">
+      <div class="ad3">
+
+        <div class="a3-eyebrow">FlowBuild AI</div>
+
+        <div class="a3-headline">
+          You already<br>know your<br>marketing isn't<br>where it should be.
+        </div>
+
+        <div class="a3-lower">
+          <div class="a3-rule"></div>
+          <div class="a3-body">
+            The Google listing. The website.<br>
+            The enquiries that go quiet.
+          </div>
+          <div class="a3-bridge">
+            We set the whole system up<br>
+            in 72 hours. You own everything.
+          </div>
+        </div>
+
+        <div class="a3-foot">
+          <div class="logo-light">FLOW<span class="lb">BUILD</span><span class="lbx">AI</span></div>
+          <div class="a3-cta">Find Out Free →</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── AD 04: THE SYSTEM SIGNAL ─── -->
+  <div class="slot">
+    <div class="slot-lbl">
+      <span class="ang">04 — The System Signal</span>
+      <span class="ang-note">Identity hook · Retargeting · Cream scroll-stop</span>
+    </div>
+    <div class="frame">
+      <div class="ad4">
+
+        <div class="a4-eyebrow">FlowBuild AI</div>
+
+        <div>
+          <div class="a4-headline">Growing Irish businesses don't do their own marketing.</div>
+          <div class="a4-rule"></div>
+          <div class="a4-body">
+            They have a system doing it.<br>
+            Calls returned in 60 seconds.<br>
+            We build that system in 72 hours.
+          </div>
+        </div>
+
+        <div class="a4-foot">
+          <div class="logo-dark">FLOW<span class="lb">BUILD</span><span class="lbx">AI</span></div>
+          <div class="a4-cta">How It Works →</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- NOTES -->
+<div class="sec-head">
+  <span class="sec-lbl">Campaign Notes</span>
+  <div class="sec-line"></div>
+</div>
+
+<div class="notes">
+  <div class="nc">
+    <div class="nc-n">01 — Missed Call</div>
+    <div class="nc-t">Emotion hook</div>
+    <div class="nc-b">A scene every business owner has lived. Suby's pain-validation principle — meet them where they already are. The audit resolves the curiosity: what IS my number?</div>
+    <div class="nc-seq">Run cold, broad Ireland targeting. Day 1.</div>
+  </div>
+  <div class="nc">
+    <div class="nc-n">02 — Honest Maths</div>
+    <div class="nc-t">Logic hook</div>
+    <div class="nc-b">Hormozi's value equation made visible. €41,600 is specific and believable. Every owner does the mental maths for their own business. Amber background = scroll stop.</div>
+    <div class="nc-seq">Run cold, broad targeting. Day 1. Split test vs. 01.</div>
+  </div>
+  <div class="nc">
+    <div class="nc-n">03 — You Already Know</div>
+    <div class="nc-t">Trust hook</div>
+    <div class="nc-b">Sutherland's obliquity — validates rather than argues. "You already know" removes all sales resistance. 72-hour claim signals a proven, systemised process.</div>
+    <div class="nc-seq">Add at week 3 if 01 + 02 are performing.</div>
+  </div>
+  <div class="nc">
+    <div class="nc-n">04 — System Signal</div>
+    <div class="nc-t">Identity hook</div>
+    <div class="nc-b">Sutherland's signalling principle. Having a system = mark of a serious business. Cream background is a scroll stop against the dark feed. Aspirational, not fear-based.</div>
+    <div class="nc-seq">Retargeting first — second exposure converts best.</div>
+  </div>
+</div>
+
+</body>
+</html>
