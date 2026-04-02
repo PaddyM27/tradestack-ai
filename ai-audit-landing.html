@@ -783,7 +783,13 @@
       + '&reviews='    + catScores.reviews
       + '&visibility=' + catScores.visibility
       + '&v=5';
-    fetch(url, { mode: 'no-cors' }).catch(function() {});
+    // sendBeacon is most reliable for fire-and-forget tracking calls
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(url);
+    } else {
+      fetch(url, { mode: 'no-cors' }).catch(function() {});
+    }
+    console.log('[FlowBuild] Audit submitted:', url);
     if (typeof fbq === 'function') { fbq('track', 'Lead', { value: llaS.val, currency: 'EUR', content_name: 'AI Audit', content_category: 'Audit Completion' }); }
     llaShowResults();
   }
