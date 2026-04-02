@@ -770,18 +770,37 @@
     }
     llaS.cats = catScores;
     var annualLeak = Math.round((total / (LLA_Q.length * 3)) * 8) * llaS.val * 12;
+    var gapLabel = function(s) {
+      return s >= 4 ? 'Major Gap' : s >= 2 ? 'Moderate Gap' : 'Strong';
+    };
+    var cats = [
+      { label: 'Lead Response',         score: catScores.response },
+      { label: 'Follow-Up Automation',  score: catScores.followup },
+      { label: 'Admin & Booking',        score: catScores.admin },
+      { label: 'Reviews & Reputation',  score: catScores.reviews },
+      { label: 'Visibility & Tracking', score: catScores.visibility }
+    ];
+    cats.sort(function(a, b) { return b.score - a.score; });
+    var majorGaps  = cats.filter(function(c) { return c.score >= 4; }).map(function(c) { return c.label; });
+    var modGaps    = cats.filter(function(c) { return c.score >= 2 && c.score < 4; }).map(function(c) { return c.label; });
+    var strongAreas = cats.filter(function(c) { return c.score < 2; }).map(function(c) { return c.label; });
     var payload = {
-      name:        name,
-      business:    business,
-      phone:       phone,
-      email:       email,
-      annualLeak:  annualLeak,
-      auditScore:  total,
-      response:    catScores.response,
-      followup:    catScores.followup,
-      admin:       catScores.admin,
-      reviews:     catScores.reviews,
-      visibility:  catScores.visibility
+      name:           name,
+      business:       business,
+      phone:          phone,
+      email:          email,
+      annualLeak:     annualLeak,
+      auditScore:     total,
+      biggestGap:     cats[0].label,
+      strongestArea:  cats[cats.length - 1].label,
+      majorGaps:      majorGaps.join(', ')   || 'None',
+      moderateGaps:   modGaps.join(', ')     || 'None',
+      strongAreas:    strongAreas.join(', ') || 'None',
+      leadResponse:   gapLabel(catScores.response),
+      followUp:       gapLabel(catScores.followup),
+      adminBooking:   gapLabel(catScores.admin),
+      reviews:        gapLabel(catScores.reviews),
+      visibility:     gapLabel(catScores.visibility)
     };
     fetch(MAKE_WEBHOOK, {
       method: 'POST',
