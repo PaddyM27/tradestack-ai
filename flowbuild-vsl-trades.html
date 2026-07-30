@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stop Losing the Jobs You Already Paid For | FlowBuild AI</title>
-  <meta name="description" content="US home-service contractors: you don't have a lead problem, you have a revenue leak. Watch the 4-minute breakdown, then book a free Revenue Leak Audit.">
+  <title>Book More Jobs. Recover More Revenue. | FlowBuild AI</title>
+  <meta name="description" content="US home-service contractors: book more jobs and recover more revenue from the leads you already have. Watch the 4-minute breakdown, then book a call.">
   <meta name="robots" content="index, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -236,11 +236,17 @@
     .authtile{text-align:center;padding:10px}
     .authtile b{display:block;font-family:'Fraunces',serif;font-size:clamp(32px,4.4vw,50px);font-weight:900;color:var(--amber);letter-spacing:-.03em;line-height:1}
     .authtile span{font-size:13.5px;color:var(--muted);margin-top:8px;display:block;line-height:1.35}
+    .auth-3{grid-template-columns:repeat(3,1fr)!important;max-width:820px!important}
+    .cslogo{height:42px;margin-bottom:14px;display:flex;align-items:center}
+    .cslogo img{height:42px;max-width:160px;object-fit:contain}
+    .cslogo img.rf{height:58px}
 
     /* MOBILE */
     @media(max-width:820px){
       .cs,.cmp{grid-template-columns:1fr}
       .auth{grid-template-columns:1fr 1fr;gap:22px 12px}
+      .auth-3{grid-template-columns:1fr!important}
+      .cslogo img.rf{height:48px}
       .nav{padding:11px 14px}
       .logo{font-size:15px;gap:7px}
       .nav-cta{font-size:12px;padding:9px 13px}
@@ -274,16 +280,16 @@
     <svg width="30" height="22" viewBox="0 0 72 54" fill="none"><rect x="0" y="3" width="30" height="4" fill="#E8652A"/><rect x="0" y="25" width="44" height="4" fill="#E8652A"/><circle cx="58" cy="26.75" r="9" fill="#E8652A"/><rect x="0" y="47" width="30" height="4" fill="#E8652A"/></svg>
     Flow<span>Build</span> AI
   </a>
-  <button class="nav-cta" onclick="openQualify()">See If You Qualify<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+  <button class="nav-cta" onclick="openQualify()">Book a Call<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
 </nav>
 
 <!-- HERO + VSL -->
 <section class="hero">
   <div class="orb1"></div><div class="orb2"></div>
   <div class="hero-inner">
-    <div class="eyebrow">For US home-service contractors · 4-min watch</div>
-    <h1 class="hero-h1">You're losing jobs at 2pm on a<br>Tuesday — <em>and don't even know it.</em></h1>
-    <p class="hero-lead">Watch the short breakdown. It shows exactly where contractors leak the jobs they already paid for — and the done-for-you system that plugs it.</p>
+    <div class="eyebrow">Revenue recovery for home-service contractors</div>
+    <h1 class="hero-h1">Book more jobs. Recover more revenue.<br><em>From the leads you already have.</em></h1>
+    <p class="hero-lead">You already pay for the leads — you're just losing 30–60% of them to missed calls, cold estimates and a dead database. We install four systems that capture, convert, recover and measure every one, so more of your pipeline becomes booked jobs. More revenue, total confidence nothing slips, and your phone off your back.</p>
 
     <!-- VIDEO — replace poster with your Wistia embed. Best practice: autoplay MUTED + captions on + "tap for sound".
          <script src="https://fast.wistia.com/embed/medias/MEDIA_ID.jsonp" async></script>
@@ -298,7 +304,7 @@
     </div>
     <div class="vsl-sub">Best watched with the sound on · about 4 minutes</div>
 
-    <button class="btn btn-lg" onclick="openQualify()">Book Your Free Call<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <button class="btn btn-lg" onclick="openQualify()">Book a Call<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     <div class="btn-fine">Free 15-min Revenue Leak Audit · no obligation · your number is yours to keep</div>
 
     <!-- RATINGS (honest — no Trustpilot/Google branding until profiles are live) -->
@@ -329,15 +335,27 @@
 <!-- CASE STUDIES (Liquid format) — placeholders; publish only real, client-approved results. -->
 <section class="band">
   <div class="wrap">
-    <div class="eyebrow-c">Real results</div>
-    <h2 class="band-title">Real operators. <em>Real recovered revenue.</em></h2>
-    <p class="band-lead">The exact format we report your wins in — populated with real, client-approved numbers as your case studies land.</p>
+    <div class="eyebrow-c">Recent clients</div>
+    <h2 class="band-title">Real businesses. <em>Real relationships.</em></h2>
+    <p class="band-lead">A few of the operators we work with. Their full case studies — in their own words and numbers — are added here as each client signs off.</p>
     <div class="cs">
-      <div class="cscard ph"><div class="cstag">[01] · Roofing</div><div class="csco">Your client here</div><div class="csprob">Losing quotes to slow follow-up and a cold database.</div><div class="csmetrics"><div class="csm"><b>—</b><span>Jobs recovered</span></div><div class="csm"><b>—</b><span>Avg response</span></div><div class="csm"><b>14d</b><span>To live</span></div></div><div class="csquote">"Add a real, client-approved quote here."</div></div>
-      <div class="cscard ph"><div class="cstag">[02] · HVAC</div><div class="csco">Your client here</div><div class="csprob">Missed calls on the job going straight to a competitor.</div><div class="csmetrics"><div class="csm"><b>—</b><span>Calls recovered</span></div><div class="csm"><b>60s</b><span>Response</span></div><div class="csm"><b>—</b><span>Revenue back</span></div></div><div class="csquote">"Add a real, client-approved quote here."</div></div>
-      <div class="cscard ph"><div class="cstag">[03] · Solar</div><div class="csco">Your client here</div><div class="csprob">Thousands of old leads sitting dead in the CRM.</div><div class="csmetrics"><div class="csm"><b>—</b><span>Leads revived</span></div><div class="csm"><b>Wk 1</b><span>First jobs</span></div><div class="csm"><b>—</b><span>Installs booked</span></div></div><div class="csquote">"Add a real, client-approved quote here."</div></div>
+      <div class="cscard" style="align-items:center;text-align:center;justify-content:center;min-height:214px">
+        <div class="cslogo" style="height:66px;margin-bottom:18px"><img src="client-logos/home-perfection.png" alt="Home Perfection Renovations" style="height:66px;max-width:190px"></div>
+        <div class="csco">Home Perfection Renovations</div>
+        <div class="cstag" style="margin-bottom:0">Home renovations</div>
+      </div>
+      <div class="cscard" style="align-items:center;text-align:center;justify-content:center;min-height:214px">
+        <div class="cslogo" style="height:66px;margin-bottom:18px"><img src="client-logos/m-recovery.png" alt="M Recovery &amp; Transport" style="height:66px;max-width:210px"></div>
+        <div class="csco">M Recovery &amp; Transport</div>
+        <div class="cstag" style="margin-bottom:0">Recovery &amp; transport</div>
+      </div>
+      <div class="cscard" style="align-items:center;text-align:center;justify-content:center;min-height:214px">
+        <div class="cslogo" style="height:66px;margin-bottom:18px"><img src="client-logos/smith-architects.png" alt="Smith &amp; Associates Architects" style="height:66px;max-width:200px"></div>
+        <div class="csco">Smith &amp; Associates Architects</div>
+        <div class="cstag" style="margin-bottom:0">Architecture</div>
+      </div>
     </div>
-    <p class="cs-note">Placeholders shown — we only ever publish real, client-approved results.</p>
+    <p class="cs-note">Client testimonials &amp; recovered-revenue numbers are added here as each client approves them.</p>
   </div>
 </section>
 
@@ -358,9 +376,9 @@
 <!-- WHAT WE DO -->
 <section class="band">
   <div class="wrap">
-    <div class="eyebrow-c">What we install</div>
-    <h2 class="band-title">The Revenue Recovery Engine</h2>
-    <p class="band-lead">One done-for-you system that plugs into your existing CRM and does four jobs — automatically, 24/7. Live in 14 days.</p>
+    <div class="eyebrow-c">How it works</div>
+    <h2 class="band-title">The Revenue Recovery Engine, <em>step by step</em></h2>
+    <p class="band-lead">One done-for-you system, four steps — plugged into the CRM you already use and running 24/7. Live in 14 days.</p>
     <div class="pillars">
       <div class="pillar"><div class="k">01 · Capture</div><h4>Catch every lead</h4><p>Every call, form and missed call answered in under 60 seconds — SMS, and voice — day or night, before your competitor even sees it.</p></div>
       <div class="pillar"><div class="k">02 · Convert</div><h4>Win more jobs</h4><p>Every estimate chased until it closes, every appointment booked, no-shows cut with automated reminders.</p></div>
@@ -395,17 +413,17 @@
   </div>
 </section>
 
-<!-- AUTHORITY METRICS (factual capabilities) -->
+<!-- ROI METRICS -->
 <section class="band">
   <div class="wrap">
-    <div class="eyebrow-c">Built to plug every leak</div>
-    <h2 class="band-title">Four systems. One engine.</h2>
-    <div class="auth">
-      <div class="authtile"><b>60s</b><span>Average lead response, day or night</span></div>
-      <div class="authtile"><b>14d</b><span>From kickoff to fully live</span></div>
-      <div class="authtile"><b>24/7</b><span>Coverage — every call, every night</span></div>
-      <div class="authtile"><b>4-in-1</b><span>Capture · Convert · Recover · Measure</span></div>
+    <div class="eyebrow-c">Your return on investment</div>
+    <h2 class="band-title">What you actually <em>get back</em></h2>
+    <div class="auth auth-3">
+      <div class="authtile"><b>10+ hrs</b><span>a week saved — off the phone and back on the job</span></div>
+      <div class="authtile"><b>30–60%</b><span>of leaked pipeline recovered — revenue you were losing</span></div>
+      <div class="authtile"><b>Week 1</b><span>first booked jobs recovered from leads you'd written off</span></div>
     </div>
+    <p class="cs-note">Illustrative of what the system is built to return — your numbers depend on your volume and market.</p>
   </div>
 </section>
 
@@ -466,7 +484,7 @@
         <ul><li><svg width="16" height="16" fill="none" stroke="rgba(254,241,232,0.4)" stroke-width="3" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>You're already closing 40%+ of a high volume of quality leads</li><li><svg width="16" height="16" fill="none" stroke="rgba(254,241,232,0.4)" stroke-width="3" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>You're chasing a magic bullet instead of fixing the back end</li><li><svg width="16" height="16" fill="none" stroke="rgba(254,241,232,0.4)" stroke-width="3" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>You've no real lead flow yet — get the leads first, then come back</li></ul>
       </div>
     </div>
-    <div class="center"><button class="btn" onclick="openQualify()">See If You Qualify<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+    <div class="center"><button class="btn" onclick="openQualify()">Book a Call<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
   </div>
 </section>
 
@@ -516,6 +534,9 @@
       <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>We already get decent leads — why do we need this?</span><span class="faq-ic">+</span></button><div class="faq-panel"><p>Most operators who come to us aren't lead-starved — they're losing jobs between the lead and the signed contract. Slow response, cold estimates, missed calls, no-shows, a dead database. The audit shows you exactly where, and what it's worth.</p></div></div>
       <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>What does it cost?</span><span class="faq-ic">+</span></button><div class="faq-panel"><p>Every business is different, so we price to the systems you actually need — we'll walk you through it plainly on the call, no games. What we can tell you: to do what this does you'd hire a receptionist, an appointment setter and an admin. This costs a fraction of one of them, and never takes a day off.</p></div></div>
       <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>How fast is it live?</span><span class="faq-ic">+</span></button><div class="faq-panel"><p>Done-for-you and live in 14 days — backed by our build guarantee. Week one, we reactivate your database so you often see recovered jobs before you're fully live.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>How is this different from just hiring someone?</span><span class="faq-ic">+</span></button><div class="faq-panel"><p>A receptionist, an appointment setter and an admin run you $150k+ a year — they need managing, and they go home at 5. This costs a fraction of one of them, answers every lead in 60 seconds, works nights and weekends, and never quits. You're replacing three roles with one system you own.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>We're flat out — how much of our time does setup take?</span><span class="faq-ic">+</span></button><div class="faq-panel"><p>About two hours total. It's done-for-you — we build, connect and configure everything; you review and approve the flows; we go live. You keep running jobs the whole time.</p></div></div>
+      <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)"><span>What if we want to stop?</span><span class="faq-ic">+</span></button><div class="faq-panel"><p>You own the entire system — no lock-in, no hostage contracts. Cancel any time and it's yours to keep. We're confident you won't want to, which is why we guarantee results in 30 days or we work free until you get them.</p></div></div>
     </div>
   </div>
 </section>
@@ -524,9 +545,9 @@
 <section class="finalcta">
   <div class="wrap">
     <div class="eyebrow-c">Your next step</div>
-    <h2 class="band-title" style="margin-bottom:18px;">See exactly where your<br>revenue is <em>leaking.</em></h2>
-    <p class="band-lead" style="margin-bottom:32px;">15 minutes. We map your gaps and hand you the number. No pitch, no pressure — yours to keep whether we work together or not.</p>
-    <button class="btn btn-lg" onclick="openQualify()">See If You Qualify<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <h2 class="band-title" style="margin-bottom:18px;">Let's put an end to the<br><em>leak in your business.</em></h2>
+    <p class="band-lead" style="margin-bottom:32px;">Book a 15-minute consultation. We map your gaps and hand you the number you're leaking every month. No pitch, no pressure — yours to keep whether we work together or not.</p>
+    <button class="btn btn-lg" onclick="openQualify()">Book a Consultation<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
     <div class="btn-fine">Free · 15 minutes · no obligation</div>
   </div>
 </section>
