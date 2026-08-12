@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Revenue Scale &amp; Roadmap — FlowBuild AI</title>
+  <title>FlowBuild Scaling Roadmap — FlowBuild AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300..800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -109,6 +109,14 @@
       font-size: clamp(38px, 5.5vw, 68px);
       font-weight: 800; line-height: 1.04; letter-spacing: -0.03em;
       color: white; margin-bottom: 20px;
+    }
+    /* Trailing clause sits smaller so the two full-size lines stay balanced
+       instead of leaving a short ragged third line. */
+    .lla-h2-tail {
+      display: inline-block;
+      font-size: 0.46em; font-weight: 700;
+      letter-spacing: 0.01em; color: var(--amber-lt);
+      margin-top: 10px;
     }
     .lla-lead {
       font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.65;
@@ -518,7 +526,7 @@
       <!-- Panel: Intro -->
       <div class="lla-panel active" id="lla-p-intro">
         <div class="lla-eyebrow-amber">Free for B2B &amp; service businesses</div>
-        <h2 class="lla-h2"><span style="white-space:nowrap">Get your free personalised</span><br>Revenue Scale &amp; Roadmap<br>in under 2 minutes.</h2>
+        <h2 class="lla-h2">Get Your Free Personalised<br>FlowBuild Scaling Roadmap<br><span class="lla-h2-tail">in &lt;2 Mins.</span></h2>
         <p class="lla-lead">Thirteen questions, about two minutes. You get a phased roadmap showing where you are now, which of our two core offerings fits, and what the gaps are costing you annually.</p>
         <div class="lla-cats-row">
           <span class="lla-cat-pill">Pipeline &amp; Demand</span>
@@ -1060,7 +1068,7 @@
     document.getElementById('lla-p-results').innerHTML = `
       <div class="lla-report-wrap">
         <div class="lla-report-header">
-          <div class="lla-eyebrow-amber">Your Revenue Scale &amp; Roadmap</div>
+          <div class="lla-eyebrow-amber">Your FlowBuild Scaling Roadmap</div>
           <div class="lla-tier-badge lla-tier-${tierKey}">${tierLabel}</div>
           <h2 class="lla-report-headline">${TIER_HEADLINES[tierKey]}</h2>
           <p class="lla-report-sub">Where you are now, and the order we would build in.</p>
@@ -1180,7 +1188,7 @@
             'FLOW<span style="color:#E8652A;">BUILD</span>' +
             '<span style="display:inline-block;background:#E8652A;color:white;font-size:8px;font-weight:800;letter-spacing:0.04em;padding:3px 6px;border-radius:2px;margin-left:5px;vertical-align:middle;position:relative;top:-1px;">AI</span>' +
           '</div>' +
-          '<div style="font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.42);">Revenue Scale &amp; Roadmap</div>' +
+          '<div style="font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.42);">FlowBuild Scaling Roadmap</div>' +
         '</div>' +
         '<div style="height:3px;background:linear-gradient(to right,#E8652A,#F5804A);"></div>' +
         '<div style="padding:32px 40px;">' +
