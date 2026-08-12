@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Revenue Opportunity Roadmap — FlowBuild AI</title>
+  <title>Revenue Scale &amp; Roadmap — FlowBuild AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300..800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -375,6 +375,107 @@
       .lla-results-grid { grid-template-columns: 1fr; gap: 36px; }
       .lla-input-row { flex-direction: column; align-items: flex-start; }
     }
+
+    /* ─── Roadmap: pillar meters ─── */
+    .lla-pillars {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      margin: 0 0 34px;
+    }
+    .lla-pillar {
+      background: rgba(255,255,255,0.04);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 22px 20px; text-align: left;
+    }
+    .lla-pillar-top {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .lla-pillar-name {
+      font-family: 'Inter Tight', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: rgba(254,241,232,0.62);
+    }
+    .lla-pillar-pct {
+      font-family: 'Inter Tight', sans-serif; font-size: 26px; font-weight: 800;
+      letter-spacing: -0.03em; color: var(--amber-lt); line-height: 1;
+    }
+    .lla-pillar-track {
+      height: 6px; border-radius: 4px; background: rgba(255,255,255,0.09);
+      overflow: hidden; margin-bottom: 12px;
+    }
+    .lla-pillar-fill {
+      height: 100%; border-radius: 4px; width: 0;
+      background: linear-gradient(90deg, var(--amber-lt), var(--amber));
+      transition: width 1s cubic-bezier(0.22,1,0.36,1);
+    }
+    .lla-pillar-read {
+      font-size: 13px; line-height: 1.6; color: rgba(254,241,232,0.62);
+    }
+    .lla-pillar-offer {
+      display: inline-block; margin-top: 10px;
+      font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--amber-lt); text-decoration: none;
+      border-bottom: 1px solid rgba(245,128,74,0.4);
+    }
+
+    /* ─── Roadmap: phases ─── */
+    .lla-phases-head {
+      font-family: 'Inter Tight', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber);
+      text-align: left; margin: 0 0 16px;
+    }
+    .lla-phases { display: flex; flex-direction: column; gap: 14px; margin-bottom: 34px; }
+    .lla-phase {
+      position: relative; text-align: left;
+      background: rgba(255,255,255,0.04);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-left: 3px solid var(--amber);
+      border-radius: 14px; padding: 24px 24px 22px;
+    }
+    .lla-phase-top {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .lla-phase-num {
+      font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.12em; text-transform: uppercase; color: rgba(254,241,232,0.45);
+    }
+    .lla-phase-tag {
+      font-family: 'Inter Tight', sans-serif; font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 4px 9px; border-radius: 5px;
+      background: rgba(232,101,42,0.2); color: var(--amber-lt);
+      text-decoration: none;
+    }
+    .lla-phase-title {
+      font-family: 'Inter Tight', sans-serif; font-size: 20px; font-weight: 800;
+      letter-spacing: -0.02em; color: #fff; margin-bottom: 8px; line-height: 1.2;
+    }
+    .lla-phase-why {
+      font-size: 14px; line-height: 1.65; color: rgba(254,241,232,0.66);
+      margin-bottom: 14px;
+    }
+    .lla-phase-items { list-style: none; padding: 0; margin: 0; }
+    .lla-phase-items li {
+      display: flex; align-items: flex-start; gap: 9px;
+      font-size: 13.5px; line-height: 1.55; color: rgba(254,241,232,0.82);
+      padding: 5px 0;
+    }
+    .lla-phase-items li::before {
+      content: ''; flex-shrink: 0; margin-top: 6px;
+      width: 5px; height: 5px; border-radius: 50%; background: var(--amber);
+    }
+    .lla-diag {
+      text-align: left; font-size: 15px; line-height: 1.7;
+      color: rgba(254,241,232,0.78);
+      background: rgba(232,101,42,0.08);
+      border: 1px solid rgba(232,101,42,0.24);
+      border-radius: 12px; padding: 18px 20px; margin: 0 0 30px;
+    }
+    @media (max-width: 620px) {
+      .lla-pillars { grid-template-columns: 1fr; }
+      .lla-phase { padding: 20px 18px; }
+    }
   </style>
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
@@ -417,14 +518,15 @@
       <!-- Panel: Intro -->
       <div class="lla-panel active" id="lla-p-intro">
         <div class="lla-eyebrow-amber">Free for B2B &amp; service businesses</div>
-        <h2 class="lla-h2"><span style="white-space:nowrap">Get your free personalised</span><br>Revenue Opportunity Roadmap<br>in under 2 minutes.</h2>
-        <p class="lla-lead">10 questions. You'll get a personalised roadmap showing your top scaling opportunities and what they're worth to your business annually.</p>
+        <h2 class="lla-h2"><span style="white-space:nowrap">Get your free personalised</span><br>Revenue Scale &amp; Roadmap<br>in under 2 minutes.</h2>
+        <p class="lla-lead">Thirteen questions, about two minutes. You get a phased roadmap showing where you are now, which of our two core offerings fits, and what the gaps are costing you annually.</p>
         <div class="lla-cats-row">
+          <span class="lla-cat-pill">Pipeline &amp; Demand</span>
           <span class="lla-cat-pill">Speed to Lead</span>
           <span class="lla-cat-pill">Quote Follow-Up</span>
           <span class="lla-cat-pill">Appointment Booking</span>
           <span class="lla-cat-pill">Missed Call Coverage</span>
-          <span class="lla-cat-pill">Reviews &amp; Pipeline</span>
+          <span class="lla-cat-pill">Reviews &amp; Visibility</span>
         </div>
         <button class="lla-btn-primary" onclick="llaGoTo('value')">
           Let's Start
@@ -500,6 +602,33 @@
 
 <script>
   const LLA_Q = [
+    { section: 'Pipeline & Demand', cat: 'pipeline',
+      text: 'Where do most of your new enquiries come from right now?',
+      opts: [
+        ['Outbound we run consistently every month', 0],
+        ['A mix of inbound marketing and referrals', 1],
+        ['Mostly referrals and word of mouth', 3],
+        ['Whatever comes in, it varies a lot', 4],
+      ]
+    },
+    { section: 'Pipeline & Demand', cat: 'pipeline',
+      text: 'How confidently could you forecast your pipeline three months out?',
+      opts: [
+        ['Confidently, I know roughly what is coming', 0],
+        ['Roughly, give or take', 1],
+        ['Not really, it swings month to month', 3],
+        ['No idea, some months are dead', 4],
+      ]
+    },
+    { section: 'Pipeline & Demand', cat: 'outbound',
+      text: 'Have you run cold outbound to reach prospects directly?',
+      opts: [
+        ['Yes, and it books meetings consistently', 0],
+        ['Someone does it manually when they get time', 2],
+        ['We tried it and it fizzled out', 3],
+        ['Never tried it', 3],
+      ]
+    },
     { section: 'Speed to Lead', cat: 'speed',
       text: 'When someone enquires online, how fast does your team respond?',
       opts: [
@@ -593,53 +722,114 @@
   ];
 
   const LLA_CATS = {
-    speed:   { label: 'Speed to Lead',         service: 'AI Lead Response System' },
-    quote:   { label: 'Quote Follow-Up',        service: 'Quote Recovery Engine' },
-    booking: { label: 'Appointment Booking',    service: 'Admin Reduction System' },
-    calls:   { label: 'Missed Call Coverage',   service: '24/7 AI Receptionist' },
-    reviews: { label: 'Reviews & Pipeline',     service: 'Review & Referral Automation' },
+    pipeline: { label: 'Pipeline Predictability', pillar: 'demand',     system: 'B2B Outbound' },
+    outbound: { label: 'Outbound Capability',     pillar: 'demand',     system: 'B2B Outbound' },
+    speed:    { label: 'Speed to Lead',           pillar: 'conversion', system: 'Instant lead response' },
+    calls:    { label: 'Missed Call Coverage',    pillar: 'conversion', system: 'AI call answering' },
+    quote:    { label: 'Quote Follow-Up',         pillar: 'conversion', system: 'Quote and proposal follow-up' },
+    booking:  { label: 'Appointment Booking',     pillar: 'conversion', system: 'Booking and no-show reduction' },
+    reviews:  { label: 'Reviews & Visibility',    pillar: 'conversion', system: 'Reviews, referrals and reporting' },
+  };
+
+  const PILLARS = {
+    demand:     { label: 'Demand',     offering: 'B2B Outbound',        href: 'b2b-outbound.html' },
+    conversion: { label: 'Conversion', offering: 'AI Systems',          href: 'ai-systems.html' },
   };
 
   const NARRATIVES = {
+    pipeline: {
+      major:    "Your pipeline is not something you control, it is something that happens to you. Referrals and word of mouth are great margin and terrible planning, because you cannot turn them up in a quiet month.",
+      moderate: "You have some predictability but it is thin. A couple of quiet weeks in a row and you would feel it, which usually means discounting to fill the gap.",
+      strong:   "You can see what is coming, which puts you in the minority. The opportunity here is deciding how much bigger you want the number to be.",
+    },
+    outbound: {
+      major:    "Nothing is reaching prospects who have not heard of you yet. Every deal you win has to find you first, so your ceiling is however many people happen to do that.",
+      moderate: "Outbound happens when someone has a spare hour, which means it stops the moment you get busy. That is the opposite of how it needs to work.",
+      strong:   "Outbound is already producing. Worth looking at whether the volume and targeting can carry more.",
+    },
     speed: {
-      major:    "You're losing enquiries before your competitors even finish their morning coffee. Most buyers go with the first company to respond — hours of delay is handing deals away.",
-      moderate: "Your response time is inconsistent. On a good day you're quick, but evenings and weekends create gaps that competitors fill.",
-      strong:   "Your speed to lead is solid. Small optimisations here could close the remaining gap entirely.",
-    },
-    quote: {
-      major:    "Most of your sent quotes are going cold. Without a systematic follow-up process, you're leaving the majority of your pipeline to chance.",
-      moderate: "You're following up, but not consistently or persistently enough. Research shows 5+ touchpoints recovers the majority of cold quotes.",
-      strong:   "Your quote follow-up is working well. Automating it would free up time without losing effectiveness.",
-    },
-    booking: {
-      major:    "Customers can't self-book instantly and no-shows are costing you meetings. Every scheduling friction loses you a potential deal.",
-      moderate: "Your booking process works but relies on back-and-forth. Automated self-booking and reminders would cut no-shows significantly.",
-      strong:   "Appointment booking is running smoothly. Reminders and confirmations could tighten it further.",
+      major:    "You are losing enquiries before your competitors finish their coffee. Most buyers go with whoever replies first, so hours of delay is handing deals away.",
+      moderate: "Your response time is inconsistent. Good on a busy weekday, poor in the evenings and at weekends, and that is when a lot of people enquire.",
+      strong:   "Speed to lead is solid. Small tightening here closes the remaining gap.",
     },
     calls: {
-      major:    "Missed calls after hours and on weekends are your biggest blind spot. You're invisible to buyers at exactly the moments they decide to enquire.",
-      moderate: "You're catching most calls, but evening and weekend gaps mean some enquiries go unanswered when intent is highest.",
-      strong:   "Call coverage is good. 24/7 AI backup would eliminate the remaining missed opportunities.",
+      major:    "Missed calls are your biggest blind spot. A caller who reaches voicemail rings the next name on the list rather than waiting for you.",
+      moderate: "You catch most calls, but the evening and weekend gaps mean some enquiries go unanswered exactly when intent is highest.",
+      strong:   "Call coverage is good. A 24/7 backup would remove what is left.",
+    },
+    quote: {
+      major:    "Most of your quotes are going cold on their own. Without a follow-up process you are leaving the bulk of your pipeline to whether the buyer remembers you.",
+      moderate: "You do follow up, just not consistently enough. Most recovered deals come from touches three through five, which is where people usually stop.",
+      strong:   "Quote follow-up is working. Automating it frees the time without losing the effect.",
+    },
+    booking: {
+      major:    "Booking runs on phone tag and no-shows are eating the calendar. Every extra step between interest and a confirmed slot loses you some of them.",
+      moderate: "Booking works but leans on back and forth. Self-booking and reminders would cut the drop-off.",
+      strong:   "Booking is running smoothly. Reminders would tighten it further.",
     },
     reviews: {
-      major:    "You have no systematic process for Google reviews or pipeline visibility. You're invisible online and flying blind on your own data.",
-      moderate: "You're getting some reviews but leaving most post-job opportunities on the table. A triggered review request would 3× your collection rate.",
-      strong:   "Reviews and pipeline are tracking well. Full automation would make this consistent without any manual effort.",
+      major:    "No systematic review collection and no clear read on your own numbers. You are hard to verify from the outside and guessing on the inside.",
+      moderate: "You collect some reviews and have partial visibility, but both depend on somebody remembering.",
+      strong:   "Reviews and reporting are tracking. Automating both makes it consistent with no effort.",
     },
-  };
-
-  const CALLOUTS = {
-    speed:   '→ AI Lead Response System — every enquiry contacted in under 60 seconds, 24/7',
-    quote:   '→ Quote Recovery Engine — 5-touch automated follow-up on every cold quote',
-    booking: '→ Admin Reduction System — self-book calendar link, automated confirmations & reminders',
-    calls:   '→ 24/7 AI Receptionist — answers missed calls, qualifies callers, books appointments',
-    reviews: '→ Review & Referral Automation — triggered review request on every completed job',
   };
 
   const TIER_HEADLINES = {
-    solid:    "Your pipeline is mostly healthy — here's what to tighten.",
-    moderate: "You're losing deals to process gaps that are fixable in weeks.",
-    critical: "Your pipeline is losing deals daily.",
+    solid:      "The foundations are there. Now it is a question of scale.",
+    moderate:   "You are leaving money in two or three fixable places.",
+    critical:   "There is significant revenue leaving this business every month.",
+  };
+
+  // Roadmap phase library. Which phases fire, and in what order, depends on
+  // whether the constraint is demand, conversion, or both.
+  function buildRoadmap(diag, weakConversion, demandPct, convPct) {
+    const outboundPhase = {
+      offering: 'B2B Outbound',
+      href: 'b2b-outbound.html',
+      title: 'Build the demand engine',
+      why: demandPct >= 45
+        ? 'Your pipeline currently depends on people finding you. This makes it something you can turn up.'
+        : 'Your conversion is in decent shape, which means more volume through it actually compounds rather than leaking away.',
+      items: [
+        'Work out the buying signals your best customers showed before they bought',
+        'Build and verify a targeted list against that profile',
+        'Stand up sending infrastructure on separate domains so yours is never used',
+        'An SDR Agent qualifies every reply and books it into your calendar',
+      ],
+    };
+    const systemsPhase = {
+      offering: 'AI Systems',
+      href: 'ai-systems.html',
+      title: 'Stop the leak first',
+      why: convPct >= 45
+        ? 'These are the gaps costing you deals you have already paid to generate. Fixing them is cheaper than buying more leads to pour through the same holes.'
+        : 'Nothing here is critical, but tightening it protects the volume you are about to add.',
+      items: weakConversion.length
+        ? weakConversion.map(c => LLA_CATS[c].system)
+        : ['Instant lead response', 'Quote and proposal follow-up', 'Reporting and dashboards'],
+    };
+    const scalePhase = {
+      offering: 'Both',
+      href: 'index.html',
+      title: 'Measure it, then push it',
+      why: 'Once both halves are running you can see cost per booked meeting and close rate in one place, which is the point where scaling stops being a guess.',
+      items: [
+        'Live dashboard covering meetings booked, response times and close rates',
+        'Source attribution on every deal so you know what to spend more on',
+        'Database reactivation across the list you have already built',
+      ],
+    };
+
+    if (diag === 'conversion' || diag === 'both') return [systemsPhase, outboundPhase, scalePhase];
+    if (diag === 'demand')                        return [outboundPhase, systemsPhase, scalePhase];
+    return [outboundPhase, systemsPhase, scalePhase];
+  }
+
+  const DIAGNOSIS = {
+    both:       'Both halves need work. We would fix the conversion side first, because adding volume to a funnel that leaks just makes the leak more expensive.',
+    conversion: 'Your demand is holding up. The problem is what happens after an enquiry arrives, so that is where the money is.',
+    demand:     'You convert what you get reasonably well. The constraint is that not enough is arriving, which is the easier of the two problems to fix.',
+    solid:      'Nothing here is broken, which is rarer than you would think. This is a scaling conversation rather than a repair job.',
   };
 
   function getSeverityLevel(score) {
@@ -648,7 +838,7 @@
     return 'strong';
   }
 
-  let llaS = { scores: [], cats: { speed:0, quote:0, booking:0, calls:0, reviews:0 }, val: 8000 };
+  let llaS = { scores: [], cats: llaFreshCats(), val: 8000 };
 
 
   function llaGoTo(id) {
@@ -719,7 +909,7 @@
       llaS.val = (v && v > 0) ? v : 8000;
     }
     llaS.scores = [];
-    llaS.cats = { speed:0, quote:0, booking:0, calls:0, reviews:0 };
+    llaS.cats = llaFreshCats();
     llaGoTo('quiz');
     llaRenderQ(0);
   }
@@ -741,6 +931,7 @@
         document.querySelectorAll('.lla-opt').forEach(b => b.classList.remove('selected'));
         this.classList.add('selected');
         llaS.scores[i] = score;
+        if (!(q.cat in llaS.cats)) llaS.cats[q.cat] = 0;
         llaS.cats[q.cat] += score;
         setTimeout(() => {
           if (i + 1 < total) { llaRenderQ(i + 1); }
@@ -753,57 +944,146 @@
 
 
 
+  // Per-question and per-category maxima, derived from the options rather than
+  // assumed, so adding a question with a different scale cannot skew the totals.
+  // Category tallies are derived from LLA_CATS rather than written out by hand.
+  // Three separate initialisers had drifted apart, which silently produced NaN
+  // scores for any category missing from one of them.
+  function llaFreshCats() {
+    const o = {};
+    Object.keys(LLA_CATS).forEach(function (c) { o[c] = 0; });
+    return o;
+  }
+
+  function llaMaxFor(q) { return Math.max.apply(null, q.opts.map(o => o[1])); }
+  function llaCatMax(cat) {
+    return LLA_Q.filter(q => q.cat === cat).reduce((a, q) => a + llaMaxFor(q), 0);
+  }
+  // Revenue at risk is derived from conversion gaps only. A demand gap is
+  // unrealised upside, not money leaving, and counting it here would let a
+  // business with clean conversion see a large "at risk" figure it knows is wrong.
+  function llaConversionRatio() {
+    const cats = Object.keys(LLA_CATS).filter(function (c) { return LLA_CATS[c].pillar === 'conversion'; });
+    const got = cats.reduce(function (a, c) { return a + (llaS.cats[c] || 0); }, 0);
+    const mx  = cats.reduce(function (a, c) { return a + llaCatMax(c); }, 0);
+    return mx ? got / mx : 0;
+  }
+
+  function llaPillarPct(pillar) {
+    const cats = Object.keys(LLA_CATS).filter(c => LLA_CATS[c].pillar === pillar);
+    const got  = cats.reduce((a, c) => a + (llaS.cats[c] || 0), 0);
+    const max  = cats.reduce((a, c) => a + llaCatMax(c), 0);
+    return max ? Math.round((got / max) * 100) : 0;
+  }
+
   function llaShowResults() {
     const total = llaS.scores.reduce((a, b) => a + b, 0);
-    const max   = LLA_Q.length * 3;
+    const max   = LLA_Q.reduce((a, q) => a + llaMaxFor(q), 0);
     const ratio = total / max;
-    const annualLeak = Math.round(ratio * 8) * llaS.val * 12;
+    const annualLeak = Math.round(llaConversionRatio() * 8) * llaS.val * 12;
+
+    const demandPct = llaPillarPct('demand');
+    const convPct   = llaPillarPct('conversion');
+
+    let diag;
+    if (convPct >= 45 && demandPct >= 45) diag = 'both';
+    else if (convPct >= 45)               diag = 'conversion';
+    else if (demandPct >= 45)             diag = 'demand';
+    else                                  diag = 'solid';
 
     let tierKey, tierLabel;
-    if (total <= 9)       { tierKey = 'solid';    tierLabel = 'Strong Foundation'; }
-    else if (total <= 19) { tierKey = 'moderate'; tierLabel = 'Revenue Leakage Detected'; }
-    else                  { tierKey = 'critical'; tierLabel = 'Critical Leaks'; }
+    if (ratio < 0.3)      { tierKey = 'solid';    tierLabel = 'Ready to Scale'; }
+    else if (ratio < 0.55){ tierKey = 'moderate'; tierLabel = 'Fixable Gaps'; }
+    else                  { tierKey = 'critical'; tierLabel = 'Significant Leakage'; }
 
-    const catList = Object.entries(llaS.cats)
-      .map(([cat, score]) => ({ cat, score, pct: Math.round((score / 6) * 100) }))
-      .sort((a, b) => b.score - a.score);
+    // Categories ranked worst first, as a share of what each could score
+    const catList = Object.keys(LLA_CATS).map(cat => {
+      const cmax = llaCatMax(cat);
+      const sc   = llaS.cats[cat] || 0;
+      return { cat, score: sc, pct: cmax ? Math.round((sc / cmax) * 100) : 0 };
+    }).sort((a, b) => b.pct - a.pct);
 
-    const cardsHTML = catList.map(({ cat, score, pct }) => {
-      const level   = getSeverityLevel(score);
-      const sevTag  = { major: 'Major Gap', moderate: 'Moderate', strong: 'Strong' }[level];
-      const barCls  = `lla-gap-fill-${level}`;
+    const weakConversion = catList
+      .filter(c => LLA_CATS[c.cat].pillar === 'conversion' && c.pct >= 40)
+      .slice(0, 3).map(c => c.cat);
+
+    const phases = buildRoadmap(diag, weakConversion, demandPct, convPct);
+
+    const pillarRead = {
+      demand: demandPct >= 45
+        ? 'Not enough is arriving, and what does arrive is not something you control.'
+        : 'Enough is arriving to work with. The question is how much more you want.',
+      conversion: convPct >= 45
+        ? 'Deals are being lost after the enquiry, which is the expensive kind of loss.'
+        : 'What arrives is being handled reasonably well.',
+    };
+
+    const pillarsHTML = ['demand', 'conversion'].map(k => {
+      const pct = k === 'demand' ? demandPct : convPct;
+      return `<div class="lla-pillar">
+        <div class="lla-pillar-top">
+          <span class="lla-pillar-name">${PILLARS[k].label} gap</span>
+          <span class="lla-pillar-pct">${pct}%</span>
+        </div>
+        <div class="lla-pillar-track"><div class="lla-pillar-fill" data-pct="${pct}"></div></div>
+        <p class="lla-pillar-read">${pillarRead[k]}</p>
+        <a class="lla-pillar-offer" href="${PILLARS[k].href}">${PILLARS[k].offering}</a>
+      </div>`;
+    }).join('');
+
+    const phasesHTML = phases.map((ph, i) => `<div class="lla-phase">
+        <div class="lla-phase-top">
+          <span class="lla-phase-num">Phase ${i + 1}</span>
+          <a class="lla-phase-tag" href="${ph.href}">${ph.offering}</a>
+        </div>
+        <h3 class="lla-phase-title">${ph.title}</h3>
+        <p class="lla-phase-why">${ph.why}</p>
+        <ul class="lla-phase-items">${ph.items.map(it => `<li>${it}</li>`).join('')}</ul>
+      </div>`).join('');
+
+    const cardsHTML = catList.map(({ cat, pct }) => {
+      const level  = pct >= 60 ? 'major' : pct >= 30 ? 'moderate' : 'strong';
+      const sevTag = { major: 'Major Gap', moderate: 'Moderate', strong: 'Strong' }[level];
       return `<div class="lla-cat-card">
         <div class="lla-cat-card-header">
           <span class="lla-cat-card-name">${LLA_CATS[cat].label}</span>
           <span class="lla-gap-tag lla-gap-tag-${level}">${sevTag}</span>
         </div>
         <p class="lla-cat-narrative">${NARRATIVES[cat][level]}</p>
-        <div class="lla-cat-callout">${CALLOUTS[cat]}</div>
+        <div class="lla-cat-callout">&rarr; ${LLA_CATS[cat].system}</div>
         <div class="lla-cat-bar-track">
-          <div class="lla-cat-bar-fill ${barCls}" data-pct="${pct}"></div>
+          <div class="lla-cat-bar-fill lla-gap-fill-${level}" data-pct="${pct}"></div>
         </div>
       </div>`;
     }).join('');
 
-    const resultsEl = document.getElementById('lla-p-results');
-    resultsEl.innerHTML = `
+    document.getElementById('lla-p-results').innerHTML = `
       <div class="lla-report-wrap">
         <div class="lla-report-header">
-          <div class="lla-eyebrow-amber">Your Revenue Opportunity Roadmap</div>
+          <div class="lla-eyebrow-amber">Your Revenue Scale &amp; Roadmap</div>
           <div class="lla-tier-badge lla-tier-${tierKey}">${tierLabel}</div>
           <h2 class="lla-report-headline">${TIER_HEADLINES[tierKey]}</h2>
-          <p class="lla-report-sub">Based on your answers, here's your personalised roadmap for scaling revenue.</p>
-          <div class="lla-leak-num" id="lla-counter">€0</div>
-          <div class="lla-leak-lbl">Estimated annual revenue at risk</div>
-          <div class="lla-score-badge">Audit score &nbsp;<strong>${total}</strong><span style="opacity:.35"> / ${max}</span></div>
+          <p class="lla-report-sub">Where you are now, and the order we would build in.</p>
+          <div class="lla-leak-num" id="lla-counter">&euro;0</div>
+          <div class="lla-leak-lbl">Estimated annual revenue at risk from conversion gaps</div>
+          <div class="lla-score-badge">Scan score &nbsp;<strong>${total}</strong><span style="opacity:.35"> / ${max}</span></div>
         </div>
+
+        <p class="lla-diag">${DIAGNOSIS[diag]}</p>
+        <div class="lla-pillars">${pillarsHTML}</div>
+
+        <div class="lla-phases-head">Your roadmap</div>
+        <div class="lla-phases">${phasesHTML}</div>
+
+        <div class="lla-phases-head">Where the gaps are</div>
         <div class="lla-cat-cards">${cardsHTML}</div>
+
         <div class="lla-report-cta">
           <button onclick="openBookingModal();return false;" class="lla-btn-primary lla-res-cta-btn">
-            Book a Free Systems Call
+            Book a Free Call
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
-          <button class="lla-retake" onclick="llaReset()">← Retake the scan</button>
+          <button class="lla-retake" onclick="llaReset()">&larr; Retake the scan</button>
         </div>
       </div>`;
 
@@ -811,16 +1091,16 @@
 
     const el = document.getElementById('lla-counter');
     const dur = 1800; const t0 = performance.now();
-    const fmt = n => '€' + Math.round(n).toLocaleString('en-IE');
+    const fmt = n => '\u20ac' + Math.round(n).toLocaleString('en-IE');
     (function tick(now) {
-      const p = Math.min((now - t0) / dur, 1);
-      const e = 1 - Math.pow(1 - p, 3);
+      const pr = Math.min((now - t0) / dur, 1);
+      const e = 1 - Math.pow(1 - pr, 3);
       el.textContent = fmt(annualLeak * e);
-      if (p < 1) requestAnimationFrame(tick);
+      if (pr < 1) requestAnimationFrame(tick);
     })(performance.now());
 
     setTimeout(() => {
-      document.querySelectorAll('.lla-cat-bar-fill').forEach(b => {
+      document.querySelectorAll('.lla-cat-bar-fill, .lla-pillar-fill').forEach(b => {
         b.style.width = b.dataset.pct + '%';
       });
     }, 150);
@@ -828,9 +1108,9 @@
 
   function llaDownload() {
     const total = llaS.scores.reduce((a, b) => a + b, 0);
-    const max = LLA_Q.length * 3;
+    const max = LLA_Q.reduce((a, q) => a + llaMaxFor(q), 0);
     const ratio = total / max;
-    const leaksPerMonth = Math.round(ratio * 8);
+    const leaksPerMonth = Math.round(llaConversionRatio() * 8);
     const annualLeak = leaksPerMonth * llaS.val * 12;
     const fmt = n => '€' + Math.round(n).toLocaleString('en-IE');
 
@@ -838,16 +1118,41 @@
     const today = new Date().toLocaleDateString('en-IE', { day:'numeric', month:'long', year:'numeric' });
 
     let tierKey, tierLabel;
-    if (total <= 9)       { tierKey = 'solid';    tierLabel = 'Running Efficiently'; }
-    else if (total <= 19) { tierKey = 'moderate'; tierLabel = 'Real Automation Opportunities'; }
-    else                  { tierKey = 'critical'; tierLabel = 'High AI ROI Potential'; }
+    if (ratio < 0.3)       { tierKey = 'solid';    tierLabel = 'Ready to Scale'; }
+    else if (ratio < 0.55) { tierKey = 'moderate'; tierLabel = 'Fixable Gaps'; }
+    else                   { tierKey = 'critical'; tierLabel = 'Significant Leakage'; }
 
     const tierBg   = tierKey==='solid' ? '#ECFAEF' : tierKey==='moderate' ? '#FEF0E8' : '#FEECEC';
     const tierText = tierKey==='solid' ? '#2E7D32' : tierKey==='moderate' ? '#B54B15' : '#D32F2F';
 
-    const catList = Object.entries(llaS.cats)
-      .map(([cat, score]) => ({ cat, score, pct: Math.round((score / 6) * 100) }))
-      .sort((a, b) => b.score - a.score);
+    const catList = Object.keys(LLA_CATS).map(function (cat) {
+      const cmax = llaCatMax(cat);
+      const sc = llaS.cats[cat] || 0;
+      return { cat: cat, score: sc, pct: cmax ? Math.round((sc / cmax) * 100) : 0 };
+    }).sort(function (a, b) { return b.pct - a.pct; });
+
+    const dlDemandPct = llaPillarPct('demand');
+    const dlConvPct   = llaPillarPct('conversion');
+    let dlDiag;
+    if (dlConvPct >= 45 && dlDemandPct >= 45) dlDiag = 'both';
+    else if (dlConvPct >= 45)                 dlDiag = 'conversion';
+    else if (dlDemandPct >= 45)               dlDiag = 'demand';
+    else                                      dlDiag = 'solid';
+    const dlWeak = catList
+      .filter(function (c) { return LLA_CATS[c.cat].pillar === 'conversion' && c.pct >= 40; })
+      .slice(0, 3).map(function (c) { return c.cat; });
+    const dlPhases = buildRoadmap(dlDiag, dlWeak, dlDemandPct, dlConvPct);
+
+    const roadmapHTML = dlPhases.map(function (ph, i) {
+      return '<div style="margin-bottom:12px;padding:14px 16px;background:#FFFFFF;border:1px solid #EDE8E3;border-left:3px solid #E8652A;border-radius:3px;">' +
+        '<div style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9C8D83;margin-bottom:5px;">Phase ' + (i + 1) + ' &middot; ' + ph.offering + '</div>' +
+        '<div style="font-size:15px;font-weight:800;color:#1C1917;letter-spacing:-0.01em;margin-bottom:5px;">' + ph.title + '</div>' +
+        '<div style="font-size:12px;color:#6B5D55;line-height:1.6;margin-bottom:8px;">' + ph.why + '</div>' +
+        '<div style="font-size:12px;color:#1C1917;line-height:1.75;">' +
+          ph.items.map(function (it) { return '&bull; ' + it; }).join('<br>') +
+        '</div>' +
+      '</div>';
+    }).join('');
 
     const gapsHTML = catList.map(function(item) {
       const info = LLA_CATS[item.cat];
@@ -864,7 +1169,7 @@
         '<div style="height:5px;background:#EDE8E3;border-radius:3px;overflow:hidden;margin-bottom:5px;">' +
           '<div style="height:100%;width:' + pct + '%;background:' + barColor + ';border-radius:3px;"></div>' +
         '</div>' +
-        '<div style="font-size:11px;color:#9C8D83;">Fixed by: <strong style="color:#1C1917;">' + info.service + '</strong></div>' +
+        '<div style="font-size:11px;color:#9C8D83;">Handled by: <strong style="color:#1C1917;">' + info.system + '</strong></div>' +
       '</div>';
     }).join('');
 
@@ -875,7 +1180,7 @@
             'FLOW<span style="color:#E8652A;">BUILD</span>' +
             '<span style="display:inline-block;background:#E8652A;color:white;font-size:8px;font-weight:800;letter-spacing:0.04em;padding:3px 6px;border-radius:2px;margin-left:5px;vertical-align:middle;position:relative;top:-1px;">AI</span>' +
           '</div>' +
-          '<div style="font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.42);">Revenue Opportunity Roadmap</div>' +
+          '<div style="font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.42);">Revenue Scale &amp; Roadmap</div>' +
         '</div>' +
         '<div style="height:3px;background:linear-gradient(to right,#E8652A,#F5804A);"></div>' +
         '<div style="padding:32px 40px;">' +
@@ -902,8 +1207,15 @@
               '<div style="display:inline-block;margin-top:8px;padding:3px 10px;border-radius:3px;background:' + tierBg + ';color:' + tierText + ';font-size:9px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">' + tierLabel + '</div>' +
             '</div>' +
           '</div>' +
+          '<div style="margin-bottom:24px;padding:14px 18px;background:#FEF5EF;border:1px solid #F6D9C6;border-radius:3px;font-size:12.5px;line-height:1.65;color:#6B5D55;">' +
+            DIAGNOSIS[dlDiag] +
+          '</div>' +
+          '<div style="margin-bottom:24px;">' +
+            '<div style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9C8D83;margin-bottom:14px;">Your Roadmap</div>' +
+            roadmapHTML +
+          '</div>' +
           '<div style="margin-bottom:22px;">' +
-            '<div style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9C8D83;margin-bottom:14px;">Your Gap Breakdown</div>' +
+            '<div style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9C8D83;margin-bottom:14px;">Where The Gaps Are</div>' +
             gapsHTML +
           '</div>' +
           '<div style="padding:16px 20px;background:#FEF5EF;border-left:3px solid #E8652A;border-radius:3px;">' +
@@ -925,7 +1237,7 @@
 
   function llaReset() {
     closeCaptureModal();
-    llaS = { scores: [], cats: { speed:0, quote:0, booking:0, calls:0, reviews:0 }, val: 8000 };
+    llaS = { scores: [], cats: llaFreshCats(), val: 8000 };
     const inp = document.getElementById('lla-val-input');
     if (inp) inp.value = '';
     llaGoTo('intro');
