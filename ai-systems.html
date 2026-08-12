@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Systems | FlowBuild AI</title>
+  <meta name="description" content="The AI systems we build into B2B and service businesses: instant lead response, AI call answering, CRM and sales automation, quote follow-up, database reactivation, reporting dashboards and custom agents. Built and run for you, not sold as software.">
+  <meta name="robots" content="index, follow">
+
+  <meta name="geo.region" content="IE">
+  <meta name="geo.placename" content="Ireland">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://www.flowbuildai.ie/ai-systems.html">
+  <meta property="og:title"       content="AI Systems | FlowBuild AI">
+  <meta property="og:description" content="Every system we build does one job: stop revenue leaving the business through a gap nobody was watching.">
+  <meta property="og:site_name"   content="FlowBuild AI">
+  <meta property="og:locale"      content="en_IE">
+  <meta name="twitter:card"       content="summary_large_image">
+  <link rel="canonical" href="https://www.flowbuildai.ie/ai-systems.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Systems",
+    "serviceType": "AI automation, CRM build and sales system implementation",
+    "description": "Done-for-you AI and automation systems for B2B and service businesses: instant lead response, AI receptionist, CRM build and sales automation, quote and proposal follow-up, database reactivation, booking and reminder flows, review and referral automation, reporting dashboards, and custom AI agents for internal operations.",
+    "provider": {
+      "@type": "Organization",
+      "name": "FlowBuild AI",
+      "url": "https://www.flowbuildai.ie"
+    },
+    "areaServed": { "@type": "Country", "name": "Ireland" },
+    "audience": { "@type": "BusinessAudience", "audienceType": "B2B and service businesses" }
+  }
+  </script>
+
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300..800&family=Syne:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/flowbuild.css">
+
+  <style>
+    /* ─── Hero ─── */
+    #sys-hero {
+      background: var(--cream);
+      padding: 150px 0 80px;
+      position: relative; overflow: hidden;
+    }
+    .sys-hero-grid {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background-image: radial-gradient(rgba(232,101,42,0.055) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+    .sys-hero-glow {
+      position: absolute; pointer-events: none; z-index: 0;
+      width: 760px; height: 760px; top: -240px; left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(ellipse, rgba(232,101,42,0.1) 0%, transparent 66%);
+    }
+    .sys-wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 2; }
+    .sys-hero-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+    .sys-h1 {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: clamp(40px, 5.6vw, 74px);
+      font-weight: 800; line-height: 1.05; letter-spacing: -0.035em;
+      color: var(--charcoal); margin-bottom: 24px;
+    }
+    .sys-h1 em { font-style: normal; color: var(--amber); }
+    .sys-lead {
+      font-size: clamp(16px, 1.5vw, 19px); font-weight: 300;
+      line-height: 1.7; color: var(--charcoal-lt);
+      max-width: 640px; margin: 0 auto 32px;
+    }
+
+    /* ─── Sections ─── */
+    .sys-sec { padding: 100px 0; }
+    .sys-sec.dark { background: var(--charcoal); }
+    .sys-sec.pale { background: var(--amber-xpale); }
+    .sys-head {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: clamp(30px, 4vw, 54px);
+      font-weight: 800; line-height: 1.07; letter-spacing: -0.03em;
+      color: var(--charcoal); margin-bottom: 18px;
+    }
+    .sys-sec.dark .sys-head { color: #fff; }
+    .sys-head em { font-style: normal; color: var(--amber); }
+    .sys-sub {
+      font-size: 17px; line-height: 1.7; font-weight: 300;
+      color: var(--charcoal-lt); max-width: 640px;
+    }
+    .sys-sec.dark .sys-sub { color: rgba(254,241,232,0.62); }
+    .sys-intro { margin-bottom: 64px; }
+
+    /* ─── System list (LeftClick-style single column blocks) ─── */
+    .sys-list { display: flex; flex-direction: column; }
+    .sys-item {
+      display: grid; grid-template-columns: 300px 1fr;
+      gap: 48px; align-items: start;
+      padding: 40px 0;
+      border-top: 1px solid rgba(28,25,23,0.1);
+    }
+    .sys-item:last-child { border-bottom: 1px solid rgba(28,25,23,0.1); }
+    .sys-item-name {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: clamp(20px, 2vw, 25px); font-weight: 800;
+      letter-spacing: -0.025em; line-height: 1.18;
+      color: var(--charcoal);
+    }
+    .sys-item-idx {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--amber);
+      margin-bottom: 10px;
+    }
+    .sys-item-desc {
+      font-size: 15.5px; line-height: 1.75; font-weight: 300;
+      color: var(--charcoal-lt); margin-bottom: 18px;
+    }
+    .sys-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .sys-chip {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.02em;
+      padding: 7px 13px; border-radius: 6px;
+      background: rgba(232,101,42,0.09);
+      color: var(--amber-dk);
+      border: 1px solid rgba(232,101,42,0.18);
+    }
+
+    /* ─── Process band ─── */
+    .sys-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .sys-step {
+      background: rgba(255,255,255,0.035);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 28px 24px;
+    }
+    .sys-step-n {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: var(--amber); color: #fff;
+      font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: 17px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .sys-step-t {
+      font-family: 'Inter Tight', sans-serif; font-size: 16px; font-weight: 800;
+      color: #fff; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 8px;
+    }
+    .sys-step-d { font-size: 13.5px; line-height: 1.62; color: rgba(254,241,232,0.6); }
+
+    /* ─── Closing ─── */
+    .sys-close { text-align: center; max-width: 720px; margin: 0 auto; }
+    .sys-close .sys-head { margin-bottom: 22px; }
+
+    @media (max-width: 940px) {
+      .sys-steps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      #sys-hero { padding: 120px 0 60px; }
+      .sys-wrap { padding: 0 24px; }
+      .sys-sec { padding: 68px 0; }
+      .sys-intro { margin-bottom: 40px; }
+      .sys-item { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
+    }
+    @media (max-width: 560px) {
+      .sys-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════ NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="32" height="24" viewBox="0 0 72 54" fill="none" aria-hidden="true" style="flex-shrink:0">
+        <rect x="0" y="3" width="30" height="3.5" fill="#E8652A"/>
+        <rect x="0" y="25" width="44" height="3.5" fill="#E8652A"/>
+        <circle cx="58" cy="26.75" r="8" fill="#E8652A"/>
+        <rect x="0" y="47" width="30" height="3.5" fill="#E8652A"/>
+      </svg>
+      Flow<span>Build</span> AI
+    </a>
+    <div class="nav-links">
+      <a href="b2b-outbound.html">B2B Outbound</a>
+      <a href="ai-systems.html" style="color:var(--amber)">AI Systems</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://wa.me/353858764679" target="_blank" rel="noopener" class="btn btn-outline nav-quote-btn"><svg class="nav-quote-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="nav-quote-text">Get a Quote</span></a>
+      <a href="#" onclick="openBookingModal();return false;" class="btn btn-amber nav-audit-btn"><span class="scan-long">Book a Call</span><span class="scan-short">Book</span><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <button class="nav-hamburger" onclick="toggleNav(this)" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile-drawer">
+    <a href="b2b-outbound.html" class="nav-mob-link" onclick="closeNav()">B2B Outbound</a>
+    <a href="ai-systems.html" class="nav-mob-link" onclick="closeNav()">AI Systems</a>
+    <div class="nav-mob-ctas">
+      <a href="https://wa.me/353858764679" target="_blank" rel="noopener" class="btn btn-outline" onclick="closeNav()">Message us on WhatsApp</a>
+      <a href="#" class="btn btn-amber" onclick="closeNav();openBookingModal();return false;">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════ HERO -->
+<section id="sys-hero" class="grain">
+  <div class="sys-hero-grid"></div>
+  <div class="sys-hero-glow"></div>
+  <div class="sys-wrap">
+    <div class="sys-hero-inner">
+      <div class="eyebrow reveal" style="justify-content:center;margin-bottom:20px;">Core Offering 02</div>
+      <h1 class="sys-h1 reveal d1">AI systems for the way your business <em>actually runs.</em></h1>
+      <p class="sys-lead reveal d2">
+        Every system on this page exists for one reason, which is that revenue was leaving through a gap nobody was watching. A call at half four on a Friday. A quote sent in March that nobody chased. We build these, connect them to the tools you already pay for, and run them. You do not get a login to something you will never open.
+      </p>
+      <div class="hero-ctas reveal d3">
+        <a href="#" onclick="openBookingModal();return false;" class="btn btn-amber btn-amber-lg">
+          Book a Call
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#sys-list" class="btn btn-outline">
+          See the systems
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ CLIENT MARQUEE -->
+<section id="marquee" aria-label="Businesses we have worked with">
+  <div class="marquee-label">Businesses we've worked with</div>
+  <div class="marquee-track">
+    <span class="marquee-item">Niall Smith Architects</span>
+    <span class="marquee-item">Prestige Barbers</span>
+    <span class="marquee-item">RF Electrical</span>
+    <span class="marquee-item">Home Perfection Renovations</span>
+    <span class="marquee-item">Racks Pool Room</span>
+    <span class="marquee-item">MD Revenue Recovery</span>
+    <span class="marquee-item">Barbells &amp; Babies</span>
+    <span class="marquee-item">Meade Performance Coaching</span>
+    <span class="marquee-item">My Farewell Wishes</span>
+    <span class="marquee-item" aria-hidden="true">Niall Smith Architects</span>
+    <span class="marquee-item" aria-hidden="true">Prestige Barbers</span>
+    <span class="marquee-item" aria-hidden="true">RF Electrical</span>
+    <span class="marquee-item" aria-hidden="true">Home Perfection Renovations</span>
+    <span class="marquee-item" aria-hidden="true">Racks Pool Room</span>
+    <span class="marquee-item" aria-hidden="true">MD Revenue Recovery</span>
+    <span class="marquee-item" aria-hidden="true">Barbells &amp; Babies</span>
+    <span class="marquee-item" aria-hidden="true">Meade Performance Coaching</span>
+    <span class="marquee-item" aria-hidden="true">My Farewell Wishes</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ THE SYSTEMS -->
+<section id="sys-list" class="sys-sec">
+  <div class="sys-wrap">
+    <div class="sys-intro">
+      <div class="eyebrow reveal" style="margin-bottom:16px;">What we build</div>
+      <h2 class="sys-head reveal d1">Ten systems.<br><em>Pick the ones you're missing.</em></h2>
+      <p class="sys-sub reveal d2">Nobody needs all of these on day one. We work out which gaps are costing you most, build those first, and leave the rest until they matter.</p>
+    </div>
+
+    <div class="sys-list">
+
+      <div class="sys-item reveal">
+        <div>
+          <div class="sys-item-idx">System 01</div>
+          <h3 class="sys-item-name">Instant lead response</h3>
+        </div>
+        <div>
+          <p class="sys-item-desc">The first business to reply usually wins, and most enquiries sit unanswered for hours. Every new lead gets a real response in under a minute by text, WhatsApp or voice, regardless of what your team is in the middle of. It runs at nine on a Tuesday morning and at eleven on a Sunday night.</p>
+          <div class="sys-chips">
+            <span class="sys-chip">Sub-60-second reply</span>
+            <span class="sys-chip">SMS, WhatsApp and voice</span>
+            <span class="sys-chip">Every lead source connected</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-item reveal">
+        <div>
+          <div class="sys-item-idx">System 02</div>
+          <h3 class="sys-item-name">AI call answering</h3>
+        </div>
+        <div>
+          <p class="sys-item-desc">A missed call is usually a lost job, because the caller rings the next name on the list rather than leaving a voicemail. An AI receptionist picks up what your team cannot, answers the questions it has been trained on, qualifies the caller and books them in. Anything outside what it knows gets taken as a message and escalated rather than guessed at.</p>
+          <div class="sys-chips">
+            <span class="sys-chip">Answers around the clock</span>
+            <span class="sys-chip">Trained on your business</span>
+            <span class="sys-chip">Books straight to calendar</span>
+            <span class="sys-chip">Escalates what it cannot answer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-item reveal">
+        <div>
+          <div class="sys-item-idx">System 03</div>
+          <h3 class="sys-item-name">CRM build and sales automation</h3>
+        </div>
+        <div>
+          <p class="sys-item-desc">Most CRM projects fail because the tool was configured for a generic business and then handed over. We map how you actually sell first, then build the pipeline around that. Stages update themselves as things happen instead of relying on somebody remembering to drag a card.</p>
+          <div class="sys-chips">
+            <span class="sys-chip">Built on your existing CRM or from scratch</span>
+            <span class="sys-chip">Pipeline stages that update themselves</span>
+            <span class="sys-chip">HubSpot, Pipedrive, GoHighLevel and others</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-item reveal">
+        <div>
+          <div class="sys-item-idx">System 04</div>
+          <h3 class="sys-item-name">Quote and proposal follow-up</h3>
+        </div>
+        <div>
+          <p class="sys-item-desc">Quotes rarely die because the price was wrong. They die because the second conversation never happened. Follow-up runs automatically across several touches and stops the moment someone replies, so nobody gets chased after they have already said yes.</p>
+          <div class="sys-chips">
+            <span class="sys-chip">Multi-touch sequences</span>
+            <span class="sys-chip">Stops on reply</span>
+            <span class="sys-chip">Timed to your sales cycle</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-item reveal">
+        <div>
+          <div class="sys-item-idx">System 05</div>
+          <h3 class="sys-item-name">Database reactivation</h3>
+        </div>
+        <div>
+          <p class="sys-item-desc">This is usually the fastest money available to a business and almost nobody touches it. You already paid to acquire every one of those old enquiries and cold quotes sitting in the CRM. A properly written reactivation campaign goes back through them, and results tend to show up in the first week because there is no lead time to buy.</p>
+          <div class="sys-chips">
+            <span class="sys-chip">Works your existing list</span>
+            <span class="sys-chip">No new ad spend</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-item reveal">
+        <div>
+          <div class="sys-item-idx">System 06</div>
+          <h3 class="sys-item-name">Booking and no-show reduction</h3>
+        </div>
+        <div>
+          <p class="sys-item-desc">Phone tag costs you deals you had already won. Prospects book themselves into a live calendar, then get reminders in the run-up so fewer of them forget. Where someone does drop out, the slot gets offered on rather than sitting empty.</p>
+          <div class="sys-chips">
+            <span class="sys-chip">Self-booking calendar</span>
+            <span class="sys-chip">Automated reminders</span>
+            <span class="sys-chip">Reschedule handling</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-item reveal">
+        <div>
+          <div class="sys-item-idx">System 07</div>
+          <h3 class="sys-item-name">Reviews and referrals</h3>
+        </div>
+        <div>
+          <p class="sys-item-desc">Asking for a review is the job everyone intends to do and nobody does. The request fires automatically when work is marked complete, at the point the customer is happiest, and referral prompts follow the same trigger. Your reputation then compounds without anyone having to remember.</p>
+          <div class="sys-chips">
+            <span class="sys-chip">Triggered on job completion</span>
+            <span class="sys-chip">Google review requests</span>
+            <span class="sys-chip">Referral prompts</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-item reveal">
+        <div>
+          <div class="sys-item-idx">System 08</div>
+          <h3 class="sys-item-name">Reporting and dashboards</h3>
+        </div>
+        <div>
+          <p class="sys-item-desc">Most owners are guessing at their own numbers, and the guess is usually optimistic. One screen shows response times, close rates, where each deal came from and what is sitting in the pipeline. It updates itself, so the reporting is not a job somebody does on a Friday afternoon.</p>
+          <div class="sys-chips">
+            <span class="sys-chip">Live dashboard</span>
+            <span class="sys-chip">Source attribution</span>
+            <span class="sys-chip">No manual reporting</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-item reveal">
+        <div>
+          <div class="sys-item-idx">System 09</div>
+          <h3 class="sys-item-name">Custom AI agents</h3>
+        </div>
+        <div>
+          <p class="sys-item-desc">Some of the work that eats your week does not fit a template. Drafting a quote from a spec. Reading an inbox and routing what matters. Pulling numbers out of documents that arrive as PDFs. We build agents for those specific jobs once we have seen how you currently do them.</p>
+          <div class="sys-chips">
+            <span class="sys-chip">Quoting and estimating</span>
+            <span class="sys-chip">Inbox triage and routing</span>
+            <span class="sys-chip">Document and data extraction</span>
+            <span class="sys-chip">Internal question answering</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-item reveal">
+        <div>
+          <div class="sys-item-idx">System 10</div>
+          <h3 class="sys-item-name">Back office automation</h3>
+        </div>
+        <div>
+          <p class="sys-item-desc">The admin nobody bills for. Confirmations, reminders, invoice chasing, updating three systems with the same information because none of them talk to each other. We connect the tools and let the handoffs happen on their own.</p>
+          <div class="sys-chips">
+            <span class="sys-chip">Tool-to-tool integration</span>
+            <span class="sys-chip">Invoice and payment chasing</span>
+            <span class="sys-chip">Internal notifications</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ HOW AN ENGAGEMENT RUNS -->
+<section class="sys-sec dark">
+  <div class="sys-wrap">
+    <div class="sys-intro" style="text-align:center;">
+      <div class="eyebrow reveal" style="color:var(--amber);justify-content:center;margin-bottom:16px;">How it runs</div>
+      <h2 class="sys-head reveal d1">From first call to <em>running in your business.</em></h2>
+      <p class="sys-sub reveal d2" style="margin:0 auto;">You are involved twice: once to tell us how the business works, once to approve what we built.</p>
+    </div>
+
+    <div class="sys-steps reveal">
+      <div class="sys-step">
+        <div class="sys-step-n">1</div>
+        <div class="sys-step-t">Free growth audit call</div>
+        <div class="sys-step-d">We map where the business is losing revenue and roughly what each gap is worth. You keep that whether or not you work with us.</div>
+      </div>
+      <div class="sys-step">
+        <div class="sys-step-n">2</div>
+        <div class="sys-step-t">We scope and build</div>
+        <div class="sys-step-d">We agree which systems go in first, then build them against your real process rather than a template. Plugged into the tools you already use.</div>
+      </div>
+      <div class="sys-step">
+        <div class="sys-step-n">3</div>
+        <div class="sys-step-t">You approve, we go live</div>
+        <div class="sys-step-d">You read the flows, scripts and messages before a customer ever sees them. Nothing goes live on your name without your sign-off.</div>
+      </div>
+      <div class="sys-step">
+        <div class="sys-step-n">4</div>
+        <div class="sys-step-t">We run and tune it</div>
+        <div class="sys-step-d">Systems get watched and adjusted as your business changes. No lock-in, and everything we build stays yours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ CLOSING CTA -->
+<section class="sys-sec pale">
+  <div class="sys-wrap">
+    <div class="sys-close reveal">
+      <h2 class="sys-head">Not sure which of these <em>you actually need?</em></h2>
+      <p class="sys-sub" style="margin:0 auto 30px;">That is what the first call is for. Fifteen minutes, no pitch. We will tell you which gap is costing you most and what it would take to close it. If automation is not your problem right now, we will say that instead of selling you something.</p>
+      <button onclick="openBookingModal();return false;" class="btn btn-amber btn-amber-lg" style="justify-content:center;">Book a Call
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <p style="margin-top:18px;font-family:'Inter Tight',sans-serif;font-size:13px;color:var(--charcoal-lt);letter-spacing:0.02em;">Free &middot; 15 minutes &middot; No obligation</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <svg width="32" height="24" viewBox="0 0 72 54" fill="none" aria-hidden="true" style="flex-shrink:0">
+            <rect x="0" y="3" width="30" height="3.5" fill="#E8652A"/>
+            <rect x="0" y="25" width="44" height="3.5" fill="#E8652A"/>
+            <circle cx="58" cy="26.75" r="8" fill="#E8652A"/>
+            <rect x="0" y="47" width="30" height="3.5" fill="#E8652A"/>
+          </svg>
+          Flow<span>Build</span> AI
+        </div>
+        <p class="foot-desc">We build the growth systems B2B and service businesses are missing. Outbound that fills the pipeline, and AI automation that converts it. Done for you, running inside your business, without hiring more staff.</p>
+        <a href="#" onclick="openBookingModal();return false;" class="btn btn-amber" style="font-size:14px;padding:14px 22px;">Book a Call</a>
+      </div>
+      <div>
+        <div class="foot-col-head">Navigation</div>
+        <div class="foot-links">
+          <a href="index.html">Home</a>
+          <a href="b2b-outbound.html">B2B Outbound</a>
+          <a href="ai-systems.html">AI Systems</a>
+          <a href="audit.html">Free Roadmap</a>
+        </div>
+      </div>
+      <div>
+        <div class="foot-col-head">Services</div>
+        <div class="foot-links">
+          <a href="b2b-outbound.html">Cold Email Lead Generation</a>
+          <a href="b2b-outbound.html">SDR Qualification</a>
+          <a href="ai-systems.html">CRM &amp; Sales Automation</a>
+          <a href="ai-systems.html">Instant Lead Response</a>
+          <a href="ai-systems.html">Custom AI Agents</a>
+        </div>
+      </div>
+      <div>
+        <div class="foot-col-head">Contact</div>
+        <div class="foot-links">
+          <a href="tel:+353872666405">+353 87 266 6405</a>
+          <a href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p class="foot-copy">© 2026 FlowBuild AI. All rights reserved. Ireland.</p>
+      <div class="foot-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Scroll reveal ──
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+  }, { threshold: 0.07, rootMargin: '0px 0px -36px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // ── Mobile nav ──
+  function toggleNav(btn) { document.querySelector('nav').classList.toggle('open'); }
+  function closeNav()     { document.querySelector('nav').classList.remove('open'); }
+  document.addEventListener('click', function (e) {
+    const nav = document.querySelector('nav');
+    if (nav.classList.contains('open') && !nav.contains(e.target)) closeNav();
+  });
+
+  // ── Booking modal ──
+  const BOOKING_URL = 'https://links.flowbuildai.ie/widget/booking/MLznN883xY9UeIaBWpgO';
+
+  function openBookingModal() {
+    const modal = document.getElementById('booking-modal');
+    const iframe = document.getElementById('booking-iframe');
+    if (!iframe.src || iframe.src === window.location.href) iframe.src = BOOKING_URL;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeBookingModal() {
+    document.getElementById('booking-modal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const modalEl = document.getElementById('booking-modal');
+    if (!modalEl) return;
+    modalEl.addEventListener('click', function (e) {
+      if (e.target === this) closeBookingModal();
+    });
+  });
+</script>
+
+<div id="booking-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.82);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
+  <div style="position:relative;width:90%;max-width:720px;height:82vh;background:#1C1917;border-radius:12px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.6);">
+    <button onclick="closeBookingModal()" style="position:absolute;top:12px;right:14px;z-index:10;background:rgba(255,255,255,0.08);border:none;border-radius:50%;width:32px;height:32px;color:white;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;">×</button>
+    <iframe id="booking-iframe" src="" style="width:100%;height:100%;border:none;" title="Book a Call"></iframe>
+  </div>
+</div>
+
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a040bc50d6444c6be238ac6"></script>
+</body>
+</html>
