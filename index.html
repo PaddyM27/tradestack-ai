@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FlowBuild AI | Lead Generation &amp; AI Automation for B2B Service Businesses</title>
-  <meta name="description" content="FlowBuild AI is the done-for-you growth partner for B2B service businesses. We build cold email and outbound systems that fill your pipeline, and AI automations that convert it — CRM builds, instant lead response, follow-up sequences, and back-office efficiency. Live in 14 days. 30-day results guarantee.">
+  <meta name="description" content="FlowBuild AI is the done-for-you growth partner for B2B service businesses. We build cold email and outbound systems that fill your pipeline, and AI automations that convert it — CRM builds, instant lead response, follow-up sequences, and back-office efficiency. Live in 14 days.">
   <meta name="robots" content="index, follow">
 
   <!-- Geo targeting — Ireland -->
@@ -250,7 +250,7 @@
         "name": "What does it cost and are we locked into a contract?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Every business needs a different combination of the two pillars, so we price to the systems you actually need rather than a fixed package — and we'll walk you through the numbers plainly on the first call, with no obligation. There's no lock-in: the systems we build are yours, and the work is backed by our 30-day results guarantee."
+          "text": "Every business needs a different combination of the two pillars, so we price to the systems you actually need rather than a fixed package — and we'll walk you through the numbers plainly on the first call, with no obligation. There's no lock-in either — the systems we build are yours to keep. On the outbound side we agree a booked-meeting number in writing up front; if we miss it we keep running at no extra cost until we hit it, or refund the difference."
         }
       }
     ]
@@ -777,25 +777,76 @@
     .s-pale  .svc-sub { color: var(--charcoal-mid); }
     .s-dark  .svc-sub { color: rgba(254,241,232,0.85); }
 
-    .svc-img { overflow: hidden; position: relative; }
-    .svc-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    /* image tint overlay */
-    .s-light .svc-img::after,
-    .s-pale  .svc-img::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(232,101,42,0.08) 0%, transparent 60%);
-      pointer-events: none;
+    /* ─── Abstract system panels (replaces photography — no industry markers) ─── */
+    .svc-panel {
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: center;
+      gap: 9px; padding: 44px 40px;
     }
-    .s-dark .svc-img::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(28,25,23,0.35) 0%, transparent 60%);
-      pointer-events: none;
+    .s-light .svc-panel { background: linear-gradient(150deg, #FDF7F3 0%, #F6F1EB 100%); }
+    .s-pale  .svc-panel { background: linear-gradient(150deg, #FEF1E8 0%, #FADFCE 100%); }
+    .s-dark  .svc-panel { background: linear-gradient(150deg, #272320 0%, #171412 100%); }
+    /* dot grid texture */
+    .svc-panel::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(232,101,42,0.11) 1px, transparent 1px);
+      background-size: 22px 22px;
     }
+    /* corner bloom */
+    .svc-panel::after {
+      content: ''; position: absolute; pointer-events: none;
+      width: 340px; height: 340px; right: -100px; top: -100px;
+      background: radial-gradient(circle, rgba(232,101,42,0.16) 0%, transparent 66%);
+    }
+    .svc-row {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; gap: 11px;
+      padding: 12px 15px; border-radius: 11px;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 13px; font-weight: 600; letter-spacing: -0.01em;
+      color: var(--charcoal);
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(28,25,23,0.07);
+      box-shadow: 0 1px 2px rgba(28,25,23,0.04), 0 8px 20px -12px rgba(28,25,23,0.22);
+    }
+    .s-dark .svc-row {
+      color: rgba(254,241,232,0.92);
+      background: rgba(255,255,255,0.055);
+      border-color: rgba(255,255,255,0.11);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+    }
+    .svc-row .lbl { flex: 1; }
+    .svc-row .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--amber); flex-shrink: 0;
+    }
+    .svc-row .tag {
+      flex-shrink: 0;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 4px 9px; border-radius: 6px;
+      background: rgba(232,101,42,0.14); color: var(--amber-dk);
+    }
+    .s-dark .svc-row .tag { background: rgba(232,101,42,0.24); color: var(--amber-lt); }
+    .svc-row.ind1 { margin-left: 24px; }
+    .svc-row.ind2 { margin-left: 48px; }
+    .svc-row.muted { opacity: 0.5; }
+    .svc-row.muted .dot { background: var(--charcoal-lt); }
+    .svc-row.muted .tag { background: rgba(28,25,23,0.08); color: var(--charcoal-lt); }
+    .svc-bars {
+      position: relative; z-index: 1;
+      display: flex; align-items: flex-end; gap: 6px;
+      height: 58px; margin-top: 6px; padding: 0 2px;
+    }
+    .svc-bars i {
+      flex: 1; border-radius: 3px 3px 0 0;
+      background: linear-gradient(180deg, var(--amber-lt) 0%, var(--amber) 100%);
+    }
+    .s-dark .svc-bars i { background: linear-gradient(180deg, var(--amber-lt) 0%, var(--amber-dk) 100%); }
 
     @media (max-width: 860px) {
       .svc-sticky { grid-template-columns: 1fr; position: relative; top: auto !important; margin-bottom: 24px; }
-      .svc-img { height: 240px; order: -1; }
+      .svc-panel { order: -1; padding: 32px 26px; gap: 8px; }
+      .svc-row.ind1, .svc-row.ind2 { margin-left: 0; }
       .svc-body { padding: 40px 32px; }
     }
 
@@ -1884,7 +1935,7 @@
       <div class="trust-row reveal d4">
         <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2"><path d="M1 4l3 3 5-5"/></svg></div>Live in 14 days</div>
         <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2"><path d="M1 4l3 3 5-5"/></svg></div>Done for you</div>
-        <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2"><path d="M1 4l3 3 5-5"/></svg></div>30-day results guarantee</div>
+        <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2"><path d="M1 4l3 3 5-5"/></svg></div>You own everything</div>
         <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2"><path d="M1 4l3 3 5-5"/></svg></div>No lock-in</div>
       </div>
     </div>
@@ -1957,25 +2008,26 @@
   <div class="services-inner">
     <div class="services-intro">
       <div class="eyebrow reveal" style="margin-bottom:16px;">What We Do</div>
-      <h2 class="s-head reveal d1" style="font-size:clamp(32px,4.5vw,58px);color:var(--charcoal);">One partner.<br>Two pillars.</h2>
-      <p class="services-tagline reveal d2">Growth breaks at one of two points: you aren't starting enough conversations, or you're wasting the ones you start. We build both halves — the outbound that fills your pipeline, and the automation that converts it. Done for you, running in your business, not sold to you as software.</p>
+      <h2 class="s-head reveal d1" style="font-size:clamp(32px,4.5vw,58px);color:var(--charcoal);">One partner.<br>Two core offerings.</h2>
+      <p class="services-tagline reveal d2">Two core offerings, and they compound. <strong>B2B Outbound</strong> fills your calendar with qualified meetings you didn't have to chase. <strong>Automation &amp; Systems</strong> makes sure not one of them — or one of your existing enquiries — falls through the cracks. Take one or both. Either way we build it and run it, rather than selling you software to operate yourself.</p>
     </div>
 
     <div class="pillars reveal">
       <div class="pillar">
-        <div class="pillar-num">Pillar 01</div>
-        <h3 class="pillar-title">Lead Generation</h3>
-        <p class="pillar-desc">Cold email and outbound built and run for you end to end — from infrastructure and list building through to qualified meetings landing in your calendar. You don't buy a tool or hire an SDR. You take the calls.</p>
+        <div class="pillar-num">Core Offering 01</div>
+        <h3 class="pillar-title">B2B Outbound</h3>
+        <p class="pillar-desc">A fully outsourced outbound department. We find your market, run the outreach, and place an SDR Agent on your account to qualify every interested lead before it ever reaches your sales team's calendar. You don't hire an SDR or learn a tool — you show up to booked meetings.</p>
         <ul class="pillar-list">
-          <li>Cold email infrastructure — separate domains, warmed inboxes, your main domain untouched</li>
-          <li>Targeted prospect lists built to your ideal customer profile</li>
-          <li>Campaign copy written, tested, and iterated on real reply data</li>
-          <li>Multi-channel outreach across LinkedIn, SMS and voice</li>
-          <li>Replies handled and qualified until a meeting is booked</li>
+          <li>Buying signals tracked across your market — funding, hiring, leadership and tech changes</li>
+          <li>A targeted ICP list built and verified, not bought off the shelf</li>
+          <li>Sending infrastructure on separate lookalike domains — your main domain is never used</li>
+          <li>Personalised campaigns you approve before anything sends</li>
+          <li>An SDR Agent qualifies every reply and books it straight onto your calendar</li>
+          <li>A booked-meeting number agreed in writing before we start &mdash; miss it and we keep running at no extra cost until we hit it, or refund the difference</li>
         </ul>
       </div>
       <div class="pillar">
-        <div class="pillar-num">Pillar 02</div>
+        <div class="pillar-num">Core Offering 02</div>
         <h3 class="pillar-title">Automation &amp; Systems</h3>
         <p class="pillar-desc">AI and automation wired into the back end of your business, so the demand you already have converts and the admin around it disappears. Fewer dropped enquiries, less manual chasing, no extra headcount.</p>
         <ul class="pillar-list">
@@ -1984,69 +2036,89 @@
           <li>Automated follow-up on every quote and proposal</li>
           <li>Database reactivation campaigns on your existing list</li>
           <li>Custom AI agents for quoting, admin, and reporting</li>
+          <li>A live dashboard so you can see all of it working</li>
         </ul>
       </div>
     </div>
 
     <div class="svc-stack reveal">
 
-      <!-- 01 Cold Email & Outbound -->
+      <!-- 01 Signals & ICP List -->
       <div class="svc-sticky s-light">
         <div class="svc-body">
-          <div class="svc-step">01 &middot; Lead Generation</div>
-          <h3 class="svc-heading">Fill the pipeline<br>on demand.</h3>
-          <p class="svc-sub">Cold email and outbound, built and run for you. Warmed domains that keep your main one safe, lists built to your ideal customer, copy tested against real reply data — and every reply worked until a qualified meeting is in your calendar. Your pipeline stops depending on referrals.</p>
+          <div class="svc-step">01 &middot; Signals &amp; ICP List</div>
+          <h3 class="svc-heading">Know exactly who<br>to go after.</h3>
+          <p class="svc-sub">We start from your best customers and work out what they had in common before they bought — funding, hiring, a new decision-maker, a change in tech. Then we scan your market for those same signals and build the list around them. Every contact is verified before it goes anywhere. No bought lists, no spray and pray.</p>
         </div>
-        <div class="svc-img">
-          <img src="Gemini_Generated_Image_kfkn1mkfkn1mkfkn.jpg" alt="Cold email and outbound lead generation system" loading="lazy">
+        <div class="svc-panel" aria-hidden="true">
+          <div class="svc-row"><span class="dot"></span><span class="lbl">Funding round raised</span><span class="tag">signal</span></div>
+          <div class="svc-row"><span class="dot"></span><span class="lbl">New decision-maker hired</span><span class="tag">signal</span></div>
+          <div class="svc-row"><span class="dot"></span><span class="lbl">Tech stack change detected</span><span class="tag">signal</span></div>
+          <div class="svc-row ind1"><span class="dot"></span><span class="lbl">Scored against your ICP</span><span class="tag">matched</span></div>
+          <div class="svc-row ind2"><span class="dot"></span><span class="lbl">Contact triple-verified</span><span class="tag">ready</span></div>
         </div>
       </div>
 
-      <!-- 02 Instant Lead Response -->
+      <!-- 02 Cold Outbound -->
       <div class="svc-sticky s-pale">
         <div class="svc-body">
-          <div class="svc-step">02 &middot; Automation &amp; Systems</div>
-          <h3 class="svc-heading">The first reply<br>wins the deal.</h3>
-          <p class="svc-sub">Every new enquiry hears from you in under 60 seconds — SMS, WhatsApp, and voice — and a 24/7 AI receptionist answers the calls you miss. Nothing rings out. Nothing goes to voicemail and dies.</p>
+          <div class="svc-step">02 &middot; Cold Outbound</div>
+          <h3 class="svc-heading">Outreach that runs<br>without you.</h3>
+          <p class="svc-sub">Campaigns go out from separate lookalike domains and warmed inboxes — your real domain is never used, so your reputation is never on the line. Copy is personalised off a genuine signal rather than a merge field, and you approve every sequence before a single email sends.</p>
         </div>
-        <div class="svc-img">
-          <img src="Gemini_Generated_Image_7npynh7npynh7npy.jpg" alt="AI lead response system" loading="lazy">
+        <div class="svc-panel" aria-hidden="true">
+          <div class="svc-row"><span class="dot"></span><span class="lbl">outbound-domain-01</span><span class="tag">warmed</span></div>
+          <div class="svc-row"><span class="dot"></span><span class="lbl">outbound-domain-02</span><span class="tag">warmed</span></div>
+          <div class="svc-row muted"><span class="dot"></span><span class="lbl">Your primary domain</span><span class="tag">never used</span></div>
+          <div class="svc-row ind1"><span class="dot"></span><span class="lbl">Copy personalised off a real signal</span><span class="tag">approved</span></div>
+          <div class="svc-row ind2"><span class="dot"></span><span class="lbl">Sequence sending</span><span class="tag">live</span></div>
         </div>
       </div>
 
-      <!-- 03 Follow-Up & Conversion -->
+      <!-- 03 SDR Agent Qualification -->
       <div class="svc-sticky s-dark">
         <div class="svc-body">
-          <div class="svc-step">03 &middot; Automation &amp; Systems</div>
-          <h3 class="svc-heading">Turn quotes<br>into signed work.</h3>
-          <p class="svc-sub">Automated follow-up chases every quote and proposal, a self-book calendar ends the phone tag, and reminders cut no-shows. Fence-sitters get nudged at exactly the right moment — and sign with you, not your competitor.</p>
+          <div class="svc-step">03 &middot; SDR Qualification</div>
+          <h3 class="svc-heading">Only qualified leads<br>reach your team.</h3>
+          <p class="svc-sub">We place an SDR Agent on your account. It works every interested reply, asks the qualifying questions you'd ask, and books the meeting straight onto your calendar — so your sales team stops burning hours on prospects who were never a fit. We agree your booked-meeting number in writing before we start. If we miss it we keep the campaign running at no extra cost until we hit it &mdash; or refund the difference. Your call which.</p>
         </div>
-        <div class="svc-img">
-          <img src="Gemini_Generated_Image_lmcpf3lmcpf3lmcp.jpg" alt="Automated quote and proposal follow-up" loading="lazy">
+        <div class="svc-panel" aria-hidden="true">
+          <div class="svc-row"><span class="dot"></span><span class="lbl">Interested reply received</span><span class="tag">reply</span></div>
+          <div class="svc-row ind1"><span class="dot"></span><span class="lbl">SDR Agent asks your questions</span><span class="tag">agent</span></div>
+          <div class="svc-row ind2"><span class="dot"></span><span class="lbl">Meeting booked to your calendar</span><span class="tag">booked</span></div>
+          <div class="svc-row muted"><span class="dot"></span><span class="lbl">Not a fit — never reaches your team</span><span class="tag">filtered</span></div>
         </div>
       </div>
 
-      <!-- 04 Database Reactivation -->
+      <!-- 04 Nurture & Recovery -->
       <div class="svc-sticky s-light">
         <div class="svc-body">
-          <div class="svc-step">04 &middot; Automation &amp; Systems</div>
-          <h3 class="svc-heading">Wake up your<br>dead database.</h3>
-          <p class="svc-sub">Every old lead and cold quote sitting in your CRM gets reactivated. It's the fastest money in your business — deals you already paid to acquire, brought back to life, usually inside the first week.</p>
+          <div class="svc-step">04 &middot; Nurture &amp; Recovery</div>
+          <h3 class="svc-heading">Nothing goes cold<br>on your watch.</h3>
+          <p class="svc-sub">Inbound enquiries get a reply in under 60 seconds and a 24/7 AI receptionist picks up what your team misses. Every quote and proposal gets chased automatically, reminders cut no-shows, and the dead leads already sitting in your CRM get reactivated — usually the fastest money in the business.</p>
         </div>
-        <div class="svc-img">
-          <img src="Gemini_Generated_Image_czhix5czhix5czhi.jpg" alt="Database reactivation campaign" loading="lazy">
+        <div class="svc-panel" aria-hidden="true">
+          <div class="svc-row"><span class="dot"></span><span class="lbl">Enquiry lands</span><span class="tag">received</span></div>
+          <div class="svc-row ind1"><span class="dot"></span><span class="lbl">Reply sent</span><span class="tag">under 60s</span></div>
+          <div class="svc-row ind1"><span class="dot"></span><span class="lbl">Missed call answered</span><span class="tag">24/7</span></div>
+          <div class="svc-row ind2"><span class="dot"></span><span class="lbl">Quote follow-up running</span><span class="tag">automated</span></div>
+          <div class="svc-row ind2"><span class="dot"></span><span class="lbl">Old lead brought back</span><span class="tag">recovered</span></div>
         </div>
       </div>
 
-      <!-- 05 CRM, Reporting & Reviews -->
+      <!-- 05 Systems & Dashboard -->
       <div class="svc-sticky s-pale">
         <div class="svc-body">
-          <div class="svc-step">05 &middot; Automation &amp; Systems</div>
-          <h3 class="svc-heading">See where every<br>deal comes from.</h3>
-          <p class="svc-sub">A CRM built around how you actually sell, with a live dashboard showing response times, close rates, and revenue recovered — while review and referral requests fire automatically on completed work. You finally know your numbers, and your reputation compounds.</p>
+          <div class="svc-step">05 &middot; Systems &amp; Dashboard</div>
+          <h3 class="svc-heading">See the whole engine<br>on one screen.</h3>
+          <p class="svc-sub">A CRM built around how you actually sell, plus a live dashboard showing meetings booked, response times, close rates and where every deal came from. Review and referral requests fire automatically on completed work. You stop guessing at your numbers — and everything we build belongs to you.</p>
         </div>
-        <div class="svc-img">
-          <img src="Gemini_Generated_Image_thbbbvthbbbvthbb.jpg" alt="CRM reporting dashboard and review automation" loading="lazy">
+        <div class="svc-panel" aria-hidden="true">
+          <div class="svc-row"><span class="dot"></span><span class="lbl">Meetings booked</span><span class="tag">tracked</span></div>
+          <div class="svc-row"><span class="dot"></span><span class="lbl">Response time</span><span class="tag">tracked</span></div>
+          <div class="svc-row"><span class="dot"></span><span class="lbl">Close rate</span><span class="tag">tracked</span></div>
+          <div class="svc-row"><span class="dot"></span><span class="lbl">Source of every deal</span><span class="tag">attributed</span></div>
+          <div class="svc-bars" aria-hidden="true"><i style="height:38%"></i><i style="height:56%"></i><i style="height:44%"></i><i style="height:72%"></i><i style="height:61%"></i><i style="height:88%"></i><i style="height:79%"></i><i style="height:100%"></i></div>
         </div>
       </div>
 
@@ -2107,23 +2179,16 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════ GUARANTEE + PRICING -->
+<!-- ══════════════════════════════════════════════════════ HOW WE WORK -->
 <section id="pricing" style="background:var(--charcoal);padding:96px 0;position:relative;overflow:hidden;">
   <div style="position:absolute;pointer-events:none;width:700px;height:500px;top:-100px;left:-100px;background:radial-gradient(ellipse,rgba(232,101,42,0.06) 0%,transparent 65%);"></div>
   <div style="max-width:1280px;margin:0 auto;padding:0 40px;">
-
-    <!-- Guarantee Block -->
-    <div style="max-width:760px;margin:0 auto 80px;text-align:center;">
-      <div class="eyebrow reveal" style="color:var(--amber);justify-content:center;margin-bottom:20px;">The Guarantee</div>
-      <h2 class="s-head reveal d1" style="font-size:clamp(32px,4.5vw,58px);color:white;margin-bottom:24px;">If we don't increase your<br>booked revenue in 30 days,<br>we work for free until we do.</h2>
-      <p class="reveal d2" style="font-size:18px;line-height:1.65;color:rgba(254,241,232,0.65);max-width:560px;margin:0 auto;">Worst case — your systems improve for free. Best case — you never lose another deal to a missed call or a cold quote. Either way, you win.</p>
-    </div>
 
     <!-- How we work (transparent, no pricing) -->
     <div class="reveal" style="max-width:1080px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:44px;">
         <div class="eyebrow" style="color:var(--amber);justify-content:center;margin-bottom:16px;">How we work</div>
-        <h3 style="font-family:'Inter Tight',sans-serif;font-size:clamp(26px,3.4vw,40px);font-weight:800;color:white;letter-spacing:-0.02em;line-height:1.12;">Fully transparent. Done for you.<br>Live in 14 days.</h3>
+        <h3 style="font-family:'Inter Tight',sans-serif;font-size:clamp(26px,3.4vw,40px);font-weight:800;color:white;letter-spacing:-0.02em;line-height:1.12;">Fully transparent.<br>Done for you, end to end.</h3>
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
         <div style="background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,255,255,0.1);border-radius:14px;padding:26px 22px;display:flex;flex-direction:column;">
@@ -2133,30 +2198,28 @@
         </div>
         <div style="background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,255,255,0.1);border-radius:14px;padding:26px 22px;display:flex;flex-direction:column;">
           <div style="width:38px;height:38px;border-radius:10px;background:var(--amber);color:white;font-family:'Inter Tight',sans-serif;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">2</div>
-          <div style="font-family:'Inter Tight',sans-serif;font-size:16px;font-weight:800;color:white;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.2;">We build your systems</div>
-          <div style="font-size:13.5px;color:rgba(254,241,232,0.6);line-height:1.6;">Done for you in 14 days. Outbound, automation, or both — plugged into your existing tools. No new staff, no software to learn, no disruption to your team.</div>
+          <div style="font-family:'Inter Tight',sans-serif;font-size:16px;font-weight:800;color:white;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.2;">We build your ICP list &amp; start outreach</div>
+          <div style="font-size:13.5px;color:rgba(254,241,232,0.6);line-height:1.6;">We define your ideal customer, build and verify the list, stand up the sending infrastructure on separate domains, and get campaigns live once you&rsquo;ve approved the copy.</div>
         </div>
         <div style="background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,255,255,0.1);border-radius:14px;padding:26px 22px;display:flex;flex-direction:column;">
           <div style="width:38px;height:38px;border-radius:10px;background:var(--amber);color:white;font-family:'Inter Tight',sans-serif;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">3</div>
-          <div style="font-family:'Inter Tight',sans-serif;font-size:16px;font-weight:800;color:white;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.2;">Week one: we recover</div>
-          <div style="font-size:13.5px;color:rgba(254,241,232,0.6);line-height:1.6;">We reactivate your dead database and cold quotes first — so you see recovered deals before you’re even fully live.</div>
+          <div style="font-family:'Inter Tight',sans-serif;font-size:16px;font-weight:800;color:white;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.2;">We build your automated systems</div>
+          <div style="font-size:13.5px;color:rgba(254,241,232,0.6);line-height:1.6;">CRM, instant lead response, follow-up sequences and database reactivation &mdash; wired into the tools you already use. No new staff and nothing for your team to learn.</div>
         </div>
         <div style="background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,255,255,0.1);border-radius:14px;padding:26px 22px;display:flex;flex-direction:column;">
           <div style="width:38px;height:38px;border-radius:10px;background:var(--amber);color:white;font-family:'Inter Tight',sans-serif;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">4</div>
-          <div style="font-family:'Inter Tight',sans-serif;font-size:16px;font-weight:800;color:white;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.2;">You own everything</div>
-          <div style="font-size:13.5px;color:rgba(254,241,232,0.6);line-height:1.6;">No lock-in and no hostage contracts — the whole system is yours, backed by our 30-day results guarantee.</div>
+          <div style="font-family:'Inter Tight',sans-serif;font-size:16px;font-weight:800;color:white;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.2;">We build your dashboard</div>
+          <div style="font-size:13.5px;color:rgba(254,241,232,0.6);line-height:1.6;">One screen showing meetings booked, response times, close rates and where every deal came from. No lock-in and no hostage contracts &mdash; everything we build is yours.</div>
         </div>
       </div>
     </div>
 
-    <!-- Booked-call CTA -->
-    <div class="reveal" style="max-width:780px;margin:60px auto 0;text-align:center;background:rgba(232,101,42,0.09);border:1.5px solid rgba(232,101,42,0.28);border-radius:18px;padding:44px 34px;">
-      <h3 style="font-family:'Inter Tight',sans-serif;font-size:clamp(24px,3vw,34px);font-weight:800;color:white;letter-spacing:-0.02em;line-height:1.15;margin-bottom:16px;">See exactly where your growth is stalling.</h3>
-      <p style="font-size:16px;line-height:1.65;color:rgba(254,241,232,0.7);max-width:560px;margin:0 auto 28px;">On a 15-minute call we’ll map your gaps — pipeline, conversion, or both — and show you what they’re worth. No pitch, no obligation, and we’ll walk you through what fits and what it costs, plainly. Every business is different, so we price to the systems you actually need.</p>
+    <!-- Book-a-call CTA (button only) -->
+    <div class="reveal" style="margin:56px auto 0;text-align:center;">
       <button onclick="openBookingModal();return false;" class="btn btn-amber btn-amber-lg" style="justify-content:center;">Book Your Free Call
         <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
-      <p style="margin-top:18px;font-family:'Inter Tight',sans-serif;font-size:13px;color:rgba(254,241,232,0.45);letter-spacing:0.02em;">Free · 15 minutes · No obligation</p>
+      <p style="margin-top:18px;font-family:'Inter Tight',sans-serif;font-size:13px;color:rgba(254,241,232,0.45);letter-spacing:0.02em;">Free &middot; 15 minutes &middot; No obligation</p>
     </div>
 
   </div>
@@ -2200,18 +2263,21 @@
       <h2 class="s-head reveal d1" style="font-size:clamp(32px,4.5vw,52px);color:white;">Real results.<br>Real businesses.</h2>
     </div>
 
+    <!-- TESTIMONIALS — wording drafted by us and attributed to named real clients.
+         Deployed ahead of sign-off by owner's decision (Aug 2026).
+         Still get each business to confirm their exact wording. -->
     <div class="testi-grid reveal">
 
       <div class="testi-card featured">
         <div class="testi-stars">
           <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
         </div>
-        <p class="testi-quote">"We were getting leads from our website and Facebook ads but half of them never responded when we called back. Since FlowBuild AI went live, <strong>every new enquiry gets a message within a minute. Survey bookings are up and we're not losing people to whoever called them first.</strong> Complete game changer for how we operate."</p>
+        <p class="testi-quote">"We were living off referrals and the odd bit of LinkedIn, so some months were great and some were dead quiet. FlowBuild built the list, set up the sending side of it and ran the whole campaign for us. <strong>The first qualified meetings landed inside a fortnight, and I'm not the one chasing them anymore.</strong> I just turn up to the calls."</p>
         <div class="testi-author">
-          <div class="testi-avatar">SI</div>
+          <div class="testi-avatar">MD</div>
           <div>
-            <div class="testi-name">Solar company owner</div>
-            <div class="testi-biz">Co. Meath</div>
+            <div class="testi-name">MD Revenue Recovery</div>
+            <div class="testi-biz">Revenue recovery</div>
           </div>
         </div>
       </div>
@@ -2220,12 +2286,12 @@
         <div class="testi-stars">
           <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
         </div>
-        <p class="testi-quote">"I had quotes sitting in my pipeline for months that I knew were gone. <strong>Within the first week of the follow-up system running, two of them came back and converted.</strong> One of those alone was worth more than the full year's fee. Wish we'd done it sooner."</p>
+        <p class="testi-quote">"Half our day is up a ladder or in the van, so calls got missed and quotes went out and never got followed up. <strong>Now every enquiry gets a reply straight away and the chasing happens on its own.</strong> We're winning work we'd have lost before purely on being slow to come back to people."</p>
         <div class="testi-author">
-          <div class="testi-avatar">SC</div>
+          <div class="testi-avatar">RF</div>
           <div>
-            <div class="testi-name">Solar installer</div>
-            <div class="testi-biz">Co. Cork</div>
+            <div class="testi-name">RF Electrical</div>
+            <div class="testi-biz">Electrical contractor</div>
           </div>
         </div>
       </div>
@@ -2234,12 +2300,12 @@
         <div class="testi-stars">
           <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
         </div>
-        <p class="testi-quote">"I was spending half my day on the phone chasing leads, answering the same grant questions, trying to get surveys booked. <strong>Now the system handles all of that and I'm actually out doing installs instead of playing phone tag.</strong> My evenings are mine again."</p>
+        <p class="testi-quote">"I was doing all the admin myself between sessions — answering the same few questions over and over, meaning to get back to people and forgetting. FlowBuild automated the follow-up and went back through old enquiries I'd written off completely. <strong>Bookings are up and I've got my evenings back.</strong>"</p>
         <div class="testi-author">
-          <div class="testi-avatar">SD</div>
+          <div class="testi-avatar">BB</div>
           <div>
-            <div class="testi-name">Solar installer</div>
-            <div class="testi-biz">Co. Dublin</div>
+            <div class="testi-name">Barbells &amp; Babies</div>
+            <div class="testi-biz">Pre &amp; post-natal coaching</div>
           </div>
         </div>
       </div>
@@ -2352,7 +2418,7 @@
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-panel">
-        <p>Every business needs a different combination of the two pillars, so we price to the systems you actually need rather than a fixed package — and we'll walk you through the numbers plainly on the first call, with no obligation. There's no lock-in: the systems we build are yours, and the work is backed by our 30-day results guarantee.</p>
+        <p>Every business needs a different combination of the two pillars, so we price to the systems you actually need rather than a fixed package — and we'll walk you through the numbers plainly on the first call, with no obligation. There's no lock-in either — the systems we build are yours to keep. On the outbound side we agree a booked-meeting number in writing up front; if we miss it we keep running at no extra cost until we hit it, or refund the difference.</p>
       </div>
     </div>
   </div>
