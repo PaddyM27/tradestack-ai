@@ -48,33 +48,40 @@
     /* ─── Page hero ─── */
     #ob-hero {
       background: var(--cream);
-      padding: 150px 0 84px;
+      padding: 152px 0 88px;
       position: relative; overflow: hidden;
     }
     .ob-hero-glow {
       position: absolute; pointer-events: none; z-index: 0;
-      width: 760px; height: 760px; top: -220px; right: -140px;
-      background: radial-gradient(ellipse, rgba(232,101,42,0.09) 0%, transparent 66%);
+      width: 820px; height: 820px; top: -260px; left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(ellipse, rgba(232,101,42,0.11) 0%, transparent 66%);
     }
     .ob-hero-grid {
       position: absolute; inset: 0; pointer-events: none; z-index: 0;
       background-image: radial-gradient(rgba(232,101,42,0.055) 1px, transparent 1px);
       background-size: 36px 36px;
     }
-    .ob-wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 2; }
-    .ob-hero-inner { max-width: 900px; }
+    .ob-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      position: relative; z-index: 2;
+    }
+    /* Everything on this page reads centred */
+    .ob-centre { text-align: center; }
+    .ob-hero-inner { max-width: 900px; margin: 0 auto; text-align: center; }
     .ob-h1 {
       font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(40px, 5.6vw, 76px);
+      font-size: clamp(38px, 5.2vw, 72px);
       font-weight: 800; line-height: 1.04; letter-spacing: -0.035em;
-      color: var(--charcoal); margin-bottom: 26px;
+      color: var(--charcoal); margin-bottom: 24px;
     }
     .ob-h1 em { font-style: normal; color: var(--amber); }
     .ob-lead {
-      font-size: clamp(16px, 1.5vw, 19px); font-weight: 300;
+      font-size: clamp(16px, 1.45vw, 19px); font-weight: 300;
       line-height: 1.7; color: var(--charcoal-lt);
-      max-width: 660px; margin-bottom: 34px;
+      max-width: 620px; margin: 0 auto 34px;
     }
+    .ob-lead strong { font-weight: 700; color: var(--charcoal); }
 
     /* ─── Section shell ─── */
     .ob-sec { padding: 100px 0; }
@@ -82,7 +89,7 @@
     .ob-sec.pale { background: var(--amber-xpale); }
     .ob-sec-head {
       font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(30px, 4vw, 54px);
+      font-size: clamp(30px, 4vw, 52px);
       font-weight: 800; line-height: 1.07; letter-spacing: -0.03em;
       color: var(--charcoal); margin-bottom: 18px;
     }
@@ -90,69 +97,84 @@
     .ob-sec-head em { font-style: normal; color: var(--amber); }
     .ob-sec-sub {
       font-size: 17px; line-height: 1.7; font-weight: 300;
-      color: var(--charcoal-lt); max-width: 620px;
+      color: var(--charcoal-lt); max-width: 600px; margin: 0 auto;
     }
     .ob-sec.dark .ob-sec-sub { color: rgba(254,241,232,0.62); }
-    .ob-sec-intro { margin-bottom: 60px; }
+    .ob-sec-intro { margin-bottom: 58px; }
 
-    /* ─── Step rows ─── */
-    .ob-steps { display: flex; flex-direction: column; gap: 20px; }
-    .ob-step {
-      display: grid; grid-template-columns: 96px 1fr 1fr;
-      gap: 32px; align-items: start;
+    /* ─── Engine cards ─── */
+    .ob-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .ob-card {
+      position: relative; overflow: hidden; text-align: center;
       background: rgba(255,255,255,0.035);
       border: 1.5px solid rgba(255,255,255,0.1);
-      border-radius: 18px; padding: 38px 36px;
+      border-radius: 18px; padding: 36px 28px;
       transition: border-color 0.25s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
     }
-    .ob-step:hover { border-color: rgba(232,101,42,0.4); transform: translateY(-2px); }
-    .ob-step-num {
+    .ob-card:hover { border-color: rgba(232,101,42,0.42); transform: translateY(-3px); }
+    .ob-card-n {
       font-family: 'Inter Tight', sans-serif;
-      font-size: 46px; font-weight: 800; letter-spacing: -0.04em;
-      color: rgba(232,101,42,0.85); line-height: 0.9;
+      font-size: 58px; font-weight: 800; letter-spacing: -0.05em;
+      line-height: 0.85; color: transparent;
+      -webkit-text-stroke: 1.5px rgba(232,101,42,0.55);
+      margin-bottom: 18px;
     }
-    .ob-step-name {
+    .ob-card-name {
       font-family: 'Inter Tight', sans-serif;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--amber-lt); margin-bottom: 12px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--amber-lt); margin-bottom: 10px;
     }
-    .ob-step-title {
+    .ob-card-t {
       font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(21px, 2.1vw, 27px); font-weight: 800;
-      letter-spacing: -0.025em; line-height: 1.15; color: #fff;
+      font-size: 19px; font-weight: 800; letter-spacing: -0.02em;
+      line-height: 1.2; color: #fff; margin-bottom: 10px;
     }
-    .ob-step-body {
-      font-size: 15px; line-height: 1.75; font-weight: 300;
-      color: rgba(254,241,232,0.72);
+    .ob-card-d {
+      font-size: 14px; line-height: 1.65; font-weight: 300;
+      color: rgba(254,241,232,0.66);
+    }
+
+    /* ─── Flow visual ─── */
+    .ob-flow {
+      max-width: 640px; margin: 56px auto 0;
+      border-radius: 18px; overflow: hidden;
+      border: 1.5px solid rgba(255,255,255,0.1);
+    }
+    .ob-flow-cap {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--amber-lt);
+      text-align: center; margin-bottom: 16px;
     }
 
     /* ─── Promise ─── */
     .ob-promise {
-      max-width: 860px; margin: 0 auto; text-align: center;
+      max-width: 760px; margin: 0 auto; text-align: center;
       background: rgba(232,101,42,0.07);
       border: 1.5px solid rgba(232,101,42,0.3);
-      border-radius: 20px; padding: 58px 44px;
+      border-radius: 20px; padding: 54px 40px;
     }
-    .ob-promise .ob-sec-head { margin-bottom: 20px; }
+    .ob-promise .ob-sec-head { margin-bottom: 18px; }
     .ob-promise p {
-      font-size: 17px; line-height: 1.72; font-weight: 300;
-      color: var(--charcoal-mid); max-width: 620px; margin: 0 auto 16px;
+      font-size: 16.5px; line-height: 1.7; font-weight: 300;
+      color: var(--charcoal-mid); max-width: 580px; margin: 0 auto 14px;
     }
     .ob-promise p:last-of-type { margin-bottom: 0; }
     .ob-promise strong { font-weight: 700; color: var(--charcoal); }
 
-    /* ─── Closing CTA ─── */
-    .ob-close { text-align: center; max-width: 720px; margin: 0 auto; }
-    .ob-close .ob-sec-head { margin-bottom: 26px; }
-
+    @media (max-width: 940px) {
+      .ob-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 860px) {
-      #ob-hero { padding: 120px 0 64px; }
+      #ob-hero { padding: 122px 0 64px; }
       .ob-wrap { padding: 0 24px; }
       .ob-sec { padding: 68px 0; }
-      .ob-sec-intro { margin-bottom: 40px; }
-      .ob-step { grid-template-columns: 1fr; gap: 14px; padding: 28px 24px; }
-      .ob-step-num { font-size: 34px; }
-      .ob-promise { padding: 40px 26px; }
+      .ob-sec-intro { margin-bottom: 38px; }
+      .ob-promise { padding: 38px 24px; }
+      .ob-flow { margin-top: 36px; }
+    }
+    @media (max-width: 580px) {
+      .ob-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -198,12 +220,12 @@
   <div class="ob-hero-glow"></div>
   <div class="ob-wrap">
     <div class="ob-hero-inner">
-      <div class="eyebrow reveal" style="margin-bottom:20px;">Core Offering 01</div>
-      <h1 class="ob-h1 reveal d1">Qualified calls on your calendar, <em>without building a sales team.</em></h1>
+      <div class="eyebrow reveal" style="justify-content:center;margin-bottom:20px;">Core Offering 01</div>
+      <h1 class="ob-h1 reveal d1">Book qualified calls on your calendar <em>every month.</em></h1>
       <p class="ob-lead reveal d2">
-        Outbound is a department most companies end up building badly. You hire someone, buy a tool, burn your domain, and eighteen months later you are still not sure whether it works. We already run that department. You rent it, and we write down the number of meetings we are committing to before you sign anything.
+        We are your <strong>growth partner</strong>, not another email tool you have to run yourself. We work out who your ideal prospects are, do the reaching out for you, and put an SDR Agent on your account to qualify every reply before it ever lands on your calendar.
       </p>
-      <div class="hero-ctas reveal d3" style="margin-bottom:34px;justify-content:flex-start;">
+      <div class="hero-ctas reveal d3" style="margin-bottom:30px;">
         <a href="#" onclick="openBookingModal();return false;" class="btn btn-amber btn-amber-lg">
           Book a Call
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -213,10 +235,9 @@
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
-      <div class="trust-row reveal d4" style="justify-content:flex-start;">
+      <div class="trust-row reveal d4">
         <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2"><path d="M1 4l3 3 5-5"/></svg></div>Meeting number in writing</div>
         <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2"><path d="M1 4l3 3 5-5"/></svg></div>Your domain never used</div>
-        <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2"><path d="M1 4l3 3 5-5"/></svg></div>You approve every sequence</div>
         <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2"><path d="M1 4l3 3 5-5"/></svg></div>You own the infrastructure</div>
       </div>
     </div>
@@ -251,10 +272,10 @@
 <!-- ══════════════════════════════════════════════════════ BUILD VS RENT -->
 <section class="ob-sec">
   <div class="ob-wrap">
-    <div class="ob-sec-intro">
-      <div class="eyebrow reveal" style="margin-bottom:16px;">Build it or rent it</div>
+    <div class="ob-sec-intro ob-centre">
+      <div class="eyebrow reveal" style="justify-content:center;margin-bottom:16px;">Build it or rent it</div>
       <h2 class="ob-sec-head reveal d1">Most companies hire for this.<br><em>We already run it.</em></h2>
-      <p class="ob-sec-sub reveal d2">The comparison that matters is not us against another agency. It is us against the version of this you would build yourself.</p>
+      <p class="ob-sec-sub reveal d2">The comparison that matters is not us against another agency. It is us against the version you would build yourself.</p>
     </div>
 
     <div class="cmp-grid reveal">
@@ -302,68 +323,61 @@
 <!-- ══════════════════════════════════════════════════════ THE ENGINE -->
 <section id="ob-engine" class="ob-sec dark">
   <div class="ob-wrap">
-    <div class="ob-sec-intro">
-      <div class="eyebrow reveal" style="color:var(--amber);margin-bottom:16px;">The engine</div>
+    <div class="ob-sec-intro ob-centre">
+      <div class="eyebrow reveal" style="color:var(--amber);justify-content:center;margin-bottom:16px;">The engine</div>
       <h2 class="ob-sec-head reveal d1">Six moving parts.<br><em>You keep all of them.</em></h2>
-      <p class="ob-sec-sub reveal d2">Nothing here is a black box. If you wanted to run it yourself after we finish, you could.</p>
+      <p class="ob-sec-sub reveal d2">No black box. If you wanted to run it yourself after we finish, you could.</p>
     </div>
 
-    <div class="ob-steps">
-
-      <div class="ob-step reveal">
-        <div class="ob-step-num">01</div>
-        <div>
-          <div class="ob-step-name">Signals</div>
-          <h3 class="ob-step-title">Work out what a buyer looks like before they buy</h3>
-        </div>
-        <p class="ob-step-body">We start with the customers you already won and look at what was happening in those businesses at the time. A funding round. A new head of department. A change in the software they run. Those patterns become the thing we watch for across the rest of your market, and we keep watching, because the list of companies showing them changes every week.</p>
+    <div class="ob-grid">
+      <div class="ob-card reveal">
+        <div class="ob-card-n">01</div>
+        <div class="ob-card-name">Signals</div>
+        <h3 class="ob-card-t">Spot buyers before they buy</h3>
+        <p class="ob-card-d">We look at what was happening inside the businesses that already bought from you. Funding, a new hire, a change of tools. Then we watch your market for the same patterns.</p>
       </div>
-
-      <div class="ob-step reveal">
-        <div class="ob-step-num">02</div>
-        <div>
-          <div class="ob-step-name">The list</div>
-          <h3 class="ob-step-title">Built to that profile, not bought off a shelf</h3>
-        </div>
-        <p class="ob-step-body">Bought lists are why most cold email fails. We build yours against the profile instead, score each account on how closely it actually matches, and identify the person who owns the decision rather than whoever the database had on file. Every contact is verified before it goes anywhere near a campaign. Your do not contact list is loaded on day one and respected from then on.</p>
+      <div class="ob-card reveal">
+        <div class="ob-card-n">02</div>
+        <div class="ob-card-name">The list</div>
+        <h3 class="ob-card-t">Built, not bought</h3>
+        <p class="ob-card-d">Bought lists are why most cold email fails. Yours gets built against the profile, scored on how well each account matches, and every contact verified before anything sends.</p>
       </div>
-
-      <div class="ob-step reveal">
-        <div class="ob-step-num">03</div>
-        <div>
-          <div class="ob-step-name">Infrastructure</div>
-          <h3 class="ob-step-title">Your real domain never sends a thing</h3>
-        </div>
-        <p class="ob-step-body">This is the part people get wrong and only notice a year later, when their invoices stop reaching clients. We register separate lookalike domains, point them at your real site, warm the inboxes properly before anything goes out, and hold daily volume per inbox deliberately low. Inbox health gets checked continuously. Anything starting to drift comes out before it costs you deliverability.</p>
+      <div class="ob-card reveal">
+        <div class="ob-card-n">03</div>
+        <div class="ob-card-name">Infrastructure</div>
+        <h3 class="ob-card-t">Your domain stays clean</h3>
+        <p class="ob-card-d">Nothing sends from your real domain. We use separate warmed domains, keep volume per inbox low, and pull any inbox that starts to drift.</p>
       </div>
-
-      <div class="ob-step reveal">
-        <div class="ob-step-num">04</div>
-        <div>
-          <div class="ob-step-name">Campaigns</div>
-          <h3 class="ob-step-title">Written off something real, approved by you</h3>
-        </div>
-        <p class="ob-step-body">A merge field with someone's company name in it is not personalisation and buyers stopped falling for it years ago. Each message references the actual signal that put the account on the list. You read the sequences and scripts and sign them off before a single send. From there we test angles against real reply data and cut whatever is not earning replies, including things we were sure would work.</p>
+      <div class="ob-card reveal">
+        <div class="ob-card-n">04</div>
+        <div class="ob-card-name">Campaigns</div>
+        <h3 class="ob-card-t">Written off something real</h3>
+        <p class="ob-card-d">Each message references the actual signal that put the account on the list. You approve every sequence before a single send.</p>
       </div>
-
-      <div class="ob-step reveal">
-        <div class="ob-step-num">05</div>
-        <div>
-          <div class="ob-step-name">Qualification</div>
-          <h3 class="ob-step-title">An SDR Agent on your account, filtering before you see it</h3>
-        </div>
-        <p class="ob-step-body">Interest is not the same as a fit, and your team should not be the ones discovering the difference on a call. An SDR Agent works every interested reply, asks the questions you would ask, checks the account against the profile we agreed in writing, and books straight into your calendar. Where it is clearly not a fit, that conversation ends before it ever reaches you. Warm replies that want a phone conversation get followed up on the phone or on LinkedIn.</p>
+      <div class="ob-card reveal">
+        <div class="ob-card-n">05</div>
+        <div class="ob-card-name">Qualification</div>
+        <h3 class="ob-card-t">An SDR Agent filters first</h3>
+        <p class="ob-card-d">It works every interested reply, asks what you would ask, and books straight into your calendar. Anything that fails the check never reaches your team.</p>
       </div>
-
-      <div class="ob-step reveal">
-        <div class="ob-step-num">06</div>
-        <div>
-          <div class="ob-step-name">Yours</div>
-          <h3 class="ob-step-title">You keep the machine, not just the meetings</h3>
-        </div>
-        <p class="ob-step-body">The domains, the inboxes, the lists, the campaigns and the written process all belong to you. You get a live dashboard showing meetings booked and where each one came from, so you are never taking our word for the numbers. If you walk away from us, the department stays behind.</p>
+      <div class="ob-card reveal">
+        <div class="ob-card-n">06</div>
+        <div class="ob-card-name">Yours</div>
+        <h3 class="ob-card-t">You keep the machine</h3>
+        <p class="ob-card-d">Domains, inboxes, lists, campaigns and the written process all belong to you. If you leave, the department stays behind.</p>
       </div>
+    </div>
 
+    <div class="reveal s-dark">
+      <div class="ob-flow-cap" style="margin-top:56px;">What happens to a reply</div>
+      <div class="ob-flow">
+        <div class="svc-panel" aria-hidden="true" style="padding:32px 30px;">
+          <div class="svc-row"><span class="dot"></span><span class="lbl">Interested reply arrives</span><span class="tag">reply</span></div>
+          <div class="svc-row ind1"><span class="dot"></span><span class="lbl">SDR Agent asks your questions</span><span class="tag">agent</span></div>
+          <div class="svc-row ind2"><span class="dot"></span><span class="lbl">Meeting booked to your calendar</span><span class="tag">booked</span></div>
+          <div class="svc-row muted"><span class="dot"></span><span class="lbl">Not a fit, never reaches your team</span><span class="tag">filtered</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -374,18 +388,19 @@
     <div class="ob-promise reveal">
       <div class="eyebrow" style="color:var(--amber);justify-content:center;margin-bottom:20px;">The promise</div>
       <h2 class="ob-sec-head">We put the number in writing.</h2>
-      <p>Before onboarding we agree how many qualified meetings we are committing to, and we define qualified so nobody argues about it later. It has to match the profile we signed off, be a real person at a real company, and actually turn up.</p>
-      <p><strong>If we land under that number, you pick what happens.</strong> Either we keep the campaign running at no extra cost until we get there, or we refund the difference. Your call, not ours.</p>
-      <p>The number itself depends on your market, your deal size and how narrow the profile is, so we set it on the first call rather than publishing one figure and pretending it fits everybody.</p>
+      <p>Before onboarding we agree how many qualified meetings we are committing to, and we define qualified so nobody argues later. It matches the profile we signed off, it is a real person at a real company, and they turn up.</p>
+      <p><strong>Come in under that number and you choose.</strong> We keep the campaign running at no extra cost until we reach it, or we refund the difference. We set the number on the first call, because it depends on your market and deal size.</p>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════ FAQ -->
 <section id="faq" class="ob-sec">
-  <div class="ob-wrap" style="max-width:860px;">
-    <div class="eyebrow reveal" style="margin-bottom:16px;">Common questions</div>
-    <h2 class="ob-sec-head reveal d1" style="margin-bottom:48px;">Before you book a call.</h2>
+  <div class="ob-wrap" style="max-width:820px;">
+    <div class="ob-sec-intro ob-centre" style="margin-bottom:44px;">
+      <div class="eyebrow reveal" style="justify-content:center;margin-bottom:16px;">Common questions</div>
+      <h2 class="ob-sec-head reveal d1" style="margin-bottom:0;">Before you book a call.</h2>
+    </div>
 
     <div class="faq-item reveal">
       <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
@@ -393,7 +408,7 @@
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-panel">
-        <p>Domains and inboxes have to warm before they can send properly, so the opening fortnight is setup rather than output. Rushing that part is how you end up in spam folders for the rest of the campaign. Once sending starts, replies begin arriving and the SDR Agent goes to work on them. We will give you a realistic date on the first call rather than the best case one.</p>
+        <p>Domains and inboxes have to warm before they can send properly, so the opening fortnight is setup rather than output. Rushing it is how you land in spam for the rest of the campaign. We give you a realistic date on the first call, not the best case one.</p>
       </div>
     </div>
 
@@ -403,7 +418,7 @@
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-panel">
-        <p>Three things, all agreed in writing during onboarding. The account matches the profile we signed off together. There is a real person at a real company on the other end. They show up. If a booking fails any of those, it does not count toward the number, which is the only way a guarantee like this means anything.</p>
+        <p>Three things, all agreed in writing up front. It matches the profile we signed off, there is a real person at a real company, and they show up. If a booking fails any of those it does not count toward the number.</p>
       </div>
     </div>
 
@@ -413,59 +428,40 @@
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-panel">
-        <p>It should not, because we never send from your domain. Outbound runs on separate lookalike domains bought for the purpose, so your primary domain keeps doing the job it needs to do, which is making sure your invoices and client email actually land. Inboxes are warmed first, volume per inbox stays low on purpose, and health is monitored so a drifting inbox gets pulled rather than nursed.</p>
+        <p>It should not, because we never send from your domain. Outbound runs on separate domains bought for the purpose, so your real one keeps doing its job of making sure your invoices land.</p>
       </div>
     </div>
 
     <div class="faq-item reveal d3">
       <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
-        <span class="faq-q">"Do we get to approve the copy?"</span>
+        <span class="faq-q">"Do we approve the copy?"</span>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-panel">
-        <p>Yes, and not as a formality. You read every sequence and script and sign them off before anything sends. It is your name in the inbox, so you get the final word on how it sounds. You can change them later too.</p>
+        <p>Yes, and not as a formality. You read every sequence and script and sign them off before anything sends. It is your name in the inbox.</p>
       </div>
     </div>
 
     <div class="faq-item reveal">
       <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
-        <span class="faq-q">"How much of our time does this take?"</span>
+        <span class="faq-q">"Do you cold call as well as email?"</span>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-panel">
-        <p>An onboarding call to nail down the profile and your do not contact list, then a round of copy approval. After that your involvement is taking the meetings. Most of the work that would eat your week is the part we are doing.</p>
+        <p>Not as a dialling floor working cold lists, and we would rather say so. Email carries the volume. Where someone replies with interest and a call is faster, we follow up by phone or on LinkedIn.</p>
       </div>
     </div>
 
     <div class="faq-item reveal d1">
       <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
-        <span class="faq-q">"Do you cold call as well as email?"</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-panel">
-        <p>Not as a dialling floor working through cold lists, and we would rather say so than imply otherwise. Email carries the volume. Where someone replies with interest and a phone conversation is the faster route, we follow up by phone or on LinkedIn. If a dedicated calling operation is what you are after, we are probably not the right fit and we will tell you that on the call.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal d2">
-      <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
-        <span class="faq-q">"Is cold outreach like this legal?"</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-panel">
-        <p>Business to business outreach is permitted in Ireland and across the EU when it is relevant, clearly identifies who is contacting them, and gives people a straightforward way to opt out that you honour immediately. All three are how we run campaigns. We are not your legal advisers though, so if you operate in a sector or a country with tighter rules, raise it on the first call and we will build to them.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal d3">
-      <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
         <span class="faq-q">"Who owns everything if we stop?"</span>
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-panel">
-        <p>You do. The domains, the inboxes, the lists, the campaigns and the documentation are yours during and after. There is no lock-in and nothing gets held hostage to keep you paying.</p>
+        <p>You do. Domains, inboxes, lists, campaigns and documentation are yours during and after. No lock-in and nothing held hostage.</p>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -474,7 +470,7 @@
   <div class="ob-wrap">
     <div class="ob-close reveal">
       <h2 class="ob-sec-head">Let's fill your calendar with <em>qualified calls.</em></h2>
-      <p class="ob-sec-sub" style="margin:0 auto 30px;">Fifteen minutes. We will look at your market, tell you whether outbound is the right lever for you, and give you a number we would stand behind. If it is not a fit we will say so.</p>
+      <p class="ob-sec-sub" style="margin:0 auto 30px;">Fifteen minutes. We look at your market, tell you whether outbound is the right lever, and give you a number we would stand behind. If it is not a fit we will say so.</p>
       <button onclick="openBookingModal();return false;" class="btn btn-amber btn-amber-lg" style="justify-content:center;">Book a Call
         <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
