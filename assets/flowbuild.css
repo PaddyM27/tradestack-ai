@@ -630,27 +630,3 @@ footer { background: var(--charcoal); padding: 72px 0 40px; }
   .glass-pill { font-size: 10.5px; letter-spacing: 0.09em; padding: 10px 16px 10px 14px; white-space: normal; }
 }
 
-/* ==== Nav roadmap pill ==== */
-.nav-pill {
-  display: inline-flex; align-items: center; gap: 7px;
-  padding: 8px 14px; border-radius: 8px;
-  background: rgba(232,101,42,0.09);
-  border: 1px solid rgba(232,101,42,0.26);
-  font-family: 'Inter Tight', sans-serif;
-  font-size: 14px; font-weight: 700; letter-spacing: -0.005em;
-  color: var(--amber-dk) !important;
-  text-decoration: none; white-space: nowrap;
-  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
-}
-.nav-pill:hover {
-  background: rgba(232,101,42,0.16);
-  border-color: rgba(232,101,42,0.45);
-  transform: translateY(-1px);
-  color: var(--amber-dk) !important;
-}
-.nav-pill:active { transform: translateY(0); }
-.nav-pill svg { flex-shrink: 0; }
-@media (max-width: 1160px) {
-  .nav-links { gap: 22px; }
-  .nav-pill { font-size: 13px; padding: 7px 11px; }
-}
