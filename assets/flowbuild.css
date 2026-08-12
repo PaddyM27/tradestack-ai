@@ -591,3 +591,41 @@ footer { background: var(--charcoal); padding: 72px 0 40px; }
   .svc-body { padding: 40px 32px; }
 }
 
+
+/* ==== Frosted glass eyebrow pill ==== */
+.glass-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11px 20px 11px 17px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(16px) saturate(170%);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.85),
+    0 1px 2px rgba(28,25,23,0.04),
+    0 10px 30px -14px rgba(28,25,23,0.22);
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 11.5px; font-weight: 700;
+  letter-spacing: 0.11em; text-transform: uppercase;
+  color: var(--charcoal-mid);
+  white-space: nowrap;
+}
+.glass-pill::before {
+  content: ''; flex-shrink: 0;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 3px rgba(232,101,42,0.18);
+}
+/* On dark surfaces the glass has to invert */
+.glass-pill.on-dark {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.16);
+  color: rgba(254,241,232,0.86);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 10px 30px -14px rgba(0,0,0,0.5);
+}
+@media (max-width: 560px) {
+  .glass-pill { font-size: 10.5px; letter-spacing: 0.09em; padding: 10px 16px 10px 14px; white-space: normal; }
+}
