@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /confirmation.html
+Disallow: /design-toolkit.html
+
+Sitemap: https://flowbuildpremiumwebsites.vercel.app/sitemap.xml
