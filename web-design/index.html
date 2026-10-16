@@ -177,9 +177,10 @@
     /* portfolio: static case-study grid, real outbound links, no zoom */
     .port-stack{display:flex;flex-direction:column;gap:56px;max-width:900px;margin:0 auto;padding:0 56px}
     .prev-live{position:relative;width:100%;aspect-ratio:1440/900;overflow:hidden;background:var(--s2)}
-    .prev-live iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:0 0;pointer-events:none}
-    .prev-live:hover iframe{pointer-events:auto}
-    @media(hover:none){.prev-live iframe{pointer-events:auto}}
+    .prev-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+    .prev-live iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:0 0;pointer-events:none;opacity:0;transition:opacity .5s var(--ease);z-index:1}
+    .prev-live.live-on iframe{opacity:1}
+    .prev-live.live-on:hover iframe{pointer-events:auto}
     .prev-live-tag{position:absolute;top:16px;right:16px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#34d399;background:rgba(8,8,7,.75);border:1px solid rgba(52,211,153,.4);border-radius:20px;padding:5px 11px;display:flex;align-items:center;gap:6px;z-index:2;pointer-events:none}
     .prev-live-dot{width:6px;height:6px;border-radius:50%;background:#34d399;animation:aiPulse 2s ease-in-out infinite}
     .pcard{position:relative;display:flex;flex-direction:column;background:var(--s1);border:1px solid var(--bd);border-radius:14px;overflow:hidden;transition:border-color .3s,transform .3s}
@@ -749,7 +750,8 @@
       <div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
-          <iframe src="https://www.saarchitects.ie/" title="SA Architects — live website preview" loading="lazy"></iframe>
+          <img class="prev-shot" src="screenshots/smith-associates-arch.jpg" alt="SA Architects website homepage" width="1440" height="900" loading="lazy" decoding="async">
+          <iframe data-src="https://www.saarchitects.ie/" title="SA Architects — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
         </div>
         <div class="pcard-meta">
           <div class="pcard-id"><span class="pcard-cat">Architecture</span><span class="pcard-name">SA Architects</span></div>
@@ -759,7 +761,8 @@
       <div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
-          <iframe src="https://www.rackzzpoolclub.ie/" title="Rackzz Pool Club — live website preview" loading="lazy"></iframe>
+          <img class="prev-shot" src="screenshots/rackzz-pool-club.jpg" alt="Rackzz Pool Club website homepage" width="1440" height="900" loading="lazy" decoding="async">
+          <iframe data-src="https://www.rackzzpoolclub.ie/" title="Rackzz Pool Club — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
         </div>
         <div class="pcard-meta">
           <div class="pcard-id"><span class="pcard-cat">Leisure &amp; Recreation</span><span class="pcard-name">Rackzz Pool Club</span></div>
@@ -769,7 +772,8 @@
       <div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
-          <iframe src="https://www.prestigebarbers.ie/" title="Prestige Barbers — live website preview" loading="lazy"></iframe>
+          <img class="prev-shot" src="screenshots/prestige-barbers.jpg" alt="Prestige Barbers website homepage" width="1440" height="900" loading="lazy" decoding="async">
+          <iframe data-src="https://www.prestigebarbers.ie/" title="Prestige Barbers — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
         </div>
         <div class="pcard-meta">
           <div class="pcard-id"><span class="pcard-cat">Barbershop</span><span class="pcard-name">Prestige Barbers</span></div>
@@ -779,7 +783,8 @@
       <div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
-          <iframe src="https://www.homeperfectionrenovation.ie/" title="AB Home Perfection — live website preview" loading="lazy"></iframe>
+          <img class="prev-shot" src="screenshots/ab-home-perfection.jpg" alt="AB Home Perfection website homepage" width="1440" height="900" loading="lazy" decoding="async">
+          <iframe data-src="https://www.homeperfectionrenovation.ie/" title="AB Home Perfection — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
         </div>
         <div class="pcard-meta">
           <div class="pcard-id"><span class="pcard-cat">Renovations</span><span class="pcard-name">AB Home Perfection</span></div>
@@ -1372,19 +1377,69 @@
       });
     })();
 
-    // ── Portfolio: scale live iframe previews to fit their card ─
+    // ── Portfolio: live previews (memory-safe facade) ──────
+    // Each card shows a static screenshot by default. The four client
+    // sites embedded here autoplay large hero videos (prestigebarbers.ie
+    // alone serves a 78MB .mov), so loading all four eagerly pulled
+    // ~106MB and exhausted mobile browser memory — the tab would stall,
+    // then get killed and reload into an error page. Live iframes now
+    // load only on deliberate desktop hover, one at a time, and are torn
+    // down once they scroll away so memory is released. Touch devices
+    // keep the screenshot and use the "Visit site" link.
     (function(){
       const NATIVE_W = 1440;
-      document.querySelectorAll('.prev-live').forEach(wrap=>{
+      const wraps = Array.from(document.querySelectorAll('.prev-live'));
+      if(!wraps.length) return;
+
+      // Keep the scale transform correct on every device.
+      wraps.forEach(wrap=>{
         const iframe = wrap.querySelector('iframe');
         if(!iframe) return;
-        function resize(){
-          const scale = wrap.clientWidth / NATIVE_W;
-          iframe.style.transform = `scale(${scale})`;
-        }
+        const resize = ()=>{ iframe.style.transform = `scale(${wrap.clientWidth / NATIVE_W})`; };
         new ResizeObserver(resize).observe(wrap);
         resize();
       });
+
+      const conn = navigator.connection || {};
+      const coarse = matchMedia('(hover:none),(pointer:coarse)').matches;
+      const slow = /(^|-)2g$/.test(conn.effectiveType || '');
+      if(coarse || conn.saveData === true || slow || innerWidth < 1024) return;
+
+      let active = null;
+
+      function unload(wrap){
+        const f = wrap.querySelector('iframe');
+        wrap.classList.remove('live-on');
+        if(f && f.getAttribute('src')) f.setAttribute('src','about:blank');
+      }
+
+      function load(wrap){
+        if(active === wrap) return;
+        if(active) unload(active);          // never hold more than one live site
+        active = wrap;
+        const f = wrap.querySelector('iframe');
+        if(!f || !f.dataset.src) return;
+        if(f.getAttribute('src') === f.dataset.src){ wrap.classList.add('live-on'); return; }
+        f.addEventListener('load', ()=>{ if(active === wrap) wrap.classList.add('live-on'); }, {once:true});
+        f.setAttribute('src', f.dataset.src);
+      }
+
+      wraps.forEach(wrap=>{
+        let t;
+        wrap.addEventListener('pointerenter', e=>{
+          if(e.pointerType && e.pointerType !== 'mouse') return;
+          t = setTimeout(()=>load(wrap), 220);   // ignore cursors just passing through
+        });
+        wrap.addEventListener('pointerleave', ()=>clearTimeout(t));
+      });
+
+      // Release the embedded site once its card leaves the viewport.
+      const io = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if(!e.isIntersecting && e.target === active){ unload(e.target); active = null; }
+        });
+      },{rootMargin:'300px'});
+      wraps.forEach(w=>io.observe(w));
     })();
 
     // ── Video testimonial lightbox ─────────────────────────
