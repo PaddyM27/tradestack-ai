@@ -177,7 +177,8 @@
     /* portfolio: static case-study grid, real outbound links, no zoom */
     .port-stack{display:flex;flex-direction:column;gap:56px;max-width:900px;margin:0 auto;padding:0 56px}
     .prev-live{position:relative;width:100%;aspect-ratio:1440/900;overflow:hidden;background:var(--s2)}
-    .prev-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+    .prev-reel{position:absolute;top:0;left:0;width:100%;height:auto;display:block;
+      will-change:transform;transform:translate3d(0,0,0);backface-visibility:hidden}
     .prev-live iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:0 0;pointer-events:none;opacity:0;transition:opacity .5s var(--ease);z-index:1}
     .prev-live.live-on iframe{opacity:1}
     /* Only real mouse pointers may interact with an embedded site.
@@ -753,7 +754,7 @@
       <div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
-          <img class="prev-shot" src="screenshots/smith-associates-arch.jpg" alt="SA Architects website homepage" width="1440" height="900" loading="lazy" decoding="async">
+          <img class="prev-reel" src="screenshots/smith-associates-arch-full.jpg" alt="SA Architects website, full page" width="1440" height="4469" loading="lazy" decoding="async">
           <iframe data-src="https://www.saarchitects.ie/" title="SA Architects — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
         </div>
         <div class="pcard-meta">
@@ -764,7 +765,7 @@
       <div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
-          <img class="prev-shot" src="screenshots/rackzz-pool-club.jpg" alt="Rackzz Pool Club website homepage" width="1440" height="900" loading="lazy" decoding="async">
+          <img class="prev-reel" src="screenshots/rackzz-pool-club-full.jpg" alt="Rackzz Pool Club website, full page" width="1440" height="6836" loading="lazy" decoding="async">
           <iframe data-src="https://www.rackzzpoolclub.ie/" title="Rackzz Pool Club — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
         </div>
         <div class="pcard-meta">
@@ -775,7 +776,7 @@
       <div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
-          <img class="prev-shot" src="screenshots/prestige-barbers.jpg" alt="Prestige Barbers website homepage" width="1440" height="900" loading="lazy" decoding="async">
+          <img class="prev-reel" src="screenshots/prestige-barbers-full.jpg" alt="Prestige Barbers website, full page" width="1440" height="7766" loading="lazy" decoding="async">
           <iframe data-src="https://www.prestigebarbers.ie/" title="Prestige Barbers — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
         </div>
         <div class="pcard-meta">
@@ -786,7 +787,7 @@
       <div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
-          <img class="prev-shot" src="screenshots/ab-home-perfection.jpg" alt="AB Home Perfection website homepage" width="1440" height="900" loading="lazy" decoding="async">
+          <img class="prev-reel" src="screenshots/ab-home-perfection-full.jpg" alt="AB Home Perfection website, full page" width="1440" height="6117" loading="lazy" decoding="async">
           <iframe data-src="https://www.homeperfectionrenovation.ie/" title="AB Home Perfection — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
         </div>
         <div class="pcard-meta">
@@ -1380,21 +1381,47 @@
       });
     })();
 
-    // ── Portfolio: live autoplay previews, one at a time ───
-    // The four embedded client sites autoplay large hero videos, so
-    // loading all four at once pulled ~106MB and exhausted mobile
-    // browser memory (the tab stalled, got killed, then reloaded into
-    // an error page). Previews are still live and autoplaying — but
-    // only the card you actually settle on is mounted, and the previous
-    // one is torn down, so memory never holds more than a single site.
-    // The screenshot underneath keeps the card filled until it loads.
+    // ── Portfolio: scroll-through site previews ────────────
+    // Each card is a window onto a full-length capture of the client
+    // site. As the card travels up the viewport the capture is
+    // translated inside it, so the visitor scrolls through the whole
+    // website without leaving this page.
+    //
+    // Why a capture and not the live iframe: a page cannot scroll an
+    // iframe pointing at another domain — reading contentWindow.scrollTo
+    // across origins throws a SecurityError, so scroll-linking a live
+    // cross-origin embed is not possible in any browser. The live site
+    // is still one tap away via "Visit site", and on desktop hovering a
+    // card swaps the real interactive site in over the capture.
     (function(){
       const NATIVE_W = 1440;
-      const SETTLE   = 300;   // only mount once scrolling has stopped
-      const MARGIN   = 600;   // begin mounting just before a card is reached
       const wraps = Array.from(document.querySelectorAll('.prev-live'));
       if(!wraps.length) return;
 
+      // ---- scroll-through reels (all devices) ----
+      const reels = wraps.map(w=>({wrap:w, img:w.querySelector('.prev-reel')})).filter(r=>r.img);
+
+      function scrub(){
+        const vh = innerHeight;
+        for(const {wrap,img} of reels){
+          const r = wrap.getBoundingClientRect();
+          if(r.bottom <= 0 || r.top >= vh) continue;           // off-screen: skip
+          const travel = vh + r.height;                         // entry -> full exit
+          let p = (vh - r.top) / travel;
+          p = p < 0 ? 0 : p > 1 ? 1 : p;
+          const shift = img.offsetHeight - wrap.clientHeight;   // how far it can move
+          if(shift > 0) img.style.transform = `translate3d(0,${-(p*shift).toFixed(1)}px,0)`;
+        }
+      }
+
+      let raf = 0;
+      const onScroll = ()=>{ if(!raf) raf = requestAnimationFrame(()=>{ raf = 0; scrub(); }); };
+      addEventListener('scroll', onScroll, {passive:true});
+      addEventListener('resize', onScroll, {passive:true});
+      reels.forEach(({img})=>{ if(!img.complete) img.addEventListener('load', scrub, {once:true}); });
+      scrub();
+
+      // ---- live interactive site on desktop hover (optional extra) ----
       wraps.forEach(wrap=>{
         const iframe = wrap.querySelector('iframe');
         if(!iframe) return;
@@ -1403,11 +1430,11 @@
         resize();
       });
 
-      // Respect an explicit data-saver request: screenshots only.
-      if((navigator.connection||{}).saveData === true) return;
+      const conn = navigator.connection || {};
+      if(matchMedia('(hover:none),(pointer:coarse)').matches) return;   // touch: reels only
+      if(conn.saveData === true || /(^|-)2g$/.test(conn.effectiveType||'') || innerWidth < 1024) return;
 
       let active = null;
-
       function unload(wrap){
         if(!wrap) return;
         const f = wrap.querySelector('iframe');
@@ -1415,10 +1442,9 @@
         if(f && f.getAttribute('src') && f.getAttribute('src') !== 'about:blank')
           f.setAttribute('src','about:blank');
       }
-
       function mount(wrap){
-        if(!wrap || active === wrap) return;
-        unload(active);                     // never hold more than one live site
+        if(active === wrap) return;
+        unload(active);                      // only ever one live site in memory
         active = wrap;
         const f = wrap.querySelector('iframe');
         if(!f || !f.dataset.src) return;
@@ -1426,32 +1452,17 @@
         f.setAttribute('src', f.dataset.src);
       }
 
-      // Mount whichever card is closest to the centre of the viewport.
-      // MARGIN starts the mount shortly before a card scrolls into view, so
-      // the preview is already playing by the time the visitor reaches it.
-      function pick(){
-        const mid = innerHeight / 2;
-        let best = null, bestD = Infinity;
-        for(const w of wraps){
-          const r = w.getBoundingClientRect();
-          if(r.bottom <= -MARGIN || r.top >= innerHeight + MARGIN) continue;
-          const d = Math.abs((r.top + r.bottom) / 2 - mid);
-          if(d < bestD){ bestD = d; best = w; }
-        }
-        if(best) mount(best);   // keep the last one mounted; it is only ever one
-      }
-
-      let t;
-      const schedule = ()=>{ clearTimeout(t); t = setTimeout(pick, SETTLE); };
-      addEventListener('scroll', schedule, {passive:true});
-      addEventListener('resize', schedule, {passive:true});
-
-      // Prime the first preview as soon as this page's own assets are done,
-      // so a live site is already on screen when the work section is reached
-      // (deferred to window load so it never competes with critical assets).
-      const prime = ()=>{ pick(); if(!active) mount(wraps[0]); };
-      if(document.readyState === 'complete') prime();
-      else addEventListener('load', prime, {once:true});
+      wraps.forEach(wrap=>{
+        let t;
+        wrap.addEventListener('pointerenter', e=>{
+          if(e.pointerType && e.pointerType !== 'mouse') return;
+          t = setTimeout(()=>mount(wrap), 400);     // ignore cursors passing through
+        });
+        wrap.addEventListener('pointerleave', ()=>{
+          clearTimeout(t);
+          if(active) { unload(active); active = null; }   // back to the scroll-through reel
+        });
+      });
     })();
 
     // ── Video testimonial lightbox ─────────────────────────
