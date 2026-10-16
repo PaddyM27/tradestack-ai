@@ -180,7 +180,10 @@
     .prev-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
     .prev-live iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:0 0;pointer-events:none;opacity:0;transition:opacity .5s var(--ease);z-index:1}
     .prev-live.live-on iframe{opacity:1}
-    .prev-live.live-on:hover iframe{pointer-events:auto}
+    /* Only real mouse pointers may interact with an embedded site.
+       On touch, :hover can latch on tap and the iframe would swallow
+       the page scroll — so touch devices never get pointer events. */
+    @media(hover:hover) and (pointer:fine){.prev-live.live-on:hover iframe{pointer-events:auto}}
     .prev-live-tag{position:absolute;top:16px;right:16px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#34d399;background:rgba(8,8,7,.75);border:1px solid rgba(52,211,153,.4);border-radius:20px;padding:5px 11px;display:flex;align-items:center;gap:6px;z-index:2;pointer-events:none}
     .prev-live-dot{width:6px;height:6px;border-radius:50%;background:#34d399;animation:aiPulse 2s ease-in-out infinite}
     .pcard{position:relative;display:flex;flex-direction:column;background:var(--s1);border:1px solid var(--bd);border-radius:14px;overflow:hidden;transition:border-color .3s,transform .3s}
@@ -1377,21 +1380,20 @@
       });
     })();
 
-    // ── Portfolio: live previews (memory-safe facade) ──────
-    // Each card shows a static screenshot by default. The four client
-    // sites embedded here autoplay large hero videos (prestigebarbers.ie
-    // alone serves a 78MB .mov), so loading all four eagerly pulled
-    // ~106MB and exhausted mobile browser memory — the tab would stall,
-    // then get killed and reload into an error page. Live iframes now
-    // load only on deliberate desktop hover, one at a time, and are torn
-    // down once they scroll away so memory is released. Touch devices
-    // keep the screenshot and use the "Visit site" link.
+    // ── Portfolio: live autoplay previews, one at a time ───
+    // The four embedded client sites autoplay large hero videos, so
+    // loading all four at once pulled ~106MB and exhausted mobile
+    // browser memory (the tab stalled, got killed, then reloaded into
+    // an error page). Previews are still live and autoplaying — but
+    // only the card you actually settle on is mounted, and the previous
+    // one is torn down, so memory never holds more than a single site.
+    // The screenshot underneath keeps the card filled until it loads.
     (function(){
       const NATIVE_W = 1440;
+      const SETTLE   = 350;   // only mount once scrolling has stopped
       const wraps = Array.from(document.querySelectorAll('.prev-live'));
       if(!wraps.length) return;
 
-      // Keep the scale transform correct on every device.
       wraps.forEach(wrap=>{
         const iframe = wrap.querySelector('iframe');
         if(!iframe) return;
@@ -1400,46 +1402,48 @@
         resize();
       });
 
-      const conn = navigator.connection || {};
-      const coarse = matchMedia('(hover:none),(pointer:coarse)').matches;
-      const slow = /(^|-)2g$/.test(conn.effectiveType || '');
-      if(coarse || conn.saveData === true || slow || innerWidth < 1024) return;
+      // Respect an explicit data-saver request: screenshots only.
+      if((navigator.connection||{}).saveData === true) return;
 
       let active = null;
 
       function unload(wrap){
+        if(!wrap) return;
         const f = wrap.querySelector('iframe');
         wrap.classList.remove('live-on');
-        if(f && f.getAttribute('src')) f.setAttribute('src','about:blank');
+        if(f && f.getAttribute('src') && f.getAttribute('src') !== 'about:blank')
+          f.setAttribute('src','about:blank');
       }
 
-      function load(wrap){
-        if(active === wrap) return;
-        if(active) unload(active);          // never hold more than one live site
+      function mount(wrap){
+        if(!wrap || active === wrap) return;
+        unload(active);                     // never hold more than one live site
         active = wrap;
         const f = wrap.querySelector('iframe');
         if(!f || !f.dataset.src) return;
-        if(f.getAttribute('src') === f.dataset.src){ wrap.classList.add('live-on'); return; }
         f.addEventListener('load', ()=>{ if(active === wrap) wrap.classList.add('live-on'); }, {once:true});
         f.setAttribute('src', f.dataset.src);
       }
 
-      wraps.forEach(wrap=>{
-        let t;
-        wrap.addEventListener('pointerenter', e=>{
-          if(e.pointerType && e.pointerType !== 'mouse') return;
-          t = setTimeout(()=>load(wrap), 220);   // ignore cursors just passing through
-        });
-        wrap.addEventListener('pointerleave', ()=>clearTimeout(t));
-      });
+      // Mount whichever card is closest to the centre of the viewport.
+      function pick(){
+        const mid = innerHeight / 2;
+        let best = null, bestD = Infinity;
+        for(const w of wraps){
+          const r = w.getBoundingClientRect();
+          if(r.bottom <= 0 || r.top >= innerHeight) continue;   // fully off-screen
+          const d = Math.abs((r.top + r.bottom) / 2 - mid);
+          if(d < bestD){ bestD = d; best = w; }
+        }
+        if(best) mount(best);
+        else { unload(active); active = null; }
+      }
 
-      // Release the embedded site once its card leaves the viewport.
-      const io = new IntersectionObserver(entries=>{
-        entries.forEach(e=>{
-          if(!e.isIntersecting && e.target === active){ unload(e.target); active = null; }
-        });
-      },{rootMargin:'300px'});
-      wraps.forEach(w=>io.observe(w));
+      let t;
+      const schedule = ()=>{ clearTimeout(t); t = setTimeout(pick, SETTLE); };
+      addEventListener('scroll', schedule, {passive:true});
+      addEventListener('resize', schedule, {passive:true});
+      schedule();
     })();
 
     // ── Video testimonial lightbox ─────────────────────────
