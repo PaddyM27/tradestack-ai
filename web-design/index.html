@@ -1390,7 +1390,8 @@
     // The screenshot underneath keeps the card filled until it loads.
     (function(){
       const NATIVE_W = 1440;
-      const SETTLE   = 350;   // only mount once scrolling has stopped
+      const SETTLE   = 300;   // only mount once scrolling has stopped
+      const MARGIN   = 600;   // begin mounting just before a card is reached
       const wraps = Array.from(document.querySelectorAll('.prev-live'));
       if(!wraps.length) return;
 
@@ -1426,24 +1427,31 @@
       }
 
       // Mount whichever card is closest to the centre of the viewport.
+      // MARGIN starts the mount shortly before a card scrolls into view, so
+      // the preview is already playing by the time the visitor reaches it.
       function pick(){
         const mid = innerHeight / 2;
         let best = null, bestD = Infinity;
         for(const w of wraps){
           const r = w.getBoundingClientRect();
-          if(r.bottom <= 0 || r.top >= innerHeight) continue;   // fully off-screen
+          if(r.bottom <= -MARGIN || r.top >= innerHeight + MARGIN) continue;
           const d = Math.abs((r.top + r.bottom) / 2 - mid);
           if(d < bestD){ bestD = d; best = w; }
         }
-        if(best) mount(best);
-        else { unload(active); active = null; }
+        if(best) mount(best);   // keep the last one mounted; it is only ever one
       }
 
       let t;
       const schedule = ()=>{ clearTimeout(t); t = setTimeout(pick, SETTLE); };
       addEventListener('scroll', schedule, {passive:true});
       addEventListener('resize', schedule, {passive:true});
-      schedule();
+
+      // Prime the first preview as soon as this page's own assets are done,
+      // so a live site is already on screen when the work section is reached
+      // (deferred to window load so it never competes with critical assets).
+      const prime = ()=>{ pick(); if(!active) mount(wraps[0]); };
+      if(document.readyState === 'complete') prime();
+      else addEventListener('load', prime, {once:true});
     })();
 
     // ── Video testimonial lightbox ─────────────────────────
