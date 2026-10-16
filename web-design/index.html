@@ -177,8 +177,18 @@
     /* portfolio: static case-study grid, real outbound links, no zoom */
     .port-stack{display:flex;flex-direction:column;gap:56px;max-width:900px;margin:0 auto;padding:0 56px}
     .prev-live{position:relative;width:100%;aspect-ratio:1440/900;overflow:hidden;background:var(--s2)}
-    .prev-reel{position:absolute;top:0;left:0;width:100%;height:auto;display:block;
+    .prev-track{position:absolute;top:0;left:0;width:100%;
       will-change:transform;transform:translate3d(0,0,0);backface-visibility:hidden}
+    .prev-reel{display:block;width:100%;height:auto}
+    /* The hero band: the site's real hero video, with the hero's own
+       text/nav/gradient layer (extracted with its alpha) sitting over it,
+       so the card reads as the actual site rather than raw footage. Both
+       ride the track transform; fades in over the still once playing. */
+    .prev-heroblk{position:absolute;left:0;width:100%;opacity:0;
+      transition:opacity .4s linear;pointer-events:none}
+    .prev-heroblk.on{opacity:1}
+    .prev-vid{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}
+    .prev-hero{position:absolute;inset:0;width:100%;height:100%;display:block}
     .prev-live iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:0 0;pointer-events:none;opacity:0;transition:opacity .5s var(--ease);z-index:1}
     .prev-live.live-on iframe{opacity:1}
     /* Only real mouse pointers may interact with an embedded site.
@@ -759,7 +769,13 @@
       <div class="pstage"><div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
-          <img class="prev-reel" src="screenshots/smith-associates-arch-full.jpg" alt="SA Architects website, full page" width="1440" height="4469" loading="lazy" decoding="async">
+          <div class="prev-track">
+            <img class="prev-reel" src="screenshots/smith-associates-arch-full.jpg" alt="SA Architects website, full page" width="1440" height="4469" loading="lazy" decoding="async">
+            <div class="prev-heroblk" data-top="0" data-vh="900">
+              <video class="prev-vid" src="video/sa-architects.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+              <img class="prev-hero" src="screenshots/sa-architects-hero.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            </div>
+          </div>
           <iframe data-src="https://www.saarchitects.ie/" title="SA Architects — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
         </div>
         <div class="pcard-meta">
@@ -770,7 +786,13 @@
       <div class="pstage"><div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
-          <img class="prev-reel" src="screenshots/rackzz-pool-club-full.jpg" alt="Rackzz Pool Club website, full page" width="1440" height="6836" loading="lazy" decoding="async">
+          <div class="prev-track">
+            <img class="prev-reel" src="screenshots/rackzz-pool-club-full.jpg" alt="Rackzz Pool Club website, full page" width="1440" height="6836" loading="lazy" decoding="async">
+            <div class="prev-heroblk" data-top="77" data-vh="714">
+              <video class="prev-vid" src="video/rackzz-pool-club.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+              <img class="prev-hero" src="screenshots/rackzz-pool-club-hero.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            </div>
+          </div>
           <iframe data-src="https://www.rackzzpoolclub.ie/" title="Rackzz Pool Club — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
         </div>
         <div class="pcard-meta">
@@ -781,7 +803,13 @@
       <div class="pstage"><div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
-          <img class="prev-reel" src="screenshots/prestige-barbers-full.jpg" alt="Prestige Barbers website, full page" width="1440" height="7766" loading="lazy" decoding="async">
+          <div class="prev-track">
+            <img class="prev-reel" src="screenshots/prestige-barbers-full.jpg" alt="Prestige Barbers website, full page" width="1440" height="7766" loading="lazy" decoding="async">
+            <div class="prev-heroblk" data-top="0" data-vh="900">
+              <video class="prev-vid" src="video/prestige-barbers.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+              <img class="prev-hero" src="screenshots/prestige-barbers-hero.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            </div>
+          </div>
           <iframe data-src="https://www.prestigebarbers.ie/" title="Prestige Barbers — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
         </div>
         <div class="pcard-meta">
@@ -792,7 +820,13 @@
       <div class="pstage"><div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
-          <img class="prev-reel" src="screenshots/ab-home-perfection-full.jpg" alt="AB Home Perfection website, full page" width="1440" height="6117" loading="lazy" decoding="async">
+          <div class="prev-track">
+            <img class="prev-reel" src="screenshots/ab-home-perfection-full.jpg" alt="AB Home Perfection website, full page" width="1440" height="6117" loading="lazy" decoding="async">
+            <div class="prev-heroblk" data-top="0" data-vh="900">
+              <video class="prev-vid" src="video/ab-home-perfection.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+              <img class="prev-hero" src="screenshots/ab-home-perfection-hero.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            </div>
+          </div>
           <iframe data-src="https://www.homeperfectionrenovation.ie/" title="AB Home Perfection — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
         </div>
         <div class="pcard-meta">
@@ -1400,6 +1434,7 @@
     // card swaps the real interactive site in over the capture.
     (function(){
       const NATIVE_W = 1440;
+      const HOLD = 0.22;   // fraction of each stage held on the hero before scrubbing
       const wraps = Array.from(document.querySelectorAll('.prev-live'));
       if(!wraps.length) return;
 
@@ -1421,29 +1456,69 @@
           st.style.height = 'auto';                       // natural height first
           const cardH = card.offsetHeight;
           const stick = Math.max(72, Math.round((vh - cardH) / 2));
-          const scrub = Math.round(vh * 1.25);            // scroll spent per site
+          const scrub = Math.round(vh * 1.55);            // scroll spent per site
           st.style.setProperty('--stick', stick + 'px');
           st.style.height = (cardH + scrub) + 'px';
           st.dataset.stick = stick;
           st.dataset.scrub = scrub;
+          // Place the hero video over the hero band of the capture. Both the
+          // capture and the video are authored in 1440-wide space, so scale by
+          // the ratio the card is actually rendered at.
+          const win = st.querySelector('.prev-live');
+          const blk = st.querySelector('.prev-heroblk');
+          if(win && blk){
+            const k = win.clientWidth / NATIVE_W;
+            blk.style.top    = ((+blk.dataset.top || 0) * k) + 'px';
+            blk.style.height = (((+blk.dataset.vh) || 900) * k) + 'px';
+          }
         }
         paint();
       }
 
       function paint(){
+        const vh = innerHeight;
         for(const st of stages){
-          const img = st.querySelector('.prev-reel');
-          const win = st.querySelector('.prev-live');
-          if(!img || !win) continue;
+          const track = st.querySelector('.prev-track');
+          const img   = st.querySelector('.prev-reel');
+          const win   = st.querySelector('.prev-live');
+          if(!track || !img || !win) continue;
           const scrub = parseFloat(st.dataset.scrub) || 1;
           const stick = parseFloat(st.dataset.stick) || 0;
-          let p = (stick - st.getBoundingClientRect().top) / scrub;
-          p = p < 0 ? 0 : p > 1 ? 1 : p;
+          let raw = (stick - st.getBoundingClientRect().top) / scrub;
+          raw = raw < 0 ? 0 : raw > 1 ? 1 : raw;
+          // Dwell on the hero (so its video is actually watched) before the
+          // capture starts moving, then scrub the site over what remains.
+          let p = raw <= HOLD ? 0 : (raw - HOLD) / (1 - HOLD);
           st.dataset.p = p.toFixed(3);
-          const shift = img.offsetHeight - win.clientHeight;
-          if(shift > 0) img.style.transform = `translate3d(0,${-(p*shift).toFixed(1)}px,0)`;
+          st.dataset.raw = raw.toFixed(3);
+          const shift  = img.offsetHeight - win.clientHeight;
+          const offset = shift > 0 ? p * shift : 0;
+          track.style.transform = `translate3d(0,${-offset.toFixed(1)}px,0)`;
+
           // A live embed cannot scroll, so drop it once the scrub starts.
-          if(p > 0.04 && st.contains(liveNow)) release();
+          if(p > 0.04 && liveNow && st.contains(liveNow)) release();
+
+          // Play the hero video only while its band is inside the card window
+          // and the card itself is near the screen; pause it otherwise so no
+          // offscreen video keeps decoding.
+          const blk2 = st.querySelector('.prev-heroblk');
+          const vid  = blk2 && blk2.querySelector('.prev-vid');
+          if(!blk2 || !vid) continue;
+          const cr = st.getBoundingClientRect();
+          const near = cr.bottom > -vh && cr.top < vh * 2;
+          const bTop = parseFloat(blk2.style.top) || 0;
+          const bEnd = bTop + (parseFloat(blk2.style.height) || 0);
+          const shows = near && offset < bEnd && (offset + win.clientHeight) > bTop;
+          if(shows){
+            if(vid.paused){
+              vid.play().then(()=>blk2.classList.add('on')).catch(()=>{});
+            } else if(vid.readyState >= 2){
+              blk2.classList.add('on');       // only reveal once there are frames
+            }
+          } else if(!vid.paused){
+            vid.pause();
+            blk2.classList.remove('on');
+          }
         }
       }
 
