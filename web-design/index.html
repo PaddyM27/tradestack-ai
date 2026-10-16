@@ -167,7 +167,7 @@
     .stat-l{font-size:13px;color:var(--fg);font-weight:500}
 
     /* ── PORTFOLIO / MARQUEE ─── */
-    .portfolio{padding:100px 0;overflow:hidden;border-bottom:1px solid var(--bd)}
+    .portfolio{padding:100px 0;overflow:clip;border-bottom:1px solid var(--bd)}
     .port-head{padding:0 56px;margin-bottom:52px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
     .sec-eye{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ac);margin-bottom:18px;display:flex;align-items:center;gap:10px}
     .sec-eye::before{content:'';width:20px;height:1px;background:var(--ac)}
@@ -187,6 +187,11 @@
     @media(hover:hover) and (pointer:fine){.prev-live.live-on:hover iframe{pointer-events:auto}}
     .prev-live-tag{position:absolute;top:16px;right:16px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#34d399;background:rgba(8,8,7,.75);border:1px solid rgba(52,211,153,.4);border-radius:20px;padding:5px 11px;display:flex;align-items:center;gap:6px;z-index:2;pointer-events:none}
     .prev-live-dot{width:6px;height:6px;border-radius:50%;background:#34d399;animation:aiPulse 2s ease-in-out infinite}
+    /* Each card is pinned inside a tall stage: while it is stuck, the
+       scroll scrubs that one site; at the end of the stage it releases
+       and the next card pins. --stick/height are set from JS. */
+    .pstage{position:relative}
+    .pstage>.pcard{position:sticky;top:var(--stick,80px)}
     .pcard{position:relative;display:flex;flex-direction:column;background:var(--s1);border:1px solid var(--bd);border-radius:14px;overflow:hidden;transition:border-color .3s,transform .3s}
     .pcard::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--px,50%) var(--py,50%),rgba(76,134,255,.08) 0%,transparent 55%);opacity:0;transition:opacity .3s;pointer-events:none}
     .pcard:hover::after{opacity:1}
@@ -750,8 +755,8 @@
       </div>
       <p class="port-sub">Every site you see here was built for a real local Irish business. No templates. No page builders.</p>
     </div>
-    <div class="port-stack rev">
-      <div class="pcard">
+    <div class="port-stack">
+      <div class="pstage"><div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
           <img class="prev-reel" src="screenshots/smith-associates-arch-full.jpg" alt="SA Architects website, full page" width="1440" height="4469" loading="lazy" decoding="async">
@@ -761,8 +766,8 @@
           <div class="pcard-id"><span class="pcard-cat">Architecture</span><span class="pcard-name">SA Architects</span></div>
           <a class="pcard-visit" href="https://www.saarchitects.ie/" target="_blank" rel="noopener">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
-      </div>
-      <div class="pcard">
+      </div></div>
+      <div class="pstage"><div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
           <img class="prev-reel" src="screenshots/rackzz-pool-club-full.jpg" alt="Rackzz Pool Club website, full page" width="1440" height="6836" loading="lazy" decoding="async">
@@ -772,8 +777,8 @@
           <div class="pcard-id"><span class="pcard-cat">Leisure &amp; Recreation</span><span class="pcard-name">Rackzz Pool Club</span></div>
           <a class="pcard-visit" href="https://www.rackzzpoolclub.ie/" target="_blank" rel="noopener">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
-      </div>
-      <div class="pcard">
+      </div></div>
+      <div class="pstage"><div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
           <img class="prev-reel" src="screenshots/prestige-barbers-full.jpg" alt="Prestige Barbers website, full page" width="1440" height="7766" loading="lazy" decoding="async">
@@ -783,8 +788,8 @@
           <div class="pcard-id"><span class="pcard-cat">Barbershop</span><span class="pcard-name">Prestige Barbers</span></div>
           <a class="pcard-visit" href="https://www.prestigebarbers.ie/" target="_blank" rel="noopener">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
-      </div>
-      <div class="pcard">
+      </div></div>
+      <div class="pstage"><div class="pcard">
         <div class="prev-live">
           <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
           <img class="prev-reel" src="screenshots/ab-home-perfection-full.jpg" alt="AB Home Perfection website, full page" width="1440" height="6117" loading="lazy" decoding="async">
@@ -794,7 +799,7 @@
           <div class="pcard-id"><span class="pcard-cat">Renovations</span><span class="pcard-name">AB Home Perfection</span></div>
           <a class="pcard-visit" href="https://www.homeperfectionrenovation.ie/" target="_blank" rel="noopener">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
-      </div>
+      </div></div>
     </div>
   </section>
 
@@ -1398,28 +1403,58 @@
       const wraps = Array.from(document.querySelectorAll('.prev-live'));
       if(!wraps.length) return;
 
-      // ---- scroll-through reels (all devices) ----
-      const reels = wraps.map(w=>({wrap:w, img:w.querySelector('.prev-reel')})).filter(r=>r.img);
+      // ---- pinned scroll-through reels (all devices) ----
+      // Each card is sticky inside a tall stage. While that card is pinned
+      // the scroll scrubs its capture from top to bottom; at the end of the
+      // stage the card releases and the next one pins. Progress is measured
+      // per-stage, so only the pinned card is ever mid-scrub — cards above
+      // sit clamped at their footer, cards below at their hero.
+      const stages = Array.from(document.querySelectorAll('.pstage'));
+      let liveNow = null;            // the card currently showing a live embed
+      let release = ()=>{};          // replaced below once hover support is set up
 
-      function scrub(){
+      function measure(){
         const vh = innerHeight;
-        for(const {wrap,img} of reels){
-          const r = wrap.getBoundingClientRect();
-          if(r.bottom <= 0 || r.top >= vh) continue;           // off-screen: skip
-          const travel = vh + r.height;                         // entry -> full exit
-          let p = (vh - r.top) / travel;
+        for(const st of stages){
+          const card = st.querySelector('.pcard');
+          if(!card) continue;
+          st.style.height = 'auto';                       // natural height first
+          const cardH = card.offsetHeight;
+          const stick = Math.max(72, Math.round((vh - cardH) / 2));
+          const scrub = Math.round(vh * 1.25);            // scroll spent per site
+          st.style.setProperty('--stick', stick + 'px');
+          st.style.height = (cardH + scrub) + 'px';
+          st.dataset.stick = stick;
+          st.dataset.scrub = scrub;
+        }
+        paint();
+      }
+
+      function paint(){
+        for(const st of stages){
+          const img = st.querySelector('.prev-reel');
+          const win = st.querySelector('.prev-live');
+          if(!img || !win) continue;
+          const scrub = parseFloat(st.dataset.scrub) || 1;
+          const stick = parseFloat(st.dataset.stick) || 0;
+          let p = (stick - st.getBoundingClientRect().top) / scrub;
           p = p < 0 ? 0 : p > 1 ? 1 : p;
-          const shift = img.offsetHeight - wrap.clientHeight;   // how far it can move
+          st.dataset.p = p.toFixed(3);
+          const shift = img.offsetHeight - win.clientHeight;
           if(shift > 0) img.style.transform = `translate3d(0,${-(p*shift).toFixed(1)}px,0)`;
+          // A live embed cannot scroll, so drop it once the scrub starts.
+          if(p > 0.04 && st.contains(liveNow)) release();
         }
       }
 
       let raf = 0;
-      const onScroll = ()=>{ if(!raf) raf = requestAnimationFrame(()=>{ raf = 0; scrub(); }); };
-      addEventListener('scroll', onScroll, {passive:true});
-      addEventListener('resize', onScroll, {passive:true});
-      reels.forEach(({img})=>{ if(!img.complete) img.addEventListener('load', scrub, {once:true}); });
-      scrub();
+      addEventListener('scroll', ()=>{ if(!raf) raf = requestAnimationFrame(()=>{ raf = 0; paint(); }); }, {passive:true});
+      addEventListener('resize', measure, {passive:true});
+      stages.forEach(st=>{
+        const img = st.querySelector('.prev-reel');
+        if(img && !img.complete) img.addEventListener('load', measure, {once:true});
+      });
+      measure();
 
       // ---- live interactive site on desktop hover (optional extra) ----
       wraps.forEach(wrap=>{
@@ -1435,6 +1470,7 @@
       if(conn.saveData === true || /(^|-)2g$/.test(conn.effectiveType||'') || innerWidth < 1024) return;
 
       let active = null;
+      release = ()=>{ if(active){ unload(active); active = null; liveNow = null; } };
       function unload(wrap){
         if(!wrap) return;
         const f = wrap.querySelector('iframe');
@@ -1448,6 +1484,7 @@
         active = wrap;
         const f = wrap.querySelector('iframe');
         if(!f || !f.dataset.src) return;
+        liveNow = wrap;
         f.addEventListener('load', ()=>{ if(active === wrap) wrap.classList.add('live-on'); }, {once:true});
         f.setAttribute('src', f.dataset.src);
       }
@@ -1456,12 +1493,14 @@
         let t;
         wrap.addEventListener('pointerenter', e=>{
           if(e.pointerType && e.pointerType !== 'mouse') return;
+          const st = wrap.closest('.pstage');
+          // Only while the card is still at its hero — mounting mid-scrub would
+          // snap the view back to the top of the site, since a live cross-origin
+          // embed cannot be scrolled to match the reel.
+          if(st && parseFloat(st.dataset.p || 0) > 0.04) return;
           t = setTimeout(()=>mount(wrap), 400);     // ignore cursors passing through
         });
-        wrap.addEventListener('pointerleave', ()=>{
-          clearTimeout(t);
-          if(active) { unload(active); active = null; }   // back to the scroll-through reel
-        });
+        wrap.addEventListener('pointerleave', ()=>{ clearTimeout(t); release(); });
       });
     })();
 
