@@ -1,3005 +1,641 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlowBuild | Digital Systems for Fast Moving Businesses</title>
-  <meta name="description" content="FlowBuild AI is the done-for-you growth partner for B2B service businesses. We build cold email and outbound systems that fill your pipeline, and AI automations that convert it — CRM builds, instant lead response, follow-up sequences, and back-office efficiency. Live in 14 days.">
-  <meta name="robots" content="index, follow, max-image-preview:none">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FlowBuild AI — Websites and AI systems for fast-moving businesses</title>
+<meta name="description" content="FlowBuild AI designs websites and builds the AI systems that make sure every visitor becomes a customer. Done for you, and yours to keep.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23C23B24'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,460;0,9..144,560;1,9..144,420&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="scrollcraft.css">
+<style>
+  :root {
+    --sc-canvas:      #F1EAD9;
+    --sc-surface:     #E8DFC9;
+    --sc-ink:         #1C1712;
+    --sc-ink-soft:    #6B6153;
+    --sc-accent:      #C23B24;
+    --sc-accent-ink:  #FBF4E8;
+    --sc-font-display: "Fraunces", Georgia, serif;
+    --sc-font-text:    "Archivo", system-ui, sans-serif;
 
-  <!-- Geo targeting — Ireland -->
-  <meta name="geo.region" content="IE">
-  <meta name="geo.placename" content="Ireland">
-  <meta name="geo.position" content="53.3498;-6.2603">
-  <meta name="ICBM" content="53.3498, -6.2603">
-
-  <!-- Open Graph / Social sharing -->
-  <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://www.flowbuildai.ie/">
-  <meta property="og:title"       content="FlowBuild | Digital Systems for Fast Moving Businesses">
-  <meta property="og:description" content="Two things drive revenue: more conversations, and fewer of them wasted. We build the outbound systems that fill your pipeline and the AI automations that convert it — done for you, no extra staff.">
-  <meta property="og:image"       content="https://www.flowbuildai.ie/og-image.png">
-  <meta property="og:image:width"  content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:site_name"   content="FlowBuild AI">
-  <meta property="og:locale"      content="en_IE">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="FlowBuild | Digital Systems for Fast Moving Businesses">
-  <meta name="twitter:description" content="Cold email and outbound systems that fill your pipeline. AI automations, CRM builds and follow-up that convert it. Done for you — no extra staff.">
-  <meta name="twitter:image"       content="https://www.flowbuildai.ie/og-image.png">
-  <link rel="canonical" href="https://www.flowbuildai.ie/">
-
-  <!-- Structured Data — LocalBusiness + Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://www.flowbuildai.ie/#business",
-        "name": "FlowBuild AI",
-        "description": "Done-for-you lead generation and AI automation agency for B2B and service businesses. We build cold email and outbound systems that fill your pipeline, plus AI automations, CRM builds and follow-up sequences that convert it.",
-        "url": "https://www.flowbuildai.ie",
-        "telephone": "+353872666405",
-        "email": "info@flowbuildai.ie",
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "IE",
-          "addressRegion": "Ireland"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "53.3498",
-          "longitude": "-6.2603"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Ireland"
-        },
-        "image": "https://www.flowbuildai.ie/og-image.png",
-        "logo": "https://www.flowbuildai.ie/favicon-192.png",
-        "priceRange": "$$",
-        "knowsAbout": [
-          "Cold email lead generation",
-          "B2B outbound and appointment setting",
-          "AI automation for service businesses",
-          "CRM setup and sales automation",
-          "Quote and proposal follow-up automation",
-          "AI receptionist and instant lead response",
-          "Done-for-you AI agency Ireland"
-        ],
-        "sameAs": [
-          "https://www.linkedin.com/company/flowbuildai"
-        ]
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://www.flowbuildai.ie/#organization",
-        "name": "FlowBuild AI",
-        "url": "https://www.flowbuildai.ie",
-        "logo": "https://www.flowbuildai.ie/favicon-192.png",
-        "description": "Done-for-you lead generation and AI automation systems for B2B and service businesses.",
-        "foundingLocation": {
-          "@type": "Place",
-          "name": "Ireland"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+353872666405",
-          "contactType": "sales",
-          "areaServed": "IE",
-          "availableLanguage": "English"
-        }
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://www.flowbuildai.ie/#website",
-        "url": "https://www.flowbuildai.ie",
-        "name": "FlowBuild AI",
-        "publisher": { "@id": "https://www.flowbuildai.ie/#organization" }
-      }
-    ]
+    --fb-dark-canvas:  #19140F;
+    --fb-dark-surface: #231C14;
+    --fb-dark-ink:     #F1EAD9;
+    --fb-dark-ink-soft:#A89C87;
   }
-  </script>
 
-  <!-- Structured Data — Services -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "FlowBuild AI Services — Lead Generation & AI Automation",
-    "description": "FlowBuild AI's done-for-you growth stack for B2B and service businesses: outbound systems that fill the pipeline, and AI automation that converts it",
-    "provider": { "@id": "https://www.flowbuildai.ie/#business" },
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@type": "Service",
-          "name": "Cold Email Lead Generation",
-          "description": "Done-for-you cold email infrastructure, list building, copywriting and sending. Warmed domains and inboxes, targeted prospect lists, and campaigns that book qualified meetings straight into your calendar.",
-          "provider": { "@id": "https://www.flowbuildai.ie/#business" },
-          "areaServed": { "@type": "Country", "name": "Ireland" }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "item": {
-          "@type": "Service",
-          "name": "Outbound & Appointment Setting",
-          "description": "Multi-channel outbound beyond email — LinkedIn, SMS and voice — with qualification and booking handled end to end, so your calendar fills without a sales hire.",
-          "provider": { "@id": "https://www.flowbuildai.ie/#business" },
-          "areaServed": { "@type": "Country", "name": "Ireland" }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@type": "Service",
-          "name": "AI Automation & Custom Agents",
-          "description": "Custom AI agents and automations built into your day-to-day operations — qualification, data entry, reporting, quoting and internal workflows that remove manual admin.",
-          "provider": { "@id": "https://www.flowbuildai.ie/#business" },
-          "areaServed": { "@type": "Country", "name": "Ireland" }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "item": {
-          "@type": "Service",
-          "name": "CRM Build & Sales Automation",
-          "description": "A backend CRM configured around how your business actually sells — pipelines, stages, automated updates and reporting, built on your existing tools or from scratch.",
-          "provider": { "@id": "https://www.flowbuildai.ie/#business" },
-          "areaServed": { "@type": "Country", "name": "Ireland" }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 5,
-        "item": {
-          "@type": "Service",
-          "name": "Instant Lead Response & AI Receptionist",
-          "description": "Every inbound enquiry gets a reply in under 60 seconds via SMS, WhatsApp or voice, and a 24/7 AI receptionist answers the calls your team misses.",
-          "provider": { "@id": "https://www.flowbuildai.ie/#business" },
-          "areaServed": { "@type": "Country", "name": "Ireland" }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 6,
-        "item": {
-          "@type": "Service",
-          "name": "Follow-Up & Pipeline Automation",
-          "description": "Automated multi-touch follow-up on every quote and proposal, database reactivation campaigns, and review and referral requests that fire automatically on completed work.",
-          "provider": { "@id": "https://www.flowbuildai.ie/#business" },
-          "areaServed": { "@type": "Country", "name": "Ireland" }
-        }
-      }
-    ]
+  * { box-sizing: border-box; }
+  html { background: var(--sc-canvas); }
+  body { background: var(--sc-canvas); }
+
+  .ch { background: var(--sc-canvas); color: var(--sc-ink); }
+  .ch--dark { background: var(--fb-dark-canvas); color: var(--fb-dark-ink); }
+  .ch--dark .ch-eyebrow,
+  .ch--dark .ch-folio-num { color: var(--sc-accent); }
+  .ch--dark .ch-soft { color: var(--fb-dark-ink-soft); }
+  .ch-soft { color: var(--sc-ink-soft); }
+
+  /* ---------- margin folio nav: a running head, not a menu ---------- */
+  .folio {
+    position: fixed; z-index: var(--sc-z-chrome);
+    left: var(--sc-5); bottom: var(--sc-5);
+    font-family: var(--sc-font-text);
+    pointer-events: none;
+    opacity: 0; transition: opacity 400ms var(--sc-ease-out);
+    background: color-mix(in oklab, var(--sc-canvas) 80%, transparent);
+    backdrop-filter: blur(8px);
+    border-radius: var(--sc-r-pill);
+    padding: 9px 16px;
+    box-shadow: var(--sc-e1);
   }
-  </script>
-
-  <!-- Structured Data — FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What kind of businesses does FlowBuild AI work with?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "B2B and service businesses that sell a considered, higher-value service — commercial cleaning, professional services, construction and trades, architecture, renovation, coaching and consulting. What our clients have in common isn't an industry, it's a shape: enquiries or prospects come in, someone has to follow up, and revenue is lost when that doesn't happen fast or consistently enough. If that's your business, the systems apply."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does FlowBuild AI's cold email system work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We build and run the whole thing. That means separate sending domains and warmed inboxes so your main domain is never at risk, a targeted prospect list built to your ideal customer profile, campaign copy written and tested by us, and replies handled until a qualified meeting lands in your calendar. You don't buy software or learn a tool — you take the calls."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Isn't cold email spam? Will it damage our domain reputation?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Not the way it should be done. We send from separate domains bought specifically for outbound, so your primary domain is never exposed. Inboxes are warmed before any campaign goes out, daily volume per inbox is kept deliberately low, and every list is filtered and verified rather than blasted. Campaigns are permission-conscious and targeted to businesses that plausibly need what you sell."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you work with our existing CRM?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We integrate with most common CRMs including HubSpot, Salesforce, Pipedrive, GoHighLevel, ServiceTitan and Jobber, as well as industry-specific tools. If you're running on spreadsheets or a basic pipeline, we'll build something purpose-fit for how you actually work — no extra software purchase required."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What's included in the 14-day setup?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Everything on your side is scoped on one onboarding call. Depending on what you need, we configure outbound infrastructure and campaigns, AI voice and SMS response, calendar integration, CRM connection, follow-up sequences and reporting. You review and approve the flows and copy before anything goes live. Most clients spend under two hours of their own time during setup."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "We already get enough leads — why would we need automation?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Then you're the ideal case for the second half of what we do. Most businesses that come to us aren't short of enquiries — they're losing deals between the enquiry and the signature. Slow first response, quotes that go cold, calls missed outside working hours, no-shows, a database nobody has touched in a year. The free Revenue Opportunity Scan will show you which of those is costing you most."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What if the AI says something wrong to a customer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The AI is trained on your specific business — your pricing, your process, your FAQs — and it isn't built to improvise. If a question falls outside what it knows, it takes a message and escalates to your team immediately rather than guessing. You review and approve every script before we go live, and you can change them at any point."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What does it cost and are we locked into a contract?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Every business needs a different combination of the two pillars, so we price to the systems you actually need rather than a fixed package — and we'll walk you through the numbers plainly on the first call, with no obligation. There's no lock-in either — the systems we build are yours to keep. On the outbound side we agree a booked-meeting number in writing up front; if we miss it we keep running at no extra cost until we hit it, or refund the difference."
-        }
-      }
-    ]
+  body.on-dark .folio { background: color-mix(in oklab, var(--fb-dark-canvas) 80%, transparent); }
+  .folio.is-visible { opacity: 1; }
+  .folio:not(.is-visible) .folio__row { pointer-events: none; }
+  .folio__row { display: none; align-items: baseline; gap: 10px; pointer-events: auto; white-space: nowrap; }
+  .folio__row[data-active="true"] { display: flex; }
+  .folio__num {
+    font-size: 11px; letter-spacing: var(--sc-track-wide); color: var(--sc-accent);
   }
-  </script>
+  .folio__title {
+    font-size: 12px; letter-spacing: var(--sc-track-wide); text-transform: uppercase;
+    color: var(--sc-ink); font-weight: 600; text-decoration: none;
+  }
+  body.on-dark .folio__title { color: var(--fb-dark-ink); }
+  @media (max-width: 760px) {
+    .folio { left: 50%; transform: translateX(-50%); bottom: var(--sc-4); }
+  }
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300..800&family=Syne:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
-  <!-- Shared design system. index.html still carries its own inline copy of most
-       of these rules below, which wins on ties. Kept linked so a rule added to the
-       shared sheet cannot silently fail to apply here, which has caused bugs before.
-       Consolidating the inline block into this file is a pending follow-up. -->
-  <link rel="stylesheet" href="assets/flowbuild.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+  /* ---------- hero / title page ---------- */
+  .hero {
+    min-height: 100svh; display: flex; flex-direction: column; justify-content: center;
+    padding: var(--sc-9) var(--sc-gutter) var(--sc-8);
+    position: relative;
+  }
+  .hero__mark {
+    position: absolute; top: var(--sc-6); left: var(--sc-gutter);
+    font-family: var(--sc-font-display); font-weight: 560; font-size: 15px;
+    letter-spacing: var(--sc-track-normal);
+  }
+  .hero__mark em { font-style: italic; color: var(--sc-accent); }
+  .hero__kicker {
+    font-family: var(--sc-font-text); font-size: 12px; letter-spacing: var(--sc-track-wide);
+    text-transform: uppercase; color: var(--sc-accent); margin-bottom: var(--sc-4);
+  }
+  .hero h1 {
+    font-family: var(--sc-font-display); font-weight: 460;
+    font-size: var(--sc-t-4xl); line-height: var(--sc-leading-none);
+    letter-spacing: var(--sc-track-tight); max-width: 20ch; margin: 0 0 var(--sc-5);
+    text-wrap: balance;
+  }
+  .hero p.lede {
+    font-family: var(--sc-font-text); font-size: var(--sc-t-lg); line-height: 1.6;
+    color: var(--sc-ink-soft); max-width: 46ch; margin: 0 0 var(--sc-7); text-wrap: pretty;
+  }
+  .hero__badges { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 7px; padding: 8px 15px;
+    border-radius: var(--sc-r-pill); background: var(--sc-surface);
+    border: 1px solid var(--sc-hairline-strong);
+    font-family: var(--sc-font-text); font-size: 12px; letter-spacing: var(--sc-track-wide);
+    text-transform: uppercase; color: var(--sc-ink); white-space: nowrap;
+  }
+  .badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sc-accent); flex: none; }
 
-  <style>
-    :root {
-      --cream:          #FAF9F6;
-      --cream-dk:       #EDE8DF;
-      --charcoal:       #1C1917;
-      --charcoal-mid:   #3D3835;
-      --charcoal-lt:    #7A726D;
-      --amber:          #E8652A;
-      --amber-dk:       #C4501B;
-      --amber-lt:       #F5804A;
-      --amber-pale:     #FEF1E8;
-      --amber-xpale:    #FDF7F3;
-      --white:          #FFFFFF;
-    }
+  .hero__grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: var(--sc-8); align-items: center; }
+  .hero__mock { position: relative; height: 380px; }
+  .mock-browser {
+    position: absolute; inset: 0 8% 14% 0; background: var(--sc-canvas);
+    border: 1px solid var(--sc-hairline-strong); border-radius: var(--sc-r-lg);
+    box-shadow: var(--sc-e3); overflow: hidden; transform: rotate(-3deg);
+  }
+  .mock-browser__bar { display: flex; gap: 6px; padding: 12px 16px; border-bottom: 1px solid var(--sc-hairline); }
+  .mock-browser__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sc-ink-soft); opacity: 0.45; }
+  .mock-browser__hero { height: 34%; margin: 16px; border-radius: var(--sc-r-md); background: linear-gradient(135deg, color-mix(in oklab, var(--sc-accent) 85%, transparent), color-mix(in oklab, var(--sc-accent) 35%, var(--sc-surface))); }
+  .mock-browser__body { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 10px; }
+  .mock-browser__line { height: 9px; border-radius: 4px; background: var(--sc-surface); }
+  .mock-browser__line.w60 { width: 60%; } .mock-browser__line.w80 { width: 80%; } .mock-browser__line.w40 { width: 40%; }
+  .mock-chat {
+    position: absolute; left: 0; bottom: 0; width: 230px;
+    background: var(--fb-dark-canvas); color: var(--fb-dark-ink);
+    border-radius: var(--sc-r-md); padding: 15px 17px; box-shadow: var(--sc-e3);
+    transform: rotate(2deg);
+  }
+  .mock-chat__top { display: flex; align-items: center; gap: 8px; font-family: var(--sc-font-text); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fb-dark-ink-soft); }
+  .mock-chat__dot { width: 8px; height: 8px; border-radius: 50%; background: #6FCF97; }
+  .mock-chat p { margin: 9px 0 0; font-family: var(--sc-font-text); font-size: 13px; line-height: 1.45; }
+  .mock-chat strong { color: var(--sc-accent); }
+  @media (prefers-reduced-motion: no-preference) {
+    .mock-chat { animation: fb-float 5s ease-in-out infinite; }
+  }
+  @keyframes fb-float { 0%, 100% { transform: rotate(2deg) translateY(0); } 50% { transform: rotate(2deg) translateY(-8px); } }
+  @media (max-width: 900px) {
+    .hero__grid { grid-template-columns: 1fr; }
+    .hero__mock { height: 300px; margin-top: var(--sc-6); }
+  }
+  @media (max-width: 760px) {
+    .hero { padding-top: var(--sc-10); }
+    .hero h1 { font-size: var(--sc-t-2xl); }
+  }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter Tight', sans-serif;
-      background: var(--cream);
-      color: var(--charcoal);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
+  /* ---------- generic chapter chrome ---------- */
+  .ch-wrap { max-width: var(--sc-maxw); margin: 0 auto; padding: var(--sc-10) var(--sc-gutter); }
+  .ch-eyebrow { font-family: var(--sc-font-text); font-size: 12px; letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sc-accent); margin: 0 0 var(--sc-3); }
+  .ch-head { font-family: var(--sc-font-display); font-weight: 460; font-size: var(--sc-t-3xl); line-height: var(--sc-leading-tight); letter-spacing: var(--sc-track-tight); max-width: 16ch; margin: 0 0 var(--sc-6); text-wrap: balance; }
+  .ch-body { font-family: var(--sc-font-text); font-size: var(--sc-t-base); line-height: var(--sc-leading-body); max-width: var(--sc-measure); }
+  .ch-link { color: var(--sc-ink); border-bottom: 1px solid var(--sc-accent); text-decoration: none; padding-bottom: 1px; }
+  .ch-link:hover { color: var(--sc-accent); }
 
-    /* ─── Type helpers ─── */
-    .f-display { font-family: 'Inter Tight', sans-serif; font-weight: 700; }
-    .f-label   { font-family: 'Inter Tight', sans-serif; }
-    .f-body    { font-family: 'Inter Tight', sans-serif; }
+  /* ---------- chapter I: the problem ---------- */
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sc-6); margin-top: var(--sc-8); }
+  .stat { background: var(--fb-dark-surface); border-radius: var(--sc-r-lg); padding: var(--sc-6) var(--sc-5); border: 1px solid rgba(241,234,217,0.08); }
+  .stat .sc-nums { font-family: var(--sc-font-display); font-size: var(--sc-t-3xl); font-weight: 460; letter-spacing: var(--sc-track-tight); color: var(--sc-accent); display: block; }
+  .stat p { font-family: var(--sc-font-text); font-size: 14px; color: var(--fb-dark-ink-soft); line-height: 1.5; margin-top: var(--sc-3); max-width: 28ch; }
+  .stat-source { margin-top: var(--sc-7); font-size: 12px; color: var(--fb-dark-ink-soft); font-style: italic; }
+  @media (max-width: 760px) { .stat-row { grid-template-columns: 1fr; gap: var(--sc-4); } }
 
-    /* ─── Eyebrow ─── */
-    .eyebrow {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--amber);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 28px;
-      height: 2px;
-      background: var(--amber);
-      flex-shrink: 0;
-    }
+  /* ---------- chapter II: web design gallery ---------- */
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sc-7) var(--sc-6); margin-top: var(--sc-8); }
+  .gallery figure { margin: 0; }
+  .gallery__frame { position: relative; overflow: hidden; border-radius: 2px; aspect-ratio: 16/10; background: var(--sc-surface); box-shadow: var(--sc-e2); }
+  .gallery__frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gallery figcaption { margin-top: var(--sc-3); font-family: var(--sc-font-text); }
+  .gallery figcaption .name { font-family: var(--sc-font-display); font-size: var(--sc-t-lg); font-style: italic; display: block; }
+  .gallery figcaption .meta { font-size: 12px; letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sc-ink-soft); }
+  @media (max-width: 760px) { .gallery { grid-template-columns: 1fr; } }
 
-    /* ─── Section heading ─── */
-    .s-head {
-      font-family: 'Inter Tight', sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-    }
+  /* ---------- chapter III: ai systems spec list ---------- */
+  .spec { margin-top: var(--sc-8); border-top: 1px solid var(--sc-hairline-strong); }
+  .spec__row { display: grid; grid-template-columns: 2.5rem 1fr 2fr; gap: var(--sc-6); padding: var(--sc-5) 0; border-bottom: 1px solid var(--sc-hairline); align-items: center; }
+  .spec__row .n {
+    display: flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--sc-canvas); border: 1px solid var(--sc-hairline-strong);
+    font-family: var(--sc-font-display); font-size: 13px; color: var(--sc-accent);
+  }
+  .spec__row h3 { font-family: var(--sc-font-display); font-weight: 460; font-size: var(--sc-t-xl); margin: 0; letter-spacing: var(--sc-track-snug); }
+  .spec__row p { font-family: var(--sc-font-text); font-size: 14px; line-height: 1.6; color: var(--sc-ink-soft); margin: 0; max-width: 48ch; }
+  @media (max-width: 760px) { .spec__row { grid-template-columns: 2rem 1fr; } .spec__row p { grid-column: 1 / -1; } }
 
-    /* ─── Grain texture overlay ─── */
-    .grain { position: relative; }
-    .grain::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.45;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-    }
+  /* ---------- chapter IV: also available (quiet) ---------- */
+  .quiet-wrap { max-width: var(--sc-maxw); margin: 0 auto; padding: var(--sc-9) var(--sc-gutter); }
+  .quiet-head { font-family: var(--sc-font-text); font-size: 13px; letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sc-accent); margin-bottom: var(--sc-6); }
+  .quiet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sc-7); }
+  .quiet-item h3 { font-family: var(--sc-font-display); font-weight: 460; font-style: italic; font-size: var(--sc-t-xl); margin: 0 0 var(--sc-2); color: var(--fb-dark-ink); }
+  .quiet-item p { font-family: var(--sc-font-text); font-size: 14px; line-height: 1.6; color: var(--fb-dark-ink-soft); max-width: 40ch; }
+  @media (max-width: 760px) { .quiet-grid { grid-template-columns: 1fr; gap: var(--sc-6); } }
 
-    /* ─── NAV ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(250,249,246,0.93);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(28,25,23,0.07);
-      height: 74px;
-      display: flex; align-items: center;
-    }
-    .nav-inner {
-      max-width: 1280px; margin: 0 auto; padding: 0 40px;
-      display: flex; align-items: center; justify-content: space-between;
-      width: 100%;
-    }
-    .nav-logo {
-      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px;
-      letter-spacing: -0.03em; color: var(--charcoal); text-decoration: none;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .nav-logo span { color: var(--amber); }
-    .logo-badge {
-      background: var(--amber); color: white !important;
-      font-family: 'Syne', sans-serif; font-size: 9px; font-weight: 800;
-      letter-spacing: 0.04em; padding: 4px 7px; border-radius: 3px;
-      line-height: 1;
-    }
-    .nav-links { display: flex; align-items: center; gap: 36px; }
-    .nav-links a {
-      font-family: 'Inter Tight', sans-serif; font-size: 15px; font-weight: 500;
-      color: var(--charcoal-mid); text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--amber); }
-    .nav-cta { display: flex; align-items: center; gap: 16px; }
+  /* ---------- chapter V: people + proof ---------- */
+  .people { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sc-7); margin-top: var(--sc-8); }
+  .person__img { aspect-ratio: 4/5; overflow: hidden; border-radius: 2px; background: var(--sc-surface); }
+  .person__img img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(0.3) contrast(1.03); }
+  .person h3 { font-family: var(--sc-font-display); font-size: var(--sc-t-xl); font-weight: 460; margin: var(--sc-4) 0 2px; }
+  .person .role { font-size: 12px; letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sc-accent); }
+  .person p.bio { font-family: var(--sc-font-text); font-size: 14px; line-height: 1.6; color: var(--sc-ink-soft); margin-top: var(--sc-3); }
+  .logos { display: flex; align-items: center; gap: var(--sc-7); flex-wrap: wrap; margin-top: var(--sc-9); padding-top: var(--sc-6); border-top: 1px solid var(--sc-hairline-strong); }
+  .logos img { height: 28px; width: auto; opacity: 0.55; filter: grayscale(1); }
+  @media (max-width: 760px) { .people { grid-template-columns: 1fr 1fr; } .person .role { font-size: 10px; } }
 
-    /* ─── Mobile Hamburger ─── */
-    .nav-hamburger {
-      display: none; background: none; border: none; cursor: pointer;
-      padding: 6px; flex-direction: column; gap: 5px; align-items: flex-end;
-    }
-    .nav-hamburger span {
-      display: block; height: 2px; background: var(--charcoal); border-radius: 2px;
-      transition: transform 0.25s ease, opacity 0.2s ease, width 0.2s ease;
-    }
-    .nav-hamburger span:nth-child(1) { width: 22px; }
-    .nav-hamburger span:nth-child(2) { width: 15px; }
-    .nav-hamburger span:nth-child(3) { width: 22px; }
-    nav.open .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    nav.open .nav-hamburger span:nth-child(2) { opacity: 0; width: 22px; }
-    nav.open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  /* ---------- testimonials ---------- */
+  .testi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sc-6); margin-top: var(--sc-8); }
+  .testi { background: var(--sc-surface); border-radius: var(--sc-r-lg); padding: var(--sc-6); display: flex; flex-direction: column; }
+  .testi__stars { color: var(--sc-accent); font-size: 13px; letter-spacing: 0.1em; margin-bottom: var(--sc-4); }
+  .testi p.quote { font-family: var(--sc-font-text); font-size: 14px; line-height: 1.65; color: var(--sc-ink); flex: 1; }
+  .testi__who { margin-top: var(--sc-5); padding-top: var(--sc-4); border-top: 1px solid var(--sc-hairline-strong); font-family: var(--sc-font-text); }
+  .testi__who strong { display: block; font-family: var(--sc-font-display); font-size: var(--sc-t-lg); font-weight: 460; }
+  .testi__who span { font-size: 12px; letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sc-ink-soft); }
+  @media (max-width: 900px) { .testi-row { grid-template-columns: 1fr; } }
 
-    .nav-mobile-drawer {
-      display: none; position: fixed; top: 74px; left: 0; right: 0;
-      background: white; border-top: 1px solid rgba(28,25,23,0.08);
-      padding: 8px 24px 28px;
-      flex-direction: column;
-      box-shadow: 0 16px 48px rgba(28,25,23,0.13);
-      z-index: 99;
-    }
-    .nav-mobile-drawer a.nav-mob-link {
-      font-family: 'Inter Tight', sans-serif; font-size: 17px; font-weight: 500;
-      color: var(--charcoal); text-decoration: none;
-      padding: 15px 0; display: block;
-      border-bottom: 1px solid rgba(28,25,23,0.06);
-      transition: color 0.2s;
-    }
-    .nav-mobile-drawer a.nav-mob-link:hover { color: var(--amber); }
-    .nav-mob-ctas { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-    .nav-mob-ctas .btn { justify-content: center; width: 100%; }
-    nav.open .nav-mobile-drawer { display: flex; }
+  /* ---------- faq accordion ---------- */
+  .faq { margin-top: var(--sc-8); border-top: 1px solid var(--sc-hairline-strong); }
+  .faq details { border-bottom: 1px solid var(--sc-hairline); padding: var(--sc-5) 0; }
+  .faq summary {
+    font-family: var(--sc-font-display); font-size: var(--sc-t-xl); font-weight: 460;
+    letter-spacing: var(--sc-track-snug); cursor: pointer; list-style: none;
+    display: flex; align-items: center; justify-content: space-between; gap: var(--sc-5);
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: '+'; font-family: var(--sc-font-display); font-size: 22px; color: var(--sc-accent);
+    flex: none; transition: transform var(--sc-d-base) var(--sc-ease-out);
+  }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq__a { font-family: var(--sc-font-text); font-size: 14px; line-height: 1.7; color: var(--sc-ink-soft); max-width: var(--sc-measure); margin: var(--sc-4) 0 0; }
 
-    /* ─── Buttons ─── */
-    .btn {
-      display: inline-flex; align-items: center; gap: 9px;
-      font-family: 'Inter Tight', sans-serif; font-weight: 700;
-      letter-spacing: 0.01em; border-radius: 5px;
-      text-decoration: none; border: none; cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    }
-    .btn:active { transform: translateY(1px) !important; }
+  /* ---------- close / colophon ---------- */
+  .colophon {
+    min-height: 90svh; display: flex; flex-direction: column; justify-content: center;
+    padding: var(--sc-10) var(--sc-gutter) calc(var(--sc-10) + 56px); position: relative;
+    overflow: hidden;
+  }
+  .colophon::before {
+    content: ''; position: absolute; z-index: 0; top: -20%; right: -10%;
+    width: 60vw; height: 60vw; max-width: 760px; max-height: 760px;
+    background: radial-gradient(circle, color-mix(in oklab, var(--sc-accent) 28%, transparent) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .colophon > * { position: relative; z-index: 1; }
+  .triangles { display: flex; margin-top: var(--sc-7); opacity: 0.5; }
+  .triangles span { width: 18px; height: 11px; background: var(--sc-accent); clip-path: polygon(50% 0, 0 100%, 100% 100%); margin-right: 2px; }
+  .colophon h2 { font-family: var(--sc-font-display); font-weight: 460; font-style: italic; font-size: var(--sc-t-3xl); line-height: 1.15; max-width: 18ch; margin: 0 0 var(--sc-7); color: var(--fb-dark-ink); text-wrap: balance; }
+  .colophon .cta-line { font-family: var(--sc-font-text); font-size: var(--sc-t-lg); color: var(--sc-accent); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; display: inline-block; }
+  .masthead { margin-top: var(--sc-9); padding-top: var(--sc-6); border-top: 1px solid rgba(241,234,217,0.16); display: flex; flex-wrap: wrap; gap: var(--sc-7) var(--sc-9); font-family: var(--sc-font-text); }
+  .masthead div { font-size: 12px; letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--fb-dark-ink-soft); }
+  .masthead a { color: var(--fb-dark-ink); text-decoration: none; }
+  .masthead a:hover { color: var(--sc-accent); }
+  .masthead strong { display: block; font-family: var(--sc-font-display); font-size: 15px; letter-spacing: var(--sc-track-normal); text-transform: none; color: var(--fb-dark-ink); font-weight: 460; margin-top: 4px; }
+  .fine { margin-top: var(--sc-8); font-size: 11px; color: var(--fb-dark-ink-soft); }
 
-    .btn-amber {
-      background: var(--amber); color: white;
-      font-size: 15px; padding: 15px 26px;
-      box-shadow: 0 2px 0 var(--amber-dk), 0 6px 24px rgba(232,101,42,0.28);
-    }
-    .btn-amber:hover {
-      background: var(--amber-dk);
-      transform: translateY(-1px);
-      box-shadow: 0 3px 0 #9B3B10, 0 10px 32px rgba(232,101,42,0.38);
-    }
-    .btn-amber-lg { font-size: 17px; padding: 18px 34px; }
-
-    .btn-outline {
-      background: transparent; color: var(--charcoal);
-      font-size: 14px; padding: 14px 22px;
-      border: 1.5px solid rgba(28,25,23,0.18);
-    }
-    .btn-outline:hover {
-      border-color: var(--amber); color: var(--amber);
-      background: rgba(232,101,42,0.04);
-    }
-
-    .btn-white {
-      background: white; color: var(--amber);
-      font-size: 16px; padding: 17px 30px;
-      box-shadow: 0 2px 0 rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.1);
-    }
-    .btn-white:hover {
-      background: #FFF5F0;
-      transform: translateY(-1px);
-      box-shadow: 0 3px 0 rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.15);
-    }
-
-    /* ─── HERO ─── */
-    #hero {
-      min-height: 100vh;
-      background: var(--cream);
-      display: flex; align-items: center;
-      padding-top: 74px;
-      position: relative; overflow: hidden;
-    }
-    .hero-bg-grid {
-      position: absolute; inset: 0; pointer-events: none; z-index: 0;
-      background-image: radial-gradient(rgba(232,101,42,0.055) 1px, transparent 1px);
-      background-size: 36px 36px;
-    }
-    .hero-bg-glow {
-      position: absolute; pointer-events: none; z-index: 0;
-      width: 700px; height: 700px;
-      background: radial-gradient(ellipse, rgba(232,101,42,0.07) 0%, transparent 65%);
-      top: -100px; right: -50px;
-    }
-    .hero-watermark {
-      position: absolute; left: 50%; top: 50%;
-      transform: translate(-50%, -50%);
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: clamp(260px, 34vw, 540px);
-      font-weight: 900; line-height: 0.88;
-      color: transparent;
-      /* Centred hero sits on top of this — keep it as texture, not legible type */
-      -webkit-text-stroke: 1.5px rgba(232,101,42,0.055);
-      text-stroke: 1.5px rgba(232,101,42,0.055);
-      letter-spacing: -0.04em;
-      user-select: none; pointer-events: none; z-index: 0;
-    }
-    .hero-inner {
-      position: relative; z-index: 2;
-      max-width: 1280px; margin: 0 auto;
-      padding: 52px 40px;
-      width: 100%;
-    }
-    .hero-scroll {
-      position: absolute; bottom: 32px; left: 50%;
-      transform: translateX(-50%);
-      z-index: 2; display: flex; flex-direction: column;
-      align-items: center; gap: 7px; cursor: pointer;
-      opacity: 0.4; transition: opacity 0.2s;
-      text-decoration: none;
-    }
-    .hero-scroll:hover { opacity: 0.75; }
-    .hero-scroll span {
-      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal-lt);
-    }
-    .hero-scroll-arrow {
-      width: 30px; height: 30px; border: 1.5px solid rgba(28,25,23,0.2);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      animation: bounce 1.8s ease-in-out infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(5px); }
-    }
-    .hero-content { max-width: 1080px; margin: 0 auto; text-align: center; }
-    .hero-h1 {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(44px, 6.4vw, 88px);
-      font-weight: 800;
-      line-height: 1.04;
-      letter-spacing: -0.035em;
-      color: var(--charcoal);
-      margin-bottom: 28px;
-    }
-    .hero-sub {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(15px, 1.45vw, 18px);
-      font-weight: 300;
-      color: var(--charcoal-lt);
-      line-height: 1.7;
-      max-width: 660px;
-      margin: 0 auto 36px;
-    }
-    .hero-sub strong { color: var(--charcoal); }
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: center; margin-bottom: 38px; }
-    .trust-row { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: center; }
-    .trust-item {
-      display: flex; align-items: center; gap: 7px;
-      font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--charcoal-lt);
-    }
-    .trust-check {
-      width: 16px; height: 16px; background: var(--amber);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .trust-check svg { width: 9px; height: 9px; }
-
-    /* ─── CLIENT MARQUEE ─── */
-    #marquee {
-      background: var(--cream);
-      border-top: 1px solid rgba(28,25,23,0.09);
-      border-bottom: 1px solid rgba(28,25,23,0.09);
-      padding: 30px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .marquee-label {
-      position: absolute; left: 0; top: 0; bottom: 0; z-index: 3;
-      display: flex; align-items: center;
-      padding: 0 64px 0 40px;
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--charcoal-lt);
-      white-space: nowrap;
-      /* Solid through the text, fading only across the trailing padding */
-      background: linear-gradient(90deg, var(--cream) 0%, var(--cream) 82%, rgba(250,249,246,0) 100%);
-    }
-    #marquee::after {
-      content: ''; position: absolute; right: 0; top: 0; bottom: 0;
-      width: 90px; z-index: 2; pointer-events: none;
-      background: linear-gradient(270deg, var(--cream) 0%, rgba(250,249,246,0) 100%);
-    }
-    .marquee-track {
-      display: flex; width: max-content;
-      animation: marquee-slide 46s linear infinite;
-      will-change: transform;
-    }
-    #marquee:hover .marquee-track { animation-play-state: paused; }
-    .marquee-item {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 19px; font-weight: 600;
-      letter-spacing: -0.015em;
-      color: var(--charcoal-lt);
-      padding: 0 32px;
-      white-space: nowrap;
-    }
-    @keyframes marquee-slide {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .marquee-track { animation: none; }
-    }
-    /* Below tablet the pinned label would cover most of the row — stack it instead */
-    @media (max-width: 720px) {
-      #marquee { padding: 20px 0 22px; }
-      .marquee-label {
-        position: static; justify-content: center;
-        padding: 0 20px 14px; background: none;
-      }
-      .marquee-item { font-size: 16px; padding: 0 20px; }
-    }
-
-    /* ─── TWO PILLARS ─── */
-    .pillars {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
-      max-width: 1080px; margin: 0 auto 88px;
-    }
-    .pillar {
-      background: white;
-      border: 1.5px solid rgba(28,25,23,0.09);
-      border-radius: 18px;
-      padding: 38px 34px;
-      position: relative;
-      box-shadow: 0 1px 2px rgba(28,25,23,0.04), 0 8px 28px -12px rgba(28,25,23,0.10);
-      transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease;
-    }
-    .pillar:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 2px 4px rgba(28,25,23,0.05), 0 18px 44px -16px rgba(232,101,42,0.22);
-    }
-    .pillar-num {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--amber);
-      margin-bottom: 16px;
-    }
-    .pillar-title {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(24px, 2.6vw, 32px); font-weight: 800;
-      letter-spacing: -0.025em; line-height: 1.12;
-      color: var(--charcoal); margin-bottom: 14px;
-    }
-    .pillar-desc {
-      font-size: 15.5px; line-height: 1.68; font-weight: 300;
-      color: var(--charcoal-lt); margin-bottom: 22px;
-    }
-    .pillar-list { list-style: none; padding: 0; margin: 0; }
-    .pillar-list li {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 14.5px; line-height: 1.5; color: var(--charcoal-mid);
-      padding: 7px 0;
-    }
-    .pillar-list li::before {
-      content: ''; flex-shrink: 0; margin-top: 6px;
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--amber);
-    }
-    @media (max-width: 860px) {
-      .pillars { grid-template-columns: 1fr; gap: 18px; margin-bottom: 60px; }
-      .pillar { padding: 30px 26px; }
-    }
-
-    /* ─── PAIN (dark) ─── */
-    #pain {
-      background: var(--charcoal);
-      padding: 96px 0;
-      position: relative; overflow: hidden;
-    }
-    .pain-glow {
-      position: absolute; pointer-events: none;
-      width: 700px; height: 500px;
-      background: radial-gradient(ellipse, rgba(232,101,42,0.07) 0%, transparent 65%);
-      top: 50%; left: 50%; transform: translate(-50%,-50%);
-    }
-    .pain-inner {
-      max-width: 1280px; margin: 0 auto; padding: 0 40px;
-      position: relative; z-index: 2;
-    }
-    .pain-head {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(32px, 4.5vw, 62px);
-      font-weight: 400; line-height: 1.08; letter-spacing: -0.02em;
-      color: white; max-width: 1120px; margin-bottom: 72px;
-    }
-    .stats-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .stat-block {
-      padding: 40px 36px;
-      border-right: 1px solid rgba(255,255,255,0.06);
-    }
-    .stat-block:last-child { border-right: none; }
-    .stat-num {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(52px, 6.5vw, 80px);
-      font-weight: 800; line-height: 1;
-      color: var(--amber); letter-spacing: -0.03em;
-      margin-bottom: 16px;
-    }
-    .stat-num span { font-size: 0.42em; color: rgba(254,241,232,0.45); font-weight: 500; }
-    .stat-desc { font-size: 14px; color: rgba(254,241,232,0.9); line-height: 1.65; }
-    .pain-footnote {
-      font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: rgba(254,241,232,0.5); margin-top: 36px;
-    }
-
-    /* ─── SERVICES ─── */
-    #services { background: var(--cream); padding: 100px 0 0; }
-    .services-inner { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
-    .services-intro { max-width: 600px; margin-bottom: 72px; }
-    .services-tagline {
-      font-size: 17px; color: var(--charcoal-lt); line-height: 1.72;
-      margin-top: 16px;
-    }
-
-    /* sticky stack */
-    .svc-stack { display: flex; flex-direction: column; padding-bottom: 140px; }
-
-    .svc-sticky {
-      position: sticky;
-      display: grid; grid-template-columns: 1fr 1fr;
-      border-radius: 20px; overflow: hidden;
-      margin-bottom: 20px;
-      min-height: 420px;
-      box-shadow:
-        0 2px 4px rgba(28,25,23,0.04),
-        0 8px 24px rgba(28,25,23,0.07),
-        0 24px 64px rgba(28,25,23,0.06);
-    }
-    .svc-sticky:nth-child(1) { top: 120px; }
-    .svc-sticky:nth-child(2) { top: 136px; }
-    .svc-sticky:nth-child(3) { top: 152px; }
-    .svc-sticky:nth-child(4) { top: 168px; }
-    .svc-sticky:nth-child(5) { top: 184px; }
-
-    .svc-sticky.s-light { background: white; }
-    .svc-sticky.s-pale  { background: var(--amber-pale); }
-    .svc-sticky.s-dark  { background: var(--charcoal); }
-
-    .svc-body {
-      padding: 56px 52px;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-
-    .svc-step {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      margin-bottom: 16px;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .svc-step::before {
-      content: '';
-      width: 20px; height: 1.5px;
-      flex-shrink: 0;
-    }
-    .s-light .svc-step { color: var(--amber); }
-    .s-light .svc-step::before { background: var(--amber); }
-    .s-pale  .svc-step { color: var(--amber-dk); }
-    .s-pale  .svc-step::before { background: var(--amber-dk); }
-    .s-dark  .svc-step { color: var(--amber-lt); }
-    .s-dark  .svc-step::before { background: var(--amber-lt); }
-
-    .svc-heading {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(30px, 3vw, 44px);
-      font-weight: 800; line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 20px;
-    }
-    .s-light .svc-heading { color: var(--charcoal); }
-    .s-pale  .svc-heading { color: var(--charcoal); }
-    .s-dark  .svc-heading { color: #fff; }
-
-    .svc-sub {
-      font-size: 15px; line-height: 1.72;
-      max-width: 380px;
-    }
-    .s-light .svc-sub { color: var(--charcoal-lt); }
-    .s-pale  .svc-sub { color: var(--charcoal-mid); }
-    .s-dark  .svc-sub { color: rgba(254,241,232,0.85); }
-
-    /* ─── Abstract system panels (replaces photography — no industry markers) ─── */
-    .svc-panel {
-      position: relative; overflow: hidden;
-      display: flex; flex-direction: column; justify-content: center;
-      gap: 9px; padding: 44px 40px;
-    }
-    .s-light .svc-panel { background: linear-gradient(150deg, #FDF7F3 0%, #F6F1EB 100%); }
-    .s-pale  .svc-panel { background: linear-gradient(150deg, #FEF1E8 0%, #FADFCE 100%); }
-    .s-dark  .svc-panel { background: linear-gradient(150deg, #272320 0%, #171412 100%); }
-    /* dot grid texture */
-    .svc-panel::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
-      background-image: radial-gradient(rgba(232,101,42,0.11) 1px, transparent 1px);
-      background-size: 22px 22px;
-    }
-    /* corner bloom */
-    .svc-panel::after {
-      content: ''; position: absolute; pointer-events: none;
-      width: 340px; height: 340px; right: -100px; top: -100px;
-      background: radial-gradient(circle, rgba(232,101,42,0.16) 0%, transparent 66%);
-    }
-    .svc-row {
-      position: relative; z-index: 1;
-      display: flex; align-items: center; gap: 11px;
-      padding: 12px 15px; border-radius: 11px;
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 13px; font-weight: 600; letter-spacing: -0.01em;
-      color: var(--charcoal);
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(28,25,23,0.07);
-      box-shadow: 0 1px 2px rgba(28,25,23,0.04), 0 8px 20px -12px rgba(28,25,23,0.22);
-    }
-    .s-dark .svc-row {
-      color: rgba(254,241,232,0.92);
-      background: rgba(255,255,255,0.055);
-      border-color: rgba(255,255,255,0.11);
-      box-shadow: 0 1px 2px rgba(0,0,0,0.25);
-    }
-    .svc-row .lbl { flex: 1; }
-    .svc-row .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--amber); flex-shrink: 0;
-    }
-    .svc-row .tag {
-      flex-shrink: 0;
-      font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
-      padding: 4px 9px; border-radius: 6px;
-      background: rgba(232,101,42,0.14); color: var(--amber-dk);
-    }
-    .s-dark .svc-row .tag { background: rgba(232,101,42,0.24); color: var(--amber-lt); }
-    .svc-row.ind1 { margin-left: 24px; }
-    .svc-row.ind2 { margin-left: 48px; }
-    .svc-row.muted { opacity: 0.5; }
-    .svc-row.muted .dot { background: var(--charcoal-lt); }
-    .svc-row.muted .tag { background: rgba(28,25,23,0.08); color: var(--charcoal-lt); }
-    .svc-bars {
-      position: relative; z-index: 1;
-      display: flex; align-items: flex-end; gap: 6px;
-      height: 58px; margin-top: 6px; padding: 0 2px;
-    }
-    .svc-bars i {
-      flex: 1; border-radius: 3px 3px 0 0;
-      background: linear-gradient(180deg, var(--amber-lt) 0%, var(--amber) 100%);
-    }
-    .s-dark .svc-bars i { background: linear-gradient(180deg, var(--amber-lt) 0%, var(--amber-dk) 100%); }
-
-    @media (max-width: 860px) {
-      .svc-sticky { grid-template-columns: 1fr; position: relative; top: auto !important; margin-bottom: 24px; }
-      .svc-panel { order: -1; padding: 32px 26px; gap: 8px; }
-      .svc-row.ind1, .svc-row.ind2 { margin-left: 0; }
-      .svc-body { padding: 40px 32px; }
-    }
-
-    /* ─── COMPARE ─── */
-    #compare { background: white; padding: 100px 0; }
-    .compare-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
-    .compare-intro { max-width: 580px; margin-bottom: 56px; }
-    .compare-sub { font-size: 17px; color: var(--charcoal-lt); line-height: 1.7; margin-top: 14px; }
-    .cmp-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      border-radius: 12px; overflow: hidden;
-      border: 1.5px solid rgba(28,25,23,0.09);
-    }
-    .cmp-head {
-      padding: 20px 32px;
-      font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .cmp-head.bad { background: #F2F1EF; color: var(--charcoal-lt); border-right: 1.5px solid rgba(28,25,23,0.07); }
-    .cmp-head.good { background: var(--amber-xpale); color: var(--amber); }
-    .cmp-logo {
-      font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 800;
-      letter-spacing: -0.02em; color: var(--amber); display: flex; align-items: center; gap: 5px;
-    }
-    .cmp-logo span { color: var(--charcoal); }
-    .cmp-logo .logo-badge { font-size: 8px; padding: 3px 6px; }
-    .cmp-cell {
-      padding: 20px 32px; display: flex; align-items: center; gap: 14px;
-      border-top: 1px solid rgba(28,25,23,0.06);
-      font-family: 'Inter Tight', sans-serif; font-size: 15px; line-height: 1.45;
-    }
-    .cmp-cell.bad { background: #F9F8F6; color: var(--charcoal-lt); font-weight: 400; border-right: 1.5px solid rgba(28,25,23,0.07); }
-    .cmp-cell.good { background: var(--amber-xpale); color: var(--charcoal); font-weight: 600; }
-    .cmp-x, .cmp-chk {
-      width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px; font-weight: 800;
-    }
-    .cmp-x { background: rgba(28,25,23,0.08); color: var(--charcoal-lt); }
-    .cmp-chk { background: var(--amber); color: white; }
-
-    /* ─── VERTICALS ─── */
-    #verticals { background: var(--cream); padding: 96px 0; }
-    .vert-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
-    .vert-grid {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px;
-      margin-top: 56px;
-    }
-    .vert-card {
-      display: flex; flex-direction: column; align-items: center; gap: 12px;
-      padding: 28px 16px; text-align: center;
-      background: white; border-radius: 8px;
-      border: 1.5px solid rgba(28,25,23,0.06);
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-      cursor: default;
-    }
-    .vert-card:hover {
-      border-color: var(--amber);
-      box-shadow: 0 6px 28px rgba(232,101,42,0.12);
-      transform: translateY(-3px);
-    }
-    .vert-icon { font-size: 30px; line-height: 1; }
-    .vert-name {
-      font-family: 'Inter Tight', sans-serif; font-size: 12px; font-weight: 700;
-      letter-spacing: 0.04em; color: var(--charcoal);
-    }
-    .vert-card.ghost {
-      background: transparent; border-style: dashed;
-      border-color: rgba(28,25,23,0.1);
-    }
-    .vert-card.ghost:hover { border-color: var(--amber); background: rgba(232,101,42,0.025); }
-    .vert-card.ghost .vert-name { color: var(--charcoal-lt); }
-    .vert-note {
-      display: inline-flex; align-items: center; gap: 12px;
-      margin-top: 32px; padding: 18px 26px;
-      background: white; border-radius: 8px;
-      border: 1px solid rgba(28,25,23,0.07);
-    }
-    .vert-note p { font-size: 14px; color: var(--charcoal-lt); line-height: 1.55; }
-    .vert-note strong { color: var(--charcoal); }
-
-    /* ─── AUDIT CTA ─── */
-    #audit {
-      background: var(--charcoal); padding: 96px 0;
-      position: relative; overflow: hidden;
-    }
-    .audit-bg1 {
-      position: absolute; pointer-events: none;
-      width: 560px; height: 560px;
-      background: rgba(255,255,255,0.06); border-radius: 50%;
-      top: -240px; right: -80px;
-    }
-    .audit-bg2 {
-      position: absolute; pointer-events: none;
-      width: 320px; height: 320px;
-      background: rgba(255,255,255,0.04); border-radius: 50%;
-      bottom: -120px; left: 4%;
-    }
-    .audit-wm {
-      position: absolute; pointer-events: none; user-select: none;
-      right: -1%; top: 50%; transform: translateY(-48%);
-      font-family: 'Inter Tight', sans-serif; font-weight: 900;
-      font-size: clamp(130px, 18vw, 280px); line-height: 1;
-      letter-spacing: -0.04em; color: rgba(255,255,255,0.06);
-    }
-    .audit-inner {
-      max-width: 740px; margin: 0 auto; padding: 0 40px;
-      position: relative; z-index: 2;
-    }
-    .audit-head {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(38px, 5.5vw, 72px);
-      font-weight: 800; line-height: 1.05; letter-spacing: -0.025em;
-      color: white; margin-bottom: 22px;
-    }
-    .audit-sub {
-      font-size: 18px; color: rgba(255,255,255,0.8); line-height: 1.72;
-      margin-bottom: 44px;
-    }
-    .audit-sub strong { color: white; }
-    .audit-form { display: flex; flex-direction: column; gap: 14px; max-width: 540px; }
-    .audit-row { display: flex; gap: 12px; }
-    .audit-input {
-      background: rgba(255,255,255,0.13); border: 1.5px solid rgba(254,241,232,0.42);
-      color: white; font-family: 'Inter Tight', sans-serif; font-size: 16px;
-      padding: 16px 20px; border-radius: 5px; outline: none; width: 100%;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .audit-input::placeholder { color: rgba(254,241,232,0.62); }
-    .audit-input:focus { border-color: white; background: rgba(255,255,255,0.18); }
-    .audit-trust { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 24px; }
-    .audit-trust span {
-      font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase; color: rgba(254,241,232,0.72);
-    }
-
-    /* ─── TESTIMONIALS ─── */
-    #testimonials { background: var(--charcoal); padding: 100px 0; position: relative; overflow: hidden; }
-    #testimonials::before {
-      content: ''; position: absolute; top: -300px; right: -200px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(232,101,42,0.06) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    #testimonials::after {
-      content: ''; position: absolute; bottom: -200px; left: -150px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(232,101,42,0.04) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .testi-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
-    .testi-intro { max-width: 540px; margin-bottom: 64px; }
-    .testi-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .testi-card {
-      background: rgba(254,241,232,0.04);
-      border: 1px solid rgba(254,241,232,0.09);
-      border-radius: 12px; padding: 36px 32px;
-      display: flex; flex-direction: column; gap: 20px;
-      transition: border-color 0.25s, background 0.25s;
-    }
-    .testi-card:hover {
-      border-color: rgba(232,101,42,0.3);
-      background: rgba(254,241,232,0.06);
-    }
-    .testi-card.featured {
-      background: rgba(232,101,42,0.08);
-      border-color: rgba(232,101,42,0.25);
-      grid-column: span 1;
-    }
-    .testi-stars { display: flex; gap: 3px; }
-    .testi-star { color: var(--amber); font-size: 14px; }
-    .testi-quote {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 16px; font-weight: 400;
-      color: rgba(254,241,232,0.95); line-height: 1.7;
-      flex: 1;
-    }
-    .testi-quote strong { color: white; font-weight: 600; }
-    .testi-author { display: flex; align-items: center; gap: 14px; }
-    .testi-avatar {
-      width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
-      background: rgba(232,101,42,0.15);
-      border: 1.5px solid rgba(232,101,42,0.25);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Inter Tight', sans-serif; font-size: 13px;
-      font-weight: 700; color: var(--amber-lt); letter-spacing: 0.04em;
-    }
-    .testi-name {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 14px; font-weight: 700; color: white;
-      margin-bottom: 2px;
-    }
-    .testi-biz {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 12px; color: rgba(254,241,232,0.45);
-      letter-spacing: 0.02em;
-    }
-    .testi-bottom-row {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 20px; margin-top: 4px;
-    }
-
-    /* ─── FAQ ─── */
-    #faq { background: white; padding: 96px 0 72px; }
-    .faq-inner { max-width: 860px; margin: 0 auto; padding: 0 40px; }
-    .faq-item { border-top: 1px solid rgba(28,25,23,0.09); }
-    .faq-item:last-child { border-bottom: 1px solid rgba(28,25,23,0.09); }
-    .faq-btn {
-      width: 100%; display: flex; align-items: flex-start;
-      justify-content: space-between; gap: 24px;
-      padding: 26px 0; background: none; border: none;
-      cursor: pointer; text-align: left;
-    }
-    .faq-q {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(17px, 2vw, 21px); font-weight: 600;
-      color: var(--charcoal); letter-spacing: -0.01em; line-height: 1.4;
-      transition: color 0.2s;
-    }
-    .faq-btn:hover .faq-q { color: var(--amber); }
-    .faq-icon {
-      font-size: 22px; color: var(--amber); flex-shrink: 0;
-      transition: transform 0.28s cubic-bezier(.4,0,.2,1);
-      margin-top: 2px;
-    }
-    .faq-btn[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
-    .faq-panel {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.38s cubic-bezier(.4,0,.2,1), padding 0.28s ease;
-    }
-    .faq-panel.open { max-height: 400px; padding-bottom: 28px; }
-    .faq-panel p { font-size: 16px; color: var(--charcoal-lt); line-height: 1.78; }
-
-    /* ─── FOOTER ─── */
-    footer { background: var(--charcoal); padding: 72px 0 40px; }
-    .foot-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
-    .foot-grid {
-      display: grid; grid-template-columns: 1.9fr 1fr 1.15fr 1fr;
-      gap: 44px; padding-bottom: 56px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      margin-bottom: 32px;
-    }
-    .foot-logo {
-      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 22px;
-      letter-spacing: -0.03em; color: white; margin-bottom: 16px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .foot-logo span { color: var(--amber); }
-    .foot-desc { font-size: 14px; color: rgba(254,241,232,0.7); line-height: 1.72; margin-bottom: 28px; max-width: 300px; }
-    .foot-col-head {
-      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: rgba(254,241,232,0.4); margin-bottom: 20px;
-    }
-    .foot-links { display: flex; flex-direction: column; gap: 12px; }
-    .foot-links a {
-      font-size: 14px; color: rgba(254,241,232,0.8);
-      text-decoration: none; transition: color 0.2s;
-    }
-    .foot-links a:hover { color: var(--amber); }
-    .foot-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .foot-copy { font-size: 13px; color: rgba(254,241,232,0.3); }
-    .foot-legal { display: flex; gap: 20px; }
-    .foot-legal a { font-size: 13px; color: rgba(254,241,232,0.3); text-decoration: none; }
-    .foot-legal a:hover { color: rgba(254,241,232,0.62); }
-
-    /* ─── Scroll reveal ─── */
-    .reveal {
-      opacity: 0; transform: translateY(30px);
-      transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
-    }
-    .reveal.vis { opacity: 1; transform: none; }
-    .d1 { transition-delay: 0.08s; }
-    .d2 { transition-delay: 0.16s; }
-    .d3 { transition-delay: 0.24s; }
-    .d4 { transition-delay: 0.32s; }
-
-    .mob-br    { display: block; }
-    .scan-short { display: none; }
-
-    /* ─── Responsive ─── */
-    @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .svc-card { border-right: none; border-bottom: 1.5px solid rgba(28,25,23,0.08); }
-      .svc-card:last-child { border-bottom: none; }
-      .vert-grid { grid-template-columns: repeat(3, 1fr); }
-      .foot-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-      .nav-cta { gap: 6px; }
-      .testi-grid { grid-template-columns: 1fr; }
-      .testi-bottom-row { grid-template-columns: 1fr; }
-      .cmp-grid { grid-template-columns: 1fr; }
-      .cmp-head.bad { border-right: none; border-bottom: 1px solid rgba(28,25,23,0.07); }
-      .cmp-cell.bad { border-right: none; border-bottom: 1px solid rgba(28,25,23,0.06); }
-      .stats-grid { grid-template-columns: 1fr; }
-      .stat-block { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      .vert-grid { grid-template-columns: repeat(2, 1fr); }
-      .audit-row { flex-direction: column; }
-      .foot-grid { grid-template-columns: 1fr; }
-      .hero-watermark { font-size: clamp(180px, 55vw, 320px); opacity: 0.5; }
-      #pricing > div > div[style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
-      /* Mobile heading break — keeps trailing phrase together */
-      .mob-br { display: block; }
-      /* Nav — frosted glass pill buttons on mobile */
-      .nav-cta { gap: 8px; }
-      .scan-long { display: none; }
-      .scan-short { display: inline; }
-      .nav-quote-text { display: none; }
-      .nav-quote-btn {
-        padding: 7px 9px; gap: 0; font-size: 0;
-        background: rgba(250,249,246,0.55);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(28,25,23,0.13);
-        border-radius: 8px;
-        box-shadow: none;
-        color: var(--charcoal);
-      }
-      .nav-quote-icon { width: 17px; height: 17px; }
-      .nav-audit-btn {
-        font-size: 11px; font-weight: 700; padding: 7px 11px;
-        background: rgba(232,101,42,0.1);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(232,101,42,0.28);
-        border-radius: 8px;
-        color: var(--amber-dk);
-        box-shadow: none;
-        white-space: nowrap;
-        letter-spacing: 0.02em;
-      }
-      .nav-audit-btn svg { display: none; }
-    }
-    @media (max-width: 480px) {
-      .nav-inner { padding: 0 16px; }
-      /* Nav — compact on small phones */
-      .nav-logo { font-size: 11px; gap: 4px; }
-      .nav-logo .logo-badge { font-size: 7px; padding: 2px 4px; }
-      .nav-quote-btn { padding: 6px 8px; }
-      .nav-quote-icon { width: 16px; height: 16px; }
-      .nav-audit-btn { font-size: 10px; padding: 6px 9px; }
-      .hero-inner {
-        padding: 40px 20px 56px;
-      }
-      /* Hero H1 — slightly tighter on small screens */
-      .hero-h1 { font-size: 42px; }
-      .hero-sub { font-size: 13px; color: rgba(122,114,109,0.65); max-width: 100%; }
-      .pain-inner, .compare-inner, .services-inner,
-      .vert-inner, .audit-inner, .faq-inner, .foot-inner { padding: 0 20px; }
-      .svc-card { padding: 36px 24px; }
-      /* Hero CTAs — full width, stacked */
-      .hero-ctas {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .hero-ctas .btn {
-        width: 100%;
-        justify-content: center;
-        white-space: nowrap;
-      }
-      .hero-ctas .btn-amber-lg {
-        font-size: 15px;
-        padding: 16px 20px;
-      }
-      /* Trust row — tighter on small phones */
-      .trust-row {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px 16px;
-      }
-      .trust-item {
-        font-size: 10px;
-        letter-spacing: 0.05em;
-      }
-      /* Pain section tighter */
-      #pain { padding: 72px 0; }
-      .pain-head { margin-bottom: 48px; }
-      .stat-block { padding: 32px 24px; }
-      /* Section padding */
-      #services { padding: 72px 0; }
-      #verticals, #compare, #audit, #faq, #testimonials { padding: 72px 0; }
-      .testi-inner { padding: 0 20px; }
-      .testi-card { padding: 28px 22px; }
-      /* Footer */
-      .foot-inner { padding: 48px 20px 32px; }
-
-      /* Compare grid — compact on mobile */
-      .cmp-head { padding: 12px 16px; font-size: 10px; }
-      .cmp-cell { padding: 14px 16px; font-size: 13px; gap: 10px; }
-      .cmp-x, .cmp-chk { width: 18px; height: 18px; font-size: 10px; }
-
-      /* Verticals grid — 2 columns on mobile */
-      .vert-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 36px; }
-
-    }
-
-    /* ─── Revenue Opportunity Scan ────────────────────────────── */
-    .lla-section::before {
-      content: '';
-      position: absolute;
-      top: -200px; right: -200px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(232,101,42,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .lla-wrap {
-      /* 950 less the 40px side padding leaves ~870px of content, enough for the
-         two full-size heading lines to sit on one line each. */
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 96px 40px;
-      min-height: 520px;
-      display: flex;
-      align-items: center;
-    }
-    .lla-panel { display: none; flex-direction: column; width: 100%; }
-    .lla-panel.active {
-      display: flex;
-      animation: llaIn 0.42s cubic-bezier(.4,0,.2,1);
-    }
-    @keyframes llaIn {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: none; }
-    }
-    .lla-eyebrow-amber {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--amber); margin-bottom: 20px;
-    }
-    .lla-h2 {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(38px, 5.5vw, 68px);
-      font-weight: 800; line-height: 1.04; letter-spacing: -0.03em;
-      color: white; margin-bottom: 20px;
-    }
-    /* Trailing clause sits smaller so the two full-size lines stay balanced
-       instead of leaving a short ragged third line. */
-    .lla-h2-tail {
-      display: inline-block;
-      font-size: 0.46em; font-weight: 700;
-      letter-spacing: 0.01em; color: var(--amber-lt);
-      margin-top: 10px;
-    }
-    .lla-lead {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 17px; line-height: 1.65;
-      color: rgba(254,241,232,0.72);
-      max-width: 560px; margin-bottom: 36px;
-    }
-    .lla-cats-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 44px; }
-    .lla-cat-pill {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
-      color: rgba(254,241,232,0.55);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 100px; padding: 5px 13px;
-    }
-    .lla-btn-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--amber); color: white;
-      font-family: 'Inter Tight', sans-serif; font-size: 15px; font-weight: 700;
-      letter-spacing: 0.02em; border: none; border-radius: 4px;
-      padding: 16px 28px; cursor: pointer; align-self: flex-start;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .lla-btn-primary:hover { background: var(--amber-lt); transform: translateY(-1px); }
-    .lla-btn-primary:active { transform: none; }
-    .lla-fine {
-      font-family: 'Inter Tight', sans-serif; font-size: 13px;
-      color: rgba(254,241,232,0.36); margin-top: 16px;
-    }
-    /* Value panel */
-    .lla-qh {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(24px, 3.5vw, 40px); font-weight: 700;
-      line-height: 1.15; letter-spacing: -0.02em;
-      color: white; margin-bottom: 14px;
-    }
-    .lla-qlead {
-      font-family: 'Inter Tight', sans-serif; font-size: 16px; line-height: 1.6;
-      color: rgba(254,241,232,0.62); margin-bottom: 32px; max-width: 480px;
-    }
-    .lla-input-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
-    .lla-input-wrap {
-      display: flex; align-items: center;
-      background: rgba(255,255,255,0.05);
-      border: 1.5px solid rgba(255,255,255,0.14); border-radius: 4px;
-      overflow: hidden; transition: border-color 0.2s;
-    }
-    .lla-input-wrap:focus-within { border-color: var(--amber); }
-    .lla-curr {
-      font-family: 'Inter Tight', sans-serif; font-size: 22px; font-weight: 700;
-      color: rgba(254,241,232,0.55); padding: 13px 0 13px 18px;
-    }
-    .lla-num-input {
-      background: transparent; border: none; outline: none;
-      font-family: 'Inter Tight', sans-serif; font-size: 22px; font-weight: 700;
-      color: white; padding: 13px 18px; width: 160px;
-    }
-    .lla-num-input::placeholder { color: rgba(254,241,232,0.3); }
-    .lla-skip-link {
-      font-family: 'Inter Tight', sans-serif; font-size: 13px;
-      color: rgba(254,241,232,0.4); cursor: pointer;
-      text-decoration: underline; text-underline-offset: 3px;
-      transition: color 0.2s; display: inline-block; margin-top: 4px;
-    }
-    .lla-skip-link:hover { color: rgba(254,241,232,0.72); }
-    /* Capture panel */
-    .lla-capture-fields { display: flex; flex-direction: column; gap: 12px; margin: 28px 0 20px; max-width: 440px; }
-    .lla-text-input {
-      background: rgba(255,255,255,0.05);
-      border: 1.5px solid rgba(255,255,255,0.14); border-radius: 4px;
-      color: white; font-family: 'Inter Tight', sans-serif; font-size: 15px;
-      padding: 14px 18px; outline: none; width: 100%;
-      transition: border-color 0.2s;
-    }
-    .lla-text-input::placeholder { color: rgba(254,241,232,0.36); }
-    .lla-text-input:focus { border-color: var(--amber); }
-    .lla-capture-error { color: #e05a5a; font-size: 13px; margin-top: -4px; display: none; }
-    .lla-capture-error.show { display: block; }
-    .lla-privacy-note { font-size: 12px; color: rgba(254,241,232,0.4); margin-top: 14px; line-height: 1.6; }
-    /* Quiz panel */
-    .lla-progress-track {
-      width: 100%; height: 2px;
-      background: rgba(255,255,255,0.08); border-radius: 2px;
-      margin-bottom: 40px; overflow: hidden;
-    }
-    .lla-progress-fill {
-      height: 100%; background: var(--amber); border-radius: 2px;
-      width: 0%; transition: width 0.55s cubic-bezier(.4,0,.2,1);
-    }
-    .lla-q-meta-row {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 20px;
-    }
-    .lla-q-section-lbl {
-      font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber);
-    }
-    .lla-q-counter {
-      font-family: 'Inter Tight', sans-serif; font-size: 13px;
-      color: rgba(254,241,232,0.42);
-    }
-    .lla-opts { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
-    .lla-opt {
-      background: rgba(255,255,255,0.04);
-      border: 1.5px solid rgba(255,255,255,0.09); border-radius: 6px;
-      padding: 15px 20px; text-align: left;
-      font-family: 'Inter Tight', sans-serif; font-size: 15px;
-      color: rgba(254,241,232,0.85); cursor: pointer;
-      transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.12s;
-    }
-    .lla-opt:hover {
-      background: rgba(232,101,42,0.1); border-color: rgba(232,101,42,0.5);
-      color: white; transform: translateX(5px);
-    }
-    .lla-opt.selected {
-      background: var(--amber); border-color: var(--amber);
-      color: white; font-weight: 600; transform: translateX(5px);
-    }
-    /* Results panel */
-    .lla-results-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
-      width: 100%;
-    }
-    .lla-tier-badge {
-      display: inline-block; font-family: 'Inter Tight', sans-serif;
-      font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 5px 12px; border-radius: 3px; margin-bottom: 14px;
-    }
-    .lla-tier-solid     { background: rgba(100,200,120,0.15); color: #7CCC8A; }
-    .lla-tier-moderate  { background: rgba(232,101,42,0.15); color: var(--amber-lt); }
-    .lla-tier-critical  { background: rgba(210,60,60,0.15); color: #E57373; }
-    .lla-tier-desc {
-      font-family: 'Inter Tight', sans-serif; font-size: 15px; line-height: 1.6;
-      color: rgba(254,241,232,0.68); margin-bottom: 32px;
-    }
-    .lla-leak-num {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(44px, 6vw, 72px); font-weight: 900;
-      color: var(--amber); line-height: 1; letter-spacing: -0.03em;
-      margin-bottom: 8px;
-    }
-    .lla-leak-lbl {
-      font-family: 'Inter Tight', sans-serif; font-size: 12px;
-      color: rgba(254,241,232,0.42); text-transform: uppercase;
-      letter-spacing: 0.07em; margin-bottom: 32px;
-    }
-    .lla-score-row {
-      display: flex; align-items: center; gap: 12px;
-      padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07);
-    }
-    .lla-score-lbl { font-family: 'Inter Tight', sans-serif; font-size: 13px; color: rgba(254,241,232,0.48); }
-    .lla-score-val { font-family: 'Inter Tight', sans-serif; font-size: 24px; font-weight: 700; color: white; }
-    .lla-gaps-title {
-      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(254,241,232,0.48); margin-bottom: 22px;
-    }
-    .lla-gap-row { margin-bottom: 18px; }
-    .lla-gap-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
-    .lla-gap-name { font-family: 'Inter Tight', sans-serif; font-size: 13px; font-weight: 600; color: rgba(254,241,232,0.88); }
-    .lla-gap-tag {
-      font-family: 'Inter Tight', sans-serif; font-size: 9px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 2px 7px; border-radius: 3px;
-    }
-    .lla-gap-tag-major    { background: rgba(210,60,60,0.2);  color: #E57373; }
-    .lla-gap-tag-moderate { background: rgba(232,101,42,0.2); color: var(--amber-lt); }
-    .lla-gap-tag-strong   { background: rgba(100,200,120,0.15); color: #7CCC8A; }
-    .lla-gap-track { height: 4px; background: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden; margin-bottom: 5px; }
-    .lla-gap-fill {
-      height: 100%; border-radius: 2px; width: 0%;
-      transition: width 1.1s cubic-bezier(.4,0,.2,1);
-    }
-    .lla-gap-fill-major    { background: #E57373; }
-    .lla-gap-fill-moderate { background: var(--amber); }
-    .lla-gap-fill-strong   { background: #7CCC8A; }
-    .lla-gap-svc { font-family: 'Inter Tight', sans-serif; font-size: 11px; color: rgba(254,241,232,0.4); }
-    .lla-gap-svc strong { color: rgba(254,241,232,0.68); }
-    .lla-res-cta { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); }
-    .lla-res-cta-text {
-      font-family: 'Inter Tight', sans-serif; font-size: 14px; line-height: 1.6;
-      color: rgba(254,241,232,0.55); margin-bottom: 16px;
-    }
-    .lla-res-cta-btn { width: 100%; justify-content: center; }
-    .lla-btn-download {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; margin-top: 10px;
-      background: transparent;
-      border: 1.5px solid rgba(255,255,255,0.15); border-radius: 4px;
-      padding: 13px 20px; cursor: pointer;
-      font-family: 'Inter Tight', sans-serif; font-size: 13px; font-weight: 600;
-      letter-spacing: 0.02em; color: rgba(254,241,232,0.62);
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .lla-btn-download:hover { border-color: rgba(254,241,232,0.48); color: rgba(254,241,232,0.88); }
-    .lla-retake {
-      background: none; border: none; font-family: 'Inter Tight', sans-serif;
-      font-size: 13px; color: rgba(254,241,232,0.32); cursor: pointer;
-      margin-top: 14px; display: block; width: 100%; text-align: center;
-      transition: color 0.2s;
-    }
-    .lla-retake:hover { color: rgba(254,241,232,0.68); }
-    @media (max-width: 768px) {
-      .lla-wrap { padding: 72px 20px; }
-      .lla-results-grid { grid-template-columns: 1fr; gap: 36px; }
-      .lla-input-row { flex-direction: column; align-items: flex-start; }
-    }
-
-    /* ─── ABOUT ─── */
-    #about { background: var(--cream); padding: 100px 0; }
-    .about-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
-    .about-head {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(32px, 4.5vw, 58px);
-      font-weight: 400; line-height: 1.08; letter-spacing: -0.02em;
-      color: var(--charcoal); margin-bottom: 16px;
-    }
-    .about-sub {
-      font-size: 17px; color: var(--charcoal-lt); line-height: 1.7;
-      max-width: 580px; margin-bottom: 64px;
-    }
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
-    }
-    .about-card {
-      background: white; border-radius: 12px;
-      border: 1.5px solid rgba(28,25,23,0.07);
-      padding: 48px 40px;
-      box-shadow: 0 4px 24px rgba(28,25,23,0.05);
-    }
-    .about-headshot {
-      width: 72px; height: 72px; border-radius: 50%; margin-bottom: 20px;
-      object-fit: cover; object-position: center top;
-      border: 2.5px solid rgba(232,101,42,0.2);
-      box-shadow: 0 4px 16px rgba(28,25,23,0.12);
-    }
-    .about-name {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: 24px; font-weight: 700; letter-spacing: -0.02em;
-      color: var(--charcoal); margin-bottom: 6px;
-    }
-    .about-role {
-      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--amber); margin-bottom: 20px;
-    }
-    .about-bio {
-      font-size: 15px; color: var(--charcoal-lt); line-height: 1.78;
-    }
-    @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .about-card { padding: 36px 24px; }
-      #about { padding: 72px 0; }
-      .about-inner { padding: 0 20px; }
-    }
-
-    /* ══════════════════════════════════
-       INSIGHTS / BLOG SECTION
-    ══════════════════════════════════ */
-    #insights {
-      background: var(--cream);
-      padding: 96px 0 112px;
-    }
-    .insights-inner {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-    .insights-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 56px;
-      gap: 24px;
-    }
-    .insights-header-left { max-width: 560px; }
-    .insights-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--amber);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .insights-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 28px;
-      height: 2px;
-      background: var(--amber);
-      flex-shrink: 0;
-    }
-    .insights-title {
-      font-size: clamp(28px, 3.5vw, 40px);
-      font-weight: 800;
-      line-height: 1.04;
-      letter-spacing: -0.035em;
-      color: var(--charcoal);
-    }
-    .insights-view-all {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--amber);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding-bottom: 4px;
-      border-bottom: 1px solid rgba(232,101,42,0.3);
-      transition: border-color 0.2s, gap 0.2s;
-    }
-    .insights-view-all:hover { gap: 10px; border-color: var(--amber); }
-
-    /* ── Featured post (large) ── */
-    .insights-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 16px;
-    }
-    .post-featured {
-      grid-column: 1 / -1;
-      background: var(--charcoal);
-      border-radius: 8px;
-      padding: 56px 60px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      text-decoration: none;
-      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease;
-      box-shadow: 0 8px 32px rgba(15,14,13,0.18), 0 2px 8px rgba(15,14,13,0.12);
-    }
-    .post-featured::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-    }
-    .post-featured::after {
-      content: '';
-      position: absolute;
-      top: -120px;
-      right: -120px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(232,101,42,0.14) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .post-featured:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 56px rgba(15,14,13,0.28), 0 4px 16px rgba(15,14,13,0.16);
-    }
-    .post-featured-left { position: relative; z-index: 1; }
-    .post-featured-right { position: relative; z-index: 1; }
-
-    .post-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 20px;
-    }
-    .post-tag-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--amber);
-      flex-shrink: 0;
-    }
-    .post-featured-title {
-      font-size: clamp(22px, 2.6vw, 34px);
-      font-weight: 800;
-      line-height: 1.06;
-      letter-spacing: -0.035em;
-      color: var(--cream);
-      margin-bottom: 20px;
-    }
-    .post-featured-deck {
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.7;
-      color: rgba(250,249,246,0.55);
-      margin-bottom: 32px;
-    }
-    .post-read-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--amber);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-    }
-    .post-read-link svg { transition: transform 0.2s ease; }
-    .post-featured:hover .post-read-link svg { transform: translateX(4px); }
-
-    .post-featured-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-    .post-stat {
-      border-left: 2px solid rgba(232,101,42,0.3);
-      padding-left: 20px;
-    }
-    .post-stat-num {
-      font-size: 40px;
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      color: var(--amber);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .post-stat-label {
-      font-size: 13px;
-      font-weight: 300;
-      color: rgba(250,249,246,0.45);
-      line-height: 1.5;
-    }
-    .post-meta-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 300;
-      color: rgba(250,249,246,0.35);
-      letter-spacing: 0.04em;
-    }
-    .post-meta-dot { width: 2px; height: 2px; border-radius: 50%; background: currentColor; }
-
-    /* ── Smaller cards ── */
-    .post-card {
-      background: white;
-      border: 1px solid var(--cream-dk);
-      border-radius: 8px;
-      padding: 32px 36px;
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease, border-color 0.2s;
-      box-shadow: 0 2px 8px rgba(28,25,23,0.04);
-    }
-    .post-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(28,25,23,0.1);
-      border-color: rgba(232,101,42,0.2);
-    }
-    .post-card-tag {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .post-card-tag::before {
-      content: '';
-      width: 16px;
-      height: 1.5px;
-      background: var(--amber);
-    }
-    .post-card-title {
-      font-size: 20px;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-      color: var(--charcoal);
-      margin-bottom: 12px;
-      flex: 1;
-    }
-    .post-card-deck {
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--charcoal-lt);
-      margin-bottom: 24px;
-    }
-    .post-card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 20px;
-      border-top: 1px solid var(--cream-dk);
-    }
-    .post-card-meta {
-      font-size: 11px;
-      font-weight: 300;
-      color: var(--charcoal-lt);
-      letter-spacing: 0.04em;
-    }
-    .post-card-arrow {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--amber-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--amber);
-      transition: background 0.2s, transform 0.2s;
-    }
-    .post-card:hover .post-card-arrow {
-      background: var(--amber);
-      color: white;
-      transform: translateX(2px);
-    }
-
-    /* Coming soon card */
-    .post-card-soon {
-      background: var(--amber-xpale);
-      border: 1px dashed rgba(232,101,42,0.25);
-      pointer-events: none;
-      opacity: 0.75;
-    }
-    .soon-badge {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background: rgba(232,101,42,0.12);
-      color: var(--amber);
-      border-radius: 3px;
-      padding: 3px 8px;
-      margin-bottom: 16px;
-    }
-
-    @media (max-width: 900px) {
-      .insights-grid { grid-template-columns: 1fr; }
-      .post-featured { grid-template-columns: 1fr; padding: 40px 32px; gap: 32px; }
-      .post-featured-right { display: none; }
-      .insights-header { flex-direction: column; align-items: flex-start; }
-    }
-    @media (max-width: 600px) {
-      #insights { padding: 72px 0; }
-      .insights-inner { padding: 0 20px; }
-    }
-
-  </style>
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2062397397707938');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2062397397707938&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  /* ---------- the leak gauge (signature move) ---------- */
+  .leak-gauge {
+    position: fixed; z-index: var(--sc-z-chrome); right: var(--sc-5); top: 50%;
+    transform: translateY(-50%); width: 46px; opacity: 0; transition: opacity 500ms var(--sc-ease-out);
+    pointer-events: none; text-align: center;
+  }
+  .leak-gauge.is-visible { opacity: 1; }
+  .leak-gauge svg { width: 100%; height: auto; display: block; }
+  .leak-gauge__tally {
+    margin-top: 8px; font-family: var(--sc-font-text); font-size: 10px; letter-spacing: 0.02em;
+    color: var(--sc-ink-soft); white-space: nowrap; writing-mode: vertical-rl; text-orientation: mixed;
+  }
+  body.on-dark .leak-gauge__tally { color: var(--fb-dark-ink-soft); }
+  @media (max-width: 760px) {
+    .leak-gauge { right: auto; left: 50%; top: auto; bottom: 64px; transform: translateX(-50%); width: 30px; }
+    .leak-gauge__tally { display: none; }
+  }
+</style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════════ NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <svg width="32" height="24" viewBox="0 0 72 54" fill="none" aria-hidden="true" style="flex-shrink:0">
-        <rect x="0" y="3" width="30" height="3.5" fill="#E8652A"/>
-        <rect x="0" y="25" width="44" height="3.5" fill="#E8652A"/>
-        <circle cx="58" cy="26.75" r="8" fill="#E8652A"/>
-        <rect x="0" y="47" width="30" height="3.5" fill="#E8652A"/>
-      </svg>
-      Flow<span>Build</span> AI
-    </a>
-    <div class="nav-links">
-      <a href="b2b-outbound.html">B2B Outbound</a>
-      <a href="ai-systems.html">AI Systems</a>
-      <a href="/web-design/">Web Design</a>
-      <a href="audit.html">Scaling Roadmap</a>
-    </div>
-    <div class="nav-cta">
-      <a href="https://wa.me/353858764679" target="_blank" rel="noopener" class="btn btn-outline nav-quote-btn"><svg class="nav-quote-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="nav-quote-text">Get a Quote</span></a>
-      <a href="#" onclick="openBookingModal();return false;" class="btn btn-amber nav-audit-btn"><span class="scan-long">Book a Call</span><span class="scan-short">Book</span><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <button class="nav-hamburger" onclick="toggleNav(this)" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-  <!-- Mobile drawer -->
-  <div class="nav-mobile-drawer">
-    <a href="b2b-outbound.html" class="nav-mob-link" onclick="closeNav()">B2B Outbound</a>
-    <a href="ai-systems.html" class="nav-mob-link" onclick="closeNav()">AI Systems</a>
-    <a href="/web-design/" class="nav-mob-link" onclick="closeNav()">Web Design</a>
-    <a href="audit.html" class="nav-mob-link" onclick="closeNav()">Scaling Roadmap</a>
-    <div class="nav-mob-ctas">
-      <a href="https://wa.me/353858764679" target="_blank" rel="noopener" class="btn btn-outline" onclick="closeNav()">Message us on WhatsApp</a>
-      <a href="#" class="btn btn-amber" onclick="closeNav();openBookingModal();return false;">Book a Call →</a>
-    </div>
-  </div>
+<span data-sc-progress></span>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<!-- margin folio nav -->
+<nav class="folio" id="folio">
+  <div class="folio__row" data-target="hero"><span class="folio__num">0</span><a class="folio__title" href="#hero">Promise</a></div>
+  <div class="folio__row" data-target="ch-problem"><span class="folio__num">1</span><a class="folio__title" href="#ch-problem">The Leak</a></div>
+  <div class="folio__row" data-target="ch-webdesign"><span class="folio__num">2</span><a class="folio__title" href="#ch-webdesign">Web Design</a></div>
+  <div class="folio__row" data-target="ch-aisystems"><span class="folio__num">3</span><a class="folio__title" href="#ch-aisystems">AI Systems</a></div>
+  <div class="folio__row" data-target="ch-testimonials"><span class="folio__num">4</span><a class="folio__title" href="#ch-testimonials">Results</a></div>
+  <div class="folio__row" data-target="ch-also"><span class="folio__num">&middot;</span><a class="folio__title" href="#ch-also">Also Available</a></div>
+  <div class="folio__row" data-target="ch-people"><span class="folio__num">5</span><a class="folio__title" href="#ch-people">People</a></div>
+  <div class="folio__row" data-target="ch-faq"><span class="folio__num">6</span><a class="folio__title" href="#ch-faq">FAQ</a></div>
+  <div class="folio__row" data-target="ch-close"><span class="folio__num">7</span><a class="folio__title" href="#ch-close">Start</a></div>
 </nav>
 
-<!-- ══════════════════════════════════════════════════════ HERO -->
-<section id="hero" class="grain">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-bg-glow"></div>
-  <div class="hero-watermark">REVENUE</div>
-
-  <div class="hero-inner">
-    <div class="hero-content">
-      <h1 class="hero-h1 reveal d1">
-        The definitive growth partner for fast-moving B2B companies.
-      </h1>
-
-      <p class="hero-sub reveal d2">
-        Two things grow a service business: more conversations, and fewer of them wasted. We build the outbound systems that fill your pipeline — and the automations that make sure nothing falls out of it. Done for you.
-      </p>
-
-      <div class="hero-ctas reveal d3" style="margin-bottom:28px;">
-        <a href="#" onclick="openBookingModal();return false;" class="btn btn-amber btn-amber-lg">
-          Book a Call
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-      <div class="trust-row reveal d4">
-        <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2"><path d="M1 4l3 3 5-5"/></svg></div>Live in 14 days</div>
-        <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2"><path d="M1 4l3 3 5-5"/></svg></div>Done for you</div>
-        <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2"><path d="M1 4l3 3 5-5"/></svg></div>You own everything</div>
-        <div class="trust-item"><div class="trust-check"><svg viewBox="0 0 10 8" fill="none" stroke="white" stroke-width="2"><path d="M1 4l3 3 5-5"/></svg></div>No lock-in</div>
-      </div>
-    </div>
-  </div>
-
-  <a href="#pain" class="hero-scroll">
-    <span>Scroll</span>
-    <div class="hero-scroll-arrow">
-      <svg width="12" height="12" fill="none" stroke="var(--charcoal-lt)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    </div>
-  </a>
-</section>
-
-<!-- ══════════════════════════════════════════════════════ CLIENT MARQUEE -->
-<section id="marquee" aria-label="Businesses we have worked with">
-  <div class="marquee-label">Businesses we've worked with</div>
-  <div class="marquee-track">
-    <!-- Set 1 -->
-    <span class="marquee-item">Niall Smith Architects</span>
-    <span class="marquee-item">Prestige Barbers</span>
-    <span class="marquee-item">RF Electrical</span>
-    <span class="marquee-item">Home Perfection Renovations</span>
-    <span class="marquee-item">Racks Pool Room</span>
-    <span class="marquee-item">MD Revenue Recovery</span>
-    <span class="marquee-item">Barbells &amp; Babies</span>
-    <span class="marquee-item">Meade Performance Coaching</span>
-    <span class="marquee-item">My Farewell Wishes</span>
-    <!-- Set 2 — duplicate for seamless loop -->
-    <span class="marquee-item" aria-hidden="true">Niall Smith Architects</span>
-    <span class="marquee-item" aria-hidden="true">Prestige Barbers</span>
-    <span class="marquee-item" aria-hidden="true">RF Electrical</span>
-    <span class="marquee-item" aria-hidden="true">Home Perfection Renovations</span>
-    <span class="marquee-item" aria-hidden="true">Racks Pool Room</span>
-    <span class="marquee-item" aria-hidden="true">MD Revenue Recovery</span>
-    <span class="marquee-item" aria-hidden="true">Barbells &amp; Babies</span>
-    <span class="marquee-item" aria-hidden="true">Meade Performance Coaching</span>
-    <span class="marquee-item" aria-hidden="true">My Farewell Wishes</span>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════ PAIN -->
-<section id="pain">
-  <div class="pain-glow"></div>
-  <div class="pain-inner">
-    <div class="eyebrow reveal" style="color:var(--amber);margin-bottom:20px;">The Real Problem</div>
-    <h2 class="pain-head reveal d1">
-      There are two reasons you're not growing.<br>Too few conversations, or too many wasted.
-    </h2>
-    <div class="stats-grid">
-      <div class="stat-block reveal d1">
-        <div class="stat-num">78<span>%</span></div>
-        <p class="stat-desc">Of buyers go with the first company to respond to their enquiry — not the cheapest, the fastest.</p>
-      </div>
-      <div class="stat-block reveal d2">
-        <div class="stat-num">4.3<span>hrs</span></div>
-        <p class="stat-desc">Average time a service business takes to respond to an inbound enquiry. The fastest responder wins the deal.</p>
-      </div>
-      <div class="stat-block reveal d3">
-        <div class="stat-num">€47<span>K</span></div>
-        <p class="stat-desc">Estimated annual revenue lost to quote &amp; follow-up failure at a mid-sized service business.</p>
-      </div>
-    </div>
-    <p class="pain-footnote reveal">Based on B2B lead-management benchmarks across service industries · 2025</p>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════ LEAD LEAK AUDIT -->
-<!-- ══════════════════════════════════════════════════════ SERVICES -->
-<section id="services">
-  <div class="services-inner">
-    <div class="services-intro">
-      <div class="eyebrow reveal" style="margin-bottom:16px;">What We Do</div>
-      <h2 class="s-head reveal d1" style="font-size:clamp(32px,4.5vw,58px);color:var(--charcoal);">One partner.<br>Two core offerings.</h2>
-      <p class="services-tagline reveal d2">Two core offerings, and they compound. <strong>B2B Outbound</strong> fills your calendar with qualified meetings you didn't have to chase. <strong>Automation &amp; Systems</strong> makes sure not one of them — or one of your existing enquiries — falls through the cracks. Take one or both. Either way we build it and run it, rather than selling you software to operate yourself.</p>
-    </div>
-
-    <div class="pillars reveal">
-      <div class="pillar">
-        <div class="pillar-num">Core Offering 01</div>
-        <h3 class="pillar-title">B2B Outbound</h3>
-        <p class="pillar-desc">A fully outsourced outbound department. We find your market, run the outreach, and place an SDR Agent on your account to qualify every interested lead before it ever reaches your sales team's calendar. You don't hire an SDR or learn a tool — you show up to booked meetings.</p>
-        <ul class="pillar-list">
-          <li>Buying signals tracked across your market — funding, hiring, leadership and tech changes</li>
-          <li>A targeted ICP list built and verified, not bought off the shelf</li>
-          <li>Sending infrastructure on separate lookalike domains — your main domain is never used</li>
-          <li>Personalised campaigns you approve before anything sends</li>
-          <li>An SDR Agent qualifies every reply and books it straight onto your calendar</li>
-          <li>A booked-meeting number agreed in writing before we start &mdash; miss it and we keep running at no extra cost until we hit it, or refund the difference</li>
-        </ul>
-      </div>
-      <div class="pillar">
-        <div class="pillar-num">Core Offering 02</div>
-        <h3 class="pillar-title">Automation &amp; Systems</h3>
-        <p class="pillar-desc">AI and automation wired into the back end of your business, so the demand you already have converts and the admin around it disappears. Fewer dropped enquiries, less manual chasing, no extra headcount.</p>
-        <ul class="pillar-list">
-          <li>Backend CRM built around how you actually sell</li>
-          <li>Instant lead response and a 24/7 AI receptionist</li>
-          <li>Automated follow-up on every quote and proposal</li>
-          <li>Database reactivation campaigns on your existing list</li>
-          <li>Custom AI agents for quoting, admin, and reporting</li>
-          <li>A live dashboard so you can see all of it working</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="svc-stack reveal">
-
-      <!-- 01 Signals & ICP List -->
-      <div class="svc-sticky s-light">
-        <div class="svc-body">
-          <div class="svc-step">01 &middot; Signals &amp; ICP List</div>
-          <h3 class="svc-heading">Know exactly who<br>to go after.</h3>
-          <p class="svc-sub">We start from your best customers and work out what they had in common before they bought — funding, hiring, a new decision-maker, a change in tech. Then we scan your market for those same signals and build the list around them. Every contact is verified before it goes anywhere. No bought lists, no spray and pray.</p>
-        </div>
-        <div class="svc-panel" aria-hidden="true">
-          <div class="svc-row"><span class="dot"></span><span class="lbl">Funding round raised</span><span class="tag">signal</span></div>
-          <div class="svc-row"><span class="dot"></span><span class="lbl">New decision-maker hired</span><span class="tag">signal</span></div>
-          <div class="svc-row"><span class="dot"></span><span class="lbl">Tech stack change detected</span><span class="tag">signal</span></div>
-          <div class="svc-row ind1"><span class="dot"></span><span class="lbl">Scored against your ICP</span><span class="tag">matched</span></div>
-          <div class="svc-row ind2"><span class="dot"></span><span class="lbl">Contact triple-verified</span><span class="tag">ready</span></div>
-        </div>
-      </div>
-
-      <!-- 02 Cold Outbound -->
-      <div class="svc-sticky s-pale">
-        <div class="svc-body">
-          <div class="svc-step">02 &middot; Cold Outbound</div>
-          <h3 class="svc-heading">Outreach that runs<br>without you.</h3>
-          <p class="svc-sub">Campaigns go out from separate lookalike domains and warmed inboxes — your real domain is never used, so your reputation is never on the line. Copy is personalised off a genuine signal rather than a merge field, and you approve every sequence before a single email sends.</p>
-        </div>
-        <div class="svc-panel" aria-hidden="true">
-          <div class="svc-row"><span class="dot"></span><span class="lbl">outbound-domain-01</span><span class="tag">warmed</span></div>
-          <div class="svc-row"><span class="dot"></span><span class="lbl">outbound-domain-02</span><span class="tag">warmed</span></div>
-          <div class="svc-row muted"><span class="dot"></span><span class="lbl">Your primary domain</span><span class="tag">never used</span></div>
-          <div class="svc-row ind1"><span class="dot"></span><span class="lbl">Copy personalised off a real signal</span><span class="tag">approved</span></div>
-          <div class="svc-row ind2"><span class="dot"></span><span class="lbl">Sequence sending</span><span class="tag">live</span></div>
-        </div>
-      </div>
-
-      <!-- 03 SDR Agent Qualification -->
-      <div class="svc-sticky s-dark">
-        <div class="svc-body">
-          <div class="svc-step">03 &middot; SDR Qualification</div>
-          <h3 class="svc-heading">Only qualified leads<br>reach your team.</h3>
-          <p class="svc-sub">We place an SDR Agent on your account. It works every interested reply, asks the qualifying questions you'd ask, and books the meeting straight onto your calendar — so your sales team stops burning hours on prospects who were never a fit. We agree your booked-meeting number in writing before we start. If we miss it we keep the campaign running at no extra cost until we hit it &mdash; or refund the difference. Your call which.</p>
-        </div>
-        <div class="svc-panel" aria-hidden="true">
-          <div class="svc-row"><span class="dot"></span><span class="lbl">Interested reply received</span><span class="tag">reply</span></div>
-          <div class="svc-row ind1"><span class="dot"></span><span class="lbl">SDR Agent asks your questions</span><span class="tag">agent</span></div>
-          <div class="svc-row ind2"><span class="dot"></span><span class="lbl">Meeting booked to your calendar</span><span class="tag">booked</span></div>
-          <div class="svc-row muted"><span class="dot"></span><span class="lbl">Not a fit — never reaches your team</span><span class="tag">filtered</span></div>
-        </div>
-      </div>
-
-      <!-- 04 Nurture & Recovery -->
-      <div class="svc-sticky s-light">
-        <div class="svc-body">
-          <div class="svc-step">04 &middot; Nurture &amp; Recovery</div>
-          <h3 class="svc-heading">Nothing goes cold<br>on your watch.</h3>
-          <p class="svc-sub">Inbound enquiries get a reply in under 60 seconds and a 24/7 AI receptionist picks up what your team misses. Every quote and proposal gets chased automatically, reminders cut no-shows, and the dead leads already sitting in your CRM get reactivated — usually the fastest money in the business.</p>
-        </div>
-        <div class="svc-panel" aria-hidden="true">
-          <div class="svc-row"><span class="dot"></span><span class="lbl">Enquiry lands</span><span class="tag">received</span></div>
-          <div class="svc-row ind1"><span class="dot"></span><span class="lbl">Reply sent</span><span class="tag">under 60s</span></div>
-          <div class="svc-row ind1"><span class="dot"></span><span class="lbl">Missed call answered</span><span class="tag">24/7</span></div>
-          <div class="svc-row ind2"><span class="dot"></span><span class="lbl">Quote follow-up running</span><span class="tag">automated</span></div>
-          <div class="svc-row ind2"><span class="dot"></span><span class="lbl">Old lead brought back</span><span class="tag">recovered</span></div>
-        </div>
-      </div>
-
-      <!-- 05 Systems & Dashboard -->
-      <div class="svc-sticky s-pale">
-        <div class="svc-body">
-          <div class="svc-step">05 &middot; Systems &amp; Dashboard</div>
-          <h3 class="svc-heading">See the whole engine<br>on one screen.</h3>
-          <p class="svc-sub">A CRM built around how you actually sell, plus a live dashboard showing meetings booked, response times, close rates and where every deal came from. Review and referral requests fire automatically on completed work. You stop guessing at your numbers — and everything we build belongs to you.</p>
-        </div>
-        <div class="svc-panel" aria-hidden="true">
-          <div class="svc-row"><span class="dot"></span><span class="lbl">Meetings booked</span><span class="tag">tracked</span></div>
-          <div class="svc-row"><span class="dot"></span><span class="lbl">Response time</span><span class="tag">tracked</span></div>
-          <div class="svc-row"><span class="dot"></span><span class="lbl">Close rate</span><span class="tag">tracked</span></div>
-          <div class="svc-row"><span class="dot"></span><span class="lbl">Source of every deal</span><span class="tag">attributed</span></div>
-          <div class="svc-bars" aria-hidden="true"><i style="height:38%"></i><i style="height:56%"></i><i style="height:44%"></i><i style="height:72%"></i><i style="height:61%"></i><i style="height:88%"></i><i style="height:79%"></i><i style="height:100%"></i></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════ COMPARE -->
-<section id="compare">
-  <div class="compare-inner">
-    <div class="compare-intro">
-      <div class="eyebrow reveal" style="margin-bottom:16px;">The Comparison</div>
-      <h2 class="s-head reveal d1" style="font-size:clamp(32px,4.5vw,58px);color:var(--charcoal);">Without FlowBuild<br>vs. with it.</h2>
-    </div>
-
-    <div class="cmp-grid reveal">
-      <div class="cmp-head bad">Without FlowBuild</div>
-      <div class="cmp-head good">
-        With
-        <span class="cmp-logo">
-          <svg width="22" height="16" viewBox="0 0 72 54" fill="none" aria-hidden="true" style="flex-shrink:0">
-            <rect x="0" y="3" width="30" height="3.5" fill="#E8652A"/>
-            <rect x="0" y="25" width="44" height="3.5" fill="#E8652A"/>
-            <circle cx="58" cy="26.75" r="8" fill="#E8652A"/>
-            <rect x="0" y="47" width="30" height="3.5" fill="#E8652A"/>
-          </svg>
-          Flow<span>Build</span> AI
-        </span>
-      </div>
-
-      <div class="cmp-cell bad"><div class="cmp-x">✕</div>Pipeline depends on referrals and word of mouth — feast or famine</div>
-      <div class="cmp-cell good"><div class="cmp-chk">✓</div>Outbound running every week — qualified meetings booked on demand</div>
-
-      <div class="cmp-cell bad"><div class="cmp-x">✕</div>Cold outreach sent from your main domain, if it happens at all</div>
-      <div class="cmp-cell good"><div class="cmp-chk">✓</div>Dedicated warmed domains and inboxes — your reputation stays clean</div>
-
-      <div class="cmp-cell bad"><div class="cmp-x">✕</div>Lead response in 4+ hours — the buyer already went with a competitor</div>
-      <div class="cmp-cell good"><div class="cmp-chk">✓</div>Every lead contacted in under 60 seconds, day or night</div>
-
-      <div class="cmp-cell bad"><div class="cmp-x">✕</div>Missed calls go to voicemail and die there</div>
-      <div class="cmp-cell good"><div class="cmp-chk">✓</div>AI answers, qualifies, and books the appointment — any hour</div>
-
-      <div class="cmp-cell bad"><div class="cmp-x">✕</div>Quotes and proposals sent, then nothing — most go cold</div>
-      <div class="cmp-cell good"><div class="cmp-chk">✓</div>Automated follow-up recovers fence-sitters and cold quotes</div>
-
-      <div class="cmp-cell bad"><div class="cmp-x">✕</div>Old leads sit dead in the CRM, never contacted again</div>
-      <div class="cmp-cell good"><div class="cmp-chk">✓</div>Your database gets reactivated — old leads become booked meetings</div>
-
-      <div class="cmp-cell bad"><div class="cmp-x">✕</div>Appointment booking by phone tag — no-shows at 20–30%</div>
-      <div class="cmp-cell good"><div class="cmp-chk">✓</div>Self-book calendar + automated reminders — no-shows under 5%</div>
-
-      <div class="cmp-cell bad"><div class="cmp-x">✕</div>No idea which leads or spend actually turn into revenue</div>
-      <div class="cmp-cell good"><div class="cmp-chk">✓</div>Live dashboard — every deal attributed, every euro tracked</div>
-
-      <div class="cmp-cell bad"><div class="cmp-x">✕</div>Zero coverage evenings and weekends</div>
-      <div class="cmp-cell good"><div class="cmp-chk">✓</div>24/7 AI coverage — no opportunity ever goes unanswered</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════ HOW WE WORK -->
-<section id="pricing" style="background:var(--charcoal);padding:96px 0;position:relative;overflow:hidden;">
-  <div style="position:absolute;pointer-events:none;width:700px;height:500px;top:-100px;left:-100px;background:radial-gradient(ellipse,rgba(232,101,42,0.06) 0%,transparent 65%);"></div>
-  <div style="max-width:1280px;margin:0 auto;padding:0 40px;">
-
-    <!-- How we work (transparent, no pricing) -->
-    <div class="reveal" style="max-width:1080px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:44px;">
-        <div class="eyebrow" style="color:var(--amber);justify-content:center;margin-bottom:16px;">How we work</div>
-        <h3 style="font-family:'Inter Tight',sans-serif;font-size:clamp(26px,3.4vw,40px);font-weight:800;color:white;letter-spacing:-0.02em;line-height:1.12;">Fully transparent.<br>Done for you, end to end.</h3>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
-        <div style="background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,255,255,0.1);border-radius:14px;padding:26px 22px;display:flex;flex-direction:column;">
-          <div style="width:38px;height:38px;border-radius:10px;background:var(--amber);color:white;font-family:'Inter Tight',sans-serif;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">1</div>
-          <div style="font-family:'Inter Tight',sans-serif;font-size:16px;font-weight:800;color:white;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.2;">Free growth audit call</div>
-          <div style="font-size:13.5px;color:rgba(254,241,232,0.6);line-height:1.6;">We map where your growth is stalling — pipeline, conversion, or both — and what it’s costing you. You keep the number, whether we work together or not.</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,255,255,0.1);border-radius:14px;padding:26px 22px;display:flex;flex-direction:column;">
-          <div style="width:38px;height:38px;border-radius:10px;background:var(--amber);color:white;font-family:'Inter Tight',sans-serif;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">2</div>
-          <div style="font-family:'Inter Tight',sans-serif;font-size:16px;font-weight:800;color:white;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.2;">We build your ICP list &amp; start outreach</div>
-          <div style="font-size:13.5px;color:rgba(254,241,232,0.6);line-height:1.6;">We define your ideal customer, build and verify the list, stand up the sending infrastructure on separate domains, and get campaigns live once you&rsquo;ve approved the copy.</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,255,255,0.1);border-radius:14px;padding:26px 22px;display:flex;flex-direction:column;">
-          <div style="width:38px;height:38px;border-radius:10px;background:var(--amber);color:white;font-family:'Inter Tight',sans-serif;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">3</div>
-          <div style="font-family:'Inter Tight',sans-serif;font-size:16px;font-weight:800;color:white;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.2;">We build your automated systems</div>
-          <div style="font-size:13.5px;color:rgba(254,241,232,0.6);line-height:1.6;">CRM, instant lead response, follow-up sequences and database reactivation &mdash; wired into the tools you already use. No new staff and nothing for your team to learn.</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,255,255,0.1);border-radius:14px;padding:26px 22px;display:flex;flex-direction:column;">
-          <div style="width:38px;height:38px;border-radius:10px;background:var(--amber);color:white;font-family:'Inter Tight',sans-serif;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">4</div>
-          <div style="font-family:'Inter Tight',sans-serif;font-size:16px;font-weight:800;color:white;letter-spacing:-0.01em;margin-bottom:8px;line-height:1.2;">We build your dashboard</div>
-          <div style="font-size:13.5px;color:rgba(254,241,232,0.6);line-height:1.6;">One screen showing meetings booked, response times, close rates and where every deal came from. No lock-in and no hostage contracts &mdash; everything we build is yours.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Book-a-call CTA (button only) -->
-    <div class="reveal" style="margin:56px auto 0;text-align:center;">
-      <button onclick="openBookingModal();return false;" class="btn btn-amber btn-amber-lg" style="justify-content:center;">Book Your Free Call
-        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </button>
-      <p style="margin-top:18px;font-family:'Inter Tight',sans-serif;font-size:13px;color:rgba(254,241,232,0.45);letter-spacing:0.02em;">Free &middot; 15 minutes &middot; No obligation</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════ AUDIT CTA -->
-<section id="audit" class="grain">
-  <div class="audit-bg1"></div>
-  <div class="audit-bg2"></div>
-  <div class="audit-wm">ROADMAP</div>
-
-  <div class="lla-wrap" style="position:relative;z-index:2;">
-
-    <!-- Panel: Intro -->
-    <div class="lla-panel active" id="lla-p-intro">
-      <div class="lla-eyebrow-amber">Free for B2B &amp; service businesses</div>
-      <h2 class="lla-h2">Get Your Free Personalised<br>FlowBuild Scaling Roadmap<br><span class="lla-h2-tail">in &lt;2 Mins.</span></h2>
-      <p class="lla-lead">Thirteen questions. You get a phased scaling roadmap showing where you are now, which of our two core offerings fits, and what the gaps are worth to you annually.</p>
-      <div class="lla-cats-row">
-        <span class="lla-cat-pill">Speed to Lead</span>
-        <span class="lla-cat-pill">Quote Follow-Up</span>
-        <span class="lla-cat-pill">Appointment Booking</span>
-        <span class="lla-cat-pill">Missed Call Coverage</span>
-        <span class="lla-cat-pill">Reviews &amp; Pipeline</span>
-      </div>
-      <a href="audit.html" class="lla-btn-primary">
-        Let's Start
-        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <p class="lla-fine">Free · Takes 3 minutes · Personalised to your business</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════ TESTIMONIALS -->
-<section id="testimonials">
-  <div class="testi-inner">
-    <div class="testi-intro">
-      <div class="eyebrow reveal" style="margin-bottom:16px;color:var(--amber-lt);border-color:rgba(232,101,42,0.3);">What Our Clients Say</div>
-      <h2 class="s-head reveal d1" style="font-size:clamp(32px,4.5vw,52px);color:white;">Real results.<br>Real businesses.</h2>
-    </div>
-
-    <!-- TESTIMONIALS — wording drafted by us and attributed to named real clients.
-         Deployed ahead of sign-off by owner's decision (Aug 2026).
-         Still get each business to confirm their exact wording. -->
-    <div class="testi-grid reveal">
-
-      <div class="testi-card featured">
-        <div class="testi-stars">
-          <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
-        </div>
-        <p class="testi-quote">"We were living off referrals and the odd bit of LinkedIn, so some months were great and some were dead quiet. FlowBuild built the list, set up the sending side of it and ran the whole campaign for us. <strong>The first qualified meetings landed inside a fortnight, and I'm not the one chasing them anymore.</strong> I just turn up to the calls."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">MD</div>
-          <div>
-            <div class="testi-name">MD Revenue Recovery</div>
-            <div class="testi-biz">Revenue recovery</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">
-          <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
-        </div>
-        <p class="testi-quote">"Half our day is up a ladder or in the van, so calls got missed and quotes went out and never got followed up. <strong>Now every enquiry gets a reply straight away and the chasing happens on its own.</strong> We're winning work we'd have lost before purely on being slow to come back to people."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">RF</div>
-          <div>
-            <div class="testi-name">RF Electrical</div>
-            <div class="testi-biz">Electrical contractor</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">
-          <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
-        </div>
-        <p class="testi-quote">"I was doing all the admin myself between sessions — answering the same few questions over and over, meaning to get back to people and forgetting. FlowBuild automated the follow-up and went back through old enquiries I'd written off completely. <strong>Bookings are up and I've got my evenings back.</strong>"</p>
-        <div class="testi-author">
-          <div class="testi-avatar">BB</div>
-          <div>
-            <div class="testi-name">Barbells &amp; Babies</div>
-            <div class="testi-biz">Pre &amp; post-natal coaching</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════ ABOUT -->
-<section id="about">
-  <div class="about-inner">
-    <h2 class="about-head reveal">Two locals. No middlemen.</h2>
-    <p class="about-sub reveal d1">We're not an agency. When you work with FlowBuild AI, you deal directly with us — the people actually doing the work.</p>
-    <div class="about-grid">
-      <div class="about-card reveal d2">
-        <img src="liam.jpeg" alt="Liam Kieran, co-founder of FlowBuild AI — lead generation and AI automation agency" class="about-headshot">
-        <h3 class="about-name">Liam Kieran</h3>
-        <div class="about-role">Co-Founder · Digital Strategy &amp; Websites</div>
-        <p class="about-bio">A business management graduate and experienced digital strategist specialising in website development, automation systems and practical AI implementation for small to mid-sized businesses. I've built and scaled platforms across multiple industries, designing high-converting websites and integrating automations that streamline operations and drive measurable growth. I hold a Diploma in AI for Business from UCD — combining academic grounding with real-world execution to help businesses modernise with confidence.</p>
-      </div>
-      <div class="about-card reveal d3">
-        <img src="paddy.jpeg" alt="Paddy Meade, co-founder of FlowBuild AI — done-for-you outbound and AI automation systems" class="about-headshot">
-        <h3 class="about-name">Paddy Meade</h3>
-        <div class="about-role">Co-Founder · Tech, Funnels &amp; Automations</div>
-        <p class="about-bio">A self-made online business owner and science graduate who has spent years developing full-stack tech, building lead funnels and implementing automations that bring in clients while freeing up time to focus on the actual work. I specialise in designing systems that convert — websites, funnels and automations built to minimise admin and maximise results. I've built these systems across multiple sectors, combining AI tools with smart design to create pipelines that work around the clock.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════ FAQ -->
-<section id="faq">
-  <div class="faq-inner">
-    <div class="eyebrow reveal" style="margin-bottom:16px;">Common Questions</div>
-    <h2 class="s-head reveal d1" style="font-size:clamp(32px,4vw,52px);color:var(--charcoal);margin-bottom:56px;">Common questions from<br>B2B &amp; service businesses.</h2>
-
-    <div class="faq-item reveal">
-      <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
-        <span class="faq-q">"What kind of businesses do you work with?"</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-panel">
-        <p>B2B and service businesses that sell a considered, higher-value service — commercial cleaning, professional services, construction and trades, architecture, renovation, coaching and consulting. What our clients have in common isn't an industry, it's a shape: enquiries or prospects come in, someone has to follow up, and revenue is lost when that doesn't happen fast or consistently enough. If that's your business, the systems apply.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal d1">
-      <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
-        <span class="faq-q">"How does your cold email system actually work?"</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-panel">
-        <p>We build and run the whole thing. That means separate sending domains and warmed inboxes so your main domain is never at risk, a targeted prospect list built to your ideal customer profile, campaign copy written and tested by us, and replies handled until a qualified meeting lands in your calendar. You don't buy software or learn a tool — you take the calls.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal d2">
-      <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
-        <span class="faq-q">"Isn't cold email spam? Will it damage our domain?"</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-panel">
-        <p>Not the way it should be done. We send from separate domains bought specifically for outbound, so your primary domain is never exposed. Inboxes are warmed before any campaign goes out, daily volume per inbox is kept deliberately low, and every list is filtered and verified rather than blasted. Campaigns are permission-conscious and targeted to businesses that plausibly need what you sell.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal d3">
-      <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
-        <span class="faq-q">"Does this work with our existing CRM?"</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-panel">
-        <p>Yes. We integrate with most common CRMs including HubSpot, Salesforce, Pipedrive, GoHighLevel, ServiceTitan and Jobber, as well as industry-specific tools. If you're running on spreadsheets or a basic pipeline, we'll build something purpose-fit for how you actually work — no extra software purchase required.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal">
-      <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
-        <span class="faq-q">"What's included in the 14-day setup?"</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-panel">
-        <p>Everything on your side is scoped on one onboarding call. Depending on what you need, we configure outbound infrastructure and campaigns, AI voice and SMS response, calendar integration, CRM connection, follow-up sequences and reporting. You review and approve the flows and copy before anything goes live. Most clients spend under two hours of their own time during setup.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal d1">
-      <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
-        <span class="faq-q">"We already get enough leads — why would we need this?"</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-panel">
-        <p>Then you're the ideal case for the second half of what we do. Most businesses that come to us aren't short of enquiries — they're losing deals between the enquiry and the signature. Slow first response, quotes that go cold, calls missed outside working hours, no-shows, a database nobody has touched in a year. The free Revenue Opportunity Scan will show you which of those is costing you most.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal d2">
-      <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
-        <span class="faq-q">"What if the AI says something wrong to a customer?"</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-panel">
-        <p>The AI is trained on your specific business — your pricing, your process, your FAQs — and it isn't built to improvise. If a question falls outside what it knows, it takes a message and escalates to your team immediately rather than guessing. You review and approve every script before we go live, and you can change them at any point.</p>
-      </div>
-    </div>
-
-    <div class="faq-item reveal d3">
-      <button class="faq-btn" onclick="faq(this)" aria-expanded="false">
-        <span class="faq-q">"What does it cost, and are we locked into a contract?"</span>
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-panel">
-        <p>Every business needs a different combination of the two pillars, so we price to the systems you actually need rather than a fixed package — and we'll walk you through the numbers plainly on the first call, with no obligation. There's no lock-in either — the systems we build are yours to keep. On the outbound side we agree a booked-meeting number in writing up front; if we miss it we keep running at no extra cost until we hit it, or refund the difference.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════════════════════════════ INSIGHTS / BLOG — HIDDEN (Aug 2026 repositioning)
-     Articles remain live at blog-solar-leads.html and blog-seai-grant.html.
-     Uncomment this block to restore the section.
-== ══════════════════════════════════════════════════════ INSIGHTS / BLOG ==
-<section id="insights">
-  <div class="insights-inner">
-
-    <div class="insights-header">
-      <div class="insights-header-left">
-        <div class="insights-eyebrow">Solar OS Insights</div>
-        <h2 class="insights-title reveal d1">What we're learning<br>from inside Irish solar &amp; trades.</h2>
-      </div>
-      <a href="blog-solar-leads.html" class="insights-view-all">
-        All articles <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-    <div class="insights-grid">
-
-      == ── FEATURED POST ── ==
-      <a href="blog-solar-leads.html" class="post-featured reveal d2">
-        <div class="post-featured-left">
-          <div class="post-tag">
-            <span class="post-tag-dot"></span>
-            Solar Business Operations
-          </div>
-          <h3 class="post-featured-title">How Irish Solar Companies Lose Leads After Paying for Ads</h3>
-          <p class="post-featured-deck">Most Irish solar &amp; trade businesses don't have a lead problem — they have a revenue leakage problem. Here's where the money is leaking, and how to fix it without hiring more staff.</p>
-          <span class="post-read-link">
-            Read the article
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
-        </div>
-        <div class="post-featured-right">
-          <div class="post-featured-meta">
-            <div class="post-stat">
-              <div class="post-stat-num">47</div>
-              <div class="post-stat-label">Unactioned leads found<br>in one solar company's CRM</div>
-            </div>
-            <div class="post-stat">
-              <div class="post-stat-num">72h</div>
-              <div class="post-stat-label">How long a solar lead<br>stays warm in Ireland</div>
-            </div>
-            <div class="post-stat">
-              <div class="post-stat-num">+16%</div>
-              <div class="post-stat-label">Average close rate uplift<br>from fixing the pipeline</div>
-            </div>
-          </div>
-          <div class="post-meta-row" style="margin-top: 32px;">
-            <span>May 2026</span>
-            <span class="post-meta-dot"></span>
-            <span>7 min read</span>
-            <span class="post-meta-dot"></span>
-            <span>FlowBuild AI</span>
-          </div>
-        </div>
-      </a>
-
-      == ── CARD 2 — SEAI Grant Article ── ==
-      <a href="blog-seai-grant.html" class="post-card reveal d3">
-        <div class="post-card-tag">SEAI &amp; Irish Market</div>
-        <h3 class="post-card-title">SEAI Solar Grant 2026: What Every Installer Needs to Know Before the Rush</h3>
-        <p class="post-card-deck">Grant season creates a lead spike every spring. The installers who handle it best aren't the fastest — they're the most prepared.</p>
-        <div class="post-card-footer">
-          <span class="post-card-meta">May 2026 · 6 min read</span>
-          <span class="post-card-arrow">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
-        </div>
-      </a>
-
-      == ── CARD 3 — Coming soon ── ==
-      <div class="post-card post-card-soon reveal d4">
-        <div class="soon-badge">Coming soon</div>
-        <div class="post-card-tag">AI Automation</div>
-        <h3 class="post-card-title">5 Automations That Pay for Themselves in Month One</h3>
-        <p class="post-card-deck">Not every automation is worth building. These five are the ones Irish solar businesses should have running before anything else.</p>
-        <div class="post-card-footer">
-          <span class="post-card-meta">Coming June 2026</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
--->
-
-<!-- ══════════════════════════════════════════════════════ FOOTER -->
-<footer>
-  <div class="foot-inner">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-logo">
-          <svg width="32" height="24" viewBox="0 0 72 54" fill="none" aria-hidden="true" style="flex-shrink:0">
-            <rect x="0" y="3" width="30" height="3.5" fill="#E8652A"/>
-            <rect x="0" y="25" width="44" height="3.5" fill="#E8652A"/>
-            <circle cx="58" cy="26.75" r="8" fill="#E8652A"/>
-            <rect x="0" y="47" width="30" height="3.5" fill="#E8652A"/>
-          </svg>
-          Flow<span>Build</span> AI
-        </div>
-        <p class="foot-desc">We build the growth systems B2B and service businesses are missing — outbound that fills the pipeline, and AI automation that converts it. Done for you, running inside your business, without hiring more staff.</p>
-        <a href="#" onclick="openBookingModal();return false;" class="btn btn-amber" style="font-size:14px;padding:14px 22px;">Book a Call →</a>
-      </div>
-      <div>
-        <div class="foot-col-head">Navigation</div>
-        <div class="foot-links">
-          <a href="#services">What We Do</a>
-          <a href="#about">About</a>
-          <a href="#compare">How We Compare</a>
-          <a href="#pricing">How We Work</a>
-          <a href="#audit">Free Roadmap</a>
-          <a href="#faq">FAQ</a>
-        </div>
-      </div>
-      <div>
-        <div class="foot-col-head">Services</div>
-        <div class="foot-links">
-          <a href="b2b-outbound.html">B2B Outbound</a>
-          <a href="b2b-outbound.html">Cold Email Lead Generation</a>
-          <a href="b2b-outbound.html">SDR Qualification</a>
-          <a href="ai-systems.html">AI Systems</a>
-          <a href="ai-systems.html">CRM &amp; Sales Automation</a>
-          <a href="ai-systems.html">Instant Lead Response</a>
-        </div>
-      </div>
-      <div>
-        <div class="foot-col-head">Contact</div>
-        <div class="foot-links">
-          <a href="tel:+353872666405">+353 87 266 6405</a>
-          <a href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a>
-        </div>
-        <div style="margin-top:24px;display:flex;gap:10px;">
-          <a href="#" style="width:36px;height:36px;background:rgba(255,255,255,0.07);border-radius:5px;display:flex;align-items:center;justify-content:center;transition:background 0.2s;" onmouseover="this.style.background='rgba(232,101,42,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
-            <svg width="15" height="15" fill="rgba(254,241,232,0.62)" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="#" style="width:36px;height:36px;background:rgba(255,255,255,0.07);border-radius:5px;display:flex;align-items:center;justify-content:center;transition:background 0.2s;" onmouseover="this.style.background='rgba(232,101,42,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
-            <svg width="15" height="15" fill="rgba(254,241,232,0.62)" viewBox="0 0 24 24"><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753C20.18 7.773 21.692 5.25 22 4.009z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <p class="foot-copy">© 2026 FlowBuild AI. All rights reserved. Ireland.</p>
-      <div class="foot-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // ── Scroll reveal ──
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-  }, { threshold: 0.07, rootMargin: '0px 0px -36px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  // ── Mobile Nav ──
-  function toggleNav(btn) {
-    document.querySelector('nav').classList.toggle('open');
-  }
-  function closeNav() {
-    document.querySelector('nav').classList.remove('open');
-  }
-  // Close drawer when clicking outside
-  document.addEventListener('click', function(e) {
-    const nav = document.querySelector('nav');
-    if (nav.classList.contains('open') && !nav.contains(e.target)) closeNav();
-  });
-
-  // ── FAQ ──
-  function faq(btn) {
-    const panel = btn.nextElementSibling;
-    const open  = btn.getAttribute('aria-expanded') === 'true';
-    document.querySelectorAll('.faq-btn').forEach(b => {
-      b.setAttribute('aria-expanded', 'false');
-      b.nextElementSibling.classList.remove('open');
-    });
-    if (!open) {
-      btn.setAttribute('aria-expanded', 'true');
-      panel.classList.add('open');
-    }
-  }
-
-  // ── Form ──
-  function handleForm(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    btn.innerHTML = '✓ Sent! Your audit arrives within 24 hours.';
-    btn.style.background = 'var(--charcoal)';
-    btn.style.color = 'white';
-    btn.disabled = true;
-  }
-
-  // ── Nav active state on scroll ──
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks  = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--amber)' : '';
-    });
-  }, { passive: true });
-
-  // ─── Revenue Opportunity Scan ────────────────────────────────────────────
-
-  const LLA_Q = [
-    { section: 'Lead Response', cat: 'response',
-      text: 'When someone contacts your business outside of working hours, what happens?',
-      opts: [
-        ['An automated response is sent straight away', 0],
-        ['Someone follows up the same day', 1],
-        ['They hear back the next working day', 2],
-        ['Enquiries often go unanswered for a while', 3],
-      ]
-    },
-    { section: 'Lead Response', cat: 'response',
-      text: 'How quickly does a new enquiry get a response, on average?',
-      opts: [
-        ['Within minutes — it\'s automated', 0],
-        ['Within the hour', 1],
-        ['Within a few hours', 2],
-        ['Next day or later', 3],
-      ]
-    },
-    { section: 'Follow-Up Automation', cat: 'followup',
-      text: 'If you send a quote or proposal and don\'t hear back, what happens?',
-      opts: [
-        ['An automated follow-up sequence kicks in', 0],
-        ['I send a manual follow-up', 1],
-        ['I wait and hope they come back', 3],
-        ['I don\'t always follow up', 4],
-      ]
-    },
-    { section: 'Follow-Up Automation', cat: 'followup',
-      text: 'Do you have any automated systems to keep potential customers engaged until they book?',
-      opts: [
-        ['Yes — automated messages or sequences', 0],
-        ['Basic autoresponder only', 1],
-        ['No — it\'s all done manually', 3],
-        ['Not sure', 3],
-      ]
-    },
-    { section: 'Admin & Booking', cat: 'admin',
-      text: 'How do customers book, schedule, or request a quote from you?',
-      opts: [
-        ['Online booking — no back and forth needed', 0],
-        ['They call or message me directly', 2],
-        ['By email — I reply manually', 3],
-        ['No consistent process', 4],
-      ]
-    },
-    { section: 'Admin & Booking', cat: 'admin',
-      text: 'How many hours a week do you spend on admin — scheduling, chasing, answering the same questions?',
-      opts: [
-        ['Under 2 hours', 0],
-        ['2–5 hours', 1],
-        ['5–10 hours', 2],
-        ['More than 10 hours', 3],
-      ]
-    },
-    { section: 'Reviews & Reputation', cat: 'reviews',
-      text: 'How do you ask customers for a Google review after a job or appointment?',
-      opts: [
-        ['Automated message sent after every job', 0],
-        ['I ask manually each time', 1],
-        ['I ask occasionally', 2],
-        ['Rarely or never', 3],
-      ]
-    },
-    { section: 'Reviews & Reputation', cat: 'reviews',
-      text: 'When a customer asks a question you\'ve answered dozens of times before, how do you handle it?',
-      opts: [
-        ['It\'s handled automatically — FAQ or chatbot', 0],
-        ['I use a saved message template', 1],
-        ['I type a reply manually each time', 2],
-        ['Varies — no real system', 3],
-      ]
-    },
-    { section: 'Visibility & Tracking', cat: 'visibility',
-      text: 'Do you know which channels or activities are actually bringing in your best customers?',
-      opts: [
-        ['Yes — I track this accurately', 0],
-        ['Roughly, but not with certainty', 1],
-        ['Not really', 2],
-        ['No tracking in place', 3],
-      ]
-    },
-    { section: 'Visibility & Tracking', cat: 'visibility',
-      text: 'If you stepped away from the business for two weeks with no phone, what would happen to your enquiries?',
-      opts: [
-        ['Handled automatically — systems take care of it', 0],
-        ['Most would wait until I\'m back', 2],
-        ['Most would go cold or to a competitor', 3],
-        ['The pipeline would stop entirely', 4],
-      ]
-    },
-  ];
-
-  const LLA_CATS = {
-    response:   { label: 'Lead Response',         service: 'AI Lead Response' },
-    followup:   { label: 'Follow-Up Automation',  service: 'Less Chasing' },
-    admin:      { label: 'Admin & Booking',        service: 'Admin Automation' },
-    reviews:    { label: 'Reviews & Reputation',  service: 'More Reviews' },
-    visibility: { label: 'Visibility & Tracking', service: 'Own Your Area' },
-  };
-
-  let llaS = { scores: [], cats: { response:0, followup:0, admin:0, reviews:0, visibility:0 }, val: 500 };
-
-  function llaGoTo(id) {
-    document.querySelectorAll('.lla-panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('lla-p-' + id).classList.add('active');
-  }
-
-  function llaSetValue(skip) {
-    if (!skip) {
-      const v = parseInt(document.getElementById('lla-val-input').value);
-      llaS.val = (v && v > 0) ? v : 500;
-    }
-    llaS.scores = [];
-    llaS.cats = { response:0, followup:0, admin:0, reviews:0, visibility:0 };
-    llaGoTo('quiz');
-    llaRenderQ(0);
-  }
-
-  function llaRenderQ(i) {
-    const q = LLA_Q[i];
-    const total = LLA_Q.length;
-    document.getElementById('lla-pfill').style.width = ((i / total) * 100) + '%';
-    document.getElementById('lla-qsection').textContent = q.section;
-    document.getElementById('lla-qcount').textContent = (i + 1) + ' of ' + total;
-    document.getElementById('lla-qtext').textContent = q.text;
-    const optsEl = document.getElementById('lla-opts');
-    optsEl.innerHTML = '';
-    q.opts.forEach(([text, score]) => {
-      const btn = document.createElement('button');
-      btn.className = 'lla-opt';
-      btn.textContent = text;
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.lla-opt').forEach(b => b.classList.remove('selected'));
-        this.classList.add('selected');
-        llaS.scores[i] = score;
-        llaS.cats[q.cat] += score;
-        setTimeout(() => {
-          if (i + 1 < total) { llaRenderQ(i + 1); }
-          else { llaGoTo('capture'); }
-        }, 380);
-      });
-      optsEl.appendChild(btn);
-    });
-  }
-
-  var LLA_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwYPBARIfiPlXeDjrAmnG9wF1kX3X-qV66wB-XMLlBONWO7-kK9wIviSkx6BJrJKPM/exec';
-
-  function llaSubmitCapture() {
-    const name     = document.getElementById('lla-cap-name').value.trim();
-    const business = document.getElementById('lla-cap-business').value.trim();
-    const phone    = document.getElementById('lla-cap-phone').value.trim();
-    const email    = document.getElementById('lla-cap-email').value.trim();
-    const errEl = document.getElementById('lla-cap-error');
-    if (!name || !business || !phone || !email) { errEl.classList.add('show'); return; }
-    errEl.classList.remove('show');
-    llaS.lead = { name, business, phone, email };
-    const total = llaS.scores.reduce((a, b) => a + b, 0);
-    const annualLeak = Math.round((total / (LLA_Q.length * 3)) * 8) * llaS.val * 12;
-    new Image().src = LLA_SHEET_URL + '?' + new URLSearchParams({ name, business, phone, email, annualLeak });
-    llaShowResults();
-  }
-
-  function llaShowResults() {
-    const total = llaS.scores.reduce((a, b) => a + b, 0);
-    const max = LLA_Q.length * 3;
-    const ratio = total / max;
-    const leaksPerMonth = Math.round(ratio * 8);
-    const annualLeak = leaksPerMonth * llaS.val * 12;
-
-    let tierKey, tierLabel, tierDesc;
-    if (total <= 9) {
-      tierKey = 'solid'; tierLabel = 'Running Efficiently';
-      tierDesc = 'You\'ve got some strong foundations. Here\'s where AI could still add value.';
-    } else if (total <= 19) {
-      tierKey = 'moderate'; tierLabel = 'Real Automation Opportunities';
-      tierDesc = 'There are clear areas where AI could save you significant time and money. Here\'s exactly where.';
-    } else {
-      tierKey = 'critical'; tierLabel = 'High AI ROI Potential';
-      tierDesc = 'Your business has major opportunities to save time, reduce manual work, and grow revenue with AI. Here\'s the full picture.';
-    }
-
-    const catList = Object.entries(llaS.cats)
-      .map(([cat, score]) => ({ cat, score, pct: Math.round((score / 6) * 100) }))
-      .sort((a, b) => b.score - a.score);
-
-    const gapsHTML = catList.map(({ cat, score, pct }) => {
-      const info = LLA_CATS[cat];
-      const cls = pct >= 67 ? 'major' : pct >= 34 ? 'moderate' : 'strong';
-      const lbl = pct >= 67 ? 'Major Gap' : pct >= 34 ? 'Moderate Gap' : 'Strong';
-      return `<div class="lla-gap-row">
-        <div class="lla-gap-meta">
-          <span class="lla-gap-name">${info.label}</span>
-          <span class="lla-gap-tag lla-gap-tag-${cls}">${lbl}</span>
-        </div>
-        <div class="lla-gap-track">
-          <div class="lla-gap-fill lla-gap-fill-${cls}" data-pct="${pct}"></div>
-        </div>
-        <div class="lla-gap-svc">Fixed by: <strong>${info.service}</strong></div>
-      </div>`;
-    }).join('');
-
-    const resultsEl = document.getElementById('lla-p-results');
-    resultsEl.innerHTML = `
-      <div class="lla-results-grid">
-        <div class="lla-res-left">
-          <div class="lla-eyebrow-amber">Your Revenue Leak Roadmap</div>
-          <div class="lla-tier-badge lla-tier-${tierKey}">${tierLabel}</div>
-          <p class="lla-tier-desc">${tierDesc}</p>
-          <div class="lla-leak-num" id="lla-counter">€0</div>
-          <div class="lla-leak-lbl">estimated annual value of AI automation</div>
-          <div class="lla-score-row">
-            <span class="lla-score-lbl">Audit score</span>
-            <span class="lla-score-val">${total}<span style="opacity:.3;font-size:.6em"> / ${max}</span></span>
-          </div>
-        </div>
-        <div class="lla-res-right">
-          <div class="lla-gaps-title">Your gap breakdown</div>
-          ${gapsHTML}
-          <div class="lla-res-cta">
-            <a href="#" onclick="openBookingModal();return false;" class="btn btn-amber btn-amber-lg lla-res-cta-btn">
-              See How We Could Help
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <button class="lla-btn-download" onclick="llaDownload()">
-              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 3v13M5 14l7 7 7-7"/><path d="M3 21h18"/></svg>
-              Download Your Full Roadmap
-            </button>
-            <button class="lla-retake" onclick="llaReset()">← Retake</button>
-          </div>
-        </div>
-      </div>`;
-
-    llaGoTo('results');
-
-    // Animate counter
-    const el = document.getElementById('lla-counter');
-    const dur = 1800; const t0 = performance.now();
-    const fmt = n => '€' + Math.round(n).toLocaleString('en-IE');
-    (function tick(now) {
-      const p = Math.min((now - t0) / dur, 1);
-      const e = 1 - Math.pow(1 - p, 3);
-      el.textContent = fmt(annualLeak * e);
-      if (p < 1) requestAnimationFrame(tick);
-    })(performance.now());
-
-    // Animate bars
-    setTimeout(() => {
-      document.querySelectorAll('.lla-gap-fill').forEach(b => {
-        b.style.width = b.dataset.pct + '%';
-      });
-    }, 150);
-  }
-
-  function llaDownload() {
-    const total = llaS.scores.reduce((a, b) => a + b, 0);
-    const max = LLA_Q.length * 3;
-    const ratio = total / max;
-    const leaksPerMonth = Math.round(ratio * 8);
-    const annualLeak = leaksPerMonth * llaS.val * 12;
-    const fmt = n => '€' + Math.round(n).toLocaleString('en-IE');
-
-    const catList = Object.entries(llaS.cats)
-      .map(([cat, score]) => ({ cat, score, pct: Math.round((score / 6) * 100) }))
-      .sort((a, b) => b.score - a.score);
-
-    const lines = [
-      'FLOWBUILD SCALING ROADMAP',
-      'Generated: ' + new Date().toLocaleDateString('en-IE', { day:'numeric', month:'long', year:'numeric' }),
-      '═'.repeat(48),
-      '',
-      'ESTIMATED ANNUAL VALUE OF AI AUTOMATION',
-      fmt(annualLeak) + ' per year',
-      '',
-      'ROADMAP SCORE: ' + total + ' / ' + max,
-      '',
-      '─'.repeat(48),
-      'YOUR GAP BREAKDOWN',
-      '─'.repeat(48),
-    ];
-
-    catList.forEach(({ cat, pct }) => {
-      const info = LLA_CATS[cat];
-      const status = pct >= 67 ? 'MAJOR GAP' : pct >= 34 ? 'MODERATE GAP' : 'STRONG';
-      const bar = '█'.repeat(Math.round(pct / 10)) + '░'.repeat(10 - Math.round(pct / 10));
-      lines.push('');
-      lines.push(info.label + ' — ' + status);
-      lines.push('[' + bar + '] ' + pct + '%');
-      lines.push('Fixed by: ' + info.service);
-    });
-
-    lines.push('');
-    lines.push('─'.repeat(48));
-    lines.push('NEXT STEP');
-    lines.push('─'.repeat(48));
-    lines.push('');
-    lines.push('Book a free call to see how we could help:');
-    lines.push('https://flowbuild.ai');
-    lines.push('');
-    lines.push('═'.repeat(48));
-    lines.push('FlowBuild AI — AI Systems for Local Business');
-
-    const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'FlowBuild-Scaling-Roadmap.txt';
-    a.click();
-    URL.revokeObjectURL(url);
-  }
-
-  function llaReset() {
-    llaS = { scores: [], cats: { response:0, followup:0, admin:0, reviews:0, visibility:0 }, val: 500 };
-    const inp = document.getElementById('lla-val-input');
-    if (inp) inp.value = '';
-    ['lla-cap-name', 'lla-cap-business', 'lla-cap-phone', 'lla-cap-email'].forEach(id => {
-      const el = document.getElementById(id); if (el) el.value = '';
-    });
-    const errEl = document.getElementById('lla-cap-error');
-    if (errEl) errEl.classList.remove('show');
-    llaGoTo('intro');
-  }
-
-
-  const BOOKING_URL = 'https://links.flowbuildai.ie/widget/booking/MLznN883xY9UeIaBWpgO';
-
-  function openBookingModal() {
-    const modal = document.getElementById('booking-modal');
-    const iframe = document.getElementById('booking-iframe');
-    if (!iframe.src || iframe.src === window.location.href) iframe.src = BOOKING_URL;
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeBookingModal() {
-    document.getElementById('booking-modal').style.display = 'none';
-    document.body.style.overflow = '';
-  }
-
-  // #booking-modal is declared after this script block, so wait for the DOM
-  // before binding — otherwise getElementById returns null and click-outside-to-close breaks.
-  document.addEventListener('DOMContentLoaded', function () {
-    const modalEl = document.getElementById('booking-modal');
-    if (!modalEl) return;
-    modalEl.addEventListener('click', function (e) {
-      if (e.target === this) closeBookingModal();
-    });
-  });
-</script>
-
-<!-- Booking modal -->
-<div id="booking-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.82);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
-  <div style="position:relative;width:90%;max-width:720px;height:82vh;background:#1C1917;border-radius:12px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.6);">
-    <button onclick="closeBookingModal()" style="position:absolute;top:12px;right:14px;z-index:10;background:rgba(255,255,255,0.08);border:none;border-radius:50%;width:32px;height:32px;color:white;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;">×</button>
-    <iframe id="booking-iframe" src="" style="width:100%;height:100%;border:none;" title="Book a Free Systems Call"></iframe>
-  </div>
+<!-- signature move: the leak gauge -->
+<div class="leak-gauge" id="leakGauge" aria-hidden="true">
+  <svg viewBox="0 0 46 120" fill="none">
+    <clipPath id="vesselClip"><path d="M8 10 H38 L34 108 Q23 116 12 108 Z"/></clipPath>
+    <path d="M8 10 H38 L34 108 Q23 116 12 108 Z" stroke="currentColor" stroke-width="1.4" opacity="0.5"/>
+    <g clip-path="url(#vesselClip)">
+      <rect id="leakFill" x="6" y="40" width="34" height="80" fill="var(--sc-accent)" opacity="0.85"/>
+    </g>
+    <path id="leakSeam" d="M8 54 Q23 60 38 54" stroke="var(--sc-accent)" stroke-width="2" stroke-dasharray="34" stroke-dashoffset="0" fill="none"/>
+    <g id="leakDrops"></g>
+  </svg>
+  <div class="leak-gauge__tally" id="leakTally">0 sites · 0 systems</div>
 </div>
 
-<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a040bc50d6444c6be238ac6"></script>
+<main id="top">
+
+  <!-- 0 · TITLE PAGE -->
+  <section class="ch hero" id="hero">
+    <div class="hero__mark">Flow<em>Build</em> AI</div>
+    <div class="hero__grid">
+      <div data-sc-in data-sc-stagger="90">
+        <p class="hero__kicker">Websites &amp; AI Systems · Ireland</p>
+        <h1 data-sc-kinetic="lines">The definitive growth partner for fast-moving companies.</h1>
+        <p class="lede">Two things grow a business: a site that makes people stop, and systems that make sure every visitor becomes a customer. We design the websites and build the AI automations &mdash; done for you, and yours to keep.</p>
+        <div class="hero__badges">
+          <span class="badge">14&#8209;day launch</span>
+          <span class="badge">Done for you</span>
+          <span class="badge">No lock&#8209;in</span>
+        </div>
+      </div>
+      <div class="hero__mock" data-sc-in data-sc-stagger="120" aria-hidden="true">
+        <div class="mock-browser">
+          <div class="mock-browser__bar"><span class="mock-browser__dot"></span><span class="mock-browser__dot"></span><span class="mock-browser__dot"></span></div>
+          <div class="mock-browser__hero"></div>
+          <div class="mock-browser__body">
+            <div class="mock-browser__line w60"></div>
+            <div class="mock-browser__line w80"></div>
+            <div class="mock-browser__line w40"></div>
+          </div>
+        </div>
+        <div class="mock-chat">
+          <div class="mock-chat__top"><span class="mock-chat__dot"></span>New enquiry</div>
+          <p>&ldquo;Do you have availability this week?&rdquo;<br><strong>Replied in 43s</strong> &middot; booked to calendar</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1 · THE PROBLEM (count, dark ground) -->
+  <section class="ch ch--dark" id="ch-problem">
+    <div class="ch-wrap">
+      <p class="ch-eyebrow">Chapter One</p>
+      <h2 class="ch-head" data-sc-in>Two reasons you're not growing.</h2>
+      <p class="ch-body ch-soft" data-sc-in>Too few conversations, or too many wasted. Most businesses that come to us aren't short of enquiries &mdash; they're losing deals in the gap between the enquiry and the signature.</p>
+      <div class="stat-row">
+        <div class="stat" data-sc-in>
+          <span class="sc-nums"><span data-sc-count="0 78">0</span>%</span>
+          <p>of buyers go with the first company to respond &mdash; not the cheapest, the fastest.</p>
+        </div>
+        <div class="stat" data-sc-in>
+          <span class="sc-nums"><span data-sc-count="0 4.3">0</span>hrs</span>
+          <p>average time a service business takes to answer a new enquiry.</p>
+        </div>
+        <div class="stat" data-sc-in>
+          <span class="sc-nums">&euro;<span data-sc-count="0 47">0</span>K</span>
+          <p>estimated annual revenue lost to quote &amp; follow-up failure at a mid-sized business.</p>
+        </div>
+      </div>
+      <p class="stat-source" data-sc-in>Based on B2B lead-management benchmarks across service industries, 2025.</p>
+    </div>
+  </section>
+
+  <!-- 2 · WEB DESIGN (reveal + parallax, paper ground) — THE PEAK -->
+  <section class="ch" id="ch-webdesign">
+    <div class="ch-wrap">
+      <p class="ch-eyebrow">Chapter Two &mdash; What We're Known For</p>
+      <h2 class="ch-head" data-sc-in>Sites built for the business, never from a template.</h2>
+      <p class="ch-body ch-soft" data-sc-in>No page builders, no stock layouts. Every site below was designed from scratch for a real business &mdash; B2B and local alike &mdash; and most went live inside fourteen days.</p>
+
+      <div class="gallery">
+        <figure data-sc-reveal="up" data-sc-reveal-at="0.05 0.4">
+          <div class="gallery__frame"><img src="web-design/screenshots/sa-architects-hero.webp" loading="lazy" alt="SA Architects website" data-leak-tick="site"></div>
+          <figcaption><span class="name">SA Architects</span><span class="meta">Architecture &middot; Live</span></figcaption>
+        </figure>
+        <figure data-sc-reveal="up" data-sc-reveal-at="0.1 0.45">
+          <div class="gallery__frame"><img src="web-design/screenshots/prestige-barbers-hero.webp" loading="lazy" alt="Prestige Barbers website" data-leak-tick="site"></div>
+          <figcaption><span class="name">Prestige Barbers</span><span class="meta">Barbershop &middot; Live</span></figcaption>
+        </figure>
+        <figure data-sc-reveal="up" data-sc-reveal-at="0.15 0.5">
+          <div class="gallery__frame"><img src="web-design/screenshots/rackzz-pool-club-hero.webp" loading="lazy" alt="Rackzz Pool Club website" data-leak-tick="site"></div>
+          <figcaption><span class="name">Rackzz Pool Club</span><span class="meta">Leisure &middot; Live</span></figcaption>
+        </figure>
+        <figure data-sc-reveal="up" data-sc-reveal-at="0.2 0.55">
+          <div class="gallery__frame"><img src="web-design/screenshots/ab-home-perfection-hero.webp" loading="lazy" alt="AB Home Perfection website" data-leak-tick="site"></div>
+          <figcaption><span class="name">AB Home Perfection</span><span class="meta">Renovation &middot; Live</span></figcaption>
+        </figure>
+      </div>
+
+      <p class="ch-body" style="margin-top: var(--sc-7);" data-sc-in>Discovery call, design and build from scratch, a live preview you review as many times as it takes, then go-live on your own domain &mdash; hosting and SSL handled. <a class="ch-link" href="web-design/index.html">See the full process and more work &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- 3 · AI SYSTEMS (flow+in spec list, paper surface) -->
+  <section class="ch" id="ch-aisystems" style="background: var(--sc-surface);">
+    <div class="ch-wrap">
+      <p class="ch-eyebrow">Chapter Three</p>
+      <h2 class="ch-head" data-sc-in>The systems that catch what the site brings in.</h2>
+      <p class="ch-body ch-soft" data-sc-in>A website earns the visit. These make sure the visit turns into a customer &mdash; wired into the tools you already use, built around how you actually sell, not a generic template.</p>
+
+      <div class="spec" data-sc-in data-sc-stagger="60">
+        <div class="spec__row" data-leak-tick="system"><span class="n">01</span><h3>Instant lead response</h3><p>Every new lead gets a real reply in under sixty seconds, by text, WhatsApp or voice &mdash; any hour, any day.</p></div>
+        <div class="spec__row" data-leak-tick="system"><span class="n">02</span><h3>AI call answering</h3><p>An AI receptionist answers what your team can't, qualifies the caller and books them straight to the calendar.</p></div>
+        <div class="spec__row" data-leak-tick="system"><span class="n">03</span><h3>CRM &amp; sales automation</h3><p>Built around how you actually sell first, then automated &mdash; HubSpot, Pipedrive, GoHighLevel, or from scratch.</p></div>
+        <div class="spec__row" data-leak-tick="system"><span class="n">04</span><h3>Quote &amp; proposal follow-up</h3><p>Multi-touch sequences that run until someone replies, so a quote never just goes quiet.</p></div>
+        <div class="spec__row" data-leak-tick="system"><span class="n">05</span><h3>Database reactivation</h3><p>Working back through enquiries you already paid to acquire &mdash; usually the fastest money available to a business.</p></div>
+        <div class="spec__row" data-leak-tick="system"><span class="n">06</span><h3>Reviews &amp; referrals</h3><p>The request fires the moment a job is marked complete, when the customer is happiest to say yes.</p></div>
+      </div>
+
+      <p class="ch-body" style="margin-top: var(--sc-7);" data-sc-in>Twelve systems in total &mdash; we build the ones you're actually missing. <a class="ch-link" href="ai-systems.html">See all twelve &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- 4 · TESTIMONIALS (flow+in, paper ground) -->
+  <section class="ch" id="ch-testimonials">
+    <div class="ch-wrap">
+      <p class="ch-eyebrow">Chapter Four</p>
+      <h2 class="ch-head" data-sc-in>Real results. Real businesses.</h2>
+      <div class="testi-row" data-sc-in data-sc-stagger="80">
+        <div class="testi">
+          <div class="testi__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">&ldquo;We were living off referrals and the odd bit of LinkedIn, so some months were great and some were dead quiet. The first qualified meetings landed inside a fortnight, and I'm not the one chasing them anymore. I just turn up to the calls.&rdquo;</p>
+          <div class="testi__who"><strong>MD</strong><span>MD Revenue Recovery</span></div>
+        </div>
+        <div class="testi">
+          <div class="testi__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">&ldquo;Half our day is up a ladder or in the van, so calls got missed and quotes went out and never got followed up. Now every enquiry gets a reply straight away and the chasing happens on its own.&rdquo;</p>
+          <div class="testi__who"><strong>RF</strong><span>RF Electrical</span></div>
+        </div>
+        <div class="testi">
+          <div class="testi__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">&ldquo;I was doing all the admin myself between sessions, meaning to get back to people and forgetting. FlowBuild automated the follow-up and went back through old enquiries I'd written off completely. Bookings are up and I've got my evenings back.&rdquo;</p>
+          <div class="testi__who"><strong>BB</strong><span>Barbells &amp; Babies</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · ALSO AVAILABLE (quiet, dark, secondary) -->
+  <section class="ch ch--dark" id="ch-also">
+    <div class="quiet-wrap">
+      <p class="quiet-head">Also Available &mdash; Ask On The Call</p>
+      <div class="quiet-grid" data-sc-in data-sc-stagger="70">
+        <div class="quiet-item">
+          <h3>B2B Outbound</h3>
+          <p>For B2B companies that want a fully outsourced outbound department: a verified ICP list, campaigns sent from separate domains so yours is never touched, and an SDR Agent qualifying every reply before it reaches your calendar. <a class="ch-link" href="b2b-outbound.html" style="color:var(--fb-dark-ink);">How it works &rarr;</a></p>
+        </div>
+        <div class="quiet-item">
+          <h3>Paid Ads &amp; Creative</h3>
+          <p>Ad concepts, creative testing and landing pages where the click deserves somewhere better to land. Useful once the site and the response systems are already in place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · PEOPLE + PROOF (flow+in, tilt) -->
+  <section class="ch" id="ch-people">
+    <div class="ch-wrap">
+      <p class="ch-eyebrow">Chapter Five</p>
+      <h2 class="ch-head" data-sc-in>Two locals. No middlemen.</h2>
+      <p class="ch-body ch-soft" data-sc-in>No account managers, no outsourced delivery team. When you work with FlowBuild AI, you deal directly with the two people actually doing the work.</p>
+
+      <div class="people">
+        <div class="person" data-sc-in>
+          <div class="person__img" data-sc-tilt="5"><img src="liam.jpeg" loading="lazy" alt="Liam Kieran, co-founder of FlowBuild AI"></div>
+          <h3>Liam Kieran</h3>
+          <p class="role">Digital Strategy &amp; Websites</p>
+          <p class="bio">Business management graduate and digital strategist. Diploma in AI for Business from UCD. Designs the websites and the automations behind them.</p>
+        </div>
+        <div class="person" data-sc-in>
+          <div class="person__img" data-sc-tilt="5"><img src="paddy.jpeg" loading="lazy" alt="Paddy Meade, co-founder of FlowBuild AI"></div>
+          <h3>Paddy Meade</h3>
+          <p class="role">Tech, Funnels &amp; Automations</p>
+          <p class="bio">Self-made business owner and science graduate. Builds the full-stack systems and automations that run quietly in the background.</p>
+        </div>
+      </div>
+
+      <div class="logos" data-sc-in>
+        <img src="client-logos/smith-architects.png" loading="lazy" alt="Smith &amp; Associates Architects">
+        <img src="client-logos/rf-electrical.png" loading="lazy" alt="RF Electrical">
+        <img src="client-logos/home-perfection.png" loading="lazy" alt="AB Home Perfection">
+        <img src="client-logos/m-recovery.png" loading="lazy" alt="MD Revenue Recovery">
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · FAQ (flow+in, surface ground) -->
+  <section class="ch" id="ch-faq" style="background: var(--sc-surface);">
+    <div class="ch-wrap">
+      <p class="ch-eyebrow">Chapter Six</p>
+      <h2 class="ch-head" data-sc-in>Before you book the call.</h2>
+      <div class="faq" data-sc-in data-sc-stagger="50">
+        <details>
+          <summary>What kind of businesses do you work with?</summary>
+          <p class="faq__a">Both B2B and local, consumer-facing businesses &mdash; architects, trades, barbershops, gyms, clinics, renovation companies, professional services. What our clients have in common isn't an industry, it's a shape: enquiries or prospects come in, someone has to follow up, and revenue is lost when that doesn't happen fast or consistently enough.</p>
+        </details>
+        <details>
+          <summary>What's included in the 14-day setup?</summary>
+          <p class="faq__a">Everything on your side is scoped on one onboarding call. Depending on what you need, we configure the website, AI voice and SMS response, calendar integration, CRM connection, follow-up sequences and reporting. You review and approve the flows and copy before anything goes live.</p>
+        </details>
+        <details>
+          <summary>Does this work with our existing CRM and tools?</summary>
+          <p class="faq__a">Yes. We integrate with most common CRMs including HubSpot, Salesforce, Pipedrive and GoHighLevel, as well as industry-specific tools. If you're running on spreadsheets, we'll build something purpose-fit for how you actually work.</p>
+        </details>
+        <details>
+          <summary>What if the AI says something wrong to a customer?</summary>
+          <p class="faq__a">The AI is trained on your specific business &mdash; your pricing, your process, your FAQs &mdash; and it isn't built to improvise. If a question falls outside what it knows, it takes a message and escalates to your team immediately rather than guessing. You review and approve every script before we go live.</p>
+        </details>
+        <details>
+          <summary>What does it cost, and are we locked into a contract?</summary>
+          <p class="faq__a">Every business needs a different combination of systems, so we price to what you actually need rather than a fixed package, and walk you through the numbers plainly on the first call. There's no lock-in &mdash; everything we build is yours to keep.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · CLOSE / COLOPHON (kinetic + count, dark) -->
+  <section class="ch ch--dark colophon" id="ch-close">
+    <p class="ch-eyebrow" data-sc-in>Start Here</p>
+    <h2 data-sc-in data-sc-kinetic="lines">Free growth audit call. Fifteen minutes, no pitch.</h2>
+    <a class="cta-line" href="https://wa.me/353858764679" data-sc-in>Book a free call &rarr;</a>
+    <div class="triangles" aria-hidden="true" data-sc-in>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="masthead" data-sc-in>
+      <div>Phone<strong><a href="tel:+353872666405">+353 87 266 6405</a></strong></div>
+      <div>Email<strong><a href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a></strong></div>
+      <div>WhatsApp<strong><a href="https://wa.me/353858764679">Message us</a></strong></div>
+      <div>Elsewhere<strong><a href="ai-systems.html">AI Systems</a> &middot; <a href="web-design/index.html">Web Design</a> &middot; <a href="b2b-outbound.html">B2B Outbound</a> &middot; <a href="audit.html">Scaling Roadmap</a></strong></div>
+    </div>
+    <p class="fine">&copy; 2026 FlowBuild AI. All rights reserved. Ireland. &mdash; <span id="leakTallyFine">4 sites &middot; 6 systems &middot; 0 leaks</span></p>
+  </section>
+
+</main>
+
+<script src="scrollcraft.js"></script>
+<script>
+  ScrollCraft.mount(document.body);
+
+  (function () {
+    var darkSections = Array.from(document.querySelectorAll('.ch--dark'));
+    var folio = document.getElementById('folio');
+    var rows = Array.from(folio.querySelectorAll('.folio__row'));
+    var chapters = rows.map(function (r) { return document.getElementById(r.dataset.target); });
+
+    var gauge = document.getElementById('leakGauge');
+    var fill = document.getElementById('leakFill');
+    var seam = document.getElementById('leakSeam');
+    var tally = document.getElementById('leakTally');
+    var tallyFine = document.getElementById('leakTallyFine');
+    var chProblem = document.getElementById('ch-problem');
+    var chWebdesign = document.getElementById('ch-webdesign');
+    var chAisystems = document.getElementById('ch-aisystems');
+    var chClose = document.getElementById('ch-close');
+
+    var sitesSeen = new Set();
+    var systemsSeen = new Set();
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function clamp01(v) { return Math.max(0, Math.min(1, v)); }
+
+    function updateFolio() {
+      var heroEl = document.getElementById('hero');
+      if (heroEl) {
+        folio.classList.toggle('is-visible', window.scrollY > heroEl.offsetHeight * 0.6);
+      }
+      var mid = window.innerHeight * 0.5;
+      var activeIdx = 0;
+      chapters.forEach(function (el, i) {
+        if (!el) return;
+        var r = el.getBoundingClientRect();
+        if (r.top <= mid && r.bottom >= 0) activeIdx = i;
+      });
+      rows.forEach(function (r, i) { r.dataset.active = (i === activeIdx) ? 'true' : 'false'; });
+
+      var onDark = darkSections.some(function (el) {
+        var r = el.getBoundingClientRect();
+        return r.top <= mid && r.bottom >= mid;
+      });
+      document.body.classList.toggle('on-dark', onDark);
+    }
+
+    function updateGauge() {
+      if (!chProblem || !chAisystems) return;
+      var vh = window.innerHeight;
+
+      gauge.classList.toggle('is-visible', window.scrollY > chProblem.offsetTop - vh);
+
+      var pStartY = chProblem.offsetTop;
+      var pEndY = chProblem.offsetTop + chProblem.offsetHeight;
+      var wStartY = chWebdesign.offsetTop;
+      var aEndY = chAisystems.offsetTop + chAisystems.offsetHeight;
+      var y = window.scrollY + vh * 0.5;
+
+      var drainP = clamp01((y - pStartY) / Math.max(1, (pEndY - pStartY)));
+      var sealP = clamp01((y - wStartY) / Math.max(1, (aEndY - wStartY)));
+
+      var fillLevel; // 0..1, 1 = full
+      if (y < pStartY) fillLevel = 1;
+      else if (y < pEndY) fillLevel = 1 - 0.6 * drainP;
+      else fillLevel = 0.4 + 0.6 * sealP;
+
+      var totalH = 80, minY = 40;
+      var h = totalH * fillLevel;
+      fill.setAttribute('y', (40 + (totalH - h)).toString());
+      fill.setAttribute('height', h.toString());
+
+      var sealOffset = y < wStartY ? 34 : (34 * (1 - sealP));
+      seam.setAttribute('stroke-dashoffset', sealOffset.toString());
+      seam.style.opacity = y < pEndY ? '0' : '1';
+    }
+
+    var tickTargets = Array.from(document.querySelectorAll('[data-leak-tick]'));
+    var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var kind = entry.target.getAttribute('data-leak-tick');
+        var key = kind + ':' + (entry.target.getAttribute('alt') || entry.target.textContent || Math.random());
+        if (kind === 'site') sitesSeen.add(key);
+        if (kind === 'system') systemsSeen.add(key);
+        tally.textContent = sitesSeen.size + ' sites · ' + systemsSeen.size + ' systems';
+        if (tallyFine) tallyFine.textContent = sitesSeen.size + ' sites · ' + systemsSeen.size + ' systems · 0 leaks';
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.4 }) : null;
+    if (io) tickTargets.forEach(function (t) { io.observe(t); });
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        updateFolio();
+        if (!reduced) updateGauge();
+        ticking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+  })();
+</script>
 </body>
 </html>
