@@ -162,30 +162,33 @@
   @keyframes pulseDot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.8); } }
   @media (max-width: 760px) { .stat-row { grid-template-columns: 1fr; gap: var(--sc-4); } }
 
-  /* ---------- chapter II: web design gallery — two-layer hover-scroll preview ---------- */
-  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sc-7) var(--sc-6); margin-top: var(--sc-8); }
-  .gallery figure { margin: 0; }
-  .gallery__frame { position: relative; overflow: hidden; border-radius: 10px; aspect-ratio: 16/10; background: var(--sc-surface); box-shadow: 0 10px 30px rgba(28,25,23,0.1); }
-  .gallery__reel {
-    position: absolute; top: 0; left: 0; width: 100%; height: auto; display: block; will-change: transform;
-    transform: translateY(0); transition: transform 0.6s ease;
-  }
-  @media (hover: hover) and (pointer: fine) {
-    .gallery__frame:hover .gallery__reel { transform: translateY(calc(-1 * var(--scrub-dist, 0px))); transition: transform var(--scrub-dur, 9s) linear; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gallery__frame:hover .gallery__reel { transform: translateY(0) !important; transition: none !important; }
-  }
-  .gallery__tag { position: absolute; top: 14px; right: 14px; font-family: var(--sc-font-text); font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #34d399; background: rgba(28,25,23,0.75); border: 1px solid rgba(52,211,153,0.4); border-radius: 20px; padding: 5px 11px; display: flex; align-items: center; gap: 6px; z-index: 2; pointer-events: none; }
-  .gallery__tag-dot { width: 6px; height: 6px; border-radius: 50%; background: #34d399; animation: pulseDot 2s ease-in-out infinite; }
-  .gallery__hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 1; transition: opacity 0.4s ease; pointer-events: none; }
-  @media (hover: hover) and (pointer: fine) {
-    .gallery__frame:hover .gallery__hero-video { opacity: 0; }
-  }
-  .gallery figcaption { margin-top: var(--sc-3); font-family: var(--sc-font-text); }
-  .gallery figcaption .name { font-family: var(--sc-font-display); font-weight: 700; font-size: var(--sc-t-lg); display: block; }
-  .gallery figcaption .meta { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sc-ink-soft); }
-  @media (max-width: 760px) { .gallery { grid-template-columns: 1fr; } }
+  /* ---------- chapter II: web design gallery — ported 1:1 from /web-design/ ---------- */
+  .port-stack { display: flex; flex-direction: column; gap: 56px; max-width: 900px; margin: var(--sc-8) auto 0; padding: 0; }
+  .prev-live { position: relative; width: 100%; aspect-ratio: 1440/900; overflow: hidden; background: var(--sc-surface); }
+  .prev-track { position: absolute; top: 0; left: 0; width: 100%; will-change: transform; transform: translate3d(0,0,0); backface-visibility: hidden; }
+  .prev-reel { display: block; width: 100%; height: auto; }
+  .prev-heroblk { position: absolute; left: 0; width: 100%; opacity: 0; transition: opacity 0.4s linear; pointer-events: none; }
+  .prev-heroblk.on { opacity: 1; }
+  .prev-vid { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
+  .prev-hero { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .prev-live iframe { position: absolute; top: 0; left: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; pointer-events: none; opacity: 0; transition: opacity 0.5s cubic-bezier(.23,1,.32,1); z-index: 1; }
+  .prev-live.live-on iframe { opacity: 1; }
+  @media (hover: hover) and (pointer: fine) { .prev-live.live-on:hover iframe { pointer-events: auto; } }
+  .prev-live-tag { position: absolute; top: 16px; right: 16px; font-family: var(--sc-font-text); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #34d399; background: rgba(28,25,23,0.75); border: 1px solid rgba(52,211,153,0.4); border-radius: 20px; padding: 5px 11px; display: flex; align-items: center; gap: 6px; z-index: 2; pointer-events: none; }
+  .prev-live-dot { width: 6px; height: 6px; border-radius: 50%; background: #34d399; animation: pulseDot 2s ease-in-out infinite; }
+  .pstage { position: relative; }
+  .pstage > .pcard { position: sticky; top: var(--stick, 80px); }
+  .pcard { position: relative; display: flex; flex-direction: column; background: var(--sc-canvas); border: 1px solid rgba(28,25,23,0.1); border-radius: 14px; overflow: hidden; transition: border-color 0.3s, transform 0.3s; }
+  .pcard::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at var(--px,50%) var(--py,50%), rgba(232,101,42,0.08) 0%, transparent 55%); opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+  .pcard:hover::after { opacity: 1; }
+  .pcard:hover { border-color: rgba(232,101,42,0.3); transform: translateY(-4px); }
+  .pcard-meta { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 22px 26px; flex-wrap: wrap; }
+  .pcard-id { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+  .pcard-cat { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sc-accent-dk); }
+  .pcard-name { font-family: var(--sc-font-display); font-size: 22px; font-weight: 800; letter-spacing: -0.01em; color: var(--sc-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pcard-visit { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--sc-ink); text-decoration: none; padding: 10px 18px; border: 1px solid rgba(28,25,23,0.14); border-radius: 22px; transition: border-color 0.2s, color 0.2s; flex-shrink: 0; white-space: nowrap; }
+  .pcard-visit:hover { border-color: var(--sc-accent); color: var(--sc-accent); }
+  .pcard-visit svg { width: 12px; height: 12px; flex-shrink: 0; }
 
   /* ---------- chapter III: ai systems — overlapping sticky card stack ---------- */
   .spec { margin-top: var(--sc-8); padding-bottom: var(--sc-8); }
@@ -409,39 +412,75 @@
       <h2 class="ch-head" data-sc-in>Sites built for the business, never from a template.</h2>
       <p class="ch-body ch-soft" data-sc-in>No page builders, no stock layouts. Every site below was designed from scratch for a real business &mdash; B2B and local alike &mdash; and most went live inside fourteen days.</p>
 
-      <div class="gallery">
-        <figure data-sc-reveal="up" data-sc-reveal-at="0.05 0.4">
-          <div class="gallery__frame scrub-frame">
-            <span class="gallery__tag"><span class="gallery__tag-dot"></span>Live</span>
-            <video class="gallery__hero-video" src="web-design/video/sa-architects.mp4" muted loop playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1"></video>
-            <img class="gallery__reel" src="web-design/screenshots/smith-associates-arch-full.jpg" width="1440" height="3860" loading="lazy" alt="SA Architects website, full page">
+      <div class="port-stack">
+        <div class="pstage"><div class="pcard">
+          <div class="prev-live">
+            <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
+            <div class="prev-track">
+              <img class="prev-reel" src="web-design/screenshots/smith-associates-arch-full.jpg" alt="SA Architects website, full page" width="1440" height="3860" loading="lazy" decoding="async">
+              <div class="prev-heroblk" data-top="0" data-vh="900">
+                <video class="prev-vid" src="web-design/video/sa-architects.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+                <img class="prev-hero" src="web-design/screenshots/sa-architects-hero.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <iframe data-src="https://www.saarchitects.ie/" title="SA Architects — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
           </div>
-          <figcaption><span class="name">SA Architects</span><span class="meta">Architecture &middot; Live</span></figcaption>
-        </figure>
-        <figure data-sc-reveal="up" data-sc-reveal-at="0.1 0.45">
-          <div class="gallery__frame scrub-frame">
-            <span class="gallery__tag"><span class="gallery__tag-dot"></span>Live</span>
-            <video class="gallery__hero-video" src="web-design/video/prestige-barbers.mp4" muted loop playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1"></video>
-            <img class="gallery__reel" src="web-design/screenshots/prestige-barbers-full.jpg" width="1440" height="7766" loading="lazy" alt="Prestige Barbers website, full page">
+          <div class="pcard-meta">
+            <div class="pcard-id"><span class="pcard-cat">Architecture</span><span class="pcard-name">SA Architects</span></div>
+            <a class="pcard-visit" href="https://www.saarchitects.ie/" target="_blank" rel="noopener">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
-          <figcaption><span class="name">Prestige Barbers</span><span class="meta">Barbershop &middot; Live</span></figcaption>
-        </figure>
-        <figure data-sc-reveal="up" data-sc-reveal-at="0.15 0.5">
-          <div class="gallery__frame scrub-frame">
-            <span class="gallery__tag"><span class="gallery__tag-dot"></span>Live</span>
-            <video class="gallery__hero-video" src="web-design/video/rackzz-pool-club.mp4" muted loop playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1"></video>
-            <img class="gallery__reel" src="web-design/screenshots/rackzz-pool-club-full.jpg" width="1440" height="6836" loading="lazy" alt="Rackzz Pool Club website, full page">
+        </div></div>
+        <div class="pstage"><div class="pcard">
+          <div class="prev-live">
+            <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
+            <div class="prev-track">
+              <img class="prev-reel" src="web-design/screenshots/rackzz-pool-club-full.jpg" alt="Rackzz Pool Club website, full page" width="1440" height="6836" loading="lazy" decoding="async">
+              <div class="prev-heroblk" data-top="77" data-vh="714">
+                <video class="prev-vid" src="web-design/video/rackzz-pool-club.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+                <img class="prev-hero" src="web-design/screenshots/rackzz-pool-club-hero.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <iframe data-src="https://www.rackzzpoolclub.ie/" title="Rackzz Pool Club — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
           </div>
-          <figcaption><span class="name">Rackzz Pool Club</span><span class="meta">Leisure &middot; Live</span></figcaption>
-        </figure>
-        <figure data-sc-reveal="up" data-sc-reveal-at="0.2 0.55">
-          <div class="gallery__frame scrub-frame">
-            <span class="gallery__tag"><span class="gallery__tag-dot"></span>Live</span>
-            <video class="gallery__hero-video" src="web-design/video/ab-home-perfection.mp4" muted loop playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1"></video>
-            <img class="gallery__reel" src="web-design/screenshots/ab-home-perfection-full.jpg" width="1440" height="6117" loading="lazy" alt="AB Home Perfection website, full page">
+          <div class="pcard-meta">
+            <div class="pcard-id"><span class="pcard-cat">Leisure &amp; Recreation</span><span class="pcard-name">Rackzz Pool Club</span></div>
+            <a class="pcard-visit" href="https://www.rackzzpoolclub.ie/" target="_blank" rel="noopener">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
-          <figcaption><span class="name">AB Home Perfection</span><span class="meta">Renovation &middot; Live</span></figcaption>
-        </figure>
+        </div></div>
+        <div class="pstage"><div class="pcard">
+          <div class="prev-live">
+            <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
+            <div class="prev-track">
+              <img class="prev-reel" src="web-design/screenshots/prestige-barbers-full.jpg" alt="Prestige Barbers website, full page" width="1440" height="7766" loading="lazy" decoding="async">
+              <div class="prev-heroblk" data-top="0" data-vh="900">
+                <video class="prev-vid" src="web-design/video/prestige-barbers.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+                <img class="prev-hero" src="web-design/screenshots/prestige-barbers-hero.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <iframe data-src="https://www.prestigebarbers.ie/" title="Prestige Barbers — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+          </div>
+          <div class="pcard-meta">
+            <div class="pcard-id"><span class="pcard-cat">Barbershop</span><span class="pcard-name">Prestige Barbers</span></div>
+            <a class="pcard-visit" href="https://www.prestigebarbers.ie/" target="_blank" rel="noopener">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div></div>
+        <div class="pstage"><div class="pcard">
+          <div class="prev-live">
+            <span class="prev-live-tag"><span class="prev-live-dot"></span>Live</span>
+            <div class="prev-track">
+              <img class="prev-reel" src="web-design/screenshots/ab-home-perfection-full.jpg" alt="AB Home Perfection website, full page" width="1440" height="6117" loading="lazy" decoding="async">
+              <div class="prev-heroblk" data-top="0" data-vh="900">
+                <video class="prev-vid" src="web-design/video/ab-home-perfection.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+                <img class="prev-hero" src="web-design/screenshots/ab-home-perfection-hero.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <iframe data-src="https://www.homeperfectionrenovation.ie/" title="AB Home Perfection — live website preview" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+          </div>
+          <div class="pcard-meta">
+            <div class="pcard-id"><span class="pcard-cat">Renovations</span><span class="pcard-name">AB Home Perfection</span></div>
+            <a class="pcard-visit" href="https://www.homeperfectionrenovation.ie/" target="_blank" rel="noopener">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div></div>
       </div>
 
       <p class="ch-body" style="margin-top: var(--sc-7);" data-sc-in>Discovery call, design and build from scratch, a live preview you review as many times as it takes, then go-live on your own domain &mdash; hosting and SSL handled. <a class="ch-link" href="web-design/index.html">See the full process and more work &rarr;</a></p>
@@ -665,29 +704,148 @@
     if (tr) tr.insertAdjacentHTML('beforeend', tr.innerHTML);
   })();
 
-  // ── web design gallery: hover-scroll two-layer preview ──
+  // ── web design gallery: ported 1:1 from /web-design/ ──
+  // Pinned scroll-through reels: each card is sticky inside a tall stage.
+  // While pinned, scroll scrubs its capture top to bottom; at the end of the
+  // stage it releases and the next one pins. On desktop hover (while still at
+  // the hero, not mid-scrub), the real live site mounts in an iframe over the
+  // capture — a cross-origin embed can't be scroll-linked, so that swap only
+  // happens at rest, not during the scrub.
   (function () {
-    var frames = Array.from(document.querySelectorAll('.gallery__frame.scrub-frame'));
-    if (!frames.length) return;
+    var NATIVE_W = 1440;
+    var HOLD = 0.22;
+    var wraps = Array.from(document.querySelectorAll('.prev-live'));
+    if (!wraps.length) return;
+
+    var stages = Array.from(document.querySelectorAll('.pstage'));
+    var liveNow = null;
+    var release = function () {};
+
     function measure() {
-      frames.forEach(function (f) {
-        var img = f.querySelector('.gallery__reel');
-        if (!img || !img.naturalWidth) return;
-        var frameH = f.clientHeight;
-        var imgH = f.clientWidth * (img.naturalHeight / img.naturalWidth);
-        var dist = Math.max(0, imgH - frameH);
-        f.style.setProperty('--scrub-dist', dist.toFixed(0) + 'px');
-        var dur = Math.min(16, Math.max(6, dist / 220));
-        f.style.setProperty('--scrub-dur', dur.toFixed(1) + 's');
+      var vh = innerHeight;
+      stages.forEach(function (st) {
+        var card = st.querySelector('.pcard');
+        if (!card) return;
+        st.style.height = 'auto';
+        var cardH = card.offsetHeight;
+        var stick = Math.max(72, Math.round((vh - cardH) / 2));
+        var scrub = Math.round(vh * 1.55);
+        st.style.setProperty('--stick', stick + 'px');
+        st.style.height = (cardH + scrub) + 'px';
+        st.dataset.stick = stick;
+        st.dataset.scrub = scrub;
+        var win = st.querySelector('.prev-live');
+        var blk = st.querySelector('.prev-heroblk');
+        if (win && blk) {
+          var k = win.clientWidth / NATIVE_W;
+          blk.style.top = ((+blk.dataset.top || 0) * k) + 'px';
+          blk.style.height = (((+blk.dataset.vh) || 900) * k) + 'px';
+        }
+      });
+      paint();
+    }
+
+    function paint() {
+      var vh = innerHeight;
+      stages.forEach(function (st) {
+        var track = st.querySelector('.prev-track');
+        var img = st.querySelector('.prev-reel');
+        var win = st.querySelector('.prev-live');
+        if (!track || !img || !win) return;
+        var scrub = parseFloat(st.dataset.scrub) || 1;
+        var stick = parseFloat(st.dataset.stick) || 0;
+        var raw = (stick - st.getBoundingClientRect().top) / scrub;
+        raw = raw < 0 ? 0 : raw > 1 ? 1 : raw;
+        var p = raw <= HOLD ? 0 : (raw - HOLD) / (1 - HOLD);
+        st.dataset.p = p.toFixed(3);
+        st.dataset.raw = raw.toFixed(3);
+        var shift = img.offsetHeight - win.clientHeight;
+        var offset = shift > 0 ? p * shift : 0;
+        track.style.transform = 'translate3d(0,' + (-offset).toFixed(1) + 'px,0)';
+
+        if (p > 0.04 && liveNow && st.contains(liveNow)) release();
+
+        var blk2 = st.querySelector('.prev-heroblk');
+        var vid = blk2 && blk2.querySelector('.prev-vid');
+        if (!blk2 || !vid) return;
+        var cr = st.getBoundingClientRect();
+        var near = cr.bottom > -vh && cr.top < vh * 2;
+        var bTop = parseFloat(blk2.style.top) || 0;
+        var bEnd = bTop + (parseFloat(blk2.style.height) || 0);
+        var shows = near && offset < bEnd && (offset + win.clientHeight) > bTop;
+        if (shows) {
+          if (vid.paused) {
+            vid.play().then(function () { blk2.classList.add('on'); }).catch(function () {});
+          } else if (vid.readyState >= 2) {
+            blk2.classList.add('on');
+          }
+        } else if (!vid.paused) {
+          vid.pause();
+          blk2.classList.remove('on');
+        }
       });
     }
-    frames.forEach(function (f) {
-      var img = f.querySelector('.gallery__reel');
-      if (img.complete && img.naturalWidth) measure();
-      else img.addEventListener('load', measure, { once: true });
+
+    var raf = 0;
+    addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; paint(); }); }, { passive: true });
+    addEventListener('resize', measure, { passive: true });
+    stages.forEach(function (st) {
+      var img = st.querySelector('.prev-reel');
+      if (img && !img.complete) img.addEventListener('load', measure, { once: true });
     });
-    window.addEventListener('resize', measure, { passive: true });
+    measure();
+
+    // live interactive site on desktop hover (optional extra)
+    wraps.forEach(function (wrap) {
+      var iframe = wrap.querySelector('iframe');
+      if (!iframe) return;
+      var resize = function () { iframe.style.transform = 'scale(' + (wrap.clientWidth / NATIVE_W) + ')'; };
+      new ResizeObserver(resize).observe(wrap);
+      resize();
+    });
+
+    var conn = navigator.connection || {};
+    if (matchMedia('(hover:none),(pointer:coarse)').matches) return;
+    if (conn.saveData === true || /(^|-)2g$/.test(conn.effectiveType || '') || innerWidth < 1024) return;
+
+    var active = null;
+    release = function () { if (active) { unload(active); active = null; liveNow = null; } };
+    function unload(wrap) {
+      if (!wrap) return;
+      var f = wrap.querySelector('iframe');
+      wrap.classList.remove('live-on');
+      if (f && f.getAttribute('src') && f.getAttribute('src') !== 'about:blank') f.setAttribute('src', 'about:blank');
+    }
+    function mount(wrap) {
+      if (active === wrap) return;
+      unload(active);
+      active = wrap;
+      var f = wrap.querySelector('iframe');
+      if (!f || !f.dataset.src) return;
+      liveNow = wrap;
+      f.addEventListener('load', function () { if (active === wrap) wrap.classList.add('live-on'); }, { once: true });
+      f.setAttribute('src', f.dataset.src);
+    }
+    wraps.forEach(function (wrap) {
+      var t;
+      wrap.addEventListener('pointerenter', function (e) {
+        if (e.pointerType && e.pointerType !== 'mouse') return;
+        var st = wrap.closest('.pstage');
+        if (st && parseFloat(st.dataset.p || 0) > 0.04) return;
+        t = setTimeout(function () { mount(wrap); }, 400);
+      });
+      wrap.addEventListener('pointerleave', function () { clearTimeout(t); release(); });
+    });
   })();
+
+  // ── portfolio card cursor spotlight ──
+  document.querySelectorAll('.pcard').forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--px', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--py', (e.clientY - r.top) + 'px');
+    });
+  });
 
   // ── video testimonial lightbox ──
   (function () {
