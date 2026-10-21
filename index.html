@@ -40,15 +40,18 @@
   .ch--dark .ch-soft { color: var(--fb-dark-ink-soft); }
   .ch-soft { color: var(--sc-ink-soft); }
 
-  /* ---------- real top nav (ported from the live site) ---------- */
+  /* ---------- real top nav: floating frosted-glass pill ---------- */
   nav.site-nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 500;
-    background: rgba(250,249,246,0.93);
-    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(28,25,23,0.07);
-    height: 74px; display: flex; align-items: center;
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 500;
+    width: calc(100% - 40px); max-width: 1180px;
+    background: rgba(250,249,246,0.55);
+    backdrop-filter: blur(20px) saturate(1.6); -webkit-backdrop-filter: blur(20px) saturate(1.6);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 999px;
+    box-shadow: 0 8px 32px rgba(28,25,23,0.12), inset 0 1px 0 rgba(255,255,255,0.5);
+    height: 66px; display: flex; align-items: center;
   }
-  .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; width: 100%; }
+  .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 8px 0 26px; display: flex; align-items: center; justify-content: space-between; width: 100%; }
   .nav-logo { font-family: var(--sc-font-logo); font-weight: 800; font-size: 20px; letter-spacing: -0.03em; color: var(--sc-ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
   .nav-logo span { color: var(--sc-accent); }
   .nav-links { display: flex; align-items: center; gap: 28px; }
@@ -61,7 +64,7 @@
   nav.site-nav.open .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   nav.site-nav.open .nav-hamburger span:nth-child(2) { opacity: 0; }
   nav.site-nav.open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .nav-mobile-drawer { display: none; position: fixed; top: 74px; left: 0; right: 0; background: var(--sc-canvas); border-top: 1px solid rgba(28,25,23,0.08); padding: 8px 24px 28px; flex-direction: column; box-shadow: 0 16px 48px rgba(28,25,23,0.13); z-index: 499; }
+  .nav-mobile-drawer { display: none; position: fixed; top: 92px; left: 20px; right: 20px; background: rgba(250,249,246,0.92); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 8px 24px 20px; flex-direction: column; box-shadow: 0 16px 48px rgba(28,25,23,0.18); z-index: 499; }
   .nav-mobile-drawer a.nav-mob-link { font-family: var(--sc-font-text); font-size: 17px; font-weight: 500; color: var(--sc-ink); text-decoration: none; padding: 15px 0; display: block; border-bottom: 1px solid rgba(28,25,23,0.06); }
   .nav-mob-ctas { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
   .nav-mob-ctas .btn { justify-content: center; width: 100%; }
@@ -81,9 +84,10 @@
   }
 
   /* ---------- hero: orange-into-black gradient, centred, text only ---------- */
+  .hero__inner { width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center; }
   .hero {
     min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: calc(74px + var(--sc-9)) var(--sc-gutter) var(--sc-8);
+    padding: calc(100px + var(--sc-9)) var(--sc-gutter) var(--sc-8);
     position: relative; overflow: hidden;
     background: radial-gradient(ellipse 110% 95% at 50% 0%, var(--sc-accent-lt) 0%, var(--sc-accent) 12%, var(--sc-accent-dk) 30%, var(--fb-dark-canvas) 100%);
     color: var(--fb-dark-ink); text-align: center;
@@ -92,19 +96,19 @@
   .hero__kicker::before, .hero__kicker::after { content: ''; width: 24px; height: 1px; background: currentColor; opacity: 0.6; }
   .hero h1 {
     font-family: var(--sc-font-display); font-weight: 800;
-    font-size: clamp(2.1rem, 1.3rem + 3.2vw, 3.6rem); line-height: 1.08;
-    letter-spacing: -0.025em; max-width: 17ch; margin: 0 auto var(--sc-5);
+    font-size: clamp(2.6rem, 1.4rem + 4.8vw, 4.6rem); line-height: 1.05;
+    letter-spacing: -0.025em; max-width: 23ch; margin: 0 auto var(--sc-5);
     text-wrap: balance; color: var(--fb-dark-ink);
   }
-  .hero p.lede { font-family: var(--sc-font-text); font-size: 16px; line-height: 1.6; color: rgba(250,249,246,0.75); max-width: 42ch; margin: 0 auto var(--sc-7); text-wrap: pretty; }
+  .hero p.lede { font-family: var(--sc-font-text); font-size: 17px; line-height: 1.6; color: rgba(250,249,246,0.75); max-width: 46ch; margin: 0 auto var(--sc-7); text-wrap: pretty; }
   .hero__badges { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
   .badge { display: inline-flex; align-items: center; gap: 7px; padding: 8px 15px; border-radius: 999px; background: rgba(28,25,23,0.22); border: 1px solid rgba(250,249,246,0.22); font-family: var(--sc-font-text); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fb-dark-ink); white-space: nowrap; }
   .badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--fb-dark-ink); flex: none; }
   .hero__cta {
-    display: inline-flex; align-items: center; gap: 12px; margin-top: var(--sc-7);
+    display: inline-flex; align-items: center; justify-content: center; gap: 16px; margin-top: var(--sc-7);
     background: var(--fb-dark-ink); color: var(--fb-dark-canvas);
-    padding: 8px 8px 8px 26px; border-radius: 999px;
-    font-family: var(--sc-font-text); font-weight: 600; font-size: 15px;
+    padding: 9px 9px 9px 42px; min-width: 230px; border-radius: 999px;
+    font-family: var(--sc-font-text); font-weight: 600; font-size: 16px;
     text-decoration: none; cursor: pointer; border: none;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
@@ -114,7 +118,20 @@
     background: var(--fb-dark-canvas); color: var(--fb-dark-ink);
     display: flex; align-items: center; justify-content: center;
   }
-  @media (max-width: 760px) { .hero p.lede { font-size: 14px; } }
+  @media (max-width: 760px) { .hero p.lede { font-size: 14px; } .hero__cta { min-width: 0; width: 100%; max-width: 280px; } }
+
+  /* ---------- hero logo ticker ---------- */
+  .hero__ticker-wrap { margin-top: var(--sc-9); width: 100%; max-width: 920px; }
+  .hero__ticker-label { font-family: var(--sc-font-text); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(250,249,246,0.45); margin-bottom: 18px; }
+  .ticker-track { overflow: hidden; mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%); }
+  .ticker-row { display: flex; width: max-content; align-items: center; gap: 56px; animation: tickerLeft 28s linear infinite; }
+  .ticker-row:hover { animation-play-state: paused; }
+  .ticker-item { flex-shrink: 0; display: flex; align-items: center; height: 26px; filter: grayscale(1) brightness(1.7) contrast(0.85); opacity: 0.5; transition: filter 0.3s, opacity 0.3s; }
+  .ticker-item:hover { filter: none; opacity: 1; }
+  .ticker-item img { height: 100%; width: auto; max-width: 120px; object-fit: contain; }
+  .ticker-item.text { font-family: var(--sc-font-text); font-weight: 700; font-size: 14px; letter-spacing: -0.01em; color: var(--fb-dark-ink); white-space: nowrap; height: auto; filter: none; opacity: 0.5; }
+  .ticker-item.text:hover { opacity: 1; }
+  @keyframes tickerLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* ---------- generic chapter chrome ---------- */
   .ch-wrap { max-width: var(--sc-maxw); margin: 0 auto; padding: var(--sc-10) var(--sc-gutter); }
@@ -126,17 +143,49 @@
 
   /* ---------- chapter I: the problem ---------- */
   .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sc-6); margin-top: var(--sc-8); }
-  .stat { background: var(--fb-dark-surface); border-radius: 14px; padding: var(--sc-6) var(--sc-5); border: 1px solid rgba(250,249,246,0.08); }
-  .stat .sc-nums { font-family: var(--sc-font-display); font-size: var(--sc-t-3xl); font-weight: 900; letter-spacing: -0.03em; color: var(--sc-accent-lt); display: block; }
-  .stat p { font-family: var(--sc-font-text); font-size: 14px; color: var(--fb-dark-ink-soft); line-height: 1.5; margin-top: var(--sc-3); max-width: 28ch; }
+  .stat {
+    position: relative; overflow: hidden; background: var(--fb-dark-surface);
+    border-radius: 14px; padding: var(--sc-6) var(--sc-5);
+    border: 1px solid rgba(250,249,246,0.08);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .stat::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+    background: radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(232,101,42,0.18), transparent 65%);
+    transition: opacity 0.3s;
+  }
+  .stat:hover { border-color: rgba(232,101,42,0.35); }
+  .stat:hover::after { opacity: 1; }
+  .stat .sc-nums { position: relative; font-family: var(--sc-font-display); font-size: var(--sc-t-3xl); font-weight: 900; letter-spacing: -0.03em; color: var(--sc-accent-lt); display: block; }
+  .stat p { position: relative; font-family: var(--sc-font-text); font-size: 14px; color: var(--fb-dark-ink-soft); line-height: 1.5; margin-top: var(--sc-3); max-width: 28ch; }
   .stat-source { margin-top: var(--sc-7); font-size: 12px; color: var(--fb-dark-ink-soft); }
+  .leak-ticker {
+    margin-top: var(--sc-6); display: inline-flex; align-items: center; gap: 12px;
+    background: rgba(232,101,42,0.08); border: 1px solid rgba(232,101,42,0.25);
+    border-radius: 999px; padding: 10px 20px 10px 16px;
+  }
+  .leak-ticker__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sc-accent); flex: none; animation: leakPulse 1.6s ease-in-out infinite; }
+  @keyframes leakPulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.8); } }
+  .leak-ticker span { font-family: var(--sc-font-text); font-size: 13px; color: var(--fb-dark-ink-soft); }
+  .leak-ticker strong { font-family: var(--sc-font-display); font-weight: 800; color: var(--fb-dark-ink); font-variant-numeric: tabular-nums; }
   @media (max-width: 760px) { .stat-row { grid-template-columns: 1fr; gap: var(--sc-4); } }
 
-  /* ---------- chapter II: web design gallery ---------- */
+  /* ---------- chapter II: web design gallery — two-layer hover-scroll preview ---------- */
   .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sc-7) var(--sc-6); margin-top: var(--sc-8); }
   .gallery figure { margin: 0; }
   .gallery__frame { position: relative; overflow: hidden; border-radius: 10px; aspect-ratio: 16/10; background: var(--sc-surface); box-shadow: 0 10px 30px rgba(28,25,23,0.1); }
-  .gallery__frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gallery__reel {
+    position: absolute; top: 0; left: 0; width: 100%; height: auto; display: block; will-change: transform;
+    transform: translateY(0); transition: transform 0.6s ease;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .gallery__frame:hover .gallery__reel { transform: translateY(calc(-1 * var(--scrub-dist, 0px))); transition: transform var(--scrub-dur, 9s) linear; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gallery__frame:hover .gallery__reel { transform: translateY(0) !important; transition: none !important; }
+  }
+  .gallery__tag { position: absolute; top: 14px; right: 14px; font-family: var(--sc-font-text); font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #34d399; background: rgba(28,25,23,0.75); border: 1px solid rgba(52,211,153,0.4); border-radius: 20px; padding: 5px 11px; display: flex; align-items: center; gap: 6px; z-index: 2; pointer-events: none; }
+  .gallery__tag-dot { width: 6px; height: 6px; border-radius: 50%; background: #34d399; animation: leakPulse 2s ease-in-out infinite; }
   .gallery figcaption { margin-top: var(--sc-3); font-family: var(--sc-font-text); }
   .gallery figcaption .name { font-family: var(--sc-font-display); font-weight: 700; font-size: var(--sc-t-lg); display: block; }
   .gallery figcaption .meta { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sc-ink-soft); }
@@ -175,15 +224,32 @@
   .logos img:hover { filter: none; opacity: 1; }
   @media (max-width: 760px) { .person .role { font-size: 10px; } }
 
-  /* ---------- testimonials ---------- */
-  .testi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sc-6); margin-top: var(--sc-8); }
-  .testi { background: var(--sc-surface); border-radius: 14px; padding: var(--sc-6); display: flex; flex-direction: column; }
-  .testi__stars { color: var(--sc-accent); font-size: 13px; letter-spacing: 0.1em; margin-bottom: var(--sc-4); }
-  .testi p.quote { font-family: var(--sc-font-text); font-size: 14px; line-height: 1.65; color: var(--sc-ink); flex: 1; }
-  .testi__who { margin-top: var(--sc-5); padding-top: var(--sc-4); border-top: 1px solid rgba(28,25,23,0.1); font-family: var(--sc-font-text); }
-  .testi__who strong { display: block; font-family: var(--sc-font-display); font-size: var(--sc-t-lg); font-weight: 800; }
-  .testi__who span { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sc-ink-soft); }
-  @media (max-width: 900px) { .testi-row { grid-template-columns: 1fr; } }
+  /* ---------- video testimonials ---------- */
+  .vtest-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sc-6); margin-top: var(--sc-8); }
+  .vcard { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid rgba(28,25,23,0.1); aspect-ratio: 16/9; cursor: pointer; background: var(--sc-surface); transition: border-color 0.3s, transform 0.3s; }
+  .vcard:hover { border-color: var(--sc-accent); transform: translateY(-4px); }
+  .vcard-thumb { position: absolute; inset: 0; }
+  .vcard-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .vcard-thumb::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,25,23,0.85) 0%, rgba(28,25,23,0.15) 55%, transparent 75%); }
+  .vcard-info { position: absolute; left: 16px; bottom: 14px; z-index: 2; color: #fff; }
+  .vcard-name { font-family: var(--sc-font-display); font-weight: 800; font-size: 15px; }
+  .vcard-role { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+  .vcard-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 56px; height: 56px; border-radius: 50%; background: rgba(232,101,42,0.92); display: flex; align-items: center; justify-content: center; transition: transform 0.25s ease, background 0.25s; z-index: 2; }
+  .vcard-play svg { width: 18px; height: 18px; fill: #fff; margin-left: 3px; }
+  .vcard:hover .vcard-play { transform: translate(-50%,-50%) scale(1.1); background: var(--sc-accent); }
+  .vcard-dur { position: absolute; top: 12px; right: 12px; background: rgba(28,25,23,0.75); color: #fff; font-size: 10.5px; font-weight: 600; letter-spacing: 0.04em; padding: 4px 8px; border-radius: 4px; z-index: 2; text-transform: uppercase; }
+  @media (max-width: 900px) { .vtest-row { grid-template-columns: 1fr; } }
+
+  /* video lightbox */
+  .vlb { position: fixed; inset: 0; background: rgba(4,4,3,0.92); z-index: 9500; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .vlb.open { opacity: 1; pointer-events: auto; }
+  .vlb-box { width: 100%; max-width: 900px; aspect-ratio: 16/9; background: var(--fb-dark-surface); border-radius: 12px; overflow: hidden; position: relative; border: 1px solid rgba(250,249,246,0.1); }
+  .vlb-box.has-video { max-width: none; max-height: 85vh; width: auto; aspect-ratio: auto; background: none; border: none; }
+  .vlb-close { position: absolute; top: -44px; right: 0; background: none; border: none; color: #fff; font-size: 30px; cursor: pointer; line-height: 1; padding: 4px; }
+  .vlb-box iframe { width: 100%; height: 100%; border: 0; position: absolute; inset: 0; }
+  .vlb-box video { display: block; max-width: 85vw; max-height: 85vh; width: auto; height: auto; border-radius: 12px; background: #000; }
+  .vlb-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--fb-dark-ink-soft); text-align: center; padding: 20px; }
+  .vlb-placeholder strong { color: var(--fb-dark-ink); font-size: 18px; font-family: var(--sc-font-display); }
 
   /* ---------- faq accordion ---------- */
   .faq { margin-top: var(--sc-8); border-top: 1px solid rgba(28,25,23,0.1); }
@@ -276,7 +342,7 @@
 
   <!-- 0 · HERO -->
   <section class="hero" id="hero">
-    <div data-sc-in data-sc-stagger="90">
+    <div class="hero__inner" data-sc-in data-sc-stagger="90">
       <p class="hero__kicker">Websites &amp; AI Systems &middot; Ireland</p>
       <h1 data-sc-kinetic="lines">The definitive growth partner for fast-moving companies.</h1>
       <p class="lede">Two things grow a business: a site that makes people stop, and systems that make sure every visitor becomes a customer. We design the websites and build the AI automations &mdash; done for you, and yours to keep.</p>
@@ -291,6 +357,22 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
       </button>
+      <div class="hero__ticker-wrap">
+        <p class="hero__ticker-label">Businesses we've worked with</p>
+        <div class="ticker-track">
+          <div class="ticker-row" id="heroTicker">
+            <div class="ticker-item"><img src="client-logos/smith-architects.png" loading="lazy" alt="Niall Smith Architects"></div>
+            <div class="ticker-item text">Prestige Barbers</div>
+            <div class="ticker-item"><img src="client-logos/rf-electrical.png" loading="lazy" alt="RF Electrical"></div>
+            <div class="ticker-item text">Rackzz Pool Club</div>
+            <div class="ticker-item"><img src="client-logos/home-perfection.png" loading="lazy" alt="Home Perfection Renovations"></div>
+            <div class="ticker-item text">Barbells &amp; Babies</div>
+            <div class="ticker-item"><img src="client-logos/m-recovery.png" loading="lazy" alt="MD Revenue Recovery"></div>
+            <div class="ticker-item text">Meade Performance Coaching</div>
+            <div class="ticker-item text">My Farewell Wishes</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -301,20 +383,24 @@
       <h2 class="ch-head" data-sc-in>Two reasons you're not growing.</h2>
       <p class="ch-body ch-soft" data-sc-in>Too few conversations, or too many wasted. Most businesses that come to us aren't short of enquiries &mdash; they're losing deals in the gap between the enquiry and the signature.</p>
       <div class="stat-row">
-        <div class="stat" data-sc-in>
+        <div class="stat" data-sc-in data-sc-tilt="4">
           <span class="sc-nums"><span data-sc-count="0 78">0</span>%</span>
           <p>of buyers go with the first company to respond &mdash; not the cheapest, the fastest.</p>
         </div>
-        <div class="stat" data-sc-in>
+        <div class="stat" data-sc-in data-sc-tilt="4">
           <span class="sc-nums"><span data-sc-count="0 4.3">0</span>hrs</span>
           <p>average time a service business takes to answer a new enquiry.</p>
         </div>
-        <div class="stat" data-sc-in>
+        <div class="stat" data-sc-in data-sc-tilt="4">
           <span class="sc-nums">&euro;<span data-sc-count="0 47">0</span>K</span>
           <p>estimated annual revenue lost to quote &amp; follow-up failure at a mid-sized business.</p>
         </div>
       </div>
       <p class="stat-source" data-sc-in>Based on B2B lead-management benchmarks across service industries, 2025.</p>
+      <div class="leak-ticker" data-sc-in>
+        <span class="leak-ticker__dot" aria-hidden="true"></span>
+        <span>Leaking away right now, somewhere out there: <strong id="liveLeakCounter">&euro;0</strong></span>
+      </div>
     </div>
   </section>
 
@@ -327,19 +413,31 @@
 
       <div class="gallery">
         <figure data-sc-reveal="up" data-sc-reveal-at="0.05 0.4">
-          <div class="gallery__frame"><img src="web-design/screenshots/sa-architects-hero.webp" loading="lazy" alt="SA Architects website" data-leak-tick="site"></div>
+          <div class="gallery__frame scrub-frame">
+            <span class="gallery__tag"><span class="gallery__tag-dot"></span>Live</span>
+            <img class="gallery__reel" src="web-design/screenshots/smith-associates-arch-full.jpg" width="1440" height="3860" loading="lazy" alt="SA Architects website, full page" data-leak-tick="site">
+          </div>
           <figcaption><span class="name">SA Architects</span><span class="meta">Architecture &middot; Live</span></figcaption>
         </figure>
         <figure data-sc-reveal="up" data-sc-reveal-at="0.1 0.45">
-          <div class="gallery__frame"><img src="web-design/screenshots/prestige-barbers-hero.webp" loading="lazy" alt="Prestige Barbers website" data-leak-tick="site"></div>
+          <div class="gallery__frame scrub-frame">
+            <span class="gallery__tag"><span class="gallery__tag-dot"></span>Live</span>
+            <img class="gallery__reel" src="web-design/screenshots/prestige-barbers-full.jpg" width="1440" height="7766" loading="lazy" alt="Prestige Barbers website, full page" data-leak-tick="site">
+          </div>
           <figcaption><span class="name">Prestige Barbers</span><span class="meta">Barbershop &middot; Live</span></figcaption>
         </figure>
         <figure data-sc-reveal="up" data-sc-reveal-at="0.15 0.5">
-          <div class="gallery__frame"><img src="web-design/screenshots/rackzz-pool-club-hero.webp" loading="lazy" alt="Rackzz Pool Club website" data-leak-tick="site"></div>
+          <div class="gallery__frame scrub-frame">
+            <span class="gallery__tag"><span class="gallery__tag-dot"></span>Live</span>
+            <img class="gallery__reel" src="web-design/screenshots/rackzz-pool-club-full.jpg" width="1440" height="6836" loading="lazy" alt="Rackzz Pool Club website, full page" data-leak-tick="site">
+          </div>
           <figcaption><span class="name">Rackzz Pool Club</span><span class="meta">Leisure &middot; Live</span></figcaption>
         </figure>
         <figure data-sc-reveal="up" data-sc-reveal-at="0.2 0.55">
-          <div class="gallery__frame"><img src="web-design/screenshots/ab-home-perfection-hero.webp" loading="lazy" alt="AB Home Perfection website" data-leak-tick="site"></div>
+          <div class="gallery__frame scrub-frame">
+            <span class="gallery__tag"><span class="gallery__tag-dot"></span>Live</span>
+            <img class="gallery__reel" src="web-design/screenshots/ab-home-perfection-full.jpg" width="1440" height="6117" loading="lazy" alt="AB Home Perfection website, full page" data-leak-tick="site">
+          </div>
           <figcaption><span class="name">AB Home Perfection</span><span class="meta">Renovation &middot; Live</span></figcaption>
         </figure>
       </div>
@@ -373,21 +471,24 @@
     <div class="ch-wrap">
       <p class="ch-eyebrow">What Our Clients Say</p>
       <h2 class="ch-head" data-sc-in>Real results. Real businesses.</h2>
-      <div class="testi-row" data-sc-in data-sc-stagger="80">
-        <div class="testi">
-          <div class="testi__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="quote">&ldquo;We were living off referrals and the odd bit of LinkedIn, so some months were great and some were dead quiet. The first qualified meetings landed inside a fortnight, and I'm not the one chasing them anymore. I just turn up to the calls.&rdquo;</p>
-          <div class="testi__who"><strong>MD</strong><span>MD Revenue Recovery</span></div>
+      <div class="vtest-row" data-sc-in data-sc-stagger="80">
+        <div class="vcard" data-yt="abNIa5-ee1A">
+          <div class="vcard-thumb"><img src="web-design/testimonials/barbell-babies.jpg" loading="lazy" alt="Barbell &amp; Babies client testimonial thumbnail"></div>
+          <div class="vcard-dur">1:53</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="vcard-info"><div class="vcard-name">Barbell &amp; Babies</div><div class="vcard-role">Health Professional</div></div>
         </div>
-        <div class="testi">
-          <div class="testi__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="quote">&ldquo;Half our day is up a ladder or in the van, so calls got missed and quotes went out and never got followed up. Now every enquiry gets a reply straight away and the chasing happens on its own.&rdquo;</p>
-          <div class="testi__who"><strong>RF</strong><span>RF Electrical</span></div>
+        <div class="vcard" data-video="web-design/testimonials/liquid-consulting.mp4">
+          <div class="vcard-thumb"><img src="web-design/testimonials/liquid-consulting.jpg" loading="lazy" alt="Liquid Consulting client testimonial thumbnail"></div>
+          <div class="vcard-dur">0:29</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="vcard-info"><div class="vcard-name">Daniel</div><div class="vcard-role">Liquid Consulting</div></div>
         </div>
-        <div class="testi">
-          <div class="testi__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="quote">&ldquo;I was doing all the admin myself between sessions, meaning to get back to people and forgetting. FlowBuild automated the follow-up and went back through old enquiries I'd written off completely. Bookings are up and I've got my evenings back.&rdquo;</p>
-          <div class="testi__who"><strong>BB</strong><span>Barbells &amp; Babies</span></div>
+        <div class="vcard" data-video="web-design/testimonials/otk-logistics.mp4">
+          <div class="vcard-thumb"><img src="web-design/testimonials/otk-logistics.jpg" loading="lazy" alt="OTK Logistics client testimonial thumbnail"></div>
+          <div class="vcard-dur">0:44</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="vcard-info"><div class="vcard-name">Oli</div><div class="vcard-role">OTK Logistics</div></div>
         </div>
       </div>
     </div>
@@ -491,6 +592,17 @@
 
 </main>
 
+<!-- Video testimonial lightbox -->
+<div class="vlb" id="vlb">
+  <div class="vlb-box" id="vlbBox">
+    <button class="vlb-close" id="vlbClose" aria-label="Close video">&times;</button>
+    <div class="vlb-placeholder">
+      <strong>Video coming soon</strong>
+      <span>This client testimonial hasn't been recorded yet.</span>
+    </div>
+  </div>
+</div>
+
 <!-- Booking modal -->
 <div id="booking-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.82);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
   <div style="position:relative;width:90%;max-width:720px;height:82vh;background:#1C1917;border-radius:12px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.6);">
@@ -520,6 +632,118 @@
   });
   function toggleNav() { document.getElementById('siteNav').classList.toggle('open'); }
   function closeNav() { document.getElementById('siteNav').classList.remove('open'); }
+
+  // ── hero logo ticker: duplicate once for a seamless -50% loop ──
+  (function () {
+    var tr = document.getElementById('heroTicker');
+    if (tr) tr.insertAdjacentHTML('beforeend', tr.innerHTML);
+  })();
+
+  // ── live "leaking away right now" counter ──
+  (function () {
+    var el = document.getElementById('liveLeakCounter');
+    if (!el) return;
+    var ANNUAL = 47000;
+    var perMs = ANNUAL / (365 * 24 * 60 * 60 * 1000);
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var running = false, startTime = 0, startValue = Math.random() * 300;
+    function fmt(v) { return '€' + Math.floor(v).toLocaleString('en-IE'); }
+    function tick(now) {
+      if (!running) return;
+      var elapsed = now - startTime;
+      el.textContent = fmt(startValue + elapsed * perMs);
+      requestAnimationFrame(tick);
+    }
+    var target = document.getElementById('ch-problem');
+    if (target && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !running) {
+            running = true;
+            startTime = performance.now();
+            if (reduced) { el.textContent = fmt(startValue); return; }
+            requestAnimationFrame(tick);
+          } else if (!entry.isIntersecting) {
+            running = false;
+          }
+        });
+      }, { threshold: 0.3 }).observe(target);
+    } else {
+      el.textContent = fmt(startValue);
+    }
+  })();
+
+  // ── web design gallery: hover-scroll two-layer preview ──
+  (function () {
+    var frames = Array.from(document.querySelectorAll('.gallery__frame.scrub-frame'));
+    if (!frames.length) return;
+    function measure() {
+      frames.forEach(function (f) {
+        var img = f.querySelector('.gallery__reel');
+        if (!img || !img.naturalWidth) return;
+        var frameH = f.clientHeight;
+        var imgH = f.clientWidth * (img.naturalHeight / img.naturalWidth);
+        var dist = Math.max(0, imgH - frameH);
+        f.style.setProperty('--scrub-dist', dist.toFixed(0) + 'px');
+        var dur = Math.min(16, Math.max(6, dist / 220));
+        f.style.setProperty('--scrub-dur', dur.toFixed(1) + 's');
+      });
+    }
+    frames.forEach(function (f) {
+      var img = f.querySelector('.gallery__reel');
+      if (img.complete && img.naturalWidth) measure();
+      else img.addEventListener('load', measure, { once: true });
+    });
+    window.addEventListener('resize', measure, { passive: true });
+  })();
+
+  // ── video testimonial lightbox ──
+  (function () {
+    var vlb = document.getElementById('vlb');
+    var vlbBox = document.getElementById('vlbBox');
+    if (!vlb || !vlbBox) return;
+    var closeBtn = document.getElementById('vlbClose');
+    function closeLb() {
+      vlb.classList.remove('open');
+      document.body.style.overflow = '';
+      var frame = vlbBox.querySelector('iframe');
+      if (frame) frame.remove();
+      var video = vlbBox.querySelector('video');
+      if (video) { video.pause(); video.remove(); }
+      vlbBox.classList.remove('has-video');
+      var ph = vlbBox.querySelector('.vlb-placeholder');
+      if (ph) ph.style.display = 'flex';
+    }
+    document.querySelectorAll('.vcard').forEach(function (card) {
+      card.addEventListener('click', function () {
+        var ytId = card.dataset.yt;
+        var videoSrc = card.dataset.video;
+        var ph = vlbBox.querySelector('.vlb-placeholder');
+        if (ytId) {
+          if (ph) ph.style.display = 'none';
+          var iframe = document.createElement('iframe');
+          iframe.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1';
+          iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+          iframe.allowFullscreen = true;
+          vlbBox.appendChild(iframe);
+        } else if (videoSrc) {
+          if (ph) ph.style.display = 'none';
+          vlbBox.classList.add('has-video');
+          var video = document.createElement('video');
+          video.src = videoSrc;
+          video.controls = true;
+          video.autoplay = true;
+          video.playsInline = true;
+          vlbBox.appendChild(video);
+        }
+        vlb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    closeBtn.addEventListener('click', closeLb);
+    vlb.addEventListener('click', function (e) { if (e.target === vlb) closeLb(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && vlb.classList.contains('open')) closeLb(); });
+  })();
 
   (function () {
     var darkSections = Array.from(document.querySelectorAll('.ch--dark, .hero'));
