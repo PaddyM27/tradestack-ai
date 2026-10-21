@@ -16,3 +16,5 @@ business-plan.html
 
 # Claude config
 .claude/
+.vercel
+.env*

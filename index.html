@@ -5,26 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>FlowBuild AI — Websites and AI systems for fast-moving businesses</title>
 <meta name="description" content="FlowBuild AI designs websites and builds the AI systems that make sure every visitor becomes a customer. Done for you, and yours to keep.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23C23B24'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23E8652A'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,460;0,9..144,560;1,9..144,420&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="scrollcraft.css">
 <style>
   :root {
-    --sc-canvas:      #F1EAD9;
-    --sc-surface:     #E8DFC9;
-    --sc-ink:         #1C1712;
-    --sc-ink-soft:    #6B6153;
-    --sc-accent:      #C23B24;
-    --sc-accent-ink:  #FBF4E8;
-    --sc-font-display: "Fraunces", Georgia, serif;
-    --sc-font-text:    "Archivo", system-ui, sans-serif;
+    --sc-canvas:      #FAF9F6;
+    --sc-surface:     #EDE8DF;
+    --sc-ink:         #1C1917;
+    --sc-ink-soft:    #7A726D;
+    --sc-accent:      #E8652A;
+    --sc-accent-dk:   #C4501B;
+    --sc-accent-lt:   #F5804A;
+    --sc-accent-ink:  #FFFFFF;
+    --sc-font-display: "Inter Tight", sans-serif;
+    --sc-font-text:    "Inter Tight", sans-serif;
+    --sc-font-logo:    "Syne", sans-serif;
 
-    --fb-dark-canvas:  #19140F;
-    --fb-dark-surface: #231C14;
-    --fb-dark-ink:     #F1EAD9;
-    --fb-dark-ink-soft:#A89C87;
+    --fb-dark-canvas:  #1C1917;
+    --fb-dark-surface: #2A2521;
+    --fb-dark-ink:     #FAF9F6;
+    --fb-dark-ink-soft:#B3A99D;
   }
 
   * { box-sizing: border-box; }
@@ -33,238 +36,201 @@
 
   .ch { background: var(--sc-canvas); color: var(--sc-ink); }
   .ch--dark { background: var(--fb-dark-canvas); color: var(--fb-dark-ink); }
-  .ch--dark .ch-eyebrow,
-  .ch--dark .ch-folio-num { color: var(--sc-accent); }
+  .ch--dark .ch-eyebrow { color: var(--sc-accent-lt); }
   .ch--dark .ch-soft { color: var(--fb-dark-ink-soft); }
   .ch-soft { color: var(--sc-ink-soft); }
 
-  /* ---------- margin folio nav: a running head, not a menu ---------- */
-  .folio {
-    position: fixed; z-index: var(--sc-z-chrome);
-    left: var(--sc-5); bottom: var(--sc-5);
-    font-family: var(--sc-font-text);
-    pointer-events: none;
-    opacity: 0; transition: opacity 400ms var(--sc-ease-out);
-    background: color-mix(in oklab, var(--sc-canvas) 80%, transparent);
-    backdrop-filter: blur(8px);
-    border-radius: var(--sc-r-pill);
-    padding: 9px 16px;
-    box-shadow: var(--sc-e1);
+  /* ---------- real top nav (ported from the live site) ---------- */
+  nav.site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+    background: rgba(250,249,246,0.93);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(28,25,23,0.07);
+    height: 74px; display: flex; align-items: center;
   }
-  body.on-dark .folio { background: color-mix(in oklab, var(--fb-dark-canvas) 80%, transparent); }
-  .folio.is-visible { opacity: 1; }
-  .folio:not(.is-visible) .folio__row { pointer-events: none; }
-  .folio__row { display: none; align-items: baseline; gap: 10px; pointer-events: auto; white-space: nowrap; }
-  .folio__row[data-active="true"] { display: flex; }
-  .folio__num {
-    font-size: 11px; letter-spacing: var(--sc-track-wide); color: var(--sc-accent);
-  }
-  .folio__title {
-    font-size: 12px; letter-spacing: var(--sc-track-wide); text-transform: uppercase;
-    color: var(--sc-ink); font-weight: 600; text-decoration: none;
-  }
-  body.on-dark .folio__title { color: var(--fb-dark-ink); }
-  @media (max-width: 760px) {
-    .folio { left: 50%; transform: translateX(-50%); bottom: var(--sc-4); }
+  .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; width: 100%; }
+  .nav-logo { font-family: var(--sc-font-logo); font-weight: 800; font-size: 20px; letter-spacing: -0.03em; color: var(--sc-ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  .nav-logo span { color: var(--sc-accent); }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a { font-family: var(--sc-font-text); font-size: 14px; font-weight: 500; color: var(--sc-ink); text-decoration: none; transition: color 0.2s; opacity: 0.75; white-space: nowrap; }
+  .nav-links a:hover { color: var(--sc-accent); opacity: 1; }
+  .nav-cta { display: flex; align-items: center; gap: 12px; }
+  .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; flex-direction: column; gap: 5px; align-items: flex-end; }
+  .nav-hamburger span { display: block; height: 2px; background: var(--sc-ink); border-radius: 2px; transition: transform 0.25s ease, opacity 0.2s ease; }
+  .nav-hamburger span:nth-child(1) { width: 22px; } .nav-hamburger span:nth-child(2) { width: 15px; } .nav-hamburger span:nth-child(3) { width: 22px; }
+  nav.site-nav.open .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  nav.site-nav.open .nav-hamburger span:nth-child(2) { opacity: 0; }
+  nav.site-nav.open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mobile-drawer { display: none; position: fixed; top: 74px; left: 0; right: 0; background: var(--sc-canvas); border-top: 1px solid rgba(28,25,23,0.08); padding: 8px 24px 28px; flex-direction: column; box-shadow: 0 16px 48px rgba(28,25,23,0.13); z-index: 499; }
+  .nav-mobile-drawer a.nav-mob-link { font-family: var(--sc-font-text); font-size: 17px; font-weight: 500; color: var(--sc-ink); text-decoration: none; padding: 15px 0; display: block; border-bottom: 1px solid rgba(28,25,23,0.06); }
+  .nav-mob-ctas { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+  .nav-mob-ctas .btn { justify-content: center; width: 100%; }
+  nav.site-nav.open .nav-mobile-drawer { display: flex; }
+  .btn { display: inline-flex; align-items: center; gap: 9px; font-family: var(--sc-font-text); font-weight: 700; letter-spacing: 0.01em; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; white-space: nowrap; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease; }
+  .btn:active { transform: translateY(1px); }
+  .btn-amber { background: var(--sc-accent); color: #fff; font-size: 14px; padding: 12px 20px; box-shadow: 0 2px 0 var(--sc-accent-dk), 0 6px 20px rgba(232,101,42,0.28); }
+  .btn-amber:hover { background: var(--sc-accent-dk); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--sc-ink); font-size: 14px; padding: 11px 18px; border: 1.5px solid rgba(28,25,23,0.18); }
+  .btn-outline:hover { border-color: var(--sc-accent); color: var(--sc-accent); background: rgba(232,101,42,0.04); }
+  @media (max-width: 980px) { .nav-links { display: none; } .nav-hamburger { display: flex; } .nav-cta .btn-outline-text { display: none; } }
+  @media (max-width: 480px) {
+    .nav-inner { padding: 0 20px; gap: 8px; }
+    .nav-logo { font-size: 15px; }
+    .nav-cta { gap: 8px; }
+    .nav-cta .btn-amber { font-size: 12.5px; padding: 9px 13px; }
   }
 
-  /* ---------- hero / title page ---------- */
+  /* ---------- hero: gradient, in brand colours ---------- */
   .hero {
     min-height: 100svh; display: flex; flex-direction: column; justify-content: center;
-    padding: var(--sc-9) var(--sc-gutter) var(--sc-8);
-    position: relative;
+    padding: calc(74px + var(--sc-9)) var(--sc-gutter) var(--sc-8);
+    position: relative; overflow: hidden;
+    background: var(--fb-dark-canvas); color: var(--fb-dark-ink);
   }
-  .hero__mark {
-    position: absolute; top: var(--sc-6); left: var(--sc-gutter);
-    font-family: var(--sc-font-display); font-weight: 560; font-size: 15px;
-    letter-spacing: var(--sc-track-normal);
+  .hero-aurora { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+  .aurora-blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.32; }
+  .ab1 { width: 620px; height: 520px; background: radial-gradient(ellipse, var(--sc-accent), transparent 70%); top: -160px; left: -140px; }
+  .ab2 { width: 520px; height: 420px; background: radial-gradient(ellipse, var(--sc-accent-dk), transparent 70%); bottom: -140px; right: -100px; }
+  .ab3 { width: 380px; height: 380px; background: radial-gradient(ellipse, var(--sc-accent-lt), transparent 70%); top: 35%; right: 12%; opacity: 0.18; }
+  @media (prefers-reduced-motion: no-preference) {
+    .ab1 { animation: auroraDrift 13s ease-in-out infinite alternate; }
+    .ab2 { animation: auroraDrift 16s ease-in-out 2s infinite alternate-reverse; }
+    .ab3 { animation: auroraDrift 10s ease-in-out 1s infinite alternate; }
   }
-  .hero__mark em { font-style: italic; color: var(--sc-accent); }
-  .hero__kicker {
-    font-family: var(--sc-font-text); font-size: 12px; letter-spacing: var(--sc-track-wide);
-    text-transform: uppercase; color: var(--sc-accent); margin-bottom: var(--sc-4);
-  }
+  @keyframes auroraDrift { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(30px,-20px) scale(1.08); } }
+  .hero > * { position: relative; z-index: 1; }
+  .hero__kicker { font-family: var(--sc-font-text); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sc-accent-lt); margin-bottom: var(--sc-4); display: flex; align-items: center; gap: 12px; }
+  .hero__kicker::before { content: ''; width: 24px; height: 1px; background: var(--sc-accent-lt); }
   .hero h1 {
-    font-family: var(--sc-font-display); font-weight: 460;
-    font-size: var(--sc-t-4xl); line-height: var(--sc-leading-none);
-    letter-spacing: var(--sc-track-tight); max-width: 20ch; margin: 0 0 var(--sc-5);
-    text-wrap: balance;
+    font-family: var(--sc-font-display); font-weight: 900;
+    font-size: var(--sc-t-4xl); line-height: 0.98;
+    letter-spacing: -0.03em; max-width: 19ch; margin: 0 0 var(--sc-5);
+    text-wrap: balance; color: var(--fb-dark-ink);
   }
-  .hero p.lede {
-    font-family: var(--sc-font-text); font-size: var(--sc-t-lg); line-height: 1.6;
-    color: var(--sc-ink-soft); max-width: 46ch; margin: 0 0 var(--sc-7); text-wrap: pretty;
-  }
+  .hero p.lede { font-family: var(--sc-font-text); font-size: var(--sc-t-lg); line-height: 1.6; color: var(--fb-dark-ink-soft); max-width: 46ch; margin: 0 0 var(--sc-7); text-wrap: pretty; }
   .hero__badges { display: flex; gap: 10px; flex-wrap: wrap; }
-  .badge {
-    display: inline-flex; align-items: center; gap: 7px; padding: 8px 15px;
-    border-radius: var(--sc-r-pill); background: var(--sc-surface);
-    border: 1px solid var(--sc-hairline-strong);
-    font-family: var(--sc-font-text); font-size: 12px; letter-spacing: var(--sc-track-wide);
-    text-transform: uppercase; color: var(--sc-ink); white-space: nowrap;
-  }
-  .badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sc-accent); flex: none; }
+  .badge { display: inline-flex; align-items: center; gap: 7px; padding: 8px 15px; border-radius: 999px; background: rgba(250,249,246,0.08); border: 1px solid rgba(250,249,246,0.16); font-family: var(--sc-font-text); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fb-dark-ink); white-space: nowrap; }
+  .badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sc-accent-lt); flex: none; }
 
   .hero__grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: var(--sc-8); align-items: center; }
   .hero__mock { position: relative; height: 380px; }
-  .mock-browser {
-    position: absolute; inset: 0 8% 14% 0; background: var(--sc-canvas);
-    border: 1px solid var(--sc-hairline-strong); border-radius: var(--sc-r-lg);
-    box-shadow: var(--sc-e3); overflow: hidden; transform: rotate(-3deg);
-  }
-  .mock-browser__bar { display: flex; gap: 6px; padding: 12px 16px; border-bottom: 1px solid var(--sc-hairline); }
+  .mock-browser { position: absolute; inset: 0 8% 14% 0; background: var(--sc-canvas); border: 1px solid rgba(28,25,23,0.1); border-radius: 14px; box-shadow: 0 30px 80px rgba(0,0,0,0.45); overflow: hidden; transform: rotate(-3deg); }
+  .mock-browser__bar { display: flex; gap: 6px; padding: 12px 16px; border-bottom: 1px solid rgba(28,25,23,0.08); }
   .mock-browser__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sc-ink-soft); opacity: 0.45; }
-  .mock-browser__hero { height: 34%; margin: 16px; border-radius: var(--sc-r-md); background: linear-gradient(135deg, color-mix(in oklab, var(--sc-accent) 85%, transparent), color-mix(in oklab, var(--sc-accent) 35%, var(--sc-surface))); }
+  .mock-browser__hero { height: 34%; margin: 16px; border-radius: 10px; background: linear-gradient(135deg, var(--sc-accent), var(--sc-accent-lt)); }
   .mock-browser__body { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 10px; }
   .mock-browser__line { height: 9px; border-radius: 4px; background: var(--sc-surface); }
   .mock-browser__line.w60 { width: 60%; } .mock-browser__line.w80 { width: 80%; } .mock-browser__line.w40 { width: 40%; }
-  .mock-chat {
-    position: absolute; left: 0; bottom: 0; width: 230px;
-    background: var(--fb-dark-canvas); color: var(--fb-dark-ink);
-    border-radius: var(--sc-r-md); padding: 15px 17px; box-shadow: var(--sc-e3);
-    transform: rotate(2deg);
-  }
+  .mock-chat { position: absolute; left: 0; bottom: 0; width: 230px; background: var(--fb-dark-surface); color: var(--fb-dark-ink); border-radius: 12px; padding: 15px 17px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: rotate(2deg); border: 1px solid rgba(250,249,246,0.08); }
   .mock-chat__top { display: flex; align-items: center; gap: 8px; font-family: var(--sc-font-text); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fb-dark-ink-soft); }
   .mock-chat__dot { width: 8px; height: 8px; border-radius: 50%; background: #6FCF97; }
   .mock-chat p { margin: 9px 0 0; font-family: var(--sc-font-text); font-size: 13px; line-height: 1.45; }
-  .mock-chat strong { color: var(--sc-accent); }
-  @media (prefers-reduced-motion: no-preference) {
-    .mock-chat { animation: fb-float 5s ease-in-out infinite; }
-  }
+  .mock-chat strong { color: var(--sc-accent-lt); }
+  @media (prefers-reduced-motion: no-preference) { .mock-chat { animation: fb-float 5s ease-in-out infinite; } }
   @keyframes fb-float { 0%, 100% { transform: rotate(2deg) translateY(0); } 50% { transform: rotate(2deg) translateY(-8px); } }
-  @media (max-width: 900px) {
-    .hero__grid { grid-template-columns: 1fr; }
-    .hero__mock { height: 300px; margin-top: var(--sc-6); }
-  }
-  @media (max-width: 760px) {
-    .hero { padding-top: var(--sc-10); }
-    .hero h1 { font-size: var(--sc-t-2xl); }
-  }
+  @media (max-width: 900px) { .hero__grid { grid-template-columns: 1fr; } .hero__mock { height: 300px; margin-top: var(--sc-6); } }
+  @media (max-width: 760px) { .hero h1 { font-size: var(--sc-t-2xl); } }
 
   /* ---------- generic chapter chrome ---------- */
   .ch-wrap { max-width: var(--sc-maxw); margin: 0 auto; padding: var(--sc-10) var(--sc-gutter); }
-  .ch-eyebrow { font-family: var(--sc-font-text); font-size: 12px; letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sc-accent); margin: 0 0 var(--sc-3); }
-  .ch-head { font-family: var(--sc-font-display); font-weight: 460; font-size: var(--sc-t-3xl); line-height: var(--sc-leading-tight); letter-spacing: var(--sc-track-tight); max-width: 16ch; margin: 0 0 var(--sc-6); text-wrap: balance; }
+  .ch-eyebrow { font-family: var(--sc-font-text); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sc-accent-dk); margin: 0 0 var(--sc-3); }
+  .ch-head { font-family: var(--sc-font-display); font-weight: 900; font-size: var(--sc-t-3xl); line-height: 1.04; letter-spacing: -0.03em; max-width: 16ch; margin: 0 0 var(--sc-6); text-wrap: balance; }
   .ch-body { font-family: var(--sc-font-text); font-size: var(--sc-t-base); line-height: var(--sc-leading-body); max-width: var(--sc-measure); }
-  .ch-link { color: var(--sc-ink); border-bottom: 1px solid var(--sc-accent); text-decoration: none; padding-bottom: 1px; }
+  .ch-link { color: var(--sc-ink); border-bottom: 1px solid var(--sc-accent); text-decoration: none; padding-bottom: 1px; font-weight: 600; }
   .ch-link:hover { color: var(--sc-accent); }
 
   /* ---------- chapter I: the problem ---------- */
   .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sc-6); margin-top: var(--sc-8); }
-  .stat { background: var(--fb-dark-surface); border-radius: var(--sc-r-lg); padding: var(--sc-6) var(--sc-5); border: 1px solid rgba(241,234,217,0.08); }
-  .stat .sc-nums { font-family: var(--sc-font-display); font-size: var(--sc-t-3xl); font-weight: 460; letter-spacing: var(--sc-track-tight); color: var(--sc-accent); display: block; }
+  .stat { background: var(--fb-dark-surface); border-radius: 14px; padding: var(--sc-6) var(--sc-5); border: 1px solid rgba(250,249,246,0.08); }
+  .stat .sc-nums { font-family: var(--sc-font-display); font-size: var(--sc-t-3xl); font-weight: 900; letter-spacing: -0.03em; color: var(--sc-accent-lt); display: block; }
   .stat p { font-family: var(--sc-font-text); font-size: 14px; color: var(--fb-dark-ink-soft); line-height: 1.5; margin-top: var(--sc-3); max-width: 28ch; }
-  .stat-source { margin-top: var(--sc-7); font-size: 12px; color: var(--fb-dark-ink-soft); font-style: italic; }
+  .stat-source { margin-top: var(--sc-7); font-size: 12px; color: var(--fb-dark-ink-soft); }
   @media (max-width: 760px) { .stat-row { grid-template-columns: 1fr; gap: var(--sc-4); } }
 
   /* ---------- chapter II: web design gallery ---------- */
   .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sc-7) var(--sc-6); margin-top: var(--sc-8); }
   .gallery figure { margin: 0; }
-  .gallery__frame { position: relative; overflow: hidden; border-radius: 2px; aspect-ratio: 16/10; background: var(--sc-surface); box-shadow: var(--sc-e2); }
+  .gallery__frame { position: relative; overflow: hidden; border-radius: 10px; aspect-ratio: 16/10; background: var(--sc-surface); box-shadow: 0 10px 30px rgba(28,25,23,0.1); }
   .gallery__frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .gallery figcaption { margin-top: var(--sc-3); font-family: var(--sc-font-text); }
-  .gallery figcaption .name { font-family: var(--sc-font-display); font-size: var(--sc-t-lg); font-style: italic; display: block; }
-  .gallery figcaption .meta { font-size: 12px; letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sc-ink-soft); }
+  .gallery figcaption .name { font-family: var(--sc-font-display); font-weight: 700; font-size: var(--sc-t-lg); display: block; }
+  .gallery figcaption .meta { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sc-ink-soft); }
   @media (max-width: 760px) { .gallery { grid-template-columns: 1fr; } }
 
   /* ---------- chapter III: ai systems spec list ---------- */
-  .spec { margin-top: var(--sc-8); border-top: 1px solid var(--sc-hairline-strong); }
-  .spec__row { display: grid; grid-template-columns: 2.5rem 1fr 2fr; gap: var(--sc-6); padding: var(--sc-5) 0; border-bottom: 1px solid var(--sc-hairline); align-items: center; }
-  .spec__row .n {
-    display: flex; align-items: center; justify-content: center;
-    width: 32px; height: 32px; border-radius: 50%;
-    background: var(--sc-canvas); border: 1px solid var(--sc-hairline-strong);
-    font-family: var(--sc-font-display); font-size: 13px; color: var(--sc-accent);
-  }
-  .spec__row h3 { font-family: var(--sc-font-display); font-weight: 460; font-size: var(--sc-t-xl); margin: 0; letter-spacing: var(--sc-track-snug); }
+  .spec { margin-top: var(--sc-8); border-top: 1px solid rgba(28,25,23,0.1); }
+  .spec__row { display: grid; grid-template-columns: 2.5rem 1fr 2fr; gap: var(--sc-6); padding: var(--sc-5) 0; border-bottom: 1px solid rgba(28,25,23,0.08); align-items: center; }
+  .spec__row .n { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--sc-canvas); border: 1px solid rgba(28,25,23,0.12); font-family: var(--sc-font-display); font-weight: 700; font-size: 13px; color: var(--sc-accent-dk); }
+  .spec__row h3 { font-family: var(--sc-font-display); font-weight: 800; font-size: var(--sc-t-xl); margin: 0; letter-spacing: -0.02em; }
   .spec__row p { font-family: var(--sc-font-text); font-size: 14px; line-height: 1.6; color: var(--sc-ink-soft); margin: 0; max-width: 48ch; }
   @media (max-width: 760px) { .spec__row { grid-template-columns: 2rem 1fr; } .spec__row p { grid-column: 1 / -1; } }
 
   /* ---------- chapter IV: also available (quiet) ---------- */
   .quiet-wrap { max-width: var(--sc-maxw); margin: 0 auto; padding: var(--sc-9) var(--sc-gutter); }
-  .quiet-head { font-family: var(--sc-font-text); font-size: 13px; letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sc-accent); margin-bottom: var(--sc-6); }
+  .quiet-head { font-family: var(--sc-font-text); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sc-accent-lt); margin-bottom: var(--sc-6); }
   .quiet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sc-7); }
-  .quiet-item h3 { font-family: var(--sc-font-display); font-weight: 460; font-style: italic; font-size: var(--sc-t-xl); margin: 0 0 var(--sc-2); color: var(--fb-dark-ink); }
+  .quiet-item h3 { font-family: var(--sc-font-display); font-weight: 800; font-size: var(--sc-t-xl); margin: 0 0 var(--sc-2); color: var(--fb-dark-ink); }
   .quiet-item p { font-family: var(--sc-font-text); font-size: 14px; line-height: 1.6; color: var(--fb-dark-ink-soft); max-width: 40ch; }
   @media (max-width: 760px) { .quiet-grid { grid-template-columns: 1fr; gap: var(--sc-6); } }
 
-  /* ---------- chapter V: people + proof ---------- */
+  /* ---------- chapter V: people + proof (matches web-design page's hover treatment) ---------- */
   .people { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sc-7); margin-top: var(--sc-8); }
-  .person__img { aspect-ratio: 4/5; overflow: hidden; border-radius: 2px; background: var(--sc-surface); }
-  .person__img img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(0.3) contrast(1.03); }
-  .person h3 { font-family: var(--sc-font-display); font-size: var(--sc-t-xl); font-weight: 460; margin: var(--sc-4) 0 2px; }
-  .person .role { font-size: 12px; letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sc-accent); }
-  .person p.bio { font-family: var(--sc-font-text); font-size: 14px; line-height: 1.6; color: var(--sc-ink-soft); margin-top: var(--sc-3); }
-  .logos { display: flex; align-items: center; gap: var(--sc-7); flex-wrap: wrap; margin-top: var(--sc-9); padding-top: var(--sc-6); border-top: 1px solid var(--sc-hairline-strong); }
-  .logos img { height: 28px; width: auto; opacity: 0.55; filter: grayscale(1); }
-  @media (max-width: 760px) { .people { grid-template-columns: 1fr 1fr; } .person .role { font-size: 10px; } }
+  .person { text-align: center; }
+  .person__img-wrap { position: relative; width: 100%; max-width: 220px; margin: 0 auto 20px; }
+  .person__img-wrap::before { content: ''; position: absolute; inset: 0; border: 2px solid var(--sc-accent); border-radius: 14px; transform: rotate(-4deg) translate(10px,10px); transition: transform 0.4s ease; z-index: 0; }
+  .person:hover .person__img-wrap::before { transform: rotate(-4deg) translate(16px,16px); }
+  .person__img { position: relative; z-index: 1; aspect-ratio: 4/5; overflow: hidden; border-radius: 14px; border: 1px solid rgba(28,25,23,0.08); }
+  .person__img img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(85%) contrast(1.05) brightness(0.94); transition: filter 0.5s ease, transform 0.4s ease; }
+  .person:hover .person__img img { filter: grayscale(0%) contrast(1) brightness(1); transform: translateY(-4px); }
+  .person h3 { font-family: var(--sc-font-display); font-size: var(--sc-t-xl); font-weight: 800; margin: 0 0 2px; }
+  .person .role { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sc-accent-dk); }
+  .person p.bio { font-family: var(--sc-font-text); font-size: 14px; line-height: 1.6; color: var(--sc-ink-soft); margin-top: var(--sc-3); max-width: 34ch; margin-left: auto; margin-right: auto; }
+  .logos { display: flex; align-items: center; justify-content: center; gap: var(--sc-7); flex-wrap: wrap; margin-top: var(--sc-9); padding-top: var(--sc-6); border-top: 1px solid rgba(28,25,23,0.1); }
+  .logos img { height: 30px; width: auto; max-width: 130px; object-fit: contain; filter: grayscale(1) brightness(1.3) contrast(0.9); opacity: 0.55; transition: filter 0.3s, opacity 0.3s; }
+  .logos img:hover { filter: none; opacity: 1; }
+  @media (max-width: 760px) { .person .role { font-size: 10px; } }
 
   /* ---------- testimonials ---------- */
   .testi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sc-6); margin-top: var(--sc-8); }
-  .testi { background: var(--sc-surface); border-radius: var(--sc-r-lg); padding: var(--sc-6); display: flex; flex-direction: column; }
+  .testi { background: var(--sc-surface); border-radius: 14px; padding: var(--sc-6); display: flex; flex-direction: column; }
   .testi__stars { color: var(--sc-accent); font-size: 13px; letter-spacing: 0.1em; margin-bottom: var(--sc-4); }
   .testi p.quote { font-family: var(--sc-font-text); font-size: 14px; line-height: 1.65; color: var(--sc-ink); flex: 1; }
-  .testi__who { margin-top: var(--sc-5); padding-top: var(--sc-4); border-top: 1px solid var(--sc-hairline-strong); font-family: var(--sc-font-text); }
-  .testi__who strong { display: block; font-family: var(--sc-font-display); font-size: var(--sc-t-lg); font-weight: 460; }
-  .testi__who span { font-size: 12px; letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--sc-ink-soft); }
+  .testi__who { margin-top: var(--sc-5); padding-top: var(--sc-4); border-top: 1px solid rgba(28,25,23,0.1); font-family: var(--sc-font-text); }
+  .testi__who strong { display: block; font-family: var(--sc-font-display); font-size: var(--sc-t-lg); font-weight: 800; }
+  .testi__who span { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sc-ink-soft); }
   @media (max-width: 900px) { .testi-row { grid-template-columns: 1fr; } }
 
   /* ---------- faq accordion ---------- */
-  .faq { margin-top: var(--sc-8); border-top: 1px solid var(--sc-hairline-strong); }
-  .faq details { border-bottom: 1px solid var(--sc-hairline); padding: var(--sc-5) 0; }
-  .faq summary {
-    font-family: var(--sc-font-display); font-size: var(--sc-t-xl); font-weight: 460;
-    letter-spacing: var(--sc-track-snug); cursor: pointer; list-style: none;
-    display: flex; align-items: center; justify-content: space-between; gap: var(--sc-5);
-  }
+  .faq { margin-top: var(--sc-8); border-top: 1px solid rgba(28,25,23,0.1); }
+  .faq details { border-bottom: 1px solid rgba(28,25,23,0.08); padding: var(--sc-5) 0; }
+  .faq summary { font-family: var(--sc-font-display); font-size: var(--sc-t-xl); font-weight: 800; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: var(--sc-5); }
   .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after {
-    content: '+'; font-family: var(--sc-font-display); font-size: 22px; color: var(--sc-accent);
-    flex: none; transition: transform var(--sc-d-base) var(--sc-ease-out);
-  }
+  .faq summary::after { content: '+'; font-family: var(--sc-font-display); font-weight: 400; font-size: 22px; color: var(--sc-accent); flex: none; transition: transform 0.25s ease; }
   .faq details[open] summary::after { transform: rotate(45deg); }
   .faq__a { font-family: var(--sc-font-text); font-size: 14px; line-height: 1.7; color: var(--sc-ink-soft); max-width: var(--sc-measure); margin: var(--sc-4) 0 0; }
 
   /* ---------- close / colophon ---------- */
-  .colophon {
-    min-height: 90svh; display: flex; flex-direction: column; justify-content: center;
-    padding: var(--sc-10) var(--sc-gutter) calc(var(--sc-10) + 56px); position: relative;
-    overflow: hidden;
-  }
-  .colophon::before {
-    content: ''; position: absolute; z-index: 0; top: -20%; right: -10%;
-    width: 60vw; height: 60vw; max-width: 760px; max-height: 760px;
-    background: radial-gradient(circle, color-mix(in oklab, var(--sc-accent) 28%, transparent) 0%, transparent 70%);
-    pointer-events: none;
-  }
+  .colophon { min-height: 90svh; display: flex; flex-direction: column; justify-content: center; padding: var(--sc-10) var(--sc-gutter) calc(var(--sc-10) + 56px); position: relative; overflow: hidden; }
+  .colophon::before { content: ''; position: absolute; z-index: 0; top: -20%; right: -10%; width: 60vw; height: 60vw; max-width: 760px; max-height: 760px; background: radial-gradient(circle, rgba(232,101,42,0.28) 0%, transparent 70%); pointer-events: none; }
   .colophon > * { position: relative; z-index: 1; }
-  .triangles { display: flex; margin-top: var(--sc-7); opacity: 0.5; }
+  .triangles { display: flex; margin-top: var(--sc-7); opacity: 0.6; }
   .triangles span { width: 18px; height: 11px; background: var(--sc-accent); clip-path: polygon(50% 0, 0 100%, 100% 100%); margin-right: 2px; }
-  .colophon h2 { font-family: var(--sc-font-display); font-weight: 460; font-style: italic; font-size: var(--sc-t-3xl); line-height: 1.15; max-width: 18ch; margin: 0 0 var(--sc-7); color: var(--fb-dark-ink); text-wrap: balance; }
-  .colophon .cta-line { font-family: var(--sc-font-text); font-size: var(--sc-t-lg); color: var(--sc-accent); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; display: inline-block; }
-  .masthead { margin-top: var(--sc-9); padding-top: var(--sc-6); border-top: 1px solid rgba(241,234,217,0.16); display: flex; flex-wrap: wrap; gap: var(--sc-7) var(--sc-9); font-family: var(--sc-font-text); }
-  .masthead div { font-size: 12px; letter-spacing: var(--sc-track-wide); text-transform: uppercase; color: var(--fb-dark-ink-soft); }
+  .colophon h2 { font-family: var(--sc-font-display); font-weight: 900; font-size: var(--sc-t-3xl); line-height: 1.04; letter-spacing: -0.03em; max-width: 18ch; margin: 0 0 var(--sc-7); color: var(--fb-dark-ink); text-wrap: balance; }
+  .colophon .cta-line { font-family: var(--sc-font-text); font-weight: 700; font-size: var(--sc-t-lg); color: var(--sc-accent-lt); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; display: inline-block; }
+  .masthead { margin-top: var(--sc-9); padding-top: var(--sc-6); border-top: 1px solid rgba(250,249,246,0.16); display: flex; flex-wrap: wrap; gap: var(--sc-7) var(--sc-9); font-family: var(--sc-font-text); }
+  .masthead div { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fb-dark-ink-soft); }
   .masthead a { color: var(--fb-dark-ink); text-decoration: none; }
-  .masthead a:hover { color: var(--sc-accent); }
-  .masthead strong { display: block; font-family: var(--sc-font-display); font-size: 15px; letter-spacing: var(--sc-track-normal); text-transform: none; color: var(--fb-dark-ink); font-weight: 460; margin-top: 4px; }
+  .masthead a:hover { color: var(--sc-accent-lt); }
+  .masthead strong { display: block; font-family: var(--sc-font-text); font-weight: 700; font-size: 15px; text-transform: none; color: var(--fb-dark-ink); margin-top: 4px; }
   .fine { margin-top: var(--sc-8); font-size: 11px; color: var(--fb-dark-ink-soft); }
 
   /* ---------- the leak gauge (signature move) ---------- */
-  .leak-gauge {
-    position: fixed; z-index: var(--sc-z-chrome); right: var(--sc-5); top: 50%;
-    transform: translateY(-50%); width: 46px; opacity: 0; transition: opacity 500ms var(--sc-ease-out);
-    pointer-events: none; text-align: center;
-  }
+  .leak-gauge { position: fixed; z-index: 400; right: var(--sc-5); top: 55%; transform: translateY(-50%); width: 46px; opacity: 0; transition: opacity 500ms ease; pointer-events: none; text-align: center; }
   .leak-gauge.is-visible { opacity: 1; }
   .leak-gauge svg { width: 100%; height: auto; display: block; }
-  .leak-gauge__tally {
-    margin-top: 8px; font-family: var(--sc-font-text); font-size: 10px; letter-spacing: 0.02em;
-    color: var(--sc-ink-soft); white-space: nowrap; writing-mode: vertical-rl; text-orientation: mixed;
-  }
+  .leak-gauge__tally { margin-top: 8px; font-family: var(--sc-font-text); font-size: 10px; letter-spacing: 0.02em; color: var(--sc-ink-soft); white-space: nowrap; writing-mode: vertical-rl; text-orientation: mixed; }
   body.on-dark .leak-gauge__tally { color: var(--fb-dark-ink-soft); }
-  @media (max-width: 760px) {
-    .leak-gauge { right: auto; left: 50%; top: auto; bottom: 64px; transform: translateX(-50%); width: 30px; }
-    .leak-gauge__tally { display: none; }
-  }
+  @media (max-width: 760px) { .leak-gauge { right: auto; left: 50%; top: auto; bottom: 20px; transform: translateX(-50%); width: 30px; } .leak-gauge__tally { display: none; } }
 </style>
 </head>
 <body>
@@ -272,17 +238,40 @@
 <span data-sc-progress></span>
 <div class="sc-grain" aria-hidden="true"></div>
 
-<!-- margin folio nav -->
-<nav class="folio" id="folio">
-  <div class="folio__row" data-target="hero"><span class="folio__num">0</span><a class="folio__title" href="#hero">Promise</a></div>
-  <div class="folio__row" data-target="ch-problem"><span class="folio__num">1</span><a class="folio__title" href="#ch-problem">The Leak</a></div>
-  <div class="folio__row" data-target="ch-webdesign"><span class="folio__num">2</span><a class="folio__title" href="#ch-webdesign">Web Design</a></div>
-  <div class="folio__row" data-target="ch-aisystems"><span class="folio__num">3</span><a class="folio__title" href="#ch-aisystems">AI Systems</a></div>
-  <div class="folio__row" data-target="ch-testimonials"><span class="folio__num">4</span><a class="folio__title" href="#ch-testimonials">Results</a></div>
-  <div class="folio__row" data-target="ch-also"><span class="folio__num">&middot;</span><a class="folio__title" href="#ch-also">Also Available</a></div>
-  <div class="folio__row" data-target="ch-people"><span class="folio__num">5</span><a class="folio__title" href="#ch-people">People</a></div>
-  <div class="folio__row" data-target="ch-faq"><span class="folio__num">6</span><a class="folio__title" href="#ch-faq">FAQ</a></div>
-  <div class="folio__row" data-target="ch-close"><span class="folio__num">7</span><a class="folio__title" href="#ch-close">Start</a></div>
+<!-- real top nav -->
+<nav class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <svg width="28" height="21" viewBox="0 0 72 54" fill="none" aria-hidden="true" style="flex-shrink:0">
+        <rect x="0" y="3" width="30" height="3.5" fill="#E8652A"/>
+        <rect x="0" y="25" width="44" height="3.5" fill="#E8652A"/>
+        <circle cx="58" cy="26.75" r="8" fill="#E8652A"/>
+        <rect x="0" y="47" width="30" height="3.5" fill="#E8652A"/>
+      </svg>
+      Flow<span>Build</span> AI
+    </a>
+    <div class="nav-links">
+      <a href="b2b-outbound.html">B2B Outbound</a>
+      <a href="ai-systems.html">AI Systems</a>
+      <a href="/web-design/">Web Design</a>
+      <a href="audit.html">Scaling Roadmap</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://wa.me/353858764679" target="_blank" rel="noopener" class="btn btn-outline btn-outline-text">Get a Quote</a>
+      <a href="#" onclick="openBookingModal();return false;" class="btn btn-amber">Book a Call</a>
+      <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav-mobile-drawer">
+    <a href="b2b-outbound.html" class="nav-mob-link" onclick="closeNav()">B2B Outbound</a>
+    <a href="ai-systems.html" class="nav-mob-link" onclick="closeNav()">AI Systems</a>
+    <a href="/web-design/" class="nav-mob-link" onclick="closeNav()">Web Design</a>
+    <a href="audit.html" class="nav-mob-link" onclick="closeNav()">Scaling Roadmap</a>
+    <div class="nav-mob-ctas">
+      <a href="https://wa.me/353858764679" target="_blank" rel="noopener" class="btn btn-outline" onclick="closeNav()">Message us on WhatsApp</a>
+      <a href="#" class="btn btn-amber" onclick="closeNav();openBookingModal();return false;">Book a Call &rarr;</a>
+    </div>
+  </div>
 </nav>
 
 <!-- signature move: the leak gauge -->
@@ -291,22 +280,25 @@
     <clipPath id="vesselClip"><path d="M8 10 H38 L34 108 Q23 116 12 108 Z"/></clipPath>
     <path d="M8 10 H38 L34 108 Q23 116 12 108 Z" stroke="currentColor" stroke-width="1.4" opacity="0.5"/>
     <g clip-path="url(#vesselClip)">
-      <rect id="leakFill" x="6" y="40" width="34" height="80" fill="var(--sc-accent)" opacity="0.85"/>
+      <rect id="leakFill" x="6" y="40" width="34" height="80" fill="var(--sc-accent)" opacity="0.9"/>
     </g>
     <path id="leakSeam" d="M8 54 Q23 60 38 54" stroke="var(--sc-accent)" stroke-width="2" stroke-dasharray="34" stroke-dashoffset="0" fill="none"/>
-    <g id="leakDrops"></g>
   </svg>
-  <div class="leak-gauge__tally" id="leakTally">0 sites · 0 systems</div>
+  <div class="leak-gauge__tally" id="leakTally">0 sites &middot; 0 systems</div>
 </div>
 
 <main id="top">
 
-  <!-- 0 · TITLE PAGE -->
-  <section class="ch hero" id="hero">
-    <div class="hero__mark">Flow<em>Build</em> AI</div>
+  <!-- 0 · HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-aurora" aria-hidden="true">
+      <div class="aurora-blob ab1"></div>
+      <div class="aurora-blob ab2"></div>
+      <div class="aurora-blob ab3"></div>
+    </div>
     <div class="hero__grid">
       <div data-sc-in data-sc-stagger="90">
-        <p class="hero__kicker">Websites &amp; AI Systems · Ireland</p>
+        <p class="hero__kicker">Websites &amp; AI Systems &middot; Ireland</p>
         <h1 data-sc-kinetic="lines">The definitive growth partner for fast-moving companies.</h1>
         <p class="lede">Two things grow a business: a site that makes people stop, and systems that make sure every visitor becomes a customer. We design the websites and build the AI automations &mdash; done for you, and yours to keep.</p>
         <div class="hero__badges">
@@ -333,10 +325,10 @@
     </div>
   </section>
 
-  <!-- 1 · THE PROBLEM (count, dark ground) -->
+  <!-- 1 · THE PROBLEM -->
   <section class="ch ch--dark" id="ch-problem">
     <div class="ch-wrap">
-      <p class="ch-eyebrow">Chapter One</p>
+      <p class="ch-eyebrow">The Problem</p>
       <h2 class="ch-head" data-sc-in>Two reasons you're not growing.</h2>
       <p class="ch-body ch-soft" data-sc-in>Too few conversations, or too many wasted. Most businesses that come to us aren't short of enquiries &mdash; they're losing deals in the gap between the enquiry and the signature.</p>
       <div class="stat-row">
@@ -357,10 +349,10 @@
     </div>
   </section>
 
-  <!-- 2 · WEB DESIGN (reveal + parallax, paper ground) — THE PEAK -->
+  <!-- 2 · WEB DESIGN -->
   <section class="ch" id="ch-webdesign">
     <div class="ch-wrap">
-      <p class="ch-eyebrow">Chapter Two &mdash; What We're Known For</p>
+      <p class="ch-eyebrow">What We're Known For</p>
       <h2 class="ch-head" data-sc-in>Sites built for the business, never from a template.</h2>
       <p class="ch-body ch-soft" data-sc-in>No page builders, no stock layouts. Every site below was designed from scratch for a real business &mdash; B2B and local alike &mdash; and most went live inside fourteen days.</p>
 
@@ -387,10 +379,10 @@
     </div>
   </section>
 
-  <!-- 3 · AI SYSTEMS (flow+in spec list, paper surface) -->
+  <!-- 3 · AI SYSTEMS -->
   <section class="ch" id="ch-aisystems" style="background: var(--sc-surface);">
     <div class="ch-wrap">
-      <p class="ch-eyebrow">Chapter Three</p>
+      <p class="ch-eyebrow">What Catches Everything Else</p>
       <h2 class="ch-head" data-sc-in>The systems that catch what the site brings in.</h2>
       <p class="ch-body ch-soft" data-sc-in>A website earns the visit. These make sure the visit turns into a customer &mdash; wired into the tools you already use, built around how you actually sell, not a generic template.</p>
 
@@ -407,10 +399,10 @@
     </div>
   </section>
 
-  <!-- 4 · TESTIMONIALS (flow+in, paper ground) -->
+  <!-- 4 · TESTIMONIALS -->
   <section class="ch" id="ch-testimonials">
     <div class="ch-wrap">
-      <p class="ch-eyebrow">Chapter Four</p>
+      <p class="ch-eyebrow">What Our Clients Say</p>
       <h2 class="ch-head" data-sc-in>Real results. Real businesses.</h2>
       <div class="testi-row" data-sc-in data-sc-stagger="80">
         <div class="testi">
@@ -432,7 +424,7 @@
     </div>
   </section>
 
-  <!-- 5 · ALSO AVAILABLE (quiet, dark, secondary) -->
+  <!-- 5 · ALSO AVAILABLE -->
   <section class="ch ch--dark" id="ch-also">
     <div class="quiet-wrap">
       <p class="quiet-head">Also Available &mdash; Ask On The Call</p>
@@ -449,22 +441,22 @@
     </div>
   </section>
 
-  <!-- 5 · PEOPLE + PROOF (flow+in, tilt) -->
+  <!-- 6 · PEOPLE + PROOF -->
   <section class="ch" id="ch-people">
     <div class="ch-wrap">
-      <p class="ch-eyebrow">Chapter Five</p>
+      <p class="ch-eyebrow">Who You're Actually Talking To</p>
       <h2 class="ch-head" data-sc-in>Two locals. No middlemen.</h2>
       <p class="ch-body ch-soft" data-sc-in>No account managers, no outsourced delivery team. When you work with FlowBuild AI, you deal directly with the two people actually doing the work.</p>
 
       <div class="people">
         <div class="person" data-sc-in>
-          <div class="person__img" data-sc-tilt="5"><img src="liam.jpeg" loading="lazy" alt="Liam Kieran, co-founder of FlowBuild AI"></div>
+          <div class="person__img-wrap"><div class="person__img"><img src="liam-cropped.jpg" loading="lazy" alt="Liam Kieran, co-founder of FlowBuild AI"></div></div>
           <h3>Liam Kieran</h3>
           <p class="role">Digital Strategy &amp; Websites</p>
           <p class="bio">Business management graduate and digital strategist. Diploma in AI for Business from UCD. Designs the websites and the automations behind them.</p>
         </div>
         <div class="person" data-sc-in>
-          <div class="person__img" data-sc-tilt="5"><img src="paddy.jpeg" loading="lazy" alt="Paddy Meade, co-founder of FlowBuild AI"></div>
+          <div class="person__img-wrap"><div class="person__img"><img src="paddy-cropped.jpg" loading="lazy" alt="Paddy Meade, co-founder of FlowBuild AI"></div></div>
           <h3>Paddy Meade</h3>
           <p class="role">Tech, Funnels &amp; Automations</p>
           <p class="bio">Self-made business owner and science graduate. Builds the full-stack systems and automations that run quietly in the background.</p>
@@ -480,10 +472,10 @@
     </div>
   </section>
 
-  <!-- 7 · FAQ (flow+in, surface ground) -->
+  <!-- 7 · FAQ -->
   <section class="ch" id="ch-faq" style="background: var(--sc-surface);">
     <div class="ch-wrap">
-      <p class="ch-eyebrow">Chapter Six</p>
+      <p class="ch-eyebrow">Before You Book</p>
       <h2 class="ch-head" data-sc-in>Before you book the call.</h2>
       <div class="faq" data-sc-in data-sc-stagger="50">
         <details>
@@ -510,11 +502,11 @@
     </div>
   </section>
 
-  <!-- 8 · CLOSE / COLOPHON (kinetic + count, dark) -->
+  <!-- 8 · CLOSE / COLOPHON -->
   <section class="ch ch--dark colophon" id="ch-close">
     <p class="ch-eyebrow" data-sc-in>Start Here</p>
     <h2 data-sc-in data-sc-kinetic="lines">Free growth audit call. Fifteen minutes, no pitch.</h2>
-    <a class="cta-line" href="https://wa.me/353858764679" data-sc-in>Book a free call &rarr;</a>
+    <a class="cta-line" href="#" onclick="openBookingModal();return false;" data-sc-in>Book a free call &rarr;</a>
     <div class="triangles" aria-hidden="true" data-sc-in>
       <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
@@ -525,21 +517,43 @@
       <div>WhatsApp<strong><a href="https://wa.me/353858764679">Message us</a></strong></div>
       <div>Elsewhere<strong><a href="ai-systems.html">AI Systems</a> &middot; <a href="web-design/index.html">Web Design</a> &middot; <a href="b2b-outbound.html">B2B Outbound</a> &middot; <a href="audit.html">Scaling Roadmap</a></strong></div>
     </div>
-    <p class="fine">&copy; 2026 FlowBuild AI. All rights reserved. Ireland. &mdash; <span id="leakTallyFine">4 sites &middot; 6 systems &middot; 0 leaks</span></p>
+    <p class="fine">&copy; 2026 FlowBuild AI. All rights reserved. Ireland. &mdash; <span id="leakTallyFine">0 sites &middot; 0 systems &middot; 0 leaks</span></p>
   </section>
 
 </main>
+
+<!-- Booking modal -->
+<div id="booking-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.82);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
+  <div style="position:relative;width:90%;max-width:720px;height:82vh;background:#1C1917;border-radius:12px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.6);">
+    <button onclick="closeBookingModal()" style="position:absolute;top:12px;right:14px;z-index:10;background:rgba(255,255,255,0.08);border:none;border-radius:50%;width:32px;height:32px;color:white;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;">&times;</button>
+    <iframe id="booking-iframe" src="" style="width:100%;height:100%;border:none;" title="Book a Free Systems Call"></iframe>
+  </div>
+</div>
 
 <script src="scrollcraft.js"></script>
 <script>
   ScrollCraft.mount(document.body);
 
-  (function () {
-    var darkSections = Array.from(document.querySelectorAll('.ch--dark'));
-    var folio = document.getElementById('folio');
-    var rows = Array.from(folio.querySelectorAll('.folio__row'));
-    var chapters = rows.map(function (r) { return document.getElementById(r.dataset.target); });
+  const BOOKING_URL = 'https://links.flowbuildai.ie/widget/booking/MLznN883xY9UeIaBWpgO';
+  function openBookingModal() {
+    const modal = document.getElementById('booking-modal');
+    const iframe = document.getElementById('booking-iframe');
+    if (!iframe.src || iframe.src === window.location.href) iframe.src = BOOKING_URL;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeBookingModal() {
+    document.getElementById('booking-modal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('booking-modal').addEventListener('click', function (e) {
+    if (e.target === this) closeBookingModal();
+  });
+  function toggleNav() { document.getElementById('siteNav').classList.toggle('open'); }
+  function closeNav() { document.getElementById('siteNav').classList.remove('open'); }
 
+  (function () {
+    var darkSections = Array.from(document.querySelectorAll('.ch--dark, .hero'));
     var gauge = document.getElementById('leakGauge');
     var fill = document.getElementById('leakFill');
     var seam = document.getElementById('leakSeam');
@@ -548,7 +562,6 @@
     var chProblem = document.getElementById('ch-problem');
     var chWebdesign = document.getElementById('ch-webdesign');
     var chAisystems = document.getElementById('ch-aisystems');
-    var chClose = document.getElementById('ch-close');
 
     var sitesSeen = new Set();
     var systemsSeen = new Set();
@@ -556,20 +569,8 @@
 
     function clamp01(v) { return Math.max(0, Math.min(1, v)); }
 
-    function updateFolio() {
-      var heroEl = document.getElementById('hero');
-      if (heroEl) {
-        folio.classList.toggle('is-visible', window.scrollY > heroEl.offsetHeight * 0.6);
-      }
+    function updateChrome() {
       var mid = window.innerHeight * 0.5;
-      var activeIdx = 0;
-      chapters.forEach(function (el, i) {
-        if (!el) return;
-        var r = el.getBoundingClientRect();
-        if (r.top <= mid && r.bottom >= 0) activeIdx = i;
-      });
-      rows.forEach(function (r, i) { r.dataset.active = (i === activeIdx) ? 'true' : 'false'; });
-
       var onDark = darkSections.some(function (el) {
         var r = el.getBoundingClientRect();
         return r.top <= mid && r.bottom >= mid;
@@ -580,7 +581,6 @@
     function updateGauge() {
       if (!chProblem || !chAisystems) return;
       var vh = window.innerHeight;
-
       gauge.classList.toggle('is-visible', window.scrollY > chProblem.offsetTop - vh);
 
       var pStartY = chProblem.offsetTop;
@@ -592,12 +592,12 @@
       var drainP = clamp01((y - pStartY) / Math.max(1, (pEndY - pStartY)));
       var sealP = clamp01((y - wStartY) / Math.max(1, (aEndY - wStartY)));
 
-      var fillLevel; // 0..1, 1 = full
+      var fillLevel;
       if (y < pStartY) fillLevel = 1;
       else if (y < pEndY) fillLevel = 1 - 0.6 * drainP;
       else fillLevel = 0.4 + 0.6 * sealP;
 
-      var totalH = 80, minY = 40;
+      var totalH = 80;
       var h = totalH * fillLevel;
       fill.setAttribute('y', (40 + (totalH - h)).toString());
       fill.setAttribute('height', h.toString());
@@ -627,7 +627,7 @@
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(function () {
-        updateFolio();
+        updateChrome();
         if (!reduced) updateGauge();
         ticking = false;
       });
