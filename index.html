@@ -159,15 +159,7 @@
   .stat .sc-nums { position: relative; font-family: var(--sc-font-display); font-size: var(--sc-t-3xl); font-weight: 900; letter-spacing: -0.03em; color: var(--sc-accent-lt); display: block; }
   .stat p { position: relative; font-family: var(--sc-font-text); font-size: 14px; color: var(--fb-dark-ink-soft); line-height: 1.5; margin-top: var(--sc-3); max-width: 28ch; }
   .stat-source { margin-top: var(--sc-7); font-size: 12px; color: var(--fb-dark-ink-soft); }
-  .leak-ticker {
-    margin-top: var(--sc-6); display: inline-flex; align-items: center; gap: 12px;
-    background: rgba(232,101,42,0.08); border: 1px solid rgba(232,101,42,0.25);
-    border-radius: 999px; padding: 10px 20px 10px 16px;
-  }
-  .leak-ticker__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sc-accent); flex: none; animation: leakPulse 1.6s ease-in-out infinite; }
-  @keyframes leakPulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.8); } }
-  .leak-ticker span { font-family: var(--sc-font-text); font-size: 13px; color: var(--fb-dark-ink-soft); }
-  .leak-ticker strong { font-family: var(--sc-font-display); font-weight: 800; color: var(--fb-dark-ink); font-variant-numeric: tabular-nums; }
+  @keyframes pulseDot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.8); } }
   @media (max-width: 760px) { .stat-row { grid-template-columns: 1fr; gap: var(--sc-4); } }
 
   /* ---------- chapter II: web design gallery — two-layer hover-scroll preview ---------- */
@@ -185,19 +177,53 @@
     .gallery__frame:hover .gallery__reel { transform: translateY(0) !important; transition: none !important; }
   }
   .gallery__tag { position: absolute; top: 14px; right: 14px; font-family: var(--sc-font-text); font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #34d399; background: rgba(28,25,23,0.75); border: 1px solid rgba(52,211,153,0.4); border-radius: 20px; padding: 5px 11px; display: flex; align-items: center; gap: 6px; z-index: 2; pointer-events: none; }
-  .gallery__tag-dot { width: 6px; height: 6px; border-radius: 50%; background: #34d399; animation: leakPulse 2s ease-in-out infinite; }
+  .gallery__tag-dot { width: 6px; height: 6px; border-radius: 50%; background: #34d399; animation: pulseDot 2s ease-in-out infinite; }
+  .gallery__hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 1; transition: opacity 0.4s ease; pointer-events: none; }
+  @media (hover: hover) and (pointer: fine) {
+    .gallery__frame:hover .gallery__hero-video { opacity: 0; }
+  }
   .gallery figcaption { margin-top: var(--sc-3); font-family: var(--sc-font-text); }
   .gallery figcaption .name { font-family: var(--sc-font-display); font-weight: 700; font-size: var(--sc-t-lg); display: block; }
   .gallery figcaption .meta { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sc-ink-soft); }
   @media (max-width: 760px) { .gallery { grid-template-columns: 1fr; } }
 
-  /* ---------- chapter III: ai systems spec list ---------- */
-  .spec { margin-top: var(--sc-8); border-top: 1px solid rgba(28,25,23,0.1); }
-  .spec__row { display: grid; grid-template-columns: 2.5rem 1fr 2fr; gap: var(--sc-6); padding: var(--sc-5) 0; border-bottom: 1px solid rgba(28,25,23,0.08); align-items: center; }
-  .spec__row .n { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--sc-canvas); border: 1px solid rgba(28,25,23,0.12); font-family: var(--sc-font-display); font-weight: 700; font-size: 13px; color: var(--sc-accent-dk); }
-  .spec__row h3 { font-family: var(--sc-font-display); font-weight: 800; font-size: var(--sc-t-xl); margin: 0; letter-spacing: -0.02em; }
-  .spec__row p { font-family: var(--sc-font-text); font-size: 14px; line-height: 1.6; color: var(--sc-ink-soft); margin: 0; max-width: 48ch; }
-  @media (max-width: 760px) { .spec__row { grid-template-columns: 2rem 1fr; } .spec__row p { grid-column: 1 / -1; } }
+  /* ---------- chapter III: ai systems — overlapping sticky card stack ---------- */
+  .spec { margin-top: var(--sc-8); padding-bottom: var(--sc-8); }
+  .spec__row {
+    position: sticky; z-index: 1;
+    background: var(--sc-canvas); border-radius: 22px;
+    box-shadow: 0 -24px 48px -28px rgba(28,25,23,0.22), 0 1px 0 rgba(28,25,23,0.05);
+    border: 1px solid rgba(28,25,23,0.07);
+    padding: var(--sc-7) var(--sc-7); margin-bottom: 22px;
+    min-height: 200px; display: flex; flex-direction: column; justify-content: center;
+    overflow: hidden;
+  }
+  .spec__row[data-n="1"] { top: 100px; } .spec__row[data-n="2"] { top: 122px; }
+  .spec__row[data-n="3"] { top: 144px; } .spec__row[data-n="4"] { top: 166px; }
+  .spec__row[data-n="5"] { top: 188px; } .spec__row[data-n="6"] { top: 210px; }
+  .spec__ghost {
+    position: absolute; top: -18px; right: 10px; z-index: 0;
+    font-family: var(--sc-font-display); font-weight: 900; font-size: 150px; line-height: 1;
+    color: var(--sc-ink); opacity: 0.045; pointer-events: none; user-select: none;
+  }
+  .spec__row .n {
+    position: relative; display: flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px; border-radius: 50%; margin-bottom: var(--sc-4);
+    background: var(--sc-accent); color: #fff;
+    font-family: var(--sc-font-display); font-weight: 800; font-size: 15px;
+  }
+  .spec__row h3 { position: relative; font-family: var(--sc-font-display); font-weight: 800; font-size: var(--sc-t-2xl); margin: 0 0 10px; letter-spacing: -0.02em; }
+  .spec__row p { position: relative; font-family: var(--sc-font-text); font-size: 15px; line-height: 1.6; color: var(--sc-ink-soft); margin: 0; max-width: 48ch; }
+  @media (max-width: 760px) {
+    .spec__row { padding: var(--sc-6) var(--sc-6); min-height: 170px; }
+    .spec__row[data-n="1"] { top: 82px; } .spec__row[data-n="2"] { top: 98px; }
+    .spec__row[data-n="3"] { top: 114px; } .spec__row[data-n="4"] { top: 130px; }
+    .spec__row[data-n="5"] { top: 146px; } .spec__row[data-n="6"] { top: 162px; }
+    .spec__ghost { font-size: 100px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .spec__row { position: relative; top: auto !important; }
+  }
 
   /* ---------- chapter IV: also available (quiet) ---------- */
   .quiet-wrap { max-width: var(--sc-maxw); margin: 0 auto; padding: var(--sc-9) var(--sc-gutter); }
@@ -275,13 +301,6 @@
   .masthead strong { display: block; font-family: var(--sc-font-text); font-weight: 700; font-size: 15px; text-transform: none; color: var(--fb-dark-ink); margin-top: 4px; }
   .fine { margin-top: var(--sc-8); font-size: 11px; color: var(--fb-dark-ink-soft); }
 
-  /* ---------- the leak gauge (signature move) ---------- */
-  .leak-gauge { position: fixed; z-index: 400; right: var(--sc-5); top: 55%; transform: translateY(-50%); width: 46px; opacity: 0; transition: opacity 500ms ease; pointer-events: none; text-align: center; }
-  .leak-gauge.is-visible { opacity: 1; }
-  .leak-gauge svg { width: 100%; height: auto; display: block; }
-  .leak-gauge__tally { margin-top: 8px; font-family: var(--sc-font-text); font-size: 10px; letter-spacing: 0.02em; color: var(--sc-ink-soft); white-space: nowrap; writing-mode: vertical-rl; text-orientation: mixed; }
-  body.on-dark .leak-gauge__tally { color: var(--fb-dark-ink-soft); }
-  @media (max-width: 760px) { .leak-gauge { right: auto; left: 50%; top: auto; bottom: 20px; transform: translateX(-50%); width: 30px; } .leak-gauge__tally { display: none; } }
 </style>
 </head>
 <body>
@@ -325,18 +344,6 @@
   </div>
 </nav>
 
-<!-- signature move: the leak gauge -->
-<div class="leak-gauge" id="leakGauge" aria-hidden="true">
-  <svg viewBox="0 0 46 120" fill="none">
-    <clipPath id="vesselClip"><path d="M8 10 H38 L34 108 Q23 116 12 108 Z"/></clipPath>
-    <path d="M8 10 H38 L34 108 Q23 116 12 108 Z" stroke="currentColor" stroke-width="1.4" opacity="0.5"/>
-    <g clip-path="url(#vesselClip)">
-      <rect id="leakFill" x="6" y="40" width="34" height="80" fill="var(--sc-accent)" opacity="0.9"/>
-    </g>
-    <path id="leakSeam" d="M8 54 Q23 60 38 54" stroke="var(--sc-accent)" stroke-width="2" stroke-dasharray="34" stroke-dashoffset="0" fill="none"/>
-  </svg>
-  <div class="leak-gauge__tally" id="leakTally">0 sites &middot; 0 systems</div>
-</div>
 
 <main id="top">
 
@@ -361,15 +368,10 @@
         <p class="hero__ticker-label">Businesses we've worked with</p>
         <div class="ticker-track">
           <div class="ticker-row" id="heroTicker">
-            <div class="ticker-item"><img src="client-logos/smith-architects.png" loading="lazy" alt="Niall Smith Architects"></div>
-            <div class="ticker-item text">Prestige Barbers</div>
-            <div class="ticker-item"><img src="client-logos/rf-electrical.png" loading="lazy" alt="RF Electrical"></div>
-            <div class="ticker-item text">Rackzz Pool Club</div>
-            <div class="ticker-item"><img src="client-logos/home-perfection.png" loading="lazy" alt="Home Perfection Renovations"></div>
-            <div class="ticker-item text">Barbells &amp; Babies</div>
-            <div class="ticker-item"><img src="client-logos/m-recovery.png" loading="lazy" alt="MD Revenue Recovery"></div>
-            <div class="ticker-item text">Meade Performance Coaching</div>
-            <div class="ticker-item text">My Farewell Wishes</div>
+            <div class="ticker-item text">Niall Smith Architects</div>
+            <div class="ticker-item text">RF Electrical</div>
+            <div class="ticker-item text">A&amp;B Home Perfection Renovations</div>
+            <div class="ticker-item text">MD Recovery</div>
           </div>
         </div>
       </div>
@@ -397,10 +399,6 @@
         </div>
       </div>
       <p class="stat-source" data-sc-in>Based on B2B lead-management benchmarks across service industries, 2025.</p>
-      <div class="leak-ticker" data-sc-in>
-        <span class="leak-ticker__dot" aria-hidden="true"></span>
-        <span>Leaking away right now, somewhere out there: <strong id="liveLeakCounter">&euro;0</strong></span>
-      </div>
     </div>
   </section>
 
@@ -415,28 +413,32 @@
         <figure data-sc-reveal="up" data-sc-reveal-at="0.05 0.4">
           <div class="gallery__frame scrub-frame">
             <span class="gallery__tag"><span class="gallery__tag-dot"></span>Live</span>
-            <img class="gallery__reel" src="web-design/screenshots/smith-associates-arch-full.jpg" width="1440" height="3860" loading="lazy" alt="SA Architects website, full page" data-leak-tick="site">
+            <video class="gallery__hero-video" src="web-design/video/sa-architects.mp4" muted loop playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1"></video>
+            <img class="gallery__reel" src="web-design/screenshots/smith-associates-arch-full.jpg" width="1440" height="3860" loading="lazy" alt="SA Architects website, full page">
           </div>
           <figcaption><span class="name">SA Architects</span><span class="meta">Architecture &middot; Live</span></figcaption>
         </figure>
         <figure data-sc-reveal="up" data-sc-reveal-at="0.1 0.45">
           <div class="gallery__frame scrub-frame">
             <span class="gallery__tag"><span class="gallery__tag-dot"></span>Live</span>
-            <img class="gallery__reel" src="web-design/screenshots/prestige-barbers-full.jpg" width="1440" height="7766" loading="lazy" alt="Prestige Barbers website, full page" data-leak-tick="site">
+            <video class="gallery__hero-video" src="web-design/video/prestige-barbers.mp4" muted loop playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1"></video>
+            <img class="gallery__reel" src="web-design/screenshots/prestige-barbers-full.jpg" width="1440" height="7766" loading="lazy" alt="Prestige Barbers website, full page">
           </div>
           <figcaption><span class="name">Prestige Barbers</span><span class="meta">Barbershop &middot; Live</span></figcaption>
         </figure>
         <figure data-sc-reveal="up" data-sc-reveal-at="0.15 0.5">
           <div class="gallery__frame scrub-frame">
             <span class="gallery__tag"><span class="gallery__tag-dot"></span>Live</span>
-            <img class="gallery__reel" src="web-design/screenshots/rackzz-pool-club-full.jpg" width="1440" height="6836" loading="lazy" alt="Rackzz Pool Club website, full page" data-leak-tick="site">
+            <video class="gallery__hero-video" src="web-design/video/rackzz-pool-club.mp4" muted loop playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1"></video>
+            <img class="gallery__reel" src="web-design/screenshots/rackzz-pool-club-full.jpg" width="1440" height="6836" loading="lazy" alt="Rackzz Pool Club website, full page">
           </div>
           <figcaption><span class="name">Rackzz Pool Club</span><span class="meta">Leisure &middot; Live</span></figcaption>
         </figure>
         <figure data-sc-reveal="up" data-sc-reveal-at="0.2 0.55">
           <div class="gallery__frame scrub-frame">
             <span class="gallery__tag"><span class="gallery__tag-dot"></span>Live</span>
-            <img class="gallery__reel" src="web-design/screenshots/ab-home-perfection-full.jpg" width="1440" height="6117" loading="lazy" alt="AB Home Perfection website, full page" data-leak-tick="site">
+            <video class="gallery__hero-video" src="web-design/video/ab-home-perfection.mp4" muted loop playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1"></video>
+            <img class="gallery__reel" src="web-design/screenshots/ab-home-perfection-full.jpg" width="1440" height="6117" loading="lazy" alt="AB Home Perfection website, full page">
           </div>
           <figcaption><span class="name">AB Home Perfection</span><span class="meta">Renovation &middot; Live</span></figcaption>
         </figure>
@@ -453,13 +455,37 @@
       <h2 class="ch-head" data-sc-in>The systems that catch what the site brings in.</h2>
       <p class="ch-body ch-soft" data-sc-in>A website earns the visit. These make sure the visit turns into a customer &mdash; wired into the tools you already use, built around how you actually sell, not a generic template.</p>
 
-      <div class="spec" data-sc-in data-sc-stagger="60">
-        <div class="spec__row" data-leak-tick="system"><span class="n">01</span><h3>Instant lead response</h3><p>Every new lead gets a real reply in under sixty seconds, by text, WhatsApp or voice &mdash; any hour, any day.</p></div>
-        <div class="spec__row" data-leak-tick="system"><span class="n">02</span><h3>AI call answering</h3><p>An AI receptionist answers what your team can't, qualifies the caller and books them straight to the calendar.</p></div>
-        <div class="spec__row" data-leak-tick="system"><span class="n">03</span><h3>CRM &amp; sales automation</h3><p>Built around how you actually sell first, then automated &mdash; HubSpot, Pipedrive, GoHighLevel, or from scratch.</p></div>
-        <div class="spec__row" data-leak-tick="system"><span class="n">04</span><h3>Quote &amp; proposal follow-up</h3><p>Multi-touch sequences that run until someone replies, so a quote never just goes quiet.</p></div>
-        <div class="spec__row" data-leak-tick="system"><span class="n">05</span><h3>Database reactivation</h3><p>Working back through enquiries you already paid to acquire &mdash; usually the fastest money available to a business.</p></div>
-        <div class="spec__row" data-leak-tick="system"><span class="n">06</span><h3>Reviews &amp; referrals</h3><p>The request fires the moment a job is marked complete, when the customer is happiest to say yes.</p></div>
+      <div class="spec">
+        <div class="spec__row" data-n="1" data-sc-in>
+          <span class="spec__ghost" aria-hidden="true">01</span>
+          <span class="n">01</span><h3>Instant lead response</h3>
+          <p>Every new lead gets a real reply in under sixty seconds, by text, WhatsApp or voice &mdash; any hour, any day.</p>
+        </div>
+        <div class="spec__row" data-n="2" data-sc-in>
+          <span class="spec__ghost" aria-hidden="true">02</span>
+          <span class="n">02</span><h3>AI call answering</h3>
+          <p>An AI receptionist answers what your team can't, qualifies the caller and books them straight to the calendar.</p>
+        </div>
+        <div class="spec__row" data-n="3" data-sc-in>
+          <span class="spec__ghost" aria-hidden="true">03</span>
+          <span class="n">03</span><h3>CRM &amp; sales automation</h3>
+          <p>Built around how you actually sell first, then automated &mdash; HubSpot, Pipedrive, GoHighLevel, or from scratch.</p>
+        </div>
+        <div class="spec__row" data-n="4" data-sc-in>
+          <span class="spec__ghost" aria-hidden="true">04</span>
+          <span class="n">04</span><h3>Quote &amp; proposal follow-up</h3>
+          <p>Multi-touch sequences that run until someone replies, so a quote never just goes quiet.</p>
+        </div>
+        <div class="spec__row" data-n="5" data-sc-in>
+          <span class="spec__ghost" aria-hidden="true">05</span>
+          <span class="n">05</span><h3>Database reactivation</h3>
+          <p>Working back through enquiries you already paid to acquire &mdash; usually the fastest money available to a business.</p>
+        </div>
+        <div class="spec__row" data-n="6" data-sc-in>
+          <span class="spec__ghost" aria-hidden="true">06</span>
+          <span class="n">06</span><h3>Reviews &amp; referrals</h3>
+          <p>The request fires the moment a job is marked complete, when the customer is happiest to say yes.</p>
+        </div>
       </div>
 
       <p class="ch-body" style="margin-top: var(--sc-7);" data-sc-in>Twelve systems in total &mdash; we build the ones you're actually missing. <a class="ch-link" href="ai-systems.html">See all twelve &rarr;</a></p>
@@ -520,7 +546,7 @@
 
       <div class="people">
         <div class="person" data-sc-in>
-          <div class="person__img-wrap"><div class="person__img"><img src="liam-cropped.jpg" loading="lazy" alt="Liam Kieran, co-founder of FlowBuild AI"></div></div>
+          <div class="person__img-wrap"><div class="person__img"><img src="web-design/team/liam.jpg" loading="lazy" alt="Liam Kieran, co-founder of FlowBuild AI"></div></div>
           <h3>Liam Kieran</h3>
           <p class="role">Digital Strategy &amp; Websites</p>
           <p class="bio">Business management graduate and digital strategist. Diploma in AI for Business from UCD. Designs the websites and the automations behind them.</p>
@@ -587,7 +613,7 @@
       <div>WhatsApp<strong><a href="https://wa.me/353858764679">Message us</a></strong></div>
       <div>Elsewhere<strong><a href="ai-systems.html">AI Systems</a> &middot; <a href="web-design/index.html">Web Design</a> &middot; <a href="b2b-outbound.html">B2B Outbound</a> &middot; <a href="audit.html">Scaling Roadmap</a></strong></div>
     </div>
-    <p class="fine">&copy; 2026 FlowBuild AI. All rights reserved. Ireland. &mdash; <span id="leakTallyFine">0 sites &middot; 0 systems &middot; 0 leaks</span></p>
+    <p class="fine">&copy; 2026 FlowBuild AI. All rights reserved. Ireland.</p>
   </section>
 
 </main>
@@ -637,40 +663,6 @@
   (function () {
     var tr = document.getElementById('heroTicker');
     if (tr) tr.insertAdjacentHTML('beforeend', tr.innerHTML);
-  })();
-
-  // ── live "leaking away right now" counter ──
-  (function () {
-    var el = document.getElementById('liveLeakCounter');
-    if (!el) return;
-    var ANNUAL = 47000;
-    var perMs = ANNUAL / (365 * 24 * 60 * 60 * 1000);
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var running = false, startTime = 0, startValue = Math.random() * 300;
-    function fmt(v) { return '€' + Math.floor(v).toLocaleString('en-IE'); }
-    function tick(now) {
-      if (!running) return;
-      var elapsed = now - startTime;
-      el.textContent = fmt(startValue + elapsed * perMs);
-      requestAnimationFrame(tick);
-    }
-    var target = document.getElementById('ch-problem');
-    if (target && 'IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting && !running) {
-            running = true;
-            startTime = performance.now();
-            if (reduced) { el.textContent = fmt(startValue); return; }
-            requestAnimationFrame(tick);
-          } else if (!entry.isIntersecting) {
-            running = false;
-          }
-        });
-      }, { threshold: 0.3 }).observe(target);
-    } else {
-      el.textContent = fmt(startValue);
-    }
   })();
 
   // ── web design gallery: hover-scroll two-layer preview ──
@@ -745,90 +737,6 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && vlb.classList.contains('open')) closeLb(); });
   })();
 
-  (function () {
-    var darkSections = Array.from(document.querySelectorAll('.ch--dark, .hero'));
-    var gauge = document.getElementById('leakGauge');
-    var fill = document.getElementById('leakFill');
-    var seam = document.getElementById('leakSeam');
-    var tally = document.getElementById('leakTally');
-    var tallyFine = document.getElementById('leakTallyFine');
-    var chProblem = document.getElementById('ch-problem');
-    var chWebdesign = document.getElementById('ch-webdesign');
-    var chAisystems = document.getElementById('ch-aisystems');
-
-    var sitesSeen = new Set();
-    var systemsSeen = new Set();
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function clamp01(v) { return Math.max(0, Math.min(1, v)); }
-
-    function updateChrome() {
-      var mid = window.innerHeight * 0.5;
-      var onDark = darkSections.some(function (el) {
-        var r = el.getBoundingClientRect();
-        return r.top <= mid && r.bottom >= mid;
-      });
-      document.body.classList.toggle('on-dark', onDark);
-    }
-
-    function updateGauge() {
-      if (!chProblem || !chAisystems) return;
-      var vh = window.innerHeight;
-      gauge.classList.toggle('is-visible', window.scrollY > chProblem.offsetTop - vh);
-
-      var pStartY = chProblem.offsetTop;
-      var pEndY = chProblem.offsetTop + chProblem.offsetHeight;
-      var wStartY = chWebdesign.offsetTop;
-      var aEndY = chAisystems.offsetTop + chAisystems.offsetHeight;
-      var y = window.scrollY + vh * 0.5;
-
-      var drainP = clamp01((y - pStartY) / Math.max(1, (pEndY - pStartY)));
-      var sealP = clamp01((y - wStartY) / Math.max(1, (aEndY - wStartY)));
-
-      var fillLevel;
-      if (y < pStartY) fillLevel = 1;
-      else if (y < pEndY) fillLevel = 1 - 0.6 * drainP;
-      else fillLevel = 0.4 + 0.6 * sealP;
-
-      var totalH = 80;
-      var h = totalH * fillLevel;
-      fill.setAttribute('y', (40 + (totalH - h)).toString());
-      fill.setAttribute('height', h.toString());
-
-      var sealOffset = y < wStartY ? 34 : (34 * (1 - sealP));
-      seam.setAttribute('stroke-dashoffset', sealOffset.toString());
-      seam.style.opacity = y < pEndY ? '0' : '1';
-    }
-
-    var tickTargets = Array.from(document.querySelectorAll('[data-leak-tick]'));
-    var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var kind = entry.target.getAttribute('data-leak-tick');
-        var key = kind + ':' + (entry.target.getAttribute('alt') || entry.target.textContent || Math.random());
-        if (kind === 'site') sitesSeen.add(key);
-        if (kind === 'system') systemsSeen.add(key);
-        tally.textContent = sitesSeen.size + ' sites · ' + systemsSeen.size + ' systems';
-        if (tallyFine) tallyFine.textContent = sitesSeen.size + ' sites · ' + systemsSeen.size + ' systems · 0 leaks';
-        io.unobserve(entry.target);
-      });
-    }, { threshold: 0.4 }) : null;
-    if (io) tickTargets.forEach(function (t) { io.observe(t); });
-
-    var ticking = false;
-    function onScroll() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () {
-        updateChrome();
-        if (!reduced) updateGauge();
-        ticking = false;
-      });
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    onScroll();
-  })();
 </script>
 </body>
 </html>
