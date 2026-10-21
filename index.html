@@ -80,55 +80,26 @@
     .nav-cta .btn-amber { font-size: 12.5px; padding: 9px 13px; }
   }
 
-  /* ---------- hero: gradient, in brand colours ---------- */
+  /* ---------- hero: orange-into-black gradient, centred, text only ---------- */
   .hero {
-    min-height: 100svh; display: flex; flex-direction: column; justify-content: center;
+    min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center;
     padding: calc(74px + var(--sc-9)) var(--sc-gutter) var(--sc-8);
     position: relative; overflow: hidden;
-    background: var(--fb-dark-canvas); color: var(--fb-dark-ink);
+    background: radial-gradient(ellipse 120% 70% at 50% 0%, var(--sc-accent-lt) 0%, var(--sc-accent) 20%, var(--sc-accent-dk) 38%, var(--fb-dark-canvas) 68%);
+    color: var(--fb-dark-ink); text-align: center;
   }
-  .hero-aurora { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
-  .aurora-blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.32; }
-  .ab1 { width: 620px; height: 520px; background: radial-gradient(ellipse, var(--sc-accent), transparent 70%); top: -160px; left: -140px; }
-  .ab2 { width: 520px; height: 420px; background: radial-gradient(ellipse, var(--sc-accent-dk), transparent 70%); bottom: -140px; right: -100px; }
-  .ab3 { width: 380px; height: 380px; background: radial-gradient(ellipse, var(--sc-accent-lt), transparent 70%); top: 35%; right: 12%; opacity: 0.18; }
-  @media (prefers-reduced-motion: no-preference) {
-    .ab1 { animation: auroraDrift 13s ease-in-out infinite alternate; }
-    .ab2 { animation: auroraDrift 16s ease-in-out 2s infinite alternate-reverse; }
-    .ab3 { animation: auroraDrift 10s ease-in-out 1s infinite alternate; }
-  }
-  @keyframes auroraDrift { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(30px,-20px) scale(1.08); } }
-  .hero > * { position: relative; z-index: 1; }
-  .hero__kicker { font-family: var(--sc-font-text); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sc-accent-lt); margin-bottom: var(--sc-4); display: flex; align-items: center; gap: 12px; }
-  .hero__kicker::before { content: ''; width: 24px; height: 1px; background: var(--sc-accent-lt); }
+  .hero__kicker { font-family: var(--sc-font-text); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fb-dark-ink); opacity: 0.85; margin-bottom: var(--sc-5); display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .hero__kicker::before, .hero__kicker::after { content: ''; width: 24px; height: 1px; background: currentColor; opacity: 0.6; }
   .hero h1 {
     font-family: var(--sc-font-display); font-weight: 900;
     font-size: var(--sc-t-4xl); line-height: 0.98;
-    letter-spacing: -0.03em; max-width: 19ch; margin: 0 0 var(--sc-5);
+    letter-spacing: -0.03em; max-width: 18ch; margin: 0 auto var(--sc-5);
     text-wrap: balance; color: var(--fb-dark-ink);
   }
-  .hero p.lede { font-family: var(--sc-font-text); font-size: var(--sc-t-lg); line-height: 1.6; color: var(--fb-dark-ink-soft); max-width: 46ch; margin: 0 0 var(--sc-7); text-wrap: pretty; }
-  .hero__badges { display: flex; gap: 10px; flex-wrap: wrap; }
-  .badge { display: inline-flex; align-items: center; gap: 7px; padding: 8px 15px; border-radius: 999px; background: rgba(250,249,246,0.08); border: 1px solid rgba(250,249,246,0.16); font-family: var(--sc-font-text); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fb-dark-ink); white-space: nowrap; }
-  .badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sc-accent-lt); flex: none; }
-
-  .hero__grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: var(--sc-8); align-items: center; }
-  .hero__mock { position: relative; height: 380px; }
-  .mock-browser { position: absolute; inset: 0 8% 14% 0; background: var(--sc-canvas); border: 1px solid rgba(28,25,23,0.1); border-radius: 14px; box-shadow: 0 30px 80px rgba(0,0,0,0.45); overflow: hidden; transform: rotate(-3deg); }
-  .mock-browser__bar { display: flex; gap: 6px; padding: 12px 16px; border-bottom: 1px solid rgba(28,25,23,0.08); }
-  .mock-browser__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sc-ink-soft); opacity: 0.45; }
-  .mock-browser__hero { height: 34%; margin: 16px; border-radius: 10px; background: linear-gradient(135deg, var(--sc-accent), var(--sc-accent-lt)); }
-  .mock-browser__body { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 10px; }
-  .mock-browser__line { height: 9px; border-radius: 4px; background: var(--sc-surface); }
-  .mock-browser__line.w60 { width: 60%; } .mock-browser__line.w80 { width: 80%; } .mock-browser__line.w40 { width: 40%; }
-  .mock-chat { position: absolute; left: 0; bottom: 0; width: 230px; background: var(--fb-dark-surface); color: var(--fb-dark-ink); border-radius: 12px; padding: 15px 17px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: rotate(2deg); border: 1px solid rgba(250,249,246,0.08); }
-  .mock-chat__top { display: flex; align-items: center; gap: 8px; font-family: var(--sc-font-text); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fb-dark-ink-soft); }
-  .mock-chat__dot { width: 8px; height: 8px; border-radius: 50%; background: #6FCF97; }
-  .mock-chat p { margin: 9px 0 0; font-family: var(--sc-font-text); font-size: 13px; line-height: 1.45; }
-  .mock-chat strong { color: var(--sc-accent-lt); }
-  @media (prefers-reduced-motion: no-preference) { .mock-chat { animation: fb-float 5s ease-in-out infinite; } }
-  @keyframes fb-float { 0%, 100% { transform: rotate(2deg) translateY(0); } 50% { transform: rotate(2deg) translateY(-8px); } }
-  @media (max-width: 900px) { .hero__grid { grid-template-columns: 1fr; } .hero__mock { height: 300px; margin-top: var(--sc-6); } }
+  .hero p.lede { font-family: var(--sc-font-text); font-size: var(--sc-t-lg); line-height: 1.6; color: rgba(250,249,246,0.82); max-width: 46ch; margin: 0 auto var(--sc-7); text-wrap: pretty; }
+  .hero__badges { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .badge { display: inline-flex; align-items: center; gap: 7px; padding: 8px 15px; border-radius: 999px; background: rgba(28,25,23,0.22); border: 1px solid rgba(250,249,246,0.22); font-family: var(--sc-font-text); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fb-dark-ink); white-space: nowrap; }
+  .badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--fb-dark-ink); flex: none; }
   @media (max-width: 760px) { .hero h1 { font-size: var(--sc-t-2xl); } }
 
   /* ---------- generic chapter chrome ---------- */
@@ -291,36 +262,14 @@
 
   <!-- 0 · HERO -->
   <section class="hero" id="hero">
-    <div class="hero-aurora" aria-hidden="true">
-      <div class="aurora-blob ab1"></div>
-      <div class="aurora-blob ab2"></div>
-      <div class="aurora-blob ab3"></div>
-    </div>
-    <div class="hero__grid">
-      <div data-sc-in data-sc-stagger="90">
-        <p class="hero__kicker">Websites &amp; AI Systems &middot; Ireland</p>
-        <h1 data-sc-kinetic="lines">The definitive growth partner for fast-moving companies.</h1>
-        <p class="lede">Two things grow a business: a site that makes people stop, and systems that make sure every visitor becomes a customer. We design the websites and build the AI automations &mdash; done for you, and yours to keep.</p>
-        <div class="hero__badges">
-          <span class="badge">14&#8209;day launch</span>
-          <span class="badge">Done for you</span>
-          <span class="badge">No lock&#8209;in</span>
-        </div>
-      </div>
-      <div class="hero__mock" data-sc-in data-sc-stagger="120" aria-hidden="true">
-        <div class="mock-browser">
-          <div class="mock-browser__bar"><span class="mock-browser__dot"></span><span class="mock-browser__dot"></span><span class="mock-browser__dot"></span></div>
-          <div class="mock-browser__hero"></div>
-          <div class="mock-browser__body">
-            <div class="mock-browser__line w60"></div>
-            <div class="mock-browser__line w80"></div>
-            <div class="mock-browser__line w40"></div>
-          </div>
-        </div>
-        <div class="mock-chat">
-          <div class="mock-chat__top"><span class="mock-chat__dot"></span>New enquiry</div>
-          <p>&ldquo;Do you have availability this week?&rdquo;<br><strong>Replied in 43s</strong> &middot; booked to calendar</p>
-        </div>
+    <div data-sc-in data-sc-stagger="90">
+      <p class="hero__kicker">Websites &amp; AI Systems &middot; Ireland</p>
+      <h1 data-sc-kinetic="lines">The definitive growth partner for fast-moving companies.</h1>
+      <p class="lede">Two things grow a business: a site that makes people stop, and systems that make sure every visitor becomes a customer. We design the websites and build the AI automations &mdash; done for you, and yours to keep.</p>
+      <div class="hero__badges">
+        <span class="badge">14&#8209;day launch</span>
+        <span class="badge">Done for you</span>
+        <span class="badge">No lock&#8209;in</span>
       </div>
     </div>
   </section>
