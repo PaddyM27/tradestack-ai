@@ -1,22 +1,36 @@
 {
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/web-design/index.html", "destination": "/web-design/", "permanent": true },
+    { "source": "/ai-systems", "destination": "/ai-systems.html", "permanent": true },
+    { "source": "/b2b-outbound", "destination": "/b2b-outbound.html", "permanent": true },
+    { "source": "/audit", "destination": "/audit.html", "permanent": true },
+    { "source": "/websites", "destination": "/web-design/", "permanent": true },
+    { "source": "/websites/:path*", "destination": "/web-design/", "permanent": true },
+    { "source": "/solar-ai-agency-vs-diy-tools", "destination": "/solar-ai-agency-vs-diy-tools.html", "permanent": true }
+  ],
   "headers": [
     {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Permissions-Policy", "value": "camera=(), geolocation=(), microphone=(self \"https://widgets.leadconnectorhq.com\"), payment=()" }
+      ]
+    },
+    {
       "source": "/(.*).html",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
     },
     {
-      "source": "/(.*).jpg",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }]
     },
     {
-      "source": "/paddy.jpeg",
-      "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, noimageindex" }
-      ]
+      "source": "/og/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
     }
   ]
 }

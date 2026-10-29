@@ -1,615 +1,415 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-IE">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlowBuild Scaling Roadmap — FlowBuild AI</title>
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300..800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Free Scaling Roadmap: Find Your Lead Leaks | FlowBuild AI</title>
+<meta name="description" content="Answer 13 quick questions and get a free, personalised roadmap showing where enquiries leak from your business and which fixes to build first.">
+<link rel="canonical" href="https://www.flowbuildai.ie/audit.html">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1C1917">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FlowBuild AI">
+<meta property="og:locale" content="en_IE">
+<meta property="og:title" content="Free Scaling Roadmap: Find Your Lead Leaks | FlowBuild AI">
+<meta property="og:description" content="Thirteen questions, about two minutes. A phased roadmap of where enquiries leak and what to fix first.">
+<meta property="og:url" content="https://www.flowbuildai.ie/audit.html">
+<meta property="og:image" content="https://www.flowbuildai.ie/og/audit.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Scaling Roadmap: Find Your Lead Leaks | FlowBuild AI">
+<meta name="twitter:description" content="Thirteen questions, about two minutes. A phased roadmap of where enquiries leak and what to fix first.">
+<meta name="twitter:image" content="https://www.flowbuildai.ie/og/audit.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/scrollcraft.css">
+<link rel="stylesheet" href="/assets/site.css">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2062397397707938');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=2062397397707938&ev=PageView&noscript=1"></noscript>
+<!-- End Meta Pixel Code -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.flowbuildai.ie/audit.html#webpage",
+      "url": "https://www.flowbuildai.ie/audit.html",
+      "name": "Free Scaling Roadmap: Find Your Lead Leaks | FlowBuild AI",
+      "description": "A free, 13-question scan that builds a personalised roadmap showing where enquiries leak from a business and which fixes to build first.",
+      "isPartOf": { "@type": "WebSite", "@id": "https://www.flowbuildai.ie/#website", "url": "https://www.flowbuildai.ie/", "name": "FlowBuild AI" },
+      "publisher": { "@id": "https://www.flowbuildai.ie/#org" },
+      "breadcrumb": { "@id": "https://www.flowbuildai.ie/audit.html#breadcrumb" },
+      "inLanguage": "en-IE"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.flowbuildai.ie/audit.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.flowbuildai.ie/" },
+        { "@type": "ListItem", "position": 2, "name": "Scaling Roadmap", "item": "https://www.flowbuildai.ie/audit.html" }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  /* ── the scan: panels on one ground, every colour from tokens ──────── */
+  .scan { padding-top: calc(var(--nav-h) + clamp(2.5rem, 7vh, 5rem)); padding-bottom: clamp(4rem, 10vh, 7rem); min-height: 100svh; }
+  .scan { --ok: #7CCC8A; --bad: #E57373; --ok-bg: rgba(100,200,120,0.15); --bad-bg: rgba(210,60,60,0.18); }
+  .g-light.scan { --ok: #2E7D32; --bad: #C62828; --ok-bg: rgba(46,125,50,0.1); --bad-bg: rgba(198,40,40,0.1); }
+  .lla-wrap { max-width: 54rem; }
+  .lla-panel { display: none; flex-direction: column; width: 100%; }
+  .lla-panel.active { display: flex; }
+  @media (prefers-reduced-motion: no-preference) {
+    .lla-panel.active { animation: llaIn 0.42s var(--sc-ease-out); }
+    @keyframes llaIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  }
 
-    :root {
-      --charcoal:   #1C1917;
-      --amber:      #E8652A;
-      --amber-lt:   #F5804A;
-      --amber-dk:   #C4501B;
-      --cream:      #FAF9F6;
-    }
+  .lla-eyebrow-amber { font: 600 var(--sc-t-xs)/1.2 var(--sc-font-text); letter-spacing: 0.14em; text-transform: uppercase;
+                       color: var(--tx-accent); margin: 0 0 var(--sc-5); }
+  .lla-h1 { font-size: clamp(2rem, 1.2rem + 2.6vw, 3.4rem); max-width: 22ch; margin-bottom: var(--sc-5); }
+  .lla-h1-tail { display: block; margin-top: 0.6rem; font: 700 0.42em/1.2 var(--sc-font-text); letter-spacing: -0.01em; color: var(--tx-accent); }
+  .lla-lead { font-size: var(--sc-t-lg); line-height: 1.55; color: var(--sc-ink-soft); max-width: 44ch; margin: 0 0 var(--sc-6); }
+  .lla-qh { font: 700 clamp(1.5rem, 1.1rem + 1.8vw, 2.4rem)/1.18 var(--sc-font-text); letter-spacing: -0.02em; margin-bottom: var(--sc-3); text-wrap: balance; }
+  .lla-qlead { font-size: var(--sc-t-base); line-height: 1.6; color: var(--sc-ink-soft); margin: 0 0 var(--sc-6); max-width: 46ch; }
 
-    html, body {
-      height: 100%;
-      background: var(--charcoal);
-      color: white;
-      font-family: 'Inter Tight', sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
+  .lla-cats-row { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 var(--sc-6); }
+  .lla-cat-pill { font-size: var(--sc-t-xs); font-weight: 600; letter-spacing: 0.04em; color: var(--sc-ink-soft);
+                  border: 1px solid var(--sc-hairline-strong); border-radius: 999px; padding: 0.35rem 0.8rem; }
 
-    /* ─── Header ─── */
-    .audit-nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 20px 40px;
-      display: flex; align-items: center; justify-content: space-between;
-      background: linear-gradient(to bottom, rgba(28,25,23,0.95), transparent);
-    }
-    .audit-logo {
-      font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800;
-      letter-spacing: -0.02em; text-transform: uppercase;
-      color: white; text-decoration: none;
-    }
-    .audit-logo span { color: var(--amber); }
-    .audit-logo-badge {
-      display: inline-block; background: var(--amber); color: white !important;
-      font-family: 'Syne', sans-serif; font-size: 9px; font-weight: 800;
-      letter-spacing: 0.04em; padding: 4px 7px; border-radius: 3px;
-      line-height: 1; vertical-align: middle; position: relative; top: -1px;
-    }
-    .audit-nav-back {
-      font-family: 'Inter Tight', sans-serif; font-size: 13px;
-      color: rgba(254,241,232,0.48); text-decoration: none;
-      display: flex; align-items: center; gap: 6px;
-      transition: color 0.2s;
-    }
-    .audit-nav-back:hover { color: rgba(254,241,232,0.85); }
+  .lla-btn-primary { align-self: flex-start; }
+  .lla-fine { font-size: var(--sc-t-sm); color: var(--sc-ink-soft); margin: var(--sc-4) 0 0; }
 
-    /* ─── Main layout ─── */
-    .audit-page {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      padding: 100px 40px 60px;
-      position: relative; overflow: hidden;
-    }
-    .audit-page::before {
-      content: '';
-      position: absolute; top: -200px; right: -200px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(232,101,42,0.07) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .audit-page::after {
-      content: '';
-      position: absolute; bottom: -150px; left: -150px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(232,101,42,0.04) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .audit-wm {
-      position: fixed; pointer-events: none; user-select: none;
-      right: -2%; top: 50%; transform: translateY(-50%);
-      font-family: 'Inter Tight', sans-serif; font-weight: 900;
-      font-size: clamp(140px, 20vw, 300px); line-height: 1;
-      letter-spacing: -0.04em; color: rgba(255,255,255,0.03);
-      z-index: 0;
-    }
+  .lla-input-row { display: flex; align-items: center; gap: var(--sc-4); flex-wrap: wrap; margin-bottom: var(--sc-4); }
+  .lla-input-wrap { display: flex; align-items: center; min-height: 56px; background: var(--sc-surface);
+                    border: 1.5px solid var(--sc-hairline-strong); border-radius: 10px; overflow: hidden; }
+  .lla-input-wrap:focus-within { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(232,101,42,0.25); }
+  .lla-curr { font: 700 1.35rem/1 var(--sc-font-text); color: var(--sc-ink-soft); padding-left: 1.1rem; }
+  .lla-num-input { background: transparent; border: 0; outline: none; color: var(--sc-ink); caret-color: var(--amber);
+                   font: 700 1.35rem/1 var(--sc-font-text); padding: 0.9rem 1.1rem 0.9rem 0.5rem; width: 11rem; }
+  .lla-num-input::placeholder { color: var(--sc-ink-soft); opacity: 0.6; }
+  .lla-skip-link { align-self: flex-start; min-height: 44px; padding: 0; background: none; border: 0; cursor: pointer;
+                   font: 500 var(--sc-t-sm)/1 var(--sc-font-text); color: var(--sc-ink-soft);
+                   text-decoration: underline; text-underline-offset: 0.3em; }
+  .lla-skip-link:hover { color: var(--sc-ink); }
 
-    /* ─── Panels ─── */
-    .lla-wrap {
-      max-width: 860px; width: 100%;
-      position: relative; z-index: 1;
-    }
-    .lla-panel { display: none; flex-direction: column; width: 100%; }
-    .lla-panel.active {
-      display: flex;
-      animation: llaIn 0.42s cubic-bezier(.4,0,.2,1);
-    }
-    @keyframes llaIn {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: none; }
-    }
+  .lla-progress-track { width: 100%; height: 3px; background: var(--sc-hairline); border-radius: 2px; margin-bottom: var(--sc-7); overflow: hidden; }
+  .lla-progress-fill { height: 100%; width: 0%; background: var(--amber); border-radius: 2px; transition: width 0.5s var(--sc-ease-out); }
+  .lla-q-meta-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: var(--sc-5); }
+  .lla-q-section-lbl { font-size: var(--sc-t-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tx-accent); }
+  .lla-q-counter { font-size: var(--sc-t-sm); color: var(--sc-ink-soft); font-variant-numeric: tabular-nums; }
 
-    /* ─── Typography ─── */
-    .lla-eyebrow-amber {
-      font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--amber); margin-bottom: 20px;
-    }
-    .lla-h2 {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(38px, 5.5vw, 68px);
-      font-weight: 800; line-height: 1.04; letter-spacing: -0.03em;
-      color: white; margin-bottom: 20px;
-    }
-    /* Trailing clause sits smaller so the two full-size lines stay balanced
-       instead of leaving a short ragged third line. */
-    .lla-h2-tail {
-      display: inline-block;
-      font-size: 0.46em; font-weight: 700;
-      letter-spacing: 0.01em; color: var(--amber-lt);
-      margin-top: 10px;
-    }
-    .lla-lead {
-      font-family: 'Inter Tight', sans-serif; font-size: 17px; line-height: 1.65;
-      color: rgba(254,241,232,0.72); max-width: 560px; margin-bottom: 36px;
-    }
-    .lla-qh {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(24px, 3.5vw, 40px); font-weight: 700;
-      line-height: 1.15; letter-spacing: -0.02em;
-      color: white; margin-bottom: 14px;
-    }
-    .lla-qlead {
-      font-family: 'Inter Tight', sans-serif; font-size: 16px; line-height: 1.6;
-      color: rgba(254,241,232,0.62); margin-bottom: 32px; max-width: 480px;
-    }
+  .lla-opts { display: flex; flex-direction: column; gap: 0.6rem; margin-top: var(--sc-6); }
+  .lla-opt { min-height: 56px; padding: 0.9rem 1.2rem; text-align: left; cursor: pointer; border-radius: 10px;
+             background: var(--sc-surface); border: 1.5px solid var(--sc-hairline); color: var(--sc-ink);
+             font: 500 var(--sc-t-base)/1.4 var(--sc-font-text);
+             transition: background-color 150ms var(--sc-ease-out), border-color 150ms var(--sc-ease-out), transform 120ms var(--sc-ease-out); }
+  .lla-opt:active { transform: scale(0.99); }
+  @media (hover: hover) and (pointer: fine) { .lla-opt:hover { border-color: var(--amber); } }
+  .lla-opt.selected { background: var(--amber); border-color: var(--amber); color: var(--char); font-weight: 600; }
 
-    /* ─── Category pills ─── */
-    .lla-cats-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 44px; }
-    .lla-cat-pill {
-      font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 600;
-      letter-spacing: 0.05em; color: rgba(254,241,232,0.55);
-      border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; padding: 5px 13px;
-    }
+  /* results */
+  .lla-report-wrap { width: 100%; }
+  .lla-report-header { margin-bottom: var(--sc-7); padding-bottom: var(--sc-6); border-bottom: 1px solid var(--sc-hairline); }
+  .lla-tier-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+                    padding: 0.35rem 0.75rem; border-radius: 4px; }
+  .lla-tier-solid    { background: var(--ok-bg);  color: var(--ok); }
+  .lla-tier-moderate { background: rgba(232,101,42,0.16); color: var(--tx-accent); }
+  .lla-tier-critical { background: var(--bad-bg); color: var(--bad); }
+  .lla-report-headline { font-size: clamp(1.7rem, 1.1rem + 2.4vw, 2.8rem); margin: var(--sc-4) 0 var(--sc-3); max-width: 22ch; }
+  .lla-report-sub { color: var(--sc-ink-soft); margin: 0 0 var(--sc-6); }
+  .lla-leak-num { font: 700 clamp(2.8rem, 1.6rem + 5vw, 4.6rem)/1 var(--sc-font-display); letter-spacing: -0.03em; color: var(--tx-accent);
+                  font-variant-numeric: tabular-nums; margin-bottom: var(--sc-2); }
+  .lla-leak-lbl { font-size: var(--sc-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--sc-ink-soft); }
+  .lla-score-badge { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: var(--sc-5); padding: 0.5rem 1rem;
+                     border: 1px solid var(--sc-hairline); border-radius: 6px; font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+  .lla-score-badge strong { color: var(--sc-ink); font-size: 1.1rem; }
 
-    /* ─── Buttons ─── */
-    .lla-btn-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--amber); color: white;
-      font-family: 'Inter Tight', sans-serif; font-size: 15px; font-weight: 700;
-      letter-spacing: 0.02em; border: none; border-radius: 4px;
-      padding: 16px 28px; cursor: pointer; align-self: flex-start;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .lla-btn-primary:hover { background: var(--amber-lt); transform: translateY(-1px); }
-    .lla-btn-primary:active { transform: none; }
-    .lla-fine {
-      font-family: 'Inter Tight', sans-serif; font-size: 13px;
-      color: rgba(254,241,232,0.36); margin-top: 16px;
-    }
+  .lla-diag { font-size: var(--sc-t-base); line-height: 1.7; margin: 0 0 var(--sc-7); padding: 1.1rem 1.25rem; border-radius: 10px;
+              background: rgba(232,101,42,0.09); border: 1px solid rgba(232,101,42,0.28); }
+  .lla-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sc-4); margin: 0 0 var(--sc-7); }
+  .lla-pillar { padding: 1.3rem 1.25rem; border-radius: 12px; background: var(--sc-surface); border: 1px solid var(--sc-hairline); }
+  .lla-pillar-top { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.75rem; }
+  .lla-pillar-name { font-size: var(--sc-t-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sc-ink-soft); }
+  .lla-pillar-pct { font: 700 1.6rem/1 var(--sc-font-display); color: var(--tx-accent); font-variant-numeric: tabular-nums; }
+  .lla-pillar-track, .lla-cat-bar-track { height: 6px; border-radius: 4px; background: var(--sc-hairline); overflow: hidden; margin-bottom: 0.75rem; }
+  .lla-pillar-fill { height: 100%; width: 0; border-radius: 4px; background: var(--amber); transition: width 1s var(--sc-ease-out); }
+  .lla-pillar-read { font-size: var(--sc-t-sm); line-height: 1.6; color: var(--sc-ink-soft); margin: 0; }
+  .lla-pillar-offer { display: inline-block; margin-top: 0.6rem; padding: 0.5rem 0; font-size: var(--sc-t-sm); font-weight: 600;
+                      color: var(--tx-accent); text-underline-offset: 0.3em; }
 
-    /* ─── Value input ─── */
-    .lla-input-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
-    .lla-input-wrap {
-      display: flex; align-items: center;
-      background: rgba(255,255,255,0.05);
-      border: 1.5px solid rgba(255,255,255,0.14); border-radius: 4px;
-      overflow: hidden; transition: border-color 0.2s;
-    }
-    .lla-input-wrap:focus-within { border-color: var(--amber); }
-    .lla-curr {
-      font-family: 'Inter Tight', sans-serif; font-size: 22px; font-weight: 700;
-      color: rgba(254,241,232,0.55); padding: 13px 0 13px 18px;
-    }
-    .lla-num-input {
-      background: transparent; border: none; outline: none;
-      font-family: 'Inter Tight', sans-serif; font-size: 22px; font-weight: 700;
-      color: white; padding: 13px 18px; width: 160px;
-    }
-    .lla-num-input::placeholder { color: rgba(254,241,232,0.30); }
-    .lla-skip-link {
-      font-family: 'Inter Tight', sans-serif; font-size: 13px;
-      color: rgba(254,241,232,0.40); cursor: pointer;
-      text-decoration: underline; text-underline-offset: 3px;
-      transition: color 0.2s; display: inline-block; margin-top: 4px;
-    }
-    .lla-skip-link:hover { color: rgba(254,241,232,0.72); }
-    /* Capture panel */
-    .lla-capture-fields { display: flex; flex-direction: column; gap: 12px; margin: 28px 0 20px; max-width: 440px; }
-    .lla-text-input {
-      background: rgba(255,255,255,0.05);
-      border: 1.5px solid rgba(255,255,255,0.14); border-radius: 4px;
-      color: white; font-family: 'Inter Tight', sans-serif; font-size: 15px;
-      padding: 14px 18px; outline: none; width: 100%;
-      transition: border-color 0.2s;
-    }
-    .lla-text-input::placeholder { color: rgba(254,241,232,0.36); }
-    .lla-text-input:focus { border-color: var(--amber); }
-    .lla-capture-error { color: #e05a5a; font-size: 13px; margin-top: -4px; display: none; }
-    .lla-capture-error.show { display: block; }
-    .lla-privacy-note { font-size: 12px; color: rgba(254,241,232,0.40); margin-top: 14px; line-height: 1.6; }
+  .lla-phases-head { font-size: var(--sc-t-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tx-accent); margin: 0 0 var(--sc-4); }
+  .lla-phases { display: flex; flex-direction: column; gap: var(--sc-4); margin-bottom: var(--sc-7); }
+  .lla-phase { padding: 1.4rem 1.4rem 1.2rem; border-radius: 12px; background: var(--sc-surface); border: 1px solid var(--sc-hairline); }
+  .lla-phase-top { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+  .lla-phase-num { font-size: var(--sc-t-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sc-ink-soft); }
+  .lla-phase-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.3rem 0.6rem;
+                   border-radius: 5px; background: rgba(232,101,42,0.16); color: var(--tx-accent); text-decoration: none; }
+  .lla-phase-title { font: 700 var(--sc-t-xl)/1.2 var(--sc-font-text); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  .lla-phase-why { font-size: var(--sc-t-sm); line-height: 1.65; color: var(--sc-ink-soft); margin: 0 0 0.8rem; }
+  .lla-phase-items { list-style: none; padding: 0; margin: 0; }
+  .lla-phase-items li { display: flex; gap: 0.6rem; font-size: var(--sc-t-sm); line-height: 1.55; padding: 0.3rem 0; }
+  .lla-phase-items li::before { content: ""; flex: none; margin-top: 0.5rem; width: 5px; height: 5px; border-radius: 50%; background: var(--amber); }
 
-    /* ─── Report panel ─── */
-    .lla-report-wrap { max-width: 860px; width: 100%; }
-    .lla-report-header { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.07); }
-    .lla-report-headline {
-      font-family: 'Inter Tight', sans-serif; font-size: clamp(24px, 4vw, 42px);
-      font-weight: 800; line-height: 1.1; letter-spacing: -0.03em;
-      color: white; margin: 12px 0 10px;
-    }
-    .lla-report-sub {
-      font-family: 'Inter Tight', sans-serif; font-size: 16px;
-      line-height: 1.6; color: rgba(254,241,232,0.56); margin: 0 0 24px;
-    }
-    .lla-score-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 4px; padding: 8px 16px;
-      font-family: 'Inter Tight', sans-serif; font-size: 13px;
-      color: rgba(254,241,232,0.52); margin-top: 20px;
-    }
-    .lla-score-badge strong { color: white; font-size: 18px; font-weight: 700; }
-    .lla-cat-cards { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
-    .lla-cat-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 22px 26px;
-    }
-    .lla-cat-card-header {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
-    }
-    .lla-cat-card-name {
-      font-family: 'Inter Tight', sans-serif; font-size: 14px; font-weight: 700; color: white;
-    }
-    .lla-cat-narrative {
-      font-family: 'Inter Tight', sans-serif; font-size: 14px; line-height: 1.65;
-      color: rgba(254,241,232,0.68); margin: 0 0 14px;
-    }
-    .lla-cat-callout {
-      background: rgba(232,101,42,0.10); border-left: 2px solid var(--amber);
-      padding: 9px 14px; border-radius: 3px; font-family: 'Inter Tight', sans-serif;
-      font-size: 12.5px; color: rgba(254,241,232,0.76); margin-bottom: 14px;
-    }
-    .lla-cat-bar-track { height: 3px; background: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden; }
-    .lla-cat-bar-fill { height: 100%; border-radius: 2px; width: 0%; transition: width 1.1s cubic-bezier(.4,0,.2,1); }
-    .lla-report-cta {
-      padding: 28px 0 0; border-top: 1px solid rgba(255,255,255,0.07);
-      display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
-    }
-    .lla-email-sent-note {
-      font-family: 'Inter Tight', sans-serif; font-size: 12px; color: rgba(254,241,232,0.40);
-    }
-    @media (max-width: 768px) {
-      .lla-cat-card { padding: 16px; }
-      .lla-report-cta { align-items: stretch; }
-      .lla-btn-primary.lla-res-cta-btn { justify-content: center; }
-    }
+  .lla-cat-cards { display: flex; flex-direction: column; gap: var(--sc-3); margin-bottom: var(--sc-7); }
+  .lla-cat-card { padding: 1.3rem 1.4rem; border-radius: 12px; background: var(--sc-surface); border: 1px solid var(--sc-hairline); }
+  .lla-cat-card-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 0.6rem; }
+  .lla-cat-card-name { font-weight: 700; }
+  .lla-cat-narrative { font-size: var(--sc-t-sm); line-height: 1.65; color: var(--sc-ink-soft); margin: 0 0 0.8rem; }
+  .lla-cat-callout { font-size: var(--sc-t-sm); font-weight: 600; color: var(--tx-accent); margin-bottom: 0.8rem; }
+  .lla-cat-bar-track { height: 4px; margin: 0; }
+  .lla-cat-bar-fill { height: 100%; width: 0%; border-radius: 2px; transition: width 1.1s var(--sc-ease-out); }
+  .lla-gap-tag { flex: none; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.5rem; border-radius: 4px; }
+  .lla-gap-tag-major    { background: var(--bad-bg); color: var(--bad); }
+  .lla-gap-tag-moderate { background: rgba(232,101,42,0.16); color: var(--tx-accent); }
+  .lla-gap-tag-strong   { background: var(--ok-bg); color: var(--ok); }
+  .lla-gap-fill-major    { background: var(--bad); }
+  .lla-gap-fill-moderate { background: var(--amber); }
+  .lla-gap-fill-strong   { background: var(--ok); }
 
-    /* ─── Progress bar ─── */
-    .lla-progress-track {
-      width: 100%; height: 2px;
-      background: rgba(255,255,255,0.08); border-radius: 2px;
-      margin-bottom: 40px; overflow: hidden;
-    }
-    .lla-progress-fill {
-      height: 100%; background: var(--amber); border-radius: 2px;
-      width: 0%; transition: width 0.55s cubic-bezier(.4,0,.2,1);
-    }
-    .lla-q-meta-row {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;
-    }
-    .lla-q-section-lbl {
-      font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber);
-    }
-    .lla-q-counter {
-      font-family: 'Inter Tight', sans-serif; font-size: 13px; color: rgba(254,241,232,0.42);
-    }
+  .lla-report-cta { padding-top: var(--sc-6); border-top: 1px solid var(--sc-hairline); display: flex; flex-wrap: wrap; align-items: center; gap: var(--sc-4) var(--sc-6); }
+  .lla-retake { min-height: 44px; background: none; border: 0; cursor: pointer; padding: 0;
+                font: 500 var(--sc-t-sm)/1 var(--sc-font-text); color: var(--sc-ink-soft); }
+  .lla-retake:hover { color: var(--sc-ink); }
 
-    /* ─── Answer options ─── */
-    .lla-opts { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
-    .lla-opt {
-      background: rgba(255,255,255,0.04);
-      border: 1.5px solid rgba(255,255,255,0.09); border-radius: 6px;
-      padding: 15px 20px; text-align: left;
-      font-family: 'Inter Tight', sans-serif; font-size: 15px;
-      color: rgba(254,241,232,0.85); cursor: pointer;
-      transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.12s;
-    }
-    .lla-opt:hover {
-      background: rgba(232,101,42,0.1); border-color: rgba(232,101,42,0.5);
-      color: white; transform: translateX(5px);
-    }
-    .lla-opt.selected {
-      background: var(--amber); border-color: var(--amber);
-      color: white; font-weight: 600; transform: translateX(5px);
-    }
+  @media (max-width: 640px) {
+    .lla-input-row { flex-direction: column; align-items: stretch; }
+    .lla-num-input { width: 100%; }
+    .lla-btn-primary { align-self: stretch; }
+    .lla-pillars { grid-template-columns: 1fr; }
+    .lla-report-cta { flex-direction: column; align-items: stretch; }
+  }
 
-    /* ─── Results ─── */
-    .lla-results-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; width: 100%;
-    }
-    .lla-tier-badge {
-      display: inline-block; font-family: 'Inter Tight', sans-serif;
-      font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 5px 12px; border-radius: 3px; margin-bottom: 14px;
-    }
-    .lla-tier-solid    { background: rgba(100,200,120,0.15); color: #7CCC8A; }
-    .lla-tier-moderate { background: rgba(232,101,42,0.15);  color: var(--amber-lt); }
-    .lla-tier-critical { background: rgba(210,60,60,0.15);   color: #E57373; }
-    .lla-tier-desc {
-      font-family: 'Inter Tight', sans-serif; font-size: 15px; line-height: 1.6;
-      color: rgba(254,241,232,0.68); margin-bottom: 32px;
-    }
-    .lla-leak-num {
-      font-family: 'Inter Tight', sans-serif;
-      font-size: clamp(44px, 6vw, 72px); font-weight: 900;
-      color: var(--amber); line-height: 1; letter-spacing: -0.03em; margin-bottom: 8px;
-    }
-    .lla-leak-lbl {
-      font-family: 'Inter Tight', sans-serif; font-size: 12px;
-      color: rgba(254,241,232,0.42); text-transform: uppercase;
-      letter-spacing: 0.07em; margin-bottom: 32px;
-    }
-    .lla-score-row {
-      display: flex; align-items: center; gap: 12px;
-      padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07);
-    }
-    .lla-score-lbl { font-family: 'Inter Tight', sans-serif; font-size: 13px; color: rgba(254,241,232,0.48); }
-    .lla-score-val { font-family: 'Inter Tight', sans-serif; font-size: 24px; font-weight: 700; color: white; }
-    .lla-gaps-title {
-      font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(254,241,232,0.48); margin-bottom: 22px;
-    }
-    .lla-gap-row { margin-bottom: 18px; }
-    .lla-gap-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
-    .lla-gap-name { font-family: 'Inter Tight', sans-serif; font-size: 13px; font-weight: 600; color: rgba(254,241,232,0.88); }
-    .lla-gap-tag {
-      font-family: 'Inter Tight', sans-serif; font-size: 9px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px;
-    }
-    .lla-gap-tag-major    { background: rgba(210,60,60,0.2);   color: #E57373; }
-    .lla-gap-tag-moderate { background: rgba(232,101,42,0.2);  color: var(--amber-lt); }
-    .lla-gap-tag-strong   { background: rgba(100,200,120,0.15); color: #7CCC8A; }
-    .lla-gap-track { height: 4px; background: rgba(255,255,255,0.07); border-radius: 2px; overflow: hidden; margin-bottom: 5px; }
-    .lla-gap-fill { height: 100%; border-radius: 2px; width: 0%; transition: width 1.1s cubic-bezier(.4,0,.2,1); }
-    .lla-gap-fill-major    { background: #E57373; }
-    .lla-gap-fill-moderate { background: var(--amber); }
-    .lla-gap-fill-strong   { background: #7CCC8A; }
-    .lla-gap-svc { font-family: 'Inter Tight', sans-serif; font-size: 11px; color: rgba(254,241,232,0.40); }
-    .lla-gap-svc strong { color: rgba(254,241,232,0.68); }
-    .lla-res-cta { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); }
-    .lla-res-cta-btn { width: 100%; justify-content: center; display: flex; align-items: center; gap: 8px; }
-    .lla-btn-download {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; margin-top: 10px;
-      background: transparent; border: 1.5px solid rgba(255,255,255,0.15); border-radius: 4px;
-      padding: 13px 20px; cursor: pointer;
-      font-family: 'Inter Tight', sans-serif; font-size: 13px; font-weight: 600;
-      letter-spacing: 0.02em; color: rgba(254,241,232,0.62);
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .lla-btn-download:hover { border-color: rgba(254,241,232,0.48); color: rgba(254,241,232,0.88); }
-    .lla-retake {
-      background: none; border: none; font-family: 'Inter Tight', sans-serif;
-      font-size: 13px; color: rgba(254,241,232,0.32); cursor: pointer;
-      margin-top: 14px; display: block; width: 100%; text-align: center; transition: color 0.2s;
-    }
-    .lla-retake:hover { color: rgba(254,241,232,0.68); }
+  /* capture + booking overlays (same ids and behaviour as before) */
+  .cap { position: fixed; inset: 0; z-index: 500; display: none; align-items: center; justify-content: center; padding: 1.25rem;
+         background: rgba(20,17,16,0.9); overflow-y: auto; }
+  .cap__card { width: 100%; max-width: 30rem; padding: 2rem 1.75rem 1.5rem; border-radius: 14px; border: 1px solid var(--sc-hairline);
+               box-shadow: 0 32px 80px rgba(0,0,0,0.55); }
+  .cap__card h2 { font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2rem); margin-bottom: 0.5rem; }
+  .cap__card > p { color: var(--sc-ink-soft); line-height: 1.6; margin: 0 0 var(--sc-5); }
+  .cap__fields { display: grid; gap: 0.85rem; }
+  .cap__err { color: #F28B82; font-size: var(--sc-t-sm); display: none; margin: 0; }
+  .cap__note { font-size: var(--sc-t-xs); color: var(--sc-ink-soft); margin: var(--sc-4) 0 0; line-height: 1.6; }
+  #cap-submit-btn { width: 100%; margin-top: 0.25rem; }
+  .bk { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; background: rgba(20,17,16,0.8); }
+  .bk__box { position: relative; width: min(46rem, 94vw); height: min(46rem, 88vh); background: var(--cream); border-radius: 14px; overflow: hidden;
+             box-shadow: 0 32px 80px rgba(0,0,0,0.6); }
+  .bk__box iframe { width: 100%; height: 100%; border: 0; }
 
-    /* ─── Print / PDF Report ─── */
-    #lla-pdf { display: none; }
-    @media print {
-      *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-      @page { margin: 0; size: A4 portrait; }
-      body > * { display: none !important; }
-      #lla-pdf { display: block !important; }
-    }
-
-    /* ─── Responsive ─── */
-    @media (max-width: 768px) {
-      .audit-nav { padding: 16px 20px; }
-      .audit-page { padding: 90px 20px 48px; }
-      .lla-results-grid { grid-template-columns: 1fr; gap: 36px; }
-      .lla-input-row { flex-direction: column; align-items: flex-start; }
-    }
-
-    /* ─── Roadmap: pillar meters ─── */
-    .lla-pillars {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-      margin: 0 0 34px;
-    }
-    .lla-pillar {
-      background: rgba(255,255,255,0.04);
-      border: 1.5px solid rgba(255,255,255,0.1);
-      border-radius: 14px; padding: 22px 20px; text-align: left;
-    }
-    .lla-pillar-top {
-      display: flex; align-items: baseline; justify-content: space-between;
-      margin-bottom: 12px;
-    }
-    .lla-pillar-name {
-      font-family: 'Inter Tight', sans-serif; font-size: 12px; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase; color: rgba(254,241,232,0.62);
-    }
-    .lla-pillar-pct {
-      font-family: 'Inter Tight', sans-serif; font-size: 26px; font-weight: 800;
-      letter-spacing: -0.03em; color: var(--amber-lt); line-height: 1;
-    }
-    .lla-pillar-track {
-      height: 6px; border-radius: 4px; background: rgba(255,255,255,0.09);
-      overflow: hidden; margin-bottom: 12px;
-    }
-    .lla-pillar-fill {
-      height: 100%; border-radius: 4px; width: 0;
-      background: linear-gradient(90deg, var(--amber-lt), var(--amber));
-      transition: width 1s cubic-bezier(0.22,1,0.36,1);
-    }
-    .lla-pillar-read {
-      font-size: 13px; line-height: 1.6; color: rgba(254,241,232,0.62);
-    }
-    .lla-pillar-offer {
-      display: inline-block; margin-top: 10px;
-      font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--amber-lt); text-decoration: none;
-      border-bottom: 1px solid rgba(245,128,74,0.4);
-    }
-
-    /* ─── Roadmap: phases ─── */
-    .lla-phases-head {
-      font-family: 'Inter Tight', sans-serif; font-size: 12px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber);
-      text-align: left; margin: 0 0 16px;
-    }
-    .lla-phases { display: flex; flex-direction: column; gap: 14px; margin-bottom: 34px; }
-    .lla-phase {
-      position: relative; text-align: left;
-      background: rgba(255,255,255,0.04);
-      border: 1.5px solid rgba(255,255,255,0.1);
-      border-left: 3px solid var(--amber);
-      border-radius: 14px; padding: 24px 24px 22px;
-    }
-    .lla-phase-top {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-    .lla-phase-num {
-      font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 800;
-      letter-spacing: 0.12em; text-transform: uppercase; color: rgba(254,241,232,0.45);
-    }
-    .lla-phase-tag {
-      font-family: 'Inter Tight', sans-serif; font-size: 10.5px; font-weight: 700;
-      letter-spacing: 0.07em; text-transform: uppercase;
-      padding: 4px 9px; border-radius: 5px;
-      background: rgba(232,101,42,0.2); color: var(--amber-lt);
-      text-decoration: none;
-    }
-    .lla-phase-title {
-      font-family: 'Inter Tight', sans-serif; font-size: 20px; font-weight: 800;
-      letter-spacing: -0.02em; color: #fff; margin-bottom: 8px; line-height: 1.2;
-    }
-    .lla-phase-why {
-      font-size: 14px; line-height: 1.65; color: rgba(254,241,232,0.66);
-      margin-bottom: 14px;
-    }
-    .lla-phase-items { list-style: none; padding: 0; margin: 0; }
-    .lla-phase-items li {
-      display: flex; align-items: flex-start; gap: 9px;
-      font-size: 13.5px; line-height: 1.55; color: rgba(254,241,232,0.82);
-      padding: 5px 0;
-    }
-    .lla-phase-items li::before {
-      content: ''; flex-shrink: 0; margin-top: 6px;
-      width: 5px; height: 5px; border-radius: 50%; background: var(--amber);
-    }
-    .lla-diag {
-      text-align: left; font-size: 15px; line-height: 1.7;
-      color: rgba(254,241,232,0.78);
-      background: rgba(232,101,42,0.08);
-      border: 1px solid rgba(232,101,42,0.24);
-      border-radius: 12px; padding: 18px 20px; margin: 0 0 30px;
-    }
-    @media (max-width: 620px) {
-      .lla-pillars { grid-template-columns: 1fr; }
-      .lla-phase { padding: 20px 18px; }
-    }
-  </style>
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2062397397707938');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2062397397707938&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  /* print / PDF report */
+  #lla-pdf { display: none; }
+  @media print {
+    *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    @page { margin: 0; size: A4 portrait; }
+    body > * { display: none !important; }
+    #lla-pdf { display: block !important; }
+  }
+</style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+<span data-sc-progress></span>
+<div class="sc-grain" aria-hidden="true"></div>
 
-  <!-- Minimal nav -->
-  <nav class="audit-nav">
-    <a href="index.html" class="audit-logo">
-      FLOW<span>BUILD</span><span class="audit-logo-badge">AI</span>
+<header class="nav g-light" id="nav">
+  <div class="sc-wrap nav__in">
+    <a href="/" class="mark" aria-label="FlowBuild AI home">
+      <svg width="26" height="26" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <defs><linearGradient id="fbMark" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#5B2A1A"/><stop offset="55%" stop-color="#C4501B"/><stop offset="100%" stop-color="#F7935F"/></linearGradient></defs>
+        <path d="M6 54 C 6 42 20 42 28 48 C 36 54 50 54 54 40" stroke="#E8652A" stroke-width="6" stroke-linecap="round" opacity="0.35"/>
+        <path d="M6 42 C 6 28 22 28 32 36 C 42 44 58 44 58 28" stroke="url(#fbMark)" stroke-width="8" stroke-linecap="round"/>
+        <circle cx="58" cy="28" r="5.5" fill="#F7935F"/>
+      </svg>
+      <span>Flow<b>Build</b><span class="ai"> AI</span></span>
     </a>
-    <a href="index.html" class="audit-nav-back">
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      Back to site
-    </a>
-  </nav>
+    <nav class="nav__links" id="navLinks" aria-label="Main">
+      <a href="/b2b-outbound.html">Get More Leads</a>
+      <a href="/web-design/">Win Them Over <small>(Web Design)</small></a>
+      <a href="/ai-systems.html">Never Miss a Lead</a>
+      <a href="/audit.html" aria-current="page">Find Your Money Leaks</a>
+    </nav>
+    <a href="https://links.flowbuildai.ie/widget/booking/MLznN883xY9UeIaBWpgO" class="btn btn--primary" data-book>Book a call</a>
+    <button class="nav__menu" id="navMenu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+  </div>
+</header>
 
-  <div class="audit-wm">SCAN</div>
+<main id="main">
 
-  <main class="audit-page">
-    <div class="lla-wrap">
+  <!-- 1 · THE SCAN -->
+  <section class="scan page-top g-dark" aria-label="Scaling Roadmap scan">
+    <div class="sc-wrap">
+      <div class="lla-wrap">
 
-      <!-- Panel: Intro -->
-      <div class="lla-panel active" id="lla-p-intro">
-        <div class="lla-eyebrow-amber">Free for B2B &amp; service businesses</div>
-        <h2 class="lla-h2">Get Your Free Personalised<br>FlowBuild Scaling Roadmap<br><span class="lla-h2-tail">in &lt;2 Mins.</span></h2>
-        <p class="lla-lead">Thirteen questions, about two minutes. You get a phased roadmap showing where you are now, which of our two core offerings fits, and what the gaps are costing you annually.</p>
-        <div class="lla-cats-row">
-          <span class="lla-cat-pill">Pipeline &amp; Demand</span>
-          <span class="lla-cat-pill">Speed to Lead</span>
-          <span class="lla-cat-pill">Quote Follow-Up</span>
-          <span class="lla-cat-pill">Appointment Booking</span>
-          <span class="lla-cat-pill">Missed Call Coverage</span>
-          <span class="lla-cat-pill">Reviews &amp; Visibility</span>
-        </div>
-        <button class="lla-btn-primary" onclick="llaGoTo('value')">
-          Let's Start
-          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-        <p class="lla-fine">Free · Takes 3 minutes · Personalised to your business</p>
-      </div>
-
-      <!-- Panel: Customer Value -->
-      <div class="lla-panel" id="lla-p-value">
-        <div class="lla-eyebrow-amber">Before we start</div>
-        <h3 class="lla-qh">What's a typical deal worth to your business?</h3>
-        <p class="lla-qlead">This lets us calculate the real revenue at risk — specific to your business, not a generic estimate.</p>
-        <div class="lla-input-row">
-          <div class="lla-input-wrap">
-            <span class="lla-curr">€</span>
-            <input type="number" id="lla-val-input" class="lla-num-input" placeholder="e.g. 8,000" min="1">
-          </div>
-          <button class="lla-btn-primary" onclick="llaSetValue()">
-            Begin Audit →
+        <!-- Panel: Intro -->
+        <div class="lla-panel active" id="lla-p-intro">
+          <p class="lla-eyebrow-amber">Free for B2B &amp; service businesses</p>
+          <h1 class="lla-h1">Get your free FlowBuild Scaling Roadmap <span class="lla-h1-tail">in under two minutes.</span></h1>
+          <p class="lla-lead">Thirteen questions. See exactly where you lose enquiries, and what to fix first.</p>
+          <ul class="lla-cats-row" aria-label="What the scan covers">
+            <li class="lla-cat-pill">Pipeline &amp; Demand</li>
+            <li class="lla-cat-pill">Speed to Lead</li>
+            <li class="lla-cat-pill">Quote Follow-Up</li>
+            <li class="lla-cat-pill">Appointment Booking</li>
+            <li class="lla-cat-pill">Missed Call Coverage</li>
+            <li class="lla-cat-pill">Reviews &amp; Visibility</li>
+          </ul>
+          <button class="btn btn--primary lla-btn-primary" type="button" onclick="llaGoTo('value')">
+            Let's start
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
+          <p class="lla-fine">Free · About two minutes</p>
         </div>
-        <span class="lla-skip-link" onclick="llaSetValue(true)">Skip — use a typical estimate</span>
+
+        <!-- Panel: Customer Value -->
+        <div class="lla-panel" id="lla-p-value">
+          <p class="lla-eyebrow-amber">Before we start</p>
+          <h2 class="lla-qh"><label for="lla-val-input">What's a typical deal worth to your business?</label></h2>
+          <p class="lla-qlead">So the revenue at risk is yours, not an average.</p>
+          <div class="lla-input-row">
+            <div class="lla-input-wrap">
+              <span class="lla-curr" aria-hidden="true">€</span>
+              <input type="number" id="lla-val-input" class="lla-num-input" placeholder="e.g. 8,000" min="1" inputmode="numeric">
+            </div>
+            <button class="btn btn--primary lla-btn-primary" type="button" onclick="llaSetValue()">
+              Begin the scan
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+          <button type="button" class="lla-skip-link" onclick="llaSetValue(true)">Skip and use a typical estimate</button>
+        </div>
+
+        <!-- Panel: Quiz -->
+        <div class="lla-panel" id="lla-p-quiz">
+          <div class="lla-progress-track" aria-hidden="true">
+            <div class="lla-progress-fill" id="lla-pfill"></div>
+          </div>
+          <div class="lla-q-meta-row">
+            <span class="lla-q-section-lbl" id="lla-qsection"></span>
+            <span class="lla-q-counter" id="lla-qcount" aria-live="polite"></span>
+          </div>
+          <h2 class="lla-qh" id="lla-qtext"></h2>
+          <div class="lla-opts" id="lla-opts"></div>
+        </div>
+
+        <!-- Panel: Results (built dynamically) -->
+        <div class="lla-panel" id="lla-p-results"></div>
+
       </div>
-
-      <!-- Panel: Quiz -->
-      <div class="lla-panel" id="lla-p-quiz">
-        <div class="lla-progress-track">
-          <div class="lla-progress-fill" id="lla-pfill"></div>
-        </div>
-        <div class="lla-q-meta-row">
-          <span class="lla-q-section-lbl" id="lla-qsection"></span>
-          <span class="lla-q-counter" id="lla-qcount"></span>
-        </div>
-        <h3 class="lla-qh" id="lla-qtext"></h3>
-        <div class="lla-opts" id="lla-opts"></div>
-      </div>
-
-      <!-- Panel: Results (built dynamically) -->
-      <div class="lla-panel" id="lla-p-results"></div>
-
     </div>
-  </main>
+  </section>
 
-  <!-- Capture modal (no close — must submit GHL form) -->
-  <div id="capture-modal" style="position:fixed;inset:0;z-index:500;background:rgba(28,25,23,0.94);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px;">
-    <div style="background:#242120;border:1px solid rgba(255,255,255,0.1);border-radius:12px;width:100%;max-width:480px;padding:32px 32px 24px;box-shadow:0 32px 80px rgba(0,0,0,0.6);">
-      <div style="font-family:'Inter Tight',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E8652A;margin-bottom:16px;">Your results are ready</div>
-      <h3 style="font-family:'Inter Tight',sans-serif;font-size:26px;font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:white;margin-bottom:8px;">Enter your details<br>to unlock your results</h3>
-      <p style="font-family:'Inter Tight',sans-serif;font-size:15px;line-height:1.6;color:rgba(254,241,232,0.56);margin-bottom:20px;">We'll show you exactly where deals are slipping and what it's costing you.</p>
-      <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px;">
-        <input id="cap-name"     type="text"  placeholder="Your name"     style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.14);border-radius:4px;color:white;font-family:'Inter Tight',sans-serif;font-size:15px;padding:14px 16px;outline:none;width:100%;" onfocus="this.style.borderColor='#E8652A'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'">
-        <input id="cap-business" type="text"  placeholder="Business name" style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.14);border-radius:4px;color:white;font-family:'Inter Tight',sans-serif;font-size:15px;padding:14px 16px;outline:none;width:100%;" onfocus="this.style.borderColor='#E8652A'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'">
-        <input id="cap-phone"    type="tel"   placeholder="Phone number"  style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.14);border-radius:4px;color:white;font-family:'Inter Tight',sans-serif;font-size:15px;padding:14px 16px;outline:none;width:100%;" onfocus="this.style.borderColor='#E8652A'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'">
-        <input id="cap-email"    type="email" placeholder="Email address" style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.14);border-radius:4px;color:white;font-family:'Inter Tight',sans-serif;font-size:15px;padding:14px 16px;outline:none;width:100%;" onfocus="this.style.borderColor='#E8652A'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'">
-        <p id="cap-error" style="color:#e05a5a;font-size:13px;display:none;margin:0;">Please fill in all fields to continue.</p>
-        <button id="cap-submit-btn" onclick="submitCapture()" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#E8652A;color:white;font-family:'Inter Tight',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:4px;padding:16px 28px;cursor:pointer;width:100%;margin-top:4px;transition:opacity 0.2s;">
-          See My Results
-          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
+  <!-- 2 · WHAT IT LOOKS AT -->
+  <section class="sec g-light" id="covers" aria-labelledby="covers-h">
+    <div class="sc-wrap">
+      <div class="sec__head sec__head--split">
+        <h2 id="covers-h" data-sc-in>Where the scan finds lost work.</h2>
+        <p class="lede" data-sc-in>Whether enough enquiries arrive, and what happens once they do.</p>
       </div>
-      <p style="font-family:'Inter Tight',sans-serif;font-size:12px;color:rgba(254,241,232,0.32);margin-top:14px;line-height:1.6;">No spam. We'll be in touch within 1 business day.</p>
+      <ol class="ledger" data-sc-in data-sc-stagger="60">
+        <li><h3>Pipeline &amp; demand</h3><p>See whether enquiries arrive predictably.</p></li>
+        <li><h3>Speed to lead</h3><p>Find out if slow replies cost you jobs.</p></li>
+        <li><h3>Quote follow-up</h3><p>Spot the quotes going quiet.</p></li>
+        <li><h3>Appointment booking</h3><p>Catch booking friction and no-shows.</p></li>
+        <li><h3>Missed call coverage</h3><p>See what evenings and weekends cost you.</p></li>
+        <li><h3>Reviews &amp; visibility</h3><p>Know which reviews and sources win you work.</p></li>
+      </ol>
+      <p style="margin-top: var(--sc-7); color: var(--sc-ink-soft);">Each gap maps to <a class="link" href="/ai-systems.html">AI systems</a> or <a class="link" href="/b2b-outbound.html">B2B outbound</a>.</p>
     </div>
+  </section>
+
+  <!-- 3 · CLOSE -->
+  <section class="close g-dark" id="contact" aria-labelledby="close-h">
+    <div class="sc-wrap">
+      <h2 id="close-h" data-sc-kinetic="lines">Free growth audit call. Fifteen minutes, no pitch.</h2>
+      <div class="close__act" data-sc-in>
+        <a href="https://links.flowbuildai.ie/widget/booking/MLznN883xY9UeIaBWpgO" class="btn btn--primary" data-book>Book a call
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <p>You'll leave knowing where enquiries leak, and how to fix it.</p>
+      </div>
+      <footer class="foot">
+        <div>
+          <a href="/" class="mark" aria-label="FlowBuild AI home"><span>Flow<b>Build</b> AI</span></a>
+          <p>FlowBuild AI is a web design and AI automation agency in Ireland. We design websites and build the systems that turn visitors into customers.</p>
+        </div>
+        <div>
+          <h2>Services</h2>
+          <ul>
+            <li><a href="/web-design/">Website design</a></li>
+            <li><a href="/ai-systems.html">AI systems &amp; automation</a></li>
+            <li><a href="/b2b-outbound.html">B2B outbound</a></li>
+            <li><a href="/audit.html">Free scaling roadmap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="tel:+353858764679">+353 85 876 4679</a></li>
+            <li><a href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a></li>
+            <li><a href="https://wa.me/353858764679" target="_blank" rel="noopener">Message us on WhatsApp</a></li>
+            <li><a href="https://maps.google.com/?cid=15357603946865523882" target="_blank" rel="noopener">Enniskeen, Kingscourt, Co. Cavan, A82 RY70</a></li>
+            <li>Serving businesses across Ireland</li>
+          </ul>
+        </div>
+        <div class="foot__base"><span>© 2026 FlowBuild AI. All rights reserved.</span><span>Ireland</span></div>
+      </footer>
+    </div>
+  </section>
+
+</main>
+
+<!-- Capture overlay (no close: details unlock the results) -->
+<div id="capture-modal" class="cap" role="dialog" aria-modal="true" aria-labelledby="cap-h">
+  <div class="cap__card g-dark">
+    <p class="eyebrow">Your results are ready</p>
+    <h2 id="cap-h">Enter your details to unlock your results</h2>
+    <p>We'll show you exactly where deals are slipping and what it's costing you.</p>
+    <div class="cap__fields">
+      <div class="field"><label for="cap-name">Your name</label><input id="cap-name" type="text" autocomplete="name"></div>
+      <div class="field"><label for="cap-business">Business name</label><input id="cap-business" type="text" autocomplete="organization"></div>
+      <div class="field"><label for="cap-phone">Phone number</label><input id="cap-phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+      <div class="field"><label for="cap-email">Email address</label><input id="cap-email" type="email" autocomplete="email" inputmode="email"></div>
+      <p id="cap-error" class="cap__err" role="alert">Please fill in all fields to continue.</p>
+      <button id="cap-submit-btn" class="btn btn--primary" type="button" onclick="submitCapture()">
+        See my results
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <p class="cap__note">No spam. We'll be in touch within one business day.</p>
   </div>
+</div>
 
-  <!-- Booking modal -->
-  <div id="booking-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.80);backdrop-filter:blur(6px);align-items:center;justify-content:center;">
-    <div style="position:relative;width:90%;max-width:720px;height:80vh;background:#1C1917;border-radius:12px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.6);">
-      <button onclick="closeBookingModal()" style="position:absolute;top:12px;right:14px;z-index:10;background:rgba(255,255,255,0.08);border:none;border-radius:50%;width:32px;height:32px;color:white;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;">×</button>
-      <iframe id="booking-iframe" src="" style="width:100%;height:100%;border:none;" title="Book a Free Systems Call"></iframe>
-    </div>
+<!-- Booking overlay for the results call to action -->
+<div id="booking-modal" class="bk" role="dialog" aria-modal="true" aria-label="Book a free call">
+  <div class="bk__box">
+    <button class="modal__x" type="button" onclick="closeBookingModal()" aria-label="Close">×</button>
+    <iframe id="booking-iframe" src="" title="Book a free call with FlowBuild AI"></iframe>
   </div>
+</div>
 
+
+<script src="/assets/scrollcraft.js"></script>
+<script src="/assets/site.js"></script>
 <script>
   const LLA_Q = [
     { section: 'Pipeline & Demand', cat: 'pipeline',
@@ -645,7 +445,7 @@
         ['AI agent contacts them in under 5 minutes', 0],
         ['Under 1 hour', 1],
         ['1–4 hours', 2],
-        ['Over 4 hours — or next day', 3],
+        ['Over 4 hours, or next day', 3],
       ]
     },
     { section: 'Speed to Lead', cat: 'speed',
@@ -654,7 +454,7 @@
         ['AI agent calls them back instantly', 0],
         ['Auto SMS goes out within minutes', 1],
         ['We call back within the hour', 2],
-        ['Nothing — they leave a voicemail and we hope for the best', 3],
+        ['Nothing, they leave a voicemail and we hope for the best', 3],
       ]
     },
     { section: 'Quote Follow-Up', cat: 'quote',
@@ -663,7 +463,7 @@
         ['Automated multi-touch follow-up sequence', 0],
         ['Scheduled follow-up at set intervals', 1],
         ['Manual reminder after a few days', 2],
-        ['No — we wait to hear back', 3],
+        ['No, we wait to hear back', 3],
       ]
     },
     { section: 'Quote Follow-Up', cat: 'quote',
@@ -672,40 +472,40 @@
         ['5+ automated touchpoints', 0],
         ['3–4 attempts', 1],
         ['2 attempts', 2],
-        ['0–1 — if they don\'t reply, we move on', 3],
+        ['0–1, if they don\'t reply, we move on', 3],
       ]
     },
     { section: 'Appointment Booking', cat: 'booking',
       text: 'How do customers book an appointment or consultation with you?',
       opts: [
         ['Instant self-book via calendar link', 0],
-        ['Online form — we confirm separately', 1],
+        ['Online form, we confirm separately', 1],
         ['We ring them back to arrange it', 2],
-        ['They ring us — phone tag', 3],
+        ['They ring us, phone tag', 3],
       ]
     },
     { section: 'Appointment Booking', cat: 'booking',
       text: 'What\'s your no-show rate on booked appointments?',
       opts: [
-        ['Under 5% — automated reminders in place', 0],
+        ['Under 5%, automated reminders in place', 0],
         ['5–15%', 1],
         ['15–30%', 2],
-        ['Over 30% — or I don\'t track it', 3],
+        ['Over 30%, or I don\'t track it', 3],
       ]
     },
     { section: 'Missed Call Coverage', cat: 'calls',
       text: 'Do you have after-hours or weekend coverage for inbound enquiries?',
       opts: [
-        ['Yes — AI handles calls 24/7', 0],
+        ['Yes, AI handles calls 24/7', 0],
         ['Auto SMS reply goes out after hours', 1],
         ['Voicemail only', 2],
-        ['No coverage — they go unanswered', 3],
+        ['No coverage, they go unanswered', 3],
       ]
     },
     { section: 'Missed Call Coverage', cat: 'calls',
       text: 'How many inbound calls does your team miss per week?',
       opts: [
-        ['Near zero — AI covers us', 0],
+        ['Near zero, AI covers us', 0],
         ['1–2 calls', 1],
         ['3–5 calls', 2],
         ['5+ calls regularly', 3],
@@ -716,16 +516,16 @@
       opts: [
         ['Automated review request triggered on job completion', 0],
         ['We send a message manually after each job', 1],
-        ['We ask in person — sometimes', 2],
-        ['We don\'t — no process in place', 3],
+        ['We ask in person, sometimes', 2],
+        ['We don\'t, no process in place', 3],
       ]
     },
     { section: 'Reviews & Pipeline', cat: 'reviews',
       text: 'Can you see which leads turned into deals and where they came from?',
       opts: [
         ['Full pipeline visibility with AI reporting', 0],
-        ['Basic CRM tracking — good enough', 1],
-        ['Roughly — spreadsheet or gut feel', 2],
+        ['Basic CRM tracking, good enough', 1],
+        ['Roughly, spreadsheet or gut feel', 2],
         ['No visibility at all', 3],
       ]
     },
@@ -820,7 +620,7 @@
     };
     const scalePhase = {
       offering: 'Both',
-      href: 'index.html',
+      href: '/',
       title: 'Measure it, then push it',
       why: 'Once both halves are running you can see cost per booked meeting and close rate in one place, which is the point where scaling stops being a guess.',
       items: [
@@ -1037,14 +837,14 @@
         </div>
         <div class="lla-pillar-track"><div class="lla-pillar-fill" data-pct="${pct}"></div></div>
         <p class="lla-pillar-read">${pillarRead[k]}</p>
-        <a class="lla-pillar-offer" href="${PILLARS[k].href}">${PILLARS[k].offering}</a>
+        <a class="lla-pillar-offer" href=${JSON.stringify(PILLARS[k].href)}>${PILLARS[k].offering}</a>
       </div>`;
     }).join('');
 
     const phasesHTML = phases.map((ph, i) => `<div class="lla-phase">
         <div class="lla-phase-top">
           <span class="lla-phase-num">Phase ${i + 1}</span>
-          <a class="lla-phase-tag" href="${ph.href}">${ph.offering}</a>
+          <a class="lla-phase-tag" href=${JSON.stringify(ph.href)}>${ph.offering}</a>
         </div>
         <h3 class="lla-phase-title">${ph.title}</h3>
         <p class="lla-phase-why">${ph.why}</p>
@@ -1089,8 +889,8 @@
         <div class="lla-cat-cards">${cardsHTML}</div>
 
         <div class="lla-report-cta">
-          <button onclick="openBookingModal();return false;" class="lla-btn-primary lla-res-cta-btn">
-            Book a Free Call
+          <button onclick="openBookingModal();return false;" class="btn btn--primary lla-btn-primary lla-res-cta-btn">
+            Book a free call
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
           <button class="lla-retake" onclick="llaReset()">&larr; Retake the scan</button>
@@ -1230,7 +1030,7 @@
           '</div>' +
           '<div style="padding:16px 20px;background:#FEF5EF;border-left:3px solid #E8652A;border-radius:3px;">' +
             '<div style="font-size:13px;font-weight:700;color:#1C1917;margin-bottom:3px;">Ready to close these gaps?</div>' +
-            '<div style="font-size:12px;color:#6B5D55;line-height:1.6;">Book a free call at <strong style="color:#E8652A;">flowbuildai.ie</strong> — we\'ll walk you through exactly what we can fix and how fast.</div>' +
+            '<div style="font-size:12px;color:#6B5D55;line-height:1.6;">Book a free call at <strong style="color:#E8652A;">flowbuildai.ie</strong>, we\'ll walk you through exactly what we can fix and how fast.</div>' +
           '</div>' +
         '</div>' +
         '<div style="padding:14px 40px;background:#EDE8E3;display:flex;justify-content:space-between;align-items:center;">' +
@@ -1272,6 +1072,5 @@
     if (e.target === this) closeBookingModal();
   });
 </script>
-<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a040bc50d6444c6be238ac6"></script>
 </body>
 </html>
