@@ -1431,7 +1431,7 @@ fbq('init','2062397397707938');fbq('track','PageView');
     if(!d.consent){err.textContent='Please tick the box so we can contact you.';return}
     err.textContent='';var sc=score(),btn=f.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Sending…';
     var payload=Object.assign({},ans,d,{fit:sc.fit,fit_score:sc.t});
-    fetch('/api/apply',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    fetch('https://watch.flowbuildai.ie/api/apply',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
       .then(function(r){if(!r.ok)throw 0;return r.json()})
       .then(function(){if(typeof fbq==='function')fbq('track','Lead',{content_name:'Website application (homepage)'});done(sc.fit,d.name.split(' ')[0])})
       .catch(function(){btn.disabled=false;btn.textContent='Submit application';err.innerHTML='Sorry, that didn\'t send. Please try again, or book a call directly: <a href="'+BOOKING_URL+'" data-book style="color:var(--or-lt)">open the calendar</a>.'});
