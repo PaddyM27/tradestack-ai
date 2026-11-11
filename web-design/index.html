@@ -3,32 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Website Design Ireland for Small Businesses | FlowBuild AI</title>
-<meta name="description" content="Website design in Ireland that turns visitors into enquiries: built around your customers, fast on every phone and set up properly with Google. Free quote.">
+<title>Website Design Ireland | Web Design Agency | FlowBuild AI</title>
+<meta name="description" content="Website design in Ireland from a web design agency in Co. Cavan: custom sites built to win enquiries, fast on every phone and set up with Google. Free quote.">
 <link rel="canonical" href="https://www.flowbuildai.ie/web-design/">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#1C1917">
+<meta name="theme-color" content="#0A0A0A">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FlowBuild AI">
 <meta property="og:locale" content="en_IE">
-<meta property="og:title" content="Website Design Ireland for Small Businesses | FlowBuild AI">
-<meta property="og:description" content="Custom websites for Irish businesses, designed from scratch around the one thing your site has to get people to do.">
+<meta property="og:title" content="Website Design Ireland | Web Design Agency | FlowBuild AI">
+<meta property="og:description" content="Custom websites for Irish businesses from a web design agency in Co. Cavan, built to win enquiries.">
 <meta property="og:url" content="https://www.flowbuildai.ie/web-design/">
 <meta property="og:image" content="https://www.flowbuildai.ie/og/web-design.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Website Design Ireland for Small Businesses | FlowBuild AI">
-<meta name="twitter:description" content="Custom websites for Irish businesses, designed from scratch around the one thing your site has to get people to do.">
+<meta name="twitter:title" content="Website Design Ireland | Web Design Agency | FlowBuild AI">
+<meta name="twitter:description" content="Custom websites for Irish businesses from a web design agency in Co. Cavan, built to win enquiries.">
 <meta name="twitter:image" content="https://www.flowbuildai.ie/og/web-design.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="/favicon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/scrollcraft.css">
-<link rel="stylesheet" href="/assets/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -55,7 +53,7 @@
       "@type": "WebPage",
       "@id": "https://www.flowbuildai.ie/web-design/#webpage",
       "url": "https://www.flowbuildai.ie/web-design/",
-      "name": "Website Design Ireland for Small Businesses | FlowBuild AI",
+      "name": "Website Design Ireland | Web Design Agency | FlowBuild AI",
       "isPartOf": { "@id": "https://www.flowbuildai.ie/#website" },
       "breadcrumb": { "@id": "https://www.flowbuildai.ie/web-design/#breadcrumb" },
       "about": { "@id": "https://www.flowbuildai.ie/web-design/#service" },
@@ -65,194 +63,790 @@
 }
 </script>
 <style>
-  /* Hairlines must resolve per ground, not once at :root (engine default ink
-     is light, which made every border vanish on cream). */
-  .g-light, .g-dark { --sc-hairline: color-mix(in oklab, var(--sc-ink) 13%, transparent);
-                      --sc-hairline-strong: color-mix(in oklab, var(--sc-ink) 26%, transparent); }
-  .form .field :is(input, select, textarea) { background: var(--sc-canvas); }
-  .sc-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0A0A; --s1:#111110; --s2:#181716; --s3:#222120;
+  --ink:#F5F4F2; --muted:#A3A09B; --dim:#6E6B66;
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --or:#E8652A; --or-lt:#F7935F; --or-dk:#C4501B; --or-t:rgba(232,101,42,.12);
+  --ok:#4ADE80; --ok-t:rgba(74,222,128,.12);
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1}
+h2{font-size:clamp(38px,5.2vw,72px)}
+h3{font-size:22px;letter-spacing:-.025em;line-height:1.15}
+.or{color:var(--or)}
+.mute{color:var(--muted)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.lede{font-size:19px;color:var(--muted);max-width:44ch;line-height:1.5}
+.num{font-variant-numeric:tabular-nums}
 
-  /* ── hero ───────────────────────────────────────────────────────────── */
-  .hero { padding-bottom: clamp(3rem, 8vh, 6rem); }
-  .hero h1 { font-size: clamp(2.3rem, 1.1rem + 3.9vw, 4.6rem); max-width: 17ch; }
-  .hero__row { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between;
-               gap: var(--sc-6) var(--sc-8); margin-top: var(--sc-7); }
-  .hero__row .lede { margin: 0; max-width: 38ch; }
-  .hero__ctas { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sc-5) var(--sc-6); }
-  .proof { display: flex; flex-wrap: wrap; gap: var(--sc-3) var(--sc-7); margin: var(--sc-8) 0 0;
-           padding-top: var(--sc-5); border-top: 1px solid var(--sc-hairline);
-           font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
-  .proof strong { color: var(--sc-ink); font-weight: 600; }
-  .proof .stars { color: var(--tx-accent); letter-spacing: 0.1em; }
-  @media (max-width: 700px) { .hero h1 { font-size: clamp(2.1rem, 1.2rem + 4.6vw, 2.8rem); } .proof { gap: var(--sc-2); flex-direction: column; } }
+/* section frame */
+.sec{position:relative;padding:140px 0;border-top:1px solid var(--line)}
+.sec__label{display:flex;justify-content:space-between;align-items:center;margin-bottom:64px;color:var(--dim)}
+.sec__label b{color:var(--or);font-weight:500}
+.sec__head{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end;margin-bottom:72px}
+.sec__head .lede{justify-self:end}
 
-  /* ── AI assistant + live demo ───────────────────────────────────────── */
-  .aisec { display: grid; grid-template-columns: 1fr minmax(0, 27rem); gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
-  .aisec h2 { font-size: var(--h2); max-width: 14ch; }
-  .ai__points { list-style: none; margin: var(--sc-6) 0 var(--sc-7); padding: 0; display: grid; gap: var(--sc-5); }
-  .ai__points li { padding-left: 1.6rem; position: relative; }
-  .ai__points li::before { content: ""; position: absolute; left: 0; top: 0.5rem; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--amber); }
-  .ai__points strong { display: block; font-weight: 600; }
-  .ai__points span { color: var(--sc-ink-soft); line-height: 1.55; }
-  .chat { border-radius: 16px; overflow: hidden; background: var(--cream); color: var(--char);
-          box-shadow: 0 1px 0 #fff inset, 0 40px 80px -30px rgba(0,0,0,0.6); display: flex; flex-direction: column; height: min(32rem, 70vh); }
-  .chat__head { display: flex; align-items: center; gap: 0.7rem; padding: 0.9rem 1rem; background: var(--char); color: var(--cream); }
-  .chat__dot { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: #6DD38A; box-shadow: 0 0 0 3px rgba(109,211,138,0.2); }
-  .chat__head b { font: 700 0.95rem/1.2 var(--sc-font-text); }
-  .chat__head small { margin-left: auto; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber-lt); font-weight: 600; }
-  .chat__body { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem; overscroll-behavior: contain; }
-  .ai-msg { max-width: 85%; padding: 0.65rem 0.85rem; border-radius: 14px; font-size: 0.92rem; line-height: 1.45; white-space: pre-wrap; }
-  .ai-msg-bot { background: var(--cream-2); border-bottom-left-radius: 4px; align-self: flex-start; }
-  .ai-msg-user { background: var(--amber); color: var(--char); border-bottom-right-radius: 4px; align-self: flex-end; }
-  .ai-msg-typing { align-self: flex-start; display: flex; gap: 4px; padding: 0.8rem 0.9rem; border-radius: 14px; background: var(--cream-2); }
-  .ai-typing-dot { width: 6px; height: 6px; border-radius: 50%; background: #7A726D; animation: dot 1s infinite var(--sc-ease-in-out); }
-  .ai-typing-dot:nth-child(2) { animation-delay: 0.15s; } .ai-typing-dot:nth-child(3) { animation-delay: 0.3s; }
-  @keyframes dot { 0%, 60%, 100% { opacity: 0.3; } 30% { opacity: 1; } }
-  .chat__chips { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0 1rem 0.75rem; }
-  .ai-chip { min-height: 44px; padding: 0 0.85rem; border-radius: 999px; border: 1px solid #D8D0C6; background: #fff; color: var(--char);
-             font: 500 0.82rem/1 var(--sc-font-text); cursor: pointer; }
-  .ai-chip:hover { border-color: var(--amber-dk); }
-  .ai-chip:disabled { opacity: 0.5; cursor: default; }
-  .chat__form { display: flex; gap: 0.5rem; padding: 0.75rem; border-top: 1px solid #E4DDD3; background: #fff; }
-  .chat__form input { flex: 1; min-width: 0; min-height: 44px; padding: 0 0.85rem; border-radius: 10px; border: 1.5px solid #E4DDD3;
-                      font: 400 16px/1 var(--sc-font-text); color: var(--char); background: var(--cream); caret-color: var(--amber); }
-  .chat__form input:focus { outline: none; border-color: var(--amber); }
-  .chat__form button { width: 44px; height: 44px; flex: none; border-radius: 10px; border: 0; background: var(--amber); color: var(--char); cursor: pointer; display: grid; place-items: center; }
-  .chat__form button:disabled { opacity: 0.5; }
-  .chat__note { margin: var(--sc-3) 0 0; font-size: var(--sc-t-xs); color: var(--sc-ink-soft); }
-  @media (max-width: 860px) { .aisec { grid-template-columns: 1fr; } .chat { height: 30rem; } }
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.sw .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.sw .w>span{display:inline-block;transform:translateY(108%);transition:transform 1s var(--ease)}
+.sw.in .w>span{transform:none}
 
-  /* ── process: four steps on one rule ────────────────────────────────── */
-  .proc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sc-6); counter-reset: pr; }
-  .proc li { counter-increment: pr; position: relative; padding-top: var(--sc-7); }
-  .proc li::before { content: "Step " counter(pr, decimal-leading-zero); position: absolute; top: 0; left: 0;
-                     font: 600 var(--sc-t-xs)/1 var(--sc-font-text); letter-spacing: 0.12em; text-transform: uppercase; color: var(--tx-accent); }
-  .proc li::after { content: ""; position: absolute; top: 1.6rem; left: 0; right: calc(var(--sc-6) * -1); height: 1px; background: var(--sc-hairline-strong); }
-  .proc li:last-child::after { right: 0; }
-  .proc h3 { font-size: var(--sc-t-xl); margin-top: var(--sc-3); }
-  .proc p { color: var(--sc-ink-soft); line-height: 1.6; margin: var(--sc-3) 0 0; max-width: 30ch; }
-  @media (max-width: 860px) { .proc { grid-template-columns: 1fr 1fr; row-gap: var(--sc-7); } .proc li::after { right: 0; } }
-  @media (max-width: 520px) { .proc { grid-template-columns: 1fr; row-gap: var(--sc-6); } }
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 28px;border-radius:999px;font:600 16px/1 'Inter Tight',sans-serif;text-decoration:none;border:0;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s,transform .2s}
+.btn--or{background:var(--or);color:#fff}
+.btn--or:hover{background:var(--or-lt)}
+.btn--line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line2)}
+.btn--line:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+.btn svg{transition:transform .2s}
+.btn:hover svg{transform:translateX(3px)}
 
-  /* ── contact form ───────────────────────────────────────────────────── */
-  .cf { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
-  .cf h2 { font-size: var(--h2); max-width: 12ch; }
-  .cf__ticks { list-style: none; margin: var(--sc-6) 0 0; padding: 0; display: grid; gap: var(--sc-3); }
-  .cf__ticks li { display: flex; gap: 0.7rem; align-items: center; font-weight: 500; }
-  .cf__ticks li::before { content: "✓"; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; flex: none; border-radius: 50%;
-                          background: var(--amber); color: var(--char); font-size: 0.8rem; font-weight: 700; }
-  .form { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sc-5); padding: clamp(1.25rem, 3vw, 2.25rem);
-          border-radius: 16px; background: var(--sc-surface); border: 1px solid var(--sc-hairline); }
-  .form .wide { grid-column: 1 / -1; }
-  .field.bad :is(input, select, textarea) { border-color: #D14343; }
-  .field__hint { font-size: var(--sc-t-xs); color: var(--sc-ink-soft); font-weight: 400; }
-  .form fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
-  .form legend { font-size: var(--sc-t-sm); font-weight: 600; margin-bottom: 0.5rem; padding: 0; }
-  .pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .pills label { position: relative; }
-  .pills input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
-  .pills span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border-radius: 999px;
-                border: 1.5px solid var(--sc-hairline-strong); font-size: var(--sc-t-sm); font-weight: 500; cursor: pointer;
-                transition: background-color 140ms var(--sc-ease-out), border-color 140ms var(--sc-ease-out); }
-  .pills input:checked + span { background: var(--amber); border-color: var(--amber); color: var(--char); }
-  .pills input:focus-visible + span { outline: 2px solid var(--amber); outline-offset: 3px; }
-  .form__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: var(--sc-4) var(--sc-6); }
-  .form__foot p { margin: 0; font-size: var(--sc-t-xs); color: var(--sc-ink-soft); max-width: 36ch; }
-  .form__err { grid-column: 1 / -1; margin: 0; color: #D14343; font-size: var(--sc-t-sm); font-weight: 600; }
-  .form__err[hidden] { display: none; }
-  .done { padding: clamp(2rem, 5vw, 3.5rem); border-radius: 16px; background: var(--sc-surface); border: 1px solid var(--sc-hairline); }
-  .done h3 { font-size: var(--sc-t-2xl); }
-  .done p { color: var(--sc-ink-soft); line-height: 1.6; margin: var(--sc-4) 0 0; max-width: 40ch; }
-  @media (max-width: 860px) { .cf { grid-template-columns: 1fr; } }
-  @media (max-width: 560px) { .form { grid-template-columns: 1fr; } }
-  /* ── THE BUILD (peak): pinned, every layer keyed off --sc-p ────────── */
-  .build { --s1: clamp(0, calc((var(--sc-p, 0) - 0.04) / 0.16), 1);
-           --s2: clamp(0, calc((var(--sc-p, 0) - 0.22) / 0.16), 1);
-           --s3: clamp(0, calc((var(--sc-p, 0) - 0.40) / 0.10), 1);
-           --s4: clamp(0, calc((var(--sc-p, 0) - 0.53) / 0.25), 1);
-           --s5: clamp(0, calc((var(--sc-p, 0) - 0.60) / 0.36), 1); }
-  .build [data-sc-stage] { display: grid; align-items: center; padding-top: var(--nav-h); }
-  .build__grid { display: grid; grid-template-columns: minmax(16rem, 0.78fr) 1.6fr; gap: clamp(2rem, 4vw, 5rem);
-                 align-items: center; width: 100%; }
-  .build h2 { font-size: var(--h2); margin-bottom: var(--sc-6); max-width: 12ch; }
-  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sc-4); counter-reset: st; }
-  .steps li { counter-increment: st; display: grid; grid-template-columns: 2.2rem 1fr; gap: 0 var(--sc-3);
-              opacity: 0.34; transition: opacity 260ms var(--sc-ease-out); }
-  .steps li::before { content: "0" counter(st); grid-row: span 2; font: 600 var(--sc-t-xs)/1.9 var(--sc-font-text);
-              letter-spacing: 0.08em; color: var(--sc-ink-soft); }
-  .steps li.on { opacity: 1; }
-  .steps li.on::before { color: var(--tx-accent); }
-  .steps h3 { font: 700 var(--sc-t-base)/1.3 var(--sc-font-text); letter-spacing: -0.005em; }
-  .steps p { margin: 0.2rem 0 0; font-size: var(--sc-t-sm); line-height: 1.5; color: var(--sc-ink-soft); max-width: 36ch; }
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+.nav.solid{background:rgba(10,10,10,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+.mark{display:inline-flex;align-items:center;gap:9px;text-decoration:none;white-space:nowrap;font-family:'Syne',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.02em;text-transform:uppercase}
+.mark b{color:var(--or)}
+.mark .ai{color:var(--muted);font-size:.8em}
+.nav__links{display:flex;gap:32px;font-size:14.5px}
+.nav__links a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav__links a:hover{color:var(--ink)}
+.nav .btn{min-height:44px;padding:0 20px;font-size:14.5px}
 
-  .frame-wrap { position: relative; }
-  .frame { position: relative; border-radius: 12px; overflow: hidden; background: #0F0D0C;
-           box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 40px 80px -30px rgba(0,0,0,0.55), 0 12px 24px -12px rgba(0,0,0,0.4);
-           border: 1px solid rgba(250,249,246,0.1); }
-  .frame__bar { height: 2.4rem; display: flex; align-items: center; gap: 0.75rem; padding: 0 0.9rem;
-                background: #24201D; border-bottom: 1px solid rgba(250,249,246,0.08); }
-  .frame__dots { display: flex; gap: 6px; } .frame__dots i { width: 9px; height: 9px; border-radius: 50%; background: #4A433E; }
-  .frame__url { flex: 1; min-width: 0; max-width: 22rem; margin: 0 auto; height: 1.55rem; border-radius: 6px; background: #171412;
-                display: flex; align-items: center; gap: 0.45rem; padding: 0 0.7rem; color: #CFC6BC;
-                font: 500 0.78rem/1 var(--sc-font-text); white-space: nowrap; overflow: hidden; }
-  .frame__url svg { width: 0.75rem; height: 0.75rem; flex: none; opacity: var(--s4); color: #8FD18B; }
-  .frame__url .caret { width: 1px; height: 0.9rem; background: var(--amber); opacity: calc(1 - var(--s2)); }
-  .frame__state { font: 600 0.68rem/1 var(--sc-font-text); letter-spacing: 0.1em; text-transform: uppercase;
-                  color: var(--amber-lt); min-width: 4.5rem; text-align: right; }
-  .frame__view { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
-  .bp { position: absolute; inset: 0; width: 100%; height: 100%; background-color: #12100F;
-        background-image: linear-gradient(rgba(232,101,42,0.07) 1px, transparent 1px),
-                          linear-gradient(90deg, rgba(232,101,42,0.07) 1px, transparent 1px);
-        background-size: 4.1667% 6.6667%; }
-  .bp rect, .bp line { fill: none; stroke: var(--amber-lt); stroke-width: 1.5; vector-effect: non-scaling-stroke;
-                       stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--s1)); }
-  .bp text { fill: #CFC6BC; font: 500 15px var(--sc-font-text); letter-spacing: 0.06em; text-transform: uppercase;
-             opacity: clamp(0, calc((var(--s1) - 0.6) * 2.5), 1); }
-  .page { position: absolute; inset: 0 0 auto 0; }
-  .page img { display: block; width: 100%; height: auto; }
-  .page__grey { position: relative; clip-path: inset(0 0 calc((1 - var(--s2)) * 100%) 0); }
-  .page__grey img { filter: grayscale(1) contrast(0.85) brightness(1.1); }
-  .page__colour { position: absolute; inset: 0; opacity: var(--s3); }
-  .scan { position: absolute; inset: 0; pointer-events: none; transform: translateY(calc(var(--s2) * 100%));
-          opacity: calc(var(--s1) * (1 - var(--s3))); }
-  .scan::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--amber);
-                  box-shadow: 0 0 0 1px rgba(232,101,42,0.25), 0 6px 18px rgba(232,101,42,0.45); }
-  /* the enquiry: the demo site fades out and the steps load in its place */
-  .page, .bp { opacity: calc(1 - clamp(0, calc(var(--s5) * 6), 1)); }
-  .lead { position: absolute; inset: 0; display: grid; align-content: center; gap: clamp(1rem, 2.4vw, 1.75rem);
-          padding: clamp(1.25rem, 4vw, 3.5rem); background: var(--cream); color: var(--char);
-          opacity: clamp(0, calc(var(--s5) * 6), 1); }
-  .lead__tag { display: flex; justify-content: space-between; font: 600 clamp(0.7rem, 0.6rem + 0.3vw, 0.85rem)/1 var(--sc-font-text);
-               letter-spacing: 0.12em; text-transform: uppercase; color: #6B625B; }
-  .lead ol { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(0.75rem, 1.8vw, 1.4rem); }
-  .lead li { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: clamp(0.75rem, 1.6vw, 1.25rem);
-             padding: clamp(0.75rem, 1.6vw, 1.15rem) clamp(0.9rem, 1.8vw, 1.4rem); border-radius: 14px; background: #fff;
-             box-shadow: 0 14px 30px -22px rgba(28,25,23,0.45); font-size: clamp(1rem, 0.8rem + 0.7vw, 1.4rem); font-weight: 600;
-             letter-spacing: -0.015em; line-height: 1.2;
-             opacity: clamp(0, calc((var(--s5) - var(--d)) * 5), 1);
-             transform: translateY(calc((1 - clamp(0, calc((var(--s5) - var(--d)) * 5), 1)) * 18px)); }
-  .lead li:nth-child(1) { --d: 0.15; } .lead li:nth-child(2) { --d: 0.42; } .lead li:nth-child(3) { --d: 0.68; }
-  .lead li i { width: clamp(2.4rem, 3.6vw, 3.25rem); height: clamp(2.4rem, 3.6vw, 3.25rem); border-radius: 50%; display: grid; place-items: center;
-               background: var(--cream-2); font-style: normal; font-size: clamp(1rem, 1.4vw, 1.3rem); font-weight: 400; }
-  .lead li:last-child i { background: var(--amber); color: var(--char); }
-  .lead li small { display: block; margin-top: 0.25rem; color: #6B625B; font-size: 0.68em; font-weight: 500; letter-spacing: 0; }
-  .lead li > small { margin: 0; font-variant-numeric: tabular-nums; }
-  @media (max-width: 860px) {
-    .build [data-sc-stage] { align-items: start; padding-top: calc(var(--nav-h) + 1.25rem); }
-    .build__grid { grid-template-columns: 1fr; gap: var(--sc-5); }
-    .build h2 { font-size: var(--sc-t-xl); margin-bottom: var(--sc-4); }
-    .build .eyebrow { margin-bottom: var(--sc-3); }
-    .steps { display: block; position: relative; min-height: 5.6rem; }
-    .steps li { position: absolute; inset: 0 0 auto; opacity: 0; }
-    .steps li.on { opacity: 1; }
-    .frame__view { aspect-ratio: 16 / 11; }
-    .lead { padding: 0.9rem; gap: 0.6rem; } .lead ol { gap: 0.45rem; } .lead li { padding: 0.5rem 0.7rem; font-size: 0.92rem; } .lead li i { width: 2rem; height: 2rem; } .lead li small { font-size: 0.72rem; }
-  }
-  @media (max-height: 700px) and (min-width: 861px) { .steps p { display: none; } }
+/* hero */
+.hero{position:relative;padding:160px 0 100px;overflow:hidden}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:220px;background:linear-gradient(rgba(10,10,10,0),var(--bg));pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none}
+.blob--1{width:640px;height:640px;right:-160px;top:-160px;background:radial-gradient(circle,rgba(247,147,95,.5),rgba(232,101,42,0) 70%);animation:drift 14s ease-in-out infinite}
+.blob--2{width:460px;height:460px;left:-200px;bottom:-60px;background:radial-gradient(circle,rgba(232,101,42,.28),rgba(232,101,42,0) 70%);animation:drift 18s ease-in-out infinite reverse}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 20%,transparent 75%)}
+.hero__in{position:relative;z-index:1;display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 10px;border-radius:999px;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line2);font-size:13px;font-weight:600}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--or);animation:pulse 2s infinite}
+.hero h1{font-size:clamp(46px,6.6vw,86px);letter-spacing:-.045em;line-height:1.02;margin:24px 0}
+.grad{color:var(--or)}
+.grad .w>span{padding:0 .14em .32em;margin:0 -.14em -.32em;background:linear-gradient(120deg,var(--or-lt),var(--or) 50%,var(--or-dk));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.hero .lede{max-width:36ch}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.ticks{margin-top:22px;font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 20px;list-style:none}
+.ticks li{display:inline-flex;align-items:center;gap:7px}
+.ticks svg{color:var(--ok)}
+.cal{position:relative;padding:26px;border-radius:32px;background:rgba(255,255,255,.035);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.09);box-shadow:0 40px 110px -30px rgba(232,101,42,.3)}
+.cal__top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.cal__top b{font-size:19px;font-weight:600;letter-spacing:-.02em}
+.cal__top small{display:block;font-size:14px;color:var(--muted);margin-top:2px}
+.cal__count{display:flex;align-items:baseline;gap:6px;padding:8px 14px;border-radius:999px;background:var(--or-t);color:var(--or-lt);font-weight:600;font-size:13px}
+.cal__count strong{font-size:24px;letter-spacing:-.03em;color:var(--ink)}
+.cal__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.day{display:flex;flex-direction:column;gap:8px;min-height:360px;padding:8px;border-radius:16px;background:rgba(255,255,255,.025)}
+.day>span{font-size:13.5px;font-weight:600;color:var(--dim);text-align:center;padding:2px 0 4px}
+.appt{padding:11px 11px 12px;border-radius:12px;background:linear-gradient(160deg,rgba(247,147,95,.22),rgba(232,101,42,.08));border:1px solid rgba(247,147,95,.28);font-size:13.5px;font-weight:600;line-height:1.3;opacity:0;transform:translateY(10px) scale(.9);transition:opacity .5s,transform .6s cubic-bezier(.34,1.56,.64,1)}
+.appt.on{opacity:1;transform:none}
+.appt b{display:block;font-size:12px;color:var(--or-lt);font-weight:600}
+.appt em{font-style:normal;font-weight:400;display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.toast{position:absolute;left:-22px;bottom:-24px;display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;border-radius:999px;background:#211E1B;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),0 24px 50px -12px rgba(0,0,0,.9);font-size:13.5px;opacity:0;transform:translateY(12px);transition:opacity .4s,transform .5s cubic-bezier(.34,1.56,.64,1)}
+.toast.on{opacity:1;transform:none}
+.toast i{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--ok);color:#06150E}
+.toast b{display:block;font-weight:600}
+.toast small{color:var(--muted);font-size:12px}
+.chip-float{position:absolute;top:-16px;right:26px;padding:9px 14px;border-radius:999px;background:var(--or);color:#fff;font-size:13px;font-weight:600;box-shadow:0 10px 30px -8px rgba(232,101,42,.55);animation:bob 5s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(232,101,42,.5)}70%{box-shadow:0 0 0 8px rgba(232,101,42,0)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,30px)}}
 
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.stat{padding:40px 28px 40px 0;border-right:1px solid var(--line)}
+.stat+.stat{padding-left:28px}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-size:clamp(40px,4.4vw,60px);font-weight:600;letter-spacing:-.05em;line-height:1}
+.stat span{display:block;margin-top:12px;color:var(--muted);font-size:15px}
+
+/* comparison */
+.vs{display:grid;grid-template-columns:180px 1fr 1fr;border:1px solid var(--line2);border-radius:24px;overflow:hidden}
+.vs>div{padding:20px 26px;border-top:1px solid var(--line);font-size:16.5px;display:flex;gap:12px;align-items:flex-start}
+.vs>.h{border-top:0;padding:26px;font-size:19px;font-weight:600;letter-spacing:-.02em;align-items:center}
+.vs .lbl{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);padding-top:23px}
+.vs .no{color:var(--muted)}
+.vs .no::before{content:"✕";flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;display:grid;place-items:center;font-size:10px;background:var(--s3);color:var(--dim)}
+.vs .yes{background:rgba(232,101,42,.06);border-left:1px solid rgba(232,101,42,.35)}
+.vs .yes::before{content:"✓";flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;background:var(--or);color:#fff}
+.vs .h.no::before,.vs .h.yes::before{display:none}
+.vs .h.yes{background:var(--or);color:#fff;border-left-color:var(--or)}
+.vs .h.no{color:var(--muted)}
+
+/* scroll dial */
+.sec--tight{padding-bottom:20px}
+.dial{position:relative;height:460vh}
+.dial__pin{position:sticky;top:0;height:100vh;height:100svh;display:grid;place-items:center;overflow:hidden;padding-top:64px}
+.dial__pin::before{content:"";position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(closest-side,rgba(232,101,42,.12),transparent);pointer-events:none}
+.dial__ring{position:relative;width:min(calc(100vh - 130px),880px,94vw);aspect-ratio:1}
+.dial__svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.dial__dots circle{fill:rgba(255,255,255,.16)}
+.dial__ticks line{stroke:rgba(255,255,255,.22);stroke-width:5;stroke-linecap:round;transition:stroke .4s}
+.dial__ticks line.on{stroke:var(--or)}
+.dial__arc{fill:none;stroke:var(--or);stroke-width:20;stroke-linecap:round;opacity:.9}
+.dial__head{fill:#fff;stroke:var(--or);stroke-width:7;filter:drop-shadow(0 0 14px rgba(232,101,42,.9))}
+.dial__c{position:absolute;inset:14%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.dial__steps{position:relative;width:100%;height:68%}
+.dstep{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transform:translateY(24px);transition:opacity .5s,transform .6s var(--ease);pointer-events:none}
+.dstep.on{opacity:1;transform:none}
+.dstep.out{transform:translateY(-24px)}
+.dstep__k{color:var(--or)}
+.dstep h3{font-size:clamp(28px,3.2vw,48px);letter-spacing:-.045em;line-height:1;margin:16px 0 14px}
+.dstep p{color:var(--muted);font-size:clamp(15px,1.3vw,18px);max-width:34ch;line-height:1.5}
+.dcard{margin-top:18px;width:min(100%,360px);border:1px solid var(--line2);border-radius:16px;background:var(--s1);padding:8px;text-align:left;box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
+.dcard__bar{display:flex;justify-content:space-between;align-items:center;padding:6px 6px 10px}
+.dcard__bar .dots{display:flex;gap:6px}
+.dcard__bar .dots i{width:9px;height:9px;border-radius:50%;background:var(--s3)}
+.badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border-radius:7px;background:var(--s3);color:var(--muted)}
+.dstep.you .badge{background:var(--or);color:#fff}
+.dr{display:flex;align-items:center;gap:12px;padding:8px 10px;border-radius:10px;background:var(--s2);margin-top:4px;font-size:14.5px;opacity:0;transform:translateY(6px);transition:opacity .4s var(--d),transform .5s var(--ease) var(--d)}
+.dstep.on .dr{opacity:1;transform:none}
+.dr i{flex:none;width:22px;height:22px;border-radius:6px;display:grid;place-items:center;background:var(--ok);color:#06150E}
+.dr.pend{color:var(--dim)}
+.dr.pend i{background:transparent;border:1.5px solid var(--line2)}
+.dstep.you .dr.pend{color:var(--or-lt)}
+.dstep.you .dr.pend i{border-color:var(--or)}
+.dial__nav{margin-top:5%;display:flex;flex-direction:column;align-items:center;gap:12px}
+.dial__count{font-size:15px;color:var(--dim);letter-spacing:.02em}
+.dial__count b{color:var(--ink);font-weight:500}
+.dial__bar{width:150px;height:3px;border-radius:3px;background:var(--s3);overflow:hidden}
+.dial__bar i{display:block;height:100%;width:100%;background:var(--or);transform-origin:0 50%;transform:scaleX(var(--dp,0))}
+.dial__hint{color:var(--dim);font-size:11px;max-width:16ch;line-height:1.5}
+
+.infra{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
+.infra__l{position:sticky;top:120px}
+.infra h2{font-size:clamp(38px,4.4vw,64px)}
+.infra .lede{margin-top:24px}
+.keep{margin-top:36px;padding:26px 28px;border-radius:20px;background:var(--or);color:#fff}
+.keep .mono{display:block;opacity:.85;margin-bottom:14px}
+.keep ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+.keep li{display:flex;align-items:center;gap:10px;font-size:16.5px;font-weight:600;letter-spacing:-.01em}
+.keep li::before{content:"";width:18px;height:18px;flex:none;border-radius:5px;background:rgba(0,0,0,.2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4 4 10-10'/%3E%3C/svg%3E") center/11px no-repeat}
+.infra__r{position:relative;display:grid;gap:14px}
+.infra__r::before{content:"";position:absolute;left:30px;top:30px;bottom:30px;width:1px;background:linear-gradient(var(--or),rgba(232,101,42,.1))}
+.layer{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:30px 30px 30px 64px;border:1px solid var(--line2);border-radius:20px;background:var(--s1)}
+.layer::before{content:"";position:absolute;left:24px;top:36px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--or)}
+.layer__h .mono{color:var(--or)}
+.layer--you{grid-template-columns:1fr;border-color:var(--or);background:var(--or-t)}
+.layer--you::before{background:var(--or)}
+.layer--you h3{color:var(--or-lt)}
+.layer--you p{color:var(--ink);max-width:52ch}
+.layer h3{font-size:26px;margin:10px 0 8px}
+.layer p{color:var(--muted);font-size:15px}
+.layer ul{list-style:none;display:grid;gap:2px;align-content:start}
+.layer li{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.layer li:last-child{border-bottom:0}
+.layer li i{flex:none;width:22px;height:22px;border-radius:6px;display:grid;place-items:center;background:var(--or-t);color:var(--or-lt)}
+/* stack grid */
+.stack{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.tool{padding:30px 26px 34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .3s}
+.tool:hover{background:var(--s1)}
+.tool .mono{color:var(--or)}
+.tool h3{font-size:20px;margin:16px 0 8px}
+.tool p{color:var(--muted);font-size:15px}
+
+/* maths */
+.math{display:grid;grid-template-columns:420px 1fr;gap:20px}
+.panel{border:1px solid var(--line);border-radius:20px;background:var(--s1);padding:32px}
+.fl{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px;font-size:15px;color:var(--muted)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:6px;border-radius:16px;background:var(--bg);border:1px solid var(--line)}
+.seg button{border:0;border-radius:11px;background:transparent;color:var(--muted);font:600 22px 'Inter Tight',sans-serif;letter-spacing:-.02em;padding:14px 0 12px;cursor:pointer;transition:background .25s,color .25s}
+.seg button small{display:block;font-family:var(--mono);font-size:10px;font-weight:400;letter-spacing:.05em;text-transform:uppercase;margin-top:4px;opacity:.8}
+.seg button:hover{color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--or);color:#fff}
+.rng{margin-top:30px}
+.rng label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px;font-size:15px;color:var(--muted)}
+.rng output{font-family:var(--mono);font-size:15px;color:var(--ink)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--or) var(--f,50%),var(--s3) var(--f,50%));outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:5px solid var(--or);cursor:grab}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#fff;border:5px solid var(--or);cursor:grab}
+input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 6px var(--or-t)}
+.rng small{display:block;margin-top:10px;font-size:13px;color:var(--dim)}
+.res .mono{color:var(--dim);display:block}
+.res__big{font-size:clamp(56px,7vw,104px);font-weight:600;letter-spacing:-.055em;line-height:.95;margin:14px 0 6px;color:var(--or)}
+.res__sub{color:var(--muted);font-size:16px}
+.res__rows{margin-top:30px;border-top:1px solid var(--line)}
+.res__rows div{display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--muted)}
+.res__rows b{color:var(--ink);font-family:var(--mono);font-weight:500;font-size:15px;text-align:right}
+.res__rows .tot b{color:var(--ink);font-size:16px}
+.res__rows .ret b{color:var(--or);font-size:18px}
+.res__rows em{font-style:normal;color:var(--dim);font-size:13px;margin-left:6px}
+.cmp{margin-top:28px;display:grid;gap:12px}
+.cmp>div{display:grid;grid-template-columns:130px 1fr;gap:16px;align-items:center;font-size:14px;color:var(--muted)}
+.cmp .tr{height:14px;border-radius:7px;background:var(--s3);overflow:hidden}
+.cmp .tr i{display:block;height:100%;border-radius:7px;background:var(--or);transition:width .7s var(--ease)}
+.cmp>div:last-child .tr i{background:var(--muted)}
+
+/* scenarios line chart */
+.scen{margin-top:20px}
+.scen__head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.scen__head h3{font-size:clamp(22px,2.4vw,30px);max-width:22ch}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:13px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+.lc{position:relative;width:100%}
+.lc svg{display:block;width:100%;height:auto;overflow:visible}
+.lc .grid line{stroke:var(--line)}
+.lc .ax{fill:var(--dim);font-family:var(--mono);font-size:11px}
+.lc .ln{fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke-width .3s,opacity .3s}
+.lc .ar{opacity:.1}
+.lc .inv{stroke:#6E6B66;stroke-width:1.5;stroke-dasharray:6 6}
+.lc .el{font-family:'Inter Tight',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.02em}
+.lc .es{font-family:var(--mono);font-size:10.5px;fill:var(--dim)}
+.lc .be{fill:var(--bg);stroke:#F5F4F2;stroke-width:2}
+.lc .bet{fill:var(--muted);font-family:var(--mono);font-size:10.5px}
+.lc .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.sc3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.sc{padding:20px 22px;border-radius:16px;border:1px solid var(--line);background:var(--s2);transition:border-color .3s,background .3s}
+.sc.is-sel{border-color:rgba(232,101,42,.5);background:var(--or-t)}
+.sc .mono{display:flex;align-items:center;gap:8px;color:var(--muted)}
+.sc .mono i{width:10px;height:10px;border-radius:3px}
+.sc:nth-child(1) .mono i{background:#F5F4F2}.sc:nth-child(2) .mono i{background:#E8652A}.sc:nth-child(3) .mono i{background:#F7935F}
+.sc .v{display:block;font-size:clamp(30px,3vw,42px);font-weight:600;letter-spacing:-.045em;margin:12px 0 6px}
+.sc .m,.sc .j{display:block;color:var(--muted);font-size:14px}
+.sc .roi{display:inline-block;margin-top:12px;font-style:normal;font-family:var(--mono);font-size:12px;padding:5px 10px;border-radius:999px;background:var(--s3);color:var(--or-lt)}
+.gstrip{margin-top:28px;padding-top:28px;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:start}
+.gstrip__ic{width:auto;height:auto;color:var(--or);padding-top:2px}
+.gstrip b{display:block;font-size:clamp(20px,2vw,26px);letter-spacing:-.03em;color:var(--ink)}
+.gstrip p{color:var(--muted);font-size:16px;margin-top:6px;max-width:62ch}
+.gstrip__a{color:var(--or-lt);text-decoration:none;white-space:nowrap;padding-top:6px}
+.gstrip__a:hover{color:var(--ink)}
+.callout{margin-top:34px;display:block}
+.callout .mono{display:block;color:var(--or-lt);margin-bottom:12px}
+.callout p{font-size:clamp(22px,2.4vw,32px);font-weight:600;letter-spacing:-.035em;line-height:1.2;max-width:34ch}
+.callout p b{color:var(--ink)}
+.callout.bad p{color:var(--muted)}
+.fine{margin-top:14px;font-size:12.5px;color:var(--dim)}
+
+/* guarantee */
+.guar{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.guar h2{font-size:clamp(40px,5.4vw,78px)}
+.guar .lede{margin-top:26px}
+.tl{margin-top:8px}
+.tl__track{display:grid;grid-template-columns:24fr 90fr 60fr;height:56px;border-radius:12px;overflow:hidden;border:1px solid var(--line2)}
+.tl__track div{display:flex;align-items:center;padding:0 14px;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;white-space:nowrap;overflow:hidden}
+.tl__track .a{background:var(--s2);color:var(--muted)}
+.tl__track .b{background:var(--or);color:#fff}
+.tl__track .c{background:repeating-linear-gradient(135deg,rgba(232,101,42,.25) 0 8px,rgba(232,101,42,.1) 8px 16px);color:var(--or-lt)}
+.tl__marks{display:grid;grid-template-columns:24fr 90fr 60fr;margin-top:12px;font-family:var(--mono);font-size:11px;color:var(--dim)}
+.zr{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;padding:9px 16px;border-radius:999px;background:var(--or);color:#fff;font-weight:600;font-size:15px;letter-spacing:-.01em}
+.zr__line{margin-top:22px;padding-left:16px;border-left:3px solid var(--or);font-size:clamp(20px,2vw,26px);font-weight:600;letter-spacing:-.025em;line-height:1.25}
+.gch{margin:0}
+.gch svg{display:block;width:100%;height:auto;overflow:visible}
+.gch text{font-family:var(--mono);font-size:12.5px;letter-spacing:.02em}
+.g-ax{stroke:var(--line2)}
+.g-tick{stroke:var(--line2);stroke-dasharray:3 5}
+.g-min{stroke:var(--ink);stroke-width:1.5;stroke-dasharray:7 6;opacity:.7}
+.g-minl{fill:var(--ink)}
+.g-zone{fill:var(--or-lt);font-weight:500}
+.g-zone2{fill:var(--muted)}
+.g-ok{fill:none;stroke:var(--dim);stroke-width:2.5;stroke-linecap:round}
+.g-okl{fill:var(--dim)}
+.g-short{fill:none;stroke:var(--or);stroke-width:4;stroke-linecap:round}
+.g-dot{fill:var(--bg);stroke:var(--or);stroke-width:3}
+.g-shl{fill:var(--muted)}
+.g-hit circle{fill:var(--ok)}
+.g-hit path{fill:none;stroke:#06150E;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.g-hitl{fill:var(--ok)}
+.g-x{fill:var(--dim)}
+.g-draw{stroke-dasharray:1;stroke-dashoffset:1}
+.gch.go .g-draw{animation:draw 1.8s var(--ease) forwards}
+.gch.go .g-short{animation-delay:.3s}
+.g-hit,.g-hitl,.g-dot,.g-shl{opacity:0;transition:opacity .5s}
+.gch.go .g-dot,.gch.go .g-shl{opacity:1;transition-delay:1.3s}
+.gch.go .g-hit,.gch.go .g-hitl{opacity:1;transition-delay:2s}
+@media (prefers-reduced-motion:reduce){.g-draw{stroke-dashoffset:0}.g-hit,.g-hitl,.g-dot,.g-shl{opacity:1}}
+.tl__rows{margin-top:40px;display:grid;gap:0;border-top:1px solid var(--line)}
+.tl__rows div{display:grid;grid-template-columns:90px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);font-size:16px}
+.tl__rows .mono{color:var(--or);padding-top:3px}
+.tl__rows span{color:var(--muted)}
+
+/* offer */
+.offer{display:grid;grid-template-columns:1.1fr .9fr;border:1px solid var(--line2);border-radius:24px;overflow:hidden}
+.offer__inc{padding:44px}
+.offer__inc h3{font-size:26px;margin-bottom:26px}
+.inc{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.inc li{display:flex;gap:12px;padding:13px 0;border-top:1px solid var(--line);font-size:15.5px}
+.inc li::before{content:"";flex:none;width:7px;height:7px;margin-top:9px;border-radius:2px;background:var(--or)}
+.offer__price{padding:44px;background:var(--s1);border-left:1px solid var(--line2);display:flex;flex-direction:column}
+.pr{padding:22px 0;border-bottom:1px solid var(--line)}
+.pr:first-of-type{padding-top:0}
+.pr .mono{color:var(--dim)}
+.pr b{display:block;font-size:52px;font-weight:600;letter-spacing:-.05em;line-height:1;margin-top:10px}
+.pr span{display:block;color:var(--muted);font-size:15px;margin-top:8px}
+.pr.hot b{color:var(--or)}
+.offer__price .btn{margin-top:30px}
+.offer__price .spots{margin-top:16px;color:var(--dim);text-align:center}
+
+.pils{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pil{padding:22px;border-radius:16px;background:var(--s1);border:1px solid var(--line)}
+.pil .mono{color:var(--or)}
+.pil h4{font-size:19px;font-weight:600;letter-spacing:-.02em;margin:10px 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:13px;padding:6px 11px;border-radius:999px;background:var(--s3);color:var(--muted)}
+.always{margin-top:12px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;padding:18px 22px;border-radius:16px;border:1px solid rgba(232,101,42,.4);background:var(--or-t)}
+.always .mono{color:var(--or-lt)}
+.always div{display:flex;flex-wrap:wrap;gap:8px 22px}
+.always b{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600}
+.always b::before{content:"✓";color:var(--or)}
+/* apply form */
+.apply{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:start}
+.apply__l{position:sticky;top:120px}
+.apply .lede{margin-top:22px}
+.apply__pts{list-style:none;margin-top:30px;display:grid;gap:12px}
+.apply__pts li{display:flex;gap:12px;align-items:center;font-size:16px}
+.apply__pts li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;background:var(--or-t);color:var(--or-lt)}
+.form{border:1px solid var(--line2);border-radius:24px;background:var(--s1);padding:34px;min-height:520px;display:flex;flex-direction:column}
+.form__top{display:flex;align-items:center;gap:18px;margin-bottom:30px;color:var(--dim)}
+.form__bar{flex:1;height:4px;border-radius:4px;background:var(--s3);overflow:hidden}
+.form__bar i{display:block;height:100%;width:100%;background:var(--or);transform-origin:0 50%;transform:scaleX(var(--fp,.1));transition:transform .5s var(--ease)}
+.form__body{flex:1;animation:fIn .45s var(--ease)}
+.form__body h3{font-size:clamp(24px,2.4vw,32px);letter-spacing:-.035em;margin-bottom:8px}
+.form__body .hint{color:var(--muted);font-size:15px;margin-bottom:24px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:14px;width:100%;text-align:left;padding:17px 20px;border-radius:14px;border:1px solid var(--line2);background:var(--s2);color:var(--ink);font:500 16px 'Inter Tight',sans-serif;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+.opt:hover{border-color:var(--or);transform:translateX(3px)}
+.opt.on{border-color:var(--or);background:var(--or-t)}
+.opt::after{content:"→";color:var(--dim);transition:color .2s}
+.opt:hover::after{color:var(--or)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fld{display:flex;flex-direction:column;gap:7px;font-size:13px;color:var(--muted)}
+.fld.full{grid-column:1/-1}
+.fld input,.fld textarea{font:400 16px 'Inter Tight',sans-serif;color:var(--ink);background:var(--bg);border:1px solid var(--line2);border-radius:12px;padding:14px 16px;outline:none;transition:border-color .2s}
+.fld input:focus,.fld textarea:focus{border-color:var(--or)}
+.fld textarea{resize:vertical;min-height:84px}
+.consent{grid-column:1/-1;display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--muted);margin-top:6px;cursor:pointer}
+.consent input{margin-top:3px;width:18px;height:18px;accent-color:var(--or);flex:none}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.ferr{color:#F87171;font-size:14px;margin-top:12px;min-height:1em}
+.form .btn{margin-top:22px;width:100%}
+.form__nav{margin-top:18px}
+.form__back{background:none;border:0;color:var(--dim);font:500 14px 'Inter Tight',sans-serif;cursor:pointer;padding:6px 0}
+.form__back:hover{color:var(--ink)}
+.form__back[hidden]{display:none}
+.done{text-align:center;padding:30px 0}
+.done__ic{width:72px;height:72px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;background:var(--ok);color:#06150E}
+.done h3{font-size:30px}
+.done p{color:var(--muted);margin:12px auto 0;max-width:40ch}
+.done .btn{width:auto;margin-top:28px}
+@keyframes fIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.fam{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.fam h2{font-size:clamp(36px,4.4vw,62px)}
+.quotes{list-style:none;margin-top:44px;counter-reset:qn}
+.quotes li{position:relative;padding:22px 0 22px 52px;border-top:1px solid var(--line);font-size:clamp(18px,1.6vw,22px);letter-spacing:-.015em;line-height:1.35;color:var(--muted)}
+.quotes li:last-child{border-bottom:1px solid var(--line)}
+.quotes li::before{content:"“";position:absolute;left:0;top:10px;font-size:54px;line-height:1;font-weight:600;color:var(--or)}
+.fam__r{padding-top:12px}
+.fam__big{font-size:clamp(26px,2.6vw,38px);font-weight:600;letter-spacing:-.035em;line-height:1.15;margin:18px 0 40px}
+.race{display:grid;gap:18px}
+.lane{display:grid;grid-template-columns:92px 1fr;gap:6px 16px;align-items:center}
+.lane .who{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--dim)}
+.lane .track{height:10px;border-radius:10px;background:var(--s2);overflow:hidden}
+.lane .track i{display:block;height:100%;width:var(--w);border-radius:10px;background:var(--s3);transform-origin:0 50%;transform:scaleX(0);transition:transform 1.2s var(--ease)}
+.race.go .lane .track i{transform:scaleX(1)}
+.race.go .lane:nth-child(2) .track i{transition-delay:.25s}
+.race.go .lane:nth-child(3) .track i{transition-delay:.5s}
+.lane .t{grid-column:2;font-size:14px;color:var(--muted)}
+.lane .t b{margin-left:10px;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:var(--or);color:#fff}
+.lane.win .who{color:var(--or-lt)}
+.lane.win .track i{background:linear-gradient(90deg,var(--or-dk),var(--or-lt))}
+.lane.win .t{color:var(--ink)}
+.fam__you{margin-top:36px;font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.35}
+.fam__miles{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:14.5px}
+.risk{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rk{padding:34px 30px 34px 0}
+.rk+.rk{padding-left:30px;border-left:1px solid var(--line)}
+.rk b{display:block;font-size:clamp(40px,4.4vw,64px);font-weight:600;letter-spacing:-.05em;line-height:1;color:var(--or)}
+.rk span{display:block;margin-top:14px;font-size:17px;color:var(--muted);max-width:26ch}
+.team2{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:64px;padding-top:48px;border-top:1px solid var(--line)}
+.tm{display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:start}
+.tm img{width:150px;height:180px;object-fit:cover;border-radius:16px}
+.tm .mono{color:var(--or)}
+.tm h3{font-size:32px;letter-spacing:-.04em;margin:10px 0 0}
+.tm p{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.6}
+.tm__tags{list-style:none;margin-top:18px;display:grid;gap:10px}
+.tm__tags li{display:flex;align-items:center;gap:12px;font-size:15.5px}
+.tm__tags li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--or)}
+/* selective */
+.sel{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sel .panel{padding:40px}
+.sel h3{font-size:26px;margin-bottom:24px}
+.crit{list-style:none;counter-reset:c}
+.crit li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--line);font-size:16.5px}
+.crit li::before{counter-increment:c;content:"0" counter(c);font-family:var(--mono);font-size:12px;color:var(--or);padding-top:3px}
+.crit--no li::before{content:"✕";color:var(--dim)}
+.crit li span{display:block;color:var(--muted);font-size:14.5px;margin-top:2px}
+.quote{margin-top:20px;padding:34px 40px;border-radius:20px;border:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center}
+.quote p{font-size:clamp(22px,2.4vw,30px);letter-spacing:-.03em;line-height:1.2}
+.quote .mono{color:var(--or)}
+
+/* process */
+.proc{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.proc div{padding:34px 30px 10px 0;border-right:1px solid var(--line)}
+.proc div+div{padding-left:30px}
+.proc div:last-child{border-right:0}
+.proc .mono{color:var(--or)}
+.proc h3{margin:18px 0 10px}
+.proc p{color:var(--muted);font-size:15.5px}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1.6fr;gap:72px}
+.faq__list details{border-top:1px solid var(--line)}
+.faq__list details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 0;display:flex;justify-content:space-between;gap:16px;align-items:center;font-weight:600;font-size:18px;letter-spacing:-.015em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);font-weight:400;font-size:20px;color:var(--or);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 0 24px;color:var(--muted);font-size:16px;max-width:60ch}
+
+/* final */
+.final{position:relative;padding:150px 0 130px;border-top:1px solid var(--line);overflow:hidden;text-align:center}
+.final::before{content:"";position:absolute;left:50%;bottom:-60%;width:1100px;height:700px;margin-left:-550px;background:radial-gradient(closest-side,rgba(232,101,42,.35),transparent);pointer-events:none}
+.final>*{position:relative}
+.final h2{font-size:clamp(46px,8vw,120px);letter-spacing:-.055em;line-height:.92}
+.final p{margin:28px auto 40px;max-width:46ch;font-size:19px;color:var(--muted)}
+.final .mono{display:block;color:var(--or);margin-bottom:28px}
+
+.foot{padding:40px 0 48px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;font-size:14px;color:var(--dim)}
+.foot ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 24px}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--ink)}
+
+dialog.book{border:0;padding:0;width:min(720px,calc(100vw - 24px));height:min(780px,calc(100vh - 24px));border-radius:20px;background:#fff;box-shadow:0 40px 100px rgba(0,0,0,.6);margin:auto}
+dialog.book::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(6px)}
+dialog.book iframe{width:100%;height:100%;border:0}
+.book__x{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:#111;color:#fff;font-size:22px;cursor:pointer;z-index:2}
+
+@keyframes blink{50%{opacity:.3}}
+@keyframes ring{0%{transform:scale(.95);opacity:1}100%{transform:scale(1.35);opacity:0}}
+@keyframes wave{0%,100%{height:6px}50%{height:26px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.sw .w>span,.pane [data-at]{opacity:1!important;transform:none!important}}
+
+@media (max-width:1080px){
+  .nav__links{display:none}
+  .hero__in{grid-template-columns:1fr;gap:70px}
+  .cal{max-width:560px;transform:none}
+  .sec__head{grid-template-columns:1fr;gap:24px}
+  .sec__head .lede{justify-self:start}
+  .stack{grid-template-columns:repeat(2,1fr)}
+  .math{grid-template-columns:1fr}
+  .infra{grid-template-columns:1fr;gap:40px}
+  .guar{grid-template-columns:1fr;gap:48px}
+  .offer{grid-template-columns:1fr}
+  .offer__price{border-left:0;border-top:1px solid var(--line2)}
+  .sys__in{grid-template-columns:1fr 1.1fr;gap:40px}
+  .faq{grid-template-columns:1fr;gap:20px}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .sec{padding:96px 0}
+  .sec__label{margin-bottom:40px}
+  .sec__head{margin-bottom:48px}
+  .lede{font-size:17px}
+  .hero{padding:120px 0 70px}
+  .hero__cta .btn{flex:1 1 100%}
+  .cal__grid{grid-template-columns:repeat(3,1fr)}
+  .day:nth-child(n+4){display:none}
+  .day{min-height:250px}
+  .toast{left:8px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat,.stat+.stat{padding:28px 14px}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .stack{grid-template-columns:1fr}
+  .infra__l{position:static}
+  .layer{grid-template-columns:1fr;gap:16px;padding:24px 20px 22px 52px}
+  .layer::before{left:18px;top:30px}
+  .infra__r::before{left:24px}
+  .keep{padding:22px}
+  .keep ul{grid-template-columns:1fr}
+  .panel{padding:24px}
+  .worth{grid-template-columns:1fr}
+  .cmp>div{grid-template-columns:96px 1fr auto;gap:10px;font-size:12.5px}
+  .sc3{grid-template-columns:1fr}
+  .lc .el{font-size:13px}
+  .gstrip{grid-template-columns:auto 1fr;gap:12px}
+  .gstrip__a{grid-column:2}
+  .tl__track div{font-size:9.5px;padding:0 6px}
+  .tl__rows div{grid-template-columns:70px 1fr}
+  .offer__inc,.offer__price{padding:28px 22px}
+  .inc{grid-template-columns:1fr}
+  .pils{grid-template-columns:1fr}
+  .fam,.risk,.team2{grid-template-columns:1fr}
+  .rk,.rk+.rk{padding:24px 0;border-left:0}
+  .rk+.rk{border-top:1px solid var(--line)}
+  .team2{gap:44px;margin-top:44px}
+  .tm{grid-template-columns:96px 1fr;gap:18px}
+  .tm img{width:96px;height:116px}
+  .fam{gap:48px}
+  .quotes li{padding-left:40px}
+  .quotes li::before{font-size:44px}
+  .lane{grid-template-columns:78px 1fr}
+  .apply{grid-template-columns:1fr;gap:36px}
+  .apply__l{position:static}
+  .form{padding:24px 20px;min-height:0}
+  .fields{grid-template-columns:1fr}
+  .always{grid-template-columns:1fr;gap:10px}
+  .sel{grid-template-columns:1fr}
+  .sel .panel{padding:26px}
+  .quote{grid-template-columns:1fr;padding:26px;gap:12px}
+  .proc{grid-template-columns:1fr}
+  .proc div,.proc div+div{padding:28px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .nav .btn{min-height:40px;padding:0 16px;font-size:14px}
+  .mark{font-size:14px}
+  .mark svg{width:22px;height:22px}
+  /* comparison + cycle on mobile */
+  .vs{grid-template-columns:1fr 1fr;border-radius:18px}
+  .vs .lbl{grid-column:1/-1;padding:16px 14px 0;border-top:1px solid var(--line)}
+  .vs .lbl+div,.vs .lbl+div+div{border-top:0}
+  .vs>div{padding:10px 14px 16px;font-size:14px;gap:8px}
+  .vs>.h{padding:16px 14px;font-size:15px}
+  .vs .hx{display:none}
+  .dial__ring{width:min(96vw,74svh)}
+  .dial__c{inset:9%}
+  .dial__steps{height:70%}
+  .dcard{display:none}
+  .dstep h3{font-size:clamp(24px,7vw,32px);margin:10px 0 8px}
+  .dstep p{font-size:13.5px;max-width:28ch}
+  .dstep__k{font-size:10px}
+  .dial__nav{gap:8px}
+  .dial__hint{display:none}
+  .seg button{font-size:19px}
+  .res__big{font-size:58px}
+  .cmp>div{grid-template-columns:96px 1fr}
+}
+
+.hero h1{font-size:clamp(38px,4.7vw,66px);line-height:1.04;margin:22px 0}
+.hero .for{margin-top:22px;font-size:16px;color:var(--muted)}
+.hero .for b{color:var(--ink);font-weight:600}
+.hero .for+h1{margin-top:10px}
+.hero .fine{margin-top:18px;font-size:12.5px;color:var(--dim);max-width:52ch;line-height:1.5}
+.nav__links a.ext{color:var(--ink)}
+.or-t{color:var(--or)}
+/* apply popup */
+dialog.appdlg{border:0;padding:28px;width:min(620px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;border-radius:24px;background:var(--bg);color:var(--ink);box-shadow:0 0 0 1px var(--line2),0 40px 100px rgba(0,0,0,.7),0 30px 80px -30px rgba(232,101,42,.35);margin:auto}
+dialog.appdlg::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+dialog.appdlg[open]{animation:fIn .35s var(--ease)}
+.appdlg__head{padding:4px 44px 22px 4px}
+.appdlg__head .mono{color:var(--or);font-size:12px}
+.appdlg__head h2{font-size:clamp(26px,3vw,34px);letter-spacing:-.035em;line-height:1.1;margin-top:10px}
+.appdlg__head p{color:var(--muted);font-size:15.5px;margin-top:8px}
+.appdlg .form{min-height:0}
+dialog.appdlg .appdlg__x{background:var(--s2);box-shadow:inset 0 0 0 1px var(--line2)}
+dialog.appdlg .appdlg__x:hover{background:var(--s3)}
+.appdlg__x:focus-visible{outline:2px solid var(--or-lt);outline-offset:2px}
+.appdlg .form{border:0;background:none;padding:0}
+/* mobile sticky bar */
+.bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:40;display:none;transform:translateY(140%);transition:transform .4s var(--ease)}
+.bar.on{transform:none}
+.bar .btn{width:100%;box-shadow:0 18px 40px -10px rgba(0,0,0,.8)}
+/* proof strip */
+.proof{padding:44px 0 52px;border-top:1px solid var(--line)}
+.proof__top{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:30px;color:var(--dim)}
+.proof__rate{display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--muted);text-decoration:none}
+.proof__rate b{color:var(--ink);font-size:18px;font-weight:600}
+.proof__rate .st{color:var(--or);letter-spacing:2px}
+.logos{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.logos ul{list-style:none;display:flex;align-items:center;gap:64px;width:max-content;animation:mq 40s linear infinite}
+.logos img{height:var(--h);width:auto;max-width:none;filter:brightness(0) invert(1);opacity:.55}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* leak calculator */
+.leak{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line2);border-radius:24px;overflow:hidden}
+.leak__in{padding:40px;display:grid;gap:30px}
+.leak__in label{display:flex;justify-content:space-between;gap:12px;font-size:15px;color:var(--muted);margin-bottom:12px}
+.leak__in output{color:var(--ink);font-weight:600}
+.leak__in input[type=range]{width:100%;accent-color:var(--or)}
+.leak__out{padding:40px;background:var(--s1);border-left:1px solid var(--line2);display:flex;flex-direction:column;justify-content:center}
+.leak__out .k{color:var(--muted);font-size:18px}
+.leak__out .n{font-size:clamp(48px,6vw,80px);font-weight:600;letter-spacing:-.05em;line-height:1;color:var(--or);margin:8px 0}
+.leak__out .m{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+.leak__out .m b{color:var(--ink)}
+.leak__out .btn{align-self:flex-start;margin-top:26px}
+.leak__out small{margin-top:14px;color:var(--dim);font-size:12.5px}
+/* guarantee fine print */
+.gfine{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--dim);max-width:90ch}
+/* video reviews */
+.vrev{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.vcard{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;border-radius:16px;overflow:hidden;background:var(--s2);cursor:pointer;box-shadow:inset 0 0 0 1px var(--line2)}
+.vcard img,.vcard video,.vcard iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.vcard .pl{position:absolute;left:50%;top:50%;width:60px;height:60px;margin:-30px 0 0 -30px;border-radius:50%;display:grid;place-items:center;background:var(--or);color:#fff;transition:transform .2s}
+.vcard:hover .pl{transform:scale(1.08)}
+.vcap{margin-top:12px;font-size:14px;color:var(--muted)}
+.vcap b{color:var(--ink);font-weight:600}
+.rate-line{margin-top:40px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:var(--muted)}
+.rate-line .big{font-size:40px;font-weight:600;letter-spacing:-.04em;color:var(--ink)}
+.rate-line .st{color:var(--or);letter-spacing:3px}
+.rate-line a{color:var(--ink);text-underline-offset:4px;text-decoration-color:var(--or)}
+/* websites band */
+.web{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end}
+.web p{color:var(--muted);font-size:18px;max-width:46ch}
+.web .btn{margin-top:26px}
+/* footer */
+.fz{border-top:1px solid var(--line);padding:64px 0 36px}
+.fz__g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
+.fz h2{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
+.fz ul{list-style:none;display:grid;gap:10px;font-size:15px}
+.fz a{text-decoration:none;color:var(--muted)}
+.fz a:hover{color:var(--ink)}
+.fz__blurb{color:var(--dim);font-size:14.5px;max-width:38ch;margin-top:16px}
+.fz__b{margin-top:48px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--dim)}
+.offer--solo{grid-template-columns:1fr}
+.offer--solo .offer__cta{margin-top:30px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.offer--solo .offer__cta .mono{color:var(--dim)}
+@media (max-width:900px){
+  .leak,.web,.fz__g{grid-template-columns:1fr}
+  .leak__out{border-left:0;border-top:1px solid var(--line2)}
+  .vrev{grid-template-columns:1fr}
+  .fz__g{gap:36px}
+}
+@media (max-width:760px){
+  .bar{display:block}
+  .leak__in,.leak__out{padding:26px 22px}
+  .logos ul{gap:44px}
+}
+@media (prefers-reduced-motion:reduce){.logos ul{animation:none}}
+.sw .w{display:inline-block;overflow:hidden;vertical-align:top;padding:.08em .14em .32em;margin:-.08em -.14em -.32em}
 </style>
+<style>
+.nav__links a[aria-current]{color:var(--ink)}
+.hero--wd{text-align:left}
+.hero--wd .wrap{position:relative;z-index:1;max-width:1240px}
+.hero--wd h1{max-width:15ch;font-size:clamp(44px,6.4vw,92px)}
+.hero--wd .lede{max-width:46ch}
+.works{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.site{display:block;text-decoration:none;color:inherit}
+.site__win{display:block;border-radius:16px;overflow:hidden;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line2),0 30px 70px -40px rgba(0,0,0,.9);transition:transform .4s var(--ease)}
+.site:hover .site__win{transform:translateY(-4px)}
+.site__bar{display:flex;align-items:center;gap:6px;padding:11px 14px;border-bottom:1px solid var(--line)}
+.site__bar i{width:9px;height:9px;border-radius:50%;background:var(--s3)}
+.site__bar em{margin-left:10px;font:400 12px var(--mono);font-style:normal;color:var(--dim)}
+.site__win img{display:block;width:100%;height:auto;aspect-ratio:1100/688;object-fit:cover;object-position:top}
+.site__cap{display:flex;align-items:baseline;gap:12px;margin-top:14px;font-size:15px;color:var(--muted)}
+.site__cap b{color:var(--ink);font-weight:600}
+.site__go{margin-left:auto;color:var(--or)}
+.wd-logos{margin-top:72px}
+.caps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.caps li{padding:30px 30px 30px 0;border-bottom:1px solid var(--line)}
+.caps li:not(:nth-child(3n+1)){padding-left:30px;border-left:1px solid var(--line)}
+.caps h3{font-size:22px}
+.caps p{color:var(--muted);margin-top:8px;font-size:16px}
+.aisec{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.aisec .lede{margin-top:20px}
+.ai__pts{list-style:none;margin-top:30px;display:grid;gap:16px}
+.ai__pts li{padding-left:30px;position:relative}
+.ai__pts li::before{content:"✓";position:absolute;left:0;top:1px;color:var(--or);font-weight:700}
+.ai__pts b{display:block;font-weight:600}
+.ai__pts span{color:var(--muted);font-size:15.5px}
+.chat{border:1px solid var(--line2);border-radius:20px;background:var(--s1);overflow:hidden;display:flex;flex-direction:column;height:460px}
+.chat__head{display:flex;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid var(--line)}
+.chat__head .dot{width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px var(--ok-t,rgba(74,222,128,.15))}
+.chat__head small{margin-left:auto;font:400 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--dim)}
+.chat__body{flex:1;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:10px}
+.ai-msg{max-width:85%;padding:11px 14px;border-radius:14px;font-size:15px;line-height:1.45;white-space:pre-wrap}
+.ai-msg-bot{background:var(--s2);color:var(--ink);border-bottom-left-radius:4px}
+.ai-msg-user{align-self:flex-end;background:var(--or);color:#fff;border-bottom-right-radius:4px}
+.ai-msg-typing{display:flex;gap:5px;padding:14px;background:var(--s2);border-radius:14px;width:max-content}
+.ai-typing-dot{width:7px;height:7px;border-radius:50%;background:var(--dim);animation:td 1s infinite}
+.ai-typing-dot:nth-child(2){animation-delay:.15s}.ai-typing-dot:nth-child(3){animation-delay:.3s}
+@keyframes td{0%,100%{opacity:.3}50%{opacity:1}}
+.chat__chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 12px}
+.ai-chip{border:1px solid var(--line2);background:none;color:var(--muted);border-radius:999px;padding:7px 13px;font:500 13.5px 'Inter Tight',sans-serif;cursor:pointer}
+.ai-chip:hover{color:var(--ink);border-color:var(--or)}
+.chat__form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.chat__form input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line2);border-radius:999px;padding:12px 16px;color:var(--ink);font:400 15px 'Inter Tight',sans-serif;outline:none}
+.chat__form input:focus{border-color:var(--or)}
+.chat__form button{width:46px;height:46px;border-radius:50%;border:0;background:var(--or);color:#fff;display:grid;place-items:center;cursor:pointer}
+.chat__note{margin-top:12px;font-size:13px;color:var(--dim)}
+.steps5{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:28px;counter-reset:st}
+.steps5 li{counter-increment:st;padding-top:22px;border-top:2px solid var(--line2)}
+.steps5 li:last-child{border-color:var(--or)}
+.steps5 li::before{content:"0" counter(st);display:block;font:500 12px var(--mono);color:var(--or);margin-bottom:12px}
+.steps5 h3{font-size:22px}
+.steps5 p{color:var(--muted);margin-top:8px;font-size:15.5px}
+.cf{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:start}
+.cf .lede{margin-top:20px}
+.cf__ticks{list-style:none;margin-top:28px;display:grid;gap:12px}
+.cf__ticks li{display:flex;gap:10px;align-items:center;color:var(--muted)}
+.cf__ticks svg{color:var(--ok)}
+.wdform{border:1px solid var(--line2);border-radius:24px;background:var(--s1);padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.wdform .wide{grid-column:1/-1}
+.wdform label,.wdform legend{display:block;font-size:13px;color:var(--muted);margin-bottom:7px}
+.wdform input,.wdform select,.wdform textarea{width:100%;font:400 16px 'Inter Tight',sans-serif;color:var(--ink);background:var(--bg);border:1px solid var(--line2);border-radius:12px;padding:14px 16px;outline:none}
+.wdform select{appearance:none;-webkit-appearance:none}
+.wdform input:focus,.wdform select:focus,.wdform textarea:focus{border-color:var(--or)}
+.wdform .bad input,.wdform .bad select,.wdform .bad textarea{border-color:#F87171}
+.wdform fieldset{border:0;padding:0;margin:0}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills label{margin:0}
+.pills input{position:absolute;opacity:0;width:1px;height:1px}
+.pills span{display:inline-block;padding:10px 16px;border-radius:999px;border:1px solid var(--line2);color:var(--muted);font-size:14.5px;cursor:pointer}
+.pills input:checked+span{border-color:var(--or);background:var(--or-t);color:var(--ink)}
+.pills input:focus-visible+span{outline:2px solid var(--or-lt)}
+.form__err{color:#F87171;font-size:14px}
+.form__foot{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:6px}
+.form__foot p{font-size:13.5px;color:var(--dim);flex:1;min-width:200px}
+.form__foot a{color:var(--muted)}
+.wddone{border:1px solid var(--line2);border-radius:24px;background:var(--s1);padding:40px;text-align:center}
+.wddone h3{font-size:28px}
+.wddone p{color:var(--muted);margin-top:10px}
+@media (max-width:900px){
+  .works,.aisec,.cf{grid-template-columns:1fr}
+  .caps{grid-template-columns:1fr}
+  .caps li,.caps li:not(:nth-child(3n+1)){padding:24px 0;border-left:0}
+  .steps5{grid-template-columns:1fr;gap:22px}
+  .aisec,.cf{gap:40px}
+}
+@media (max-width:760px){
+  .wdform{grid-template-columns:1fr;padding:24px 20px}
+  .chat{height:420px}
+}
 
-
+/* web design hero: copy + enquiry flow art (from the old homepage) */
+.wd-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero--wd h1{font-size:clamp(42px,5.2vw,78px)}
+.flow{position:relative;aspect-ratio:600/520;width:100%;max-width:46rem;justify-self:end;transform:translateY(var(--flow-y,0px))}
+.flow__svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.flow__line{stroke-dasharray:1;stroke-dashoffset:1;animation:flowDraw 1.6s var(--ease) .2s forwards}
+.flow__ghost{opacity:0;animation:flowFade 1.2s var(--ease) .6s forwards}
+.flow__end{opacity:0;transform-origin:560px 150px;animation:flowPop .5s var(--ease) 1.6s forwards}
+.flow__dot{opacity:0}
+.flow.run .flow__dot{opacity:1}
+@keyframes flowDraw{to{stroke-dashoffset:0}}
+@keyframes flowFade{to{opacity:.18}}
+@keyframes flowPop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.chip{position:absolute;left:var(--x);top:var(--y);display:flex;align-items:center;gap:.6rem;padding:.6rem .9rem .6rem .6rem;border-radius:14px;background:#fff;color:#1C1917;white-space:nowrap;box-shadow:0 18px 36px -18px rgba(0,0,0,.7),0 2px 6px -2px rgba(0,0,0,.3);transform:translate(-50%,calc(-100% - 22px)) translateY(8px) scale(.96);opacity:0;transition:opacity 320ms var(--ease),transform 420ms var(--ease)}
+.chip.on{opacity:1;transform:translate(-50%,calc(-100% - 22px))}
+.chip i{width:2rem;height:2rem;flex:none;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:.9rem;background:#EFEAE4;color:#1C1917}
+.chip b{display:block;font-size:.9rem;font-weight:600;letter-spacing:-.01em}
+.chip small{display:block;font-size:.74rem;color:#6B625B;margin-top:.1rem}
+.chip--review i{background:var(--or);color:#fff}
+@media (max-width:960px){
+  .wd-grid{grid-template-columns:1fr}
+  .flow{justify-self:center;max-width:30rem;margin-top:30px}
+  .chip{padding:.45rem .7rem .45rem .45rem}.chip i{width:1.6rem;height:1.6rem}.chip small{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .flow__line{animation:none;stroke-dashoffset:0}.flow__ghost{animation:none;opacity:.18}.flow__end{animation:none;opacity:1}
+  .chip{opacity:1;transform:translate(-50%,calc(-100% - 22px));transition:none}
+}
+</style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2062397397707938');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=2062397397707938&ev=PageView&noscript=1"></noscript>
 
 
 <script type="application/ld+json" id="faq-schema">
@@ -313,12 +907,9 @@
 </script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<span data-sc-progress></span>
-<div class="sc-grain" aria-hidden="true"></div>
 
-<header class="nav g-light" id="nav">
-  <div class="sc-wrap nav__in">
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
     <a href="/" class="mark" aria-label="FlowBuild AI home">
       <svg width="26" height="26" viewBox="0 0 64 64" fill="none" aria-hidden="true">
         <defs><linearGradient id="fbMark" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#5B2A1A"/><stop offset="55%" stop-color="#C4501B"/><stop offset="100%" stop-color="#F7935F"/></linearGradient></defs>
@@ -328,148 +919,127 @@
       </svg>
       <span>Flow<b>Build</b><span class="ai"> AI</span></span>
     </a>
-    <nav class="nav__links" id="navLinks" aria-label="Main">
-      <a href="/b2b-outbound.html">Get More Leads</a>
-      <a href="/web-design/" aria-current="page">Win Them Over <small>(Web Design)</small></a>
-      <a href="/ai-systems.html">Never Miss a Lead</a>
-      <a href="/audit.html">Find Your Money Leaks</a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="/">Sales system</a>
+      <a href="#work">Our work</a>
+      <a href="#faq">Questions</a>
+      <a href="/web-design/" aria-current="page">Websites</a>
     </nav>
-    <a href="https://links.flowbuildai.ie/widget/booking/MLznN883xY9UeIaBWpgO" class="btn btn--primary" data-book>Book a call</a>
-    <button class="nav__menu" id="navMenu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
-    </button>
+    <a href="#contact" class="btn btn--or">Get a free quote</a>
   </div>
 </header>
 
-<main id="main">
+<main>
 
-  <!-- 1 · TITLE PAGE -->
-  <section class="hero page-top g-light">
-    <div class="sc-wrap">
-      <p class="eyebrow">Website design · Ireland</p>
-      <h1 data-sc-kinetic="lines">Website design for Irish businesses that win the work.</h1>
-      <div class="hero__row" data-sc-in data-sc-stagger="70">
-        <p class="lede">Website design in Ireland that makes customers pick you, and makes it easy for them to get in touch.</p>
-        <div class="hero__ctas">
-          <a href="#contact" class="btn btn--primary">Get a free quote
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="#work" class="link">See the work</a>
+<!-- HERO -->
+<section class="hero hero--wd">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="blob blob--1" aria-hidden="true"></div>
+  <div class="blob blob--2" aria-hidden="true"></div>
+  <div class="wrap wd-grid">
+    <div class="wd-copy">
+    <span class="eyebrow"><i></i>Website design · Ireland</span>
+    <h1 class="sw">Website design for Irish businesses that <span class="grad">win the work.</span></h1>
+    <p class="lede">Websites that make customers pick you, and make it easy for them to get in touch.</p>
+    <div class="hero__cta">
+      <a href="#contact" class="btn btn--or">Get a free quote
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="#work" class="btn btn--line">See the work</a>
+    </div>
+    <ul class="ticks">
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg>5★ average client rating</li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg>100% of clients satisfied</li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg>You own your site</li>
+    </ul>
+    </div>
+    <div class="flow" id="flow" aria-hidden="true">
+          <svg class="flow__svg" viewBox="0 0 600 520" fill="none">
+            <defs>
+              <linearGradient id="flowGrad" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0%" stop-color="#5B2A1A"/><stop offset="55%" stop-color="#C4501B"/><stop offset="100%" stop-color="#F7935F"/>
+              </linearGradient>
+            </defs>
+            <path class="flow__ghost" d="M40 470 C 40 360 190 360 290 420 C 390 480 520 480 560 350" stroke="#E8652A" stroke-width="22" stroke-linecap="round" opacity="0.18"/>
+            <path class="flow__line" id="flowPath" d="M40 380 C 40 230 210 230 300 300 C 390 370 560 370 560 150" stroke="url(#flowGrad)" stroke-width="26" stroke-linecap="round" pathLength="1"/>
+            <circle class="flow__end" cx="560" cy="150" r="17" fill="#F7935F"/>
+            <circle class="flow__dot" id="flowDot" r="9" fill="#FAF9F6" stroke="#1C1917" stroke-width="3"/>
+          </svg>
+          <div class="chip" data-at="0.04"><i>✉</i><span><b>New enquiry</b><small>from your website</small></span></div>
+          <div class="chip" data-at="0.40"><i>↩</i><span><b>Replied instantly</b><small>day or night</small></span></div>
+          <div class="chip" data-at="0.72"><i>✓</i><span><b>Booked in</b><small>straight to your calendar</small></span></div>
+          <div class="chip chip--review" data-at="0.99"><i>★</i><span><b>New 5-star review</b><small>asked for automatically</small></span></div>
         </div>
-      </div>
-      <p class="proof" data-sc-in>
-        <span><span class="stars" aria-hidden="true">★★★★★</span> <strong>5★</strong> average client rating</span>
-        <span><strong>100%</strong> of clients satisfied</span>
-              </p>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 2 · THE WORK (pinned stack) -->
-  <section class="sec g-dark" id="work" aria-labelledby="work-h">
-    <div class="sc-wrap">
-      <div class="sec__head sec__head--split">
-        <h2 id="work-h" data-sc-in>Sites that make you the obvious choice.</h2>
-        <p class="lede" data-sc-in>Real Irish businesses, live today.</p>
-      </div>
-      <div class="works" data-sc-in data-sc-stagger="70">
-        <a class="site" href="https://www.prestigebarbers.ie/" target="_blank" rel="noopener">
-          <span class="win" aria-hidden="true">
-            <span class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><span class="win__url">prestigebarbers.ie</span><span class="win__hint">Scroll to explore</span></span>
-            <span class="win__view"><video class="win__vid" data-src="/assets/video/prestige-barbers.mp4" poster="/assets/img/prestige-poster.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><img class="win__over" src="/assets/video/prestige-barbers-over.webp" width="1100" height="688" alt="" loading="lazy" decoding="async"><img class="win__rest" src="/assets/img/prestige-rest.jpg" width="1000" height="4768" alt="" loading="lazy" decoding="async"></span>
-          </span>
-          <span class="site__cap"><span class="site__name">Prestige Barbers</span><span class="site__meta">Barbershop · Kingscourt, Co. Cavan</span><span class="site__go" aria-hidden="true">↗</span></span>
-          <span class="sr-only">Prestige Barbers website, designed by FlowBuild AI (opens in a new tab)</span>
-        </a>
-        <a class="site" href="https://www.rackzzpoolclub.ie/" target="_blank" rel="noopener">
-          <span class="win" aria-hidden="true">
-            <span class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><span class="win__url">rackzzpoolclub.ie</span><span class="win__hint">Scroll to explore</span></span>
-            <span class="win__view"><video class="win__vid" data-src="/assets/video/rackzz-pool-club.mp4" poster="/assets/img/rackzz-poster.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><img class="win__over" src="/assets/video/rackzz-pool-club-over.webp" width="1100" height="688" alt="" loading="lazy" decoding="async"><img class="win__rest" src="/assets/img/rackzz-rest.jpg" width="1000" height="4197" alt="" loading="lazy" decoding="async"></span>
-          </span>
-          <span class="site__cap"><span class="site__name">Rackzz Pool Club</span><span class="site__meta">Pool hall · Dundalk, Co. Louth</span><span class="site__go" aria-hidden="true">↗</span></span>
-          <span class="sr-only">Rackzz Pool Club website, designed by FlowBuild AI (opens in a new tab)</span>
-        </a>
-        <a class="site" href="https://www.saarchitects.ie/" target="_blank" rel="noopener">
-          <span class="win" aria-hidden="true">
-            <span class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><span class="win__url">saarchitects.ie</span><span class="win__hint">Scroll to explore</span></span>
-            <span class="win__view"><video class="win__vid" data-src="/assets/video/sa-architects.mp4" poster="/assets/img/sa-poster.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><img class="win__over" src="/assets/video/sa-architects-over.webp" width="1100" height="688" alt="" loading="lazy" decoding="async"><img class="win__rest" src="/assets/img/sa-rest.jpg" width="1000" height="1728" alt="" loading="lazy" decoding="async"></span>
-          </span>
-          <span class="site__cap"><span class="site__name">Smith &amp; Associates</span><span class="site__meta">Architecture practice</span><span class="site__go" aria-hidden="true">↗</span></span>
-          <span class="sr-only">Smith &amp; Associates website, designed by FlowBuild AI (opens in a new tab)</span>
-        </a>
-        <a class="site" href="https://www.homeperfectionrenovation.ie/" target="_blank" rel="noopener">
-          <span class="win" aria-hidden="true">
-            <span class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><span class="win__url">homeperfectionrenovation.ie</span><span class="win__hint">Scroll to explore</span></span>
-            <span class="win__view"><video class="win__vid" data-src="/assets/video/ab-home-perfection.mp4" poster="/assets/img/ab-poster.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><img class="win__over" src="/assets/video/ab-home-perfection-over.webp" width="1100" height="688" alt="" loading="lazy" decoding="async"><img class="win__rest" src="/assets/img/ab-rest.jpg" width="1000" height="3623" alt="" loading="lazy" decoding="async"></span>
-          </span>
-          <span class="site__cap"><span class="site__name">A&amp;B Home Perfection</span><span class="site__meta">Renovations · Dublin</span><span class="site__go" aria-hidden="true">↗</span></span>
-          <span class="sr-only">A&amp;B Home Perfection website, designed by FlowBuild AI (opens in a new tab)</span>
-        </a>
-      </div>
-      <div class="marquee" role="region" aria-label="Websites we have built and put live">
-        <div class="marquee__view">
-          <ul class="marquee__track">
-            <li><a href="https://www.prestigebarbers.ie/" target="_blank" rel="noopener"><img src="/assets/logos/prestige-barbers.png" width="330" height="28" alt="Prestige Barbers" style="--h:1.81rem" loading="lazy"></a></li>
-            <li><a href="https://www.saarchitects.ie/" target="_blank" rel="noopener"><img src="/assets/logos/smith-associates.png" width="640" height="229" alt="Smith &amp; Associates Architects" style="--h:3.02rem" loading="lazy"></a></li>
-            <li><a href="https://www.rackzzpoolclub.ie/" target="_blank" rel="noopener"><img src="/assets/logos/rackzz-pool-club.png" width="556" height="366" alt="Rackzz Pool Club" style="--h:3.76rem" loading="lazy"></a></li>
-            <li><a href="https://rfelectrical.ie/" target="_blank" rel="noopener"><img src="/assets/logos/rf-electrical.png" width="295" height="92" alt="RF Electrical" style="--h:2.90rem" loading="lazy"></a></li>
-            <li><a href="https://myfarewellwishes.ie/" target="_blank" rel="noopener"><img src="/assets/logos/my-farewell-wishes.png" width="460" height="74" alt="My Farewell Wishes" style="--h:2.29rem" loading="lazy"></a></li>
-            <li><a href="https://www.heffmech.ie/" target="_blank" rel="noopener"><img src="/assets/logos/heffmech.png" width="421" height="62" alt="Heffmech" style="--h:2.46rem" loading="lazy"></a></li>
-            <li><a href="https://www.liquidconsulting.co/" target="_blank" rel="noopener"><img src="/assets/logos/liquid-consulting.png" width="200" height="64" alt="Liquid Consulting" style="--h:2.91rem" loading="lazy"></a></li>
-            <li><a href="https://www.mdrecovery.ie/" target="_blank" rel="noopener"><img src="/assets/logos/md-recovery.png" width="640" height="259" alt="MD Recovery" style="--h:3.17rem" loading="lazy"></a></li>
-            <li><a href="https://www.homeperfectionrenovation.ie/" target="_blank" rel="noopener"><img src="/assets/logos/ab-home-perfection.png" width="324" height="233" alt="A&amp;B Home Perfection Renovations" style="--h:3.88rem" loading="lazy"></a></li>
-            <li><a href="https://www.slidala.com/" target="_blank" rel="noopener"><img src="/assets/logos/slidala.png" width="455" height="99" alt="Slí Dála B&amp;B" style="--h:2.55rem" loading="lazy"></a></li>
-            <li><a href="https://www.carrickmacrossaccommodation.ie/" target="_blank" rel="noopener"><img src="/assets/logos/kilmactrasna-cottage.png" width="439" height="62" alt="Kilmactrasna Cottage" style="--h:2.19rem" loading="lazy"></a></li>
-            <li><a href="https://www.prestigebarbers.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/prestige-barbers.png" width="330" height="28" alt="" style="--h:1.81rem" loading="lazy"></a></li>
-            <li><a href="https://www.saarchitects.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/smith-associates.png" width="640" height="229" alt="" style="--h:3.02rem" loading="lazy"></a></li>
-            <li><a href="https://www.rackzzpoolclub.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/rackzz-pool-club.png" width="556" height="366" alt="" style="--h:3.76rem" loading="lazy"></a></li>
-            <li><a href="https://rfelectrical.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/rf-electrical.png" width="295" height="92" alt="" style="--h:2.90rem" loading="lazy"></a></li>
-            <li><a href="https://myfarewellwishes.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/my-farewell-wishes.png" width="460" height="74" alt="" style="--h:2.29rem" loading="lazy"></a></li>
-            <li><a href="https://www.heffmech.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/heffmech.png" width="421" height="62" alt="" style="--h:2.46rem" loading="lazy"></a></li>
-            <li><a href="https://www.liquidconsulting.co/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/liquid-consulting.png" width="200" height="64" alt="" style="--h:2.91rem" loading="lazy"></a></li>
-            <li><a href="https://www.mdrecovery.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/md-recovery.png" width="640" height="259" alt="" style="--h:3.17rem" loading="lazy"></a></li>
-            <li><a href="https://www.homeperfectionrenovation.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/ab-home-perfection.png" width="324" height="233" alt="" style="--h:3.88rem" loading="lazy"></a></li>
-            <li><a href="https://www.slidala.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/slidala.png" width="455" height="99" alt="" style="--h:2.55rem" loading="lazy"></a></li>
-            <li><a href="https://www.carrickmacrossaccommodation.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/kilmactrasna-cottage.png" width="439" height="62" alt="" style="--h:2.19rem" loading="lazy"></a></li>
-          </ul>
-        </div>
-      </div>
+<!-- WORK -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec__label mono"><span><b>01</b> — The work</span><span>Live today</span></div>
+    <div class="sec__head">
+      <h2 class="sw">Sites that make you <span class="or">the obvious choice.</span></h2>
+      <p class="lede rv">Real Irish businesses. Click any site to visit it.</p>
     </div>
-  </section>
-
-  <!-- 3 · CAPABILITIES -->
-  <section class="sec g-light" id="services" aria-labelledby="cap-h">
-    <div class="sc-wrap">
-      <div class="sec__head sec__head--split">
-        <h2 id="cap-h" data-sc-in>More customers, less admin.</h2>
-        <p class="lede" data-sc-in>The website is the start.</p>
-      </div>
-      <ol class="ledger" data-sc-in data-sc-stagger="60">
-        <li><h3>Win trust in seconds</h3><p>A custom website built around your customers.</p></li>
-        <li><h3>Run the day from one screen</h3><p>Dashboards for bookings, stock or jobs.</p></li>
-        <li><h3>Sell while you sleep</h3><p>An online shop that takes orders after hours.</p></li>
-        <li><h3>Get found by locals</h3><p>Google Business Profile set up properly.</p></li>
-        <li><h3>Never think about it again</h3><p>Hosting, updates and security handled.</p></li>
-        <li><h3>Stop paying for every click</h3><p>SEO that builds free traffic over time.</p></li>
-      </ol>
+    <div class="works">
+      <a class="site rv" href="https://www.prestigebarbers.ie/" target="_blank" rel="noopener">
+        <span class="site__win"><span class="site__bar"><i></i><i></i><i></i><em>prestigebarbers.ie</em></span><img src="/assets/img/prestige-poster.jpg" width="1100" height="688" alt="Prestige Barbers website homepage, designed by FlowBuild AI" loading="lazy"></span>
+        <span class="site__cap"><b>Prestige Barbers</b><span>Barbershop · Kingscourt, Co. Cavan</span><span class="site__go" aria-hidden="true">↗</span></span>
+      </a>
+      <a class="site rv" href="https://www.rackzzpoolclub.ie/" target="_blank" rel="noopener">
+        <span class="site__win"><span class="site__bar"><i></i><i></i><i></i><em>rackzzpoolclub.ie</em></span><img src="/assets/img/rackzz-poster.jpg" width="1100" height="688" alt="Rackzz Pool Club website homepage, designed by FlowBuild AI" loading="lazy"></span>
+        <span class="site__cap"><b>Rackzz Pool Club</b><span>Pool hall · Dundalk, Co. Louth</span><span class="site__go" aria-hidden="true">↗</span></span>
+      </a>
+      <a class="site rv" href="https://www.saarchitects.ie/" target="_blank" rel="noopener">
+        <span class="site__win"><span class="site__bar"><i></i><i></i><i></i><em>saarchitects.ie</em></span><img src="/assets/img/sa-poster.jpg" width="1100" height="688" alt="Smith &amp; Associates website homepage, designed by FlowBuild AI" loading="lazy"></span>
+        <span class="site__cap"><b>Smith &amp; Associates</b><span>Architecture practice</span><span class="site__go" aria-hidden="true">↗</span></span>
+      </a>
+      <a class="site rv" href="https://www.homeperfectionrenovation.ie/" target="_blank" rel="noopener">
+        <span class="site__win"><span class="site__bar"><i></i><i></i><i></i><em>homeperfectionrenovation.ie</em></span><img src="/assets/img/ab-poster.jpg" width="1100" height="688" alt="A&amp;B Home Perfection website homepage, designed by FlowBuild AI" loading="lazy"></span>
+        <span class="site__cap"><b>A&amp;B Home Perfection</b><span>Renovations · Dublin</span><span class="site__go" aria-hidden="true">↗</span></span>
+      </a>
     </div>
-  </section>
+    <div class="wd-logos">
+      <div class="proof__top"><span class="mono">More sites we've built and put live</span></div>
+      <div class="logos"><ul><li><img src="/assets/logos/prestige-barbers.png" width="330" height="28" alt="Prestige Barbers" style="--h:1.45rem" loading="lazy"></li><li><img src="/assets/logos/smith-associates.png" width="640" height="229" alt="Smith &amp; Associates Architects" style="--h:2.42rem" loading="lazy"></li><li><img src="/assets/logos/rackzz-pool-club.png" width="556" height="366" alt="Rackzz Pool Club" style="--h:3.01rem" loading="lazy"></li><li><img src="/assets/logos/rf-electrical.png" width="295" height="92" alt="RF Electrical" style="--h:2.32rem" loading="lazy"></li><li><img src="/assets/logos/my-farewell-wishes.png" width="460" height="74" alt="My Farewell Wishes" style="--h:1.83rem" loading="lazy"></li><li><img src="/assets/logos/heffmech.png" width="421" height="62" alt="Heffmech" style="--h:1.97rem" loading="lazy"></li><li><img src="/assets/logos/liquid-consulting.png" width="200" height="64" alt="Liquid Consulting" style="--h:2.33rem" loading="lazy"></li><li><img src="/assets/logos/md-recovery.png" width="640" height="259" alt="MD Recovery" style="--h:2.54rem" loading="lazy"></li><li><img src="/assets/logos/ab-home-perfection.png" width="324" height="233" alt="A&amp;B Home Perfection Renovations" style="--h:3.10rem" loading="lazy"></li><li><img src="/assets/logos/slidala.png" width="455" height="99" alt="Slí Dála B&amp;B" style="--h:2.04rem" loading="lazy"></li><li><img src="/assets/logos/kilmactrasna-cottage.png" width="439" height="62" alt="Kilmactrasna Cottage" style="--h:1.75rem" loading="lazy"></li><li><img src="/assets/logos/prestige-barbers.png" width="330" height="28" alt="" style="--h:1.45rem" loading="lazy" aria-hidden="true"></li><li><img src="/assets/logos/smith-associates.png" width="640" height="229" alt="" style="--h:2.42rem" loading="lazy" aria-hidden="true"></li><li><img src="/assets/logos/rackzz-pool-club.png" width="556" height="366" alt="" style="--h:3.01rem" loading="lazy" aria-hidden="true"></li><li><img src="/assets/logos/rf-electrical.png" width="295" height="92" alt="" style="--h:2.32rem" loading="lazy" aria-hidden="true"></li><li><img src="/assets/logos/my-farewell-wishes.png" width="460" height="74" alt="" style="--h:1.83rem" loading="lazy" aria-hidden="true"></li><li><img src="/assets/logos/heffmech.png" width="421" height="62" alt="" style="--h:1.97rem" loading="lazy" aria-hidden="true"></li><li><img src="/assets/logos/liquid-consulting.png" width="200" height="64" alt="" style="--h:2.33rem" loading="lazy" aria-hidden="true"></li><li><img src="/assets/logos/md-recovery.png" width="640" height="259" alt="" style="--h:2.54rem" loading="lazy" aria-hidden="true"></li><li><img src="/assets/logos/ab-home-perfection.png" width="324" height="233" alt="" style="--h:3.10rem" loading="lazy" aria-hidden="true"></li><li><img src="/assets/logos/slidala.png" width="455" height="99" alt="" style="--h:2.04rem" loading="lazy" aria-hidden="true"></li><li><img src="/assets/logos/kilmactrasna-cottage.png" width="439" height="62" alt="" style="--h:1.75rem" loading="lazy" aria-hidden="true"></li></ul></div>
+    </div>
+  </div>
+</section>
 
-  <!-- 4 · AI ASSISTANT + LIVE DEMO -->
-  <section class="sec g-dark" id="ai-assistants" aria-labelledby="ai-h">
-    <div class="sc-wrap aisec">
+<!-- WHAT YOU GET -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec__label mono"><span><b>02</b> — What you get</span><span>The website is the start</span></div>
+    <div class="sec__head">
+      <h2 class="sw">More customers, <span class="or">less admin.</span></h2>
+    </div>
+    <ol class="caps">
+      <li class="rv"><h3>Win trust in seconds</h3><p>A custom website built around your customers.</p></li>
+      <li class="rv"><h3>Run the day from one screen</h3><p>Dashboards for bookings, stock or jobs.</p></li>
+      <li class="rv"><h3>Sell while you sleep</h3><p>An online shop that takes orders after hours.</p></li>
+      <li class="rv"><h3>Get found by locals</h3><p>Google Business Profile set up properly.</p></li>
+      <li class="rv"><h3>Never think about it again</h3><p>Hosting, updates and security handled.</p></li>
+      <li class="rv"><h3>Stop paying for every click</h3><p>SEO that builds free traffic over time.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- AI ASSISTANT -->
+<section class="sec" id="ai-assistant">
+  <div class="wrap">
+    <div class="sec__label mono"><span><b>03</b> — AI assistant</span><span>Already have a site?</span></div>
+    <div class="aisec">
       <div>
-        <p class="eyebrow">Already have a site?</p>
-        <h2 id="ai-h" data-sc-in>Never miss another enquiry.</h2>
-        <p class="lede" data-sc-in>An AI assistant that answers and books jobs, day or night.</p>
-        <ul class="ai__points" data-sc-in data-sc-stagger="60">
-          <li><strong>Book jobs while you work</strong><span>Answers visitors and books them in.</span></li>
-          <li><strong>Stop losing calls to voicemail</strong><span>Picks up when you can't.</span></li>
-          <li><strong>No rebuild needed</strong><span>Works on your current site or number.</span></li>
+        <h2 class="sw">Never miss <span class="or">another enquiry.</span></h2>
+        <p class="lede rv">An AI assistant that answers and books jobs, day or night.</p>
+        <ul class="ai__pts rv">
+          <li><b>Book jobs while you work</b><span>Answers visitors and books them in.</span></li>
+          <li><b>Stop losing calls to voicemail</b><span>Picks up when you can't.</span></li>
+          <li><b>No rebuild needed</b><span>Works on your current site or number.</span></li>
         </ul>
-        <a href="/ai-systems.html" class="link arrow">See every AI system we build</a>
       </div>
-      <div>
+      <div class="rv">
         <div class="chat" role="region" aria-label="Live AI assistant demo">
-          <div class="chat__head"><span class="chat__dot" aria-hidden="true"></span><b>FlowBuild AI assistant</b><small>Live demo</small></div>
+          <div class="chat__head"><span class="dot" aria-hidden="true"></span><b>FlowBuild AI assistant</b><small>Live demo</small></div>
           <div class="chat__body" id="aiWidgetBody" aria-live="polite">
             <div class="ai-msg ai-msg-bot">Hi! I'm a live demo of the kind of AI assistant we build for businesses like yours. Ask me anything about FlowBuild, or just try me out.</div>
           </div>
@@ -480,282 +1050,248 @@
           </div>
           <form class="chat__form" id="aiForm">
             <input type="text" id="aiInput" placeholder="Type a message…" maxlength="400" autocomplete="off" aria-label="Message the AI demo">
-            <button type="submit" id="aiSend" aria-label="Send message"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <button type="submit" id="aiSend" aria-label="Send message"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           </form>
         </div>
         <p class="chat__note">Running live. Yours is trained on your business.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 5 · CLIENT VIDEOS -->
-  <section class="sec g-light" id="clients" aria-labelledby="clients-h">
-    <div class="sc-wrap">
-      <div class="sec__head sec__head--center">
-        <p class="eyebrow">Video reviews</p>
-        <h2 id="clients-h" data-sc-in>What our clients say.</h2>
-      </div>
-      <div class="fan" data-fan>
-        <button class="fan__card" type="button" data-pos="l" data-video="/assets/testimonials/liquid-consulting.mp4" aria-label="Play Liquid Consulting client video, 29 seconds">
-          <img src="/assets/testimonials/liquid-consulting.jpg" width="900" height="506" alt="" loading="lazy">
-          <span class="fan__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </button>
-        <button class="fan__card" type="button" data-pos="c" data-yt="abNIa5-ee1A" aria-label="Play Barbell &amp; Babies client video, 1 minute 53">
-          <img src="/assets/testimonials/barbell-babies.jpg" width="900" height="506" alt="" loading="lazy">
-          <span class="fan__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </button>
-        <button class="fan__card" type="button" data-pos="r" data-video="/assets/testimonials/otk-logistics.mp4" aria-label="Play OTK Logistics client video, 44 seconds">
-          <img src="/assets/testimonials/otk-logistics.jpg" width="900" height="506" alt="" loading="lazy">
-          <span class="fan__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </button>
-      </div>
+<!-- REVIEWS -->
+<section class="sec" id="reviews">
+  <div class="wrap">
+    <div class="sec__label mono"><span><b>04</b> — Reviews</span><span>In their own words</span></div>
+    <div class="sec__head">
+      <h2 class="sw">What our <span class="or">clients say.</span></h2>
     </div>
-  </section>
+    <div class="vrev">
+      <div class="rv"><button class="vcard" type="button" data-video="/assets/testimonials/liquid-consulting.mp4" aria-label="Play Liquid Consulting client video, 29 seconds"><img src="/assets/testimonials/liquid-consulting.jpg" width="900" height="506" alt="" loading="lazy"><span class="pl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button><p class="vcap"><b>Liquid Consulting</b> · 29 sec</p></div>
+      <div class="rv"><button class="vcard" type="button" data-yt="abNIa5-ee1A" aria-label="Play Barbell &amp; Babies client video, 1 minute 53"><img src="/assets/testimonials/barbell-babies.jpg" width="900" height="506" alt="" loading="lazy"><span class="pl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button><p class="vcap"><b>Barbell &amp; Babies</b> · 1 min 53</p></div>
+      <div class="rv"><button class="vcard" type="button" data-video="/assets/testimonials/otk-logistics.mp4" aria-label="Play OTK Logistics client video, 44 seconds"><img src="/assets/testimonials/otk-logistics.jpg" width="900" height="506" alt="" loading="lazy"><span class="pl" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button><p class="vcap"><b>OTK Logistics</b> · 44 sec</p></div>
+    </div>
+    <div class="rate-line rv"><span class="big">5.0</span><span class="st" aria-hidden="true">★★★★★</span><span>Rated by our clients on Google ·</span><a href="https://www.google.com/maps/place/?q=place_id:ChIJaXIxsgZnqa0RqnwO7msrIdU" target="_blank" rel="noopener">Read our Google reviews</a></div>
+  </div>
+</section>
 
-  <!-- PROCESS: watch a website get built (pin) -->
-  <section class="build g-dark" id="build" data-sc-act="pin" data-sc-span="3.4" aria-labelledby="build-h">
-    <div data-sc-stage>
-      <div class="sc-wrap build__grid">
-        <div>
-          <h2 id="build-h">Watch a website get built.</h2>
-          <ol class="steps" id="steps">
-            <li><h3>Brief</h3><p>Twenty minutes on what your customers need.</p></li>
-            <li><h3>Design</h3><p>Built around the action you want them to take.</p></li>
-            <li><h3>Build</h3><p>Fast on every phone.</p></li>
-            <li><h3>Live</h3><p>Live on your domain, nothing to manage.</p></li>
-            <li><h3>Caught</h3><p>Every enquiry answered, booked and followed up.</p></li>
-          </ol>
+<!-- PROCESS -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec__label mono"><span><b>05</b> — How it works</span><span>Five steps</span></div>
+    <div class="sec__head">
+      <h2 class="sw">From brief to <span class="or">booked enquiries.</span></h2>
+    </div>
+    <ol class="steps5">
+      <li class="rv"><h3>Brief</h3><p>Twenty minutes on what your customers need.</p></li>
+      <li class="rv"><h3>Design</h3><p>Built around the action you want them to take.</p></li>
+      <li class="rv"><h3>Build</h3><p>Fast on every phone.</p></li>
+      <li class="rv"><h3>Live</h3><p>Live on your domain, nothing to manage.</p></li>
+      <li class="rv"><h3>Caught</h3><p>Every enquiry answered, booked and followed up.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section class="sec" id="team">
+  <div class="wrap">
+    <div class="sec__label mono"><span><b>06</b> — Who you'll work with</span><span>The founders</span></div>
+    <div class="team2">
+      <article class="tm rv">
+        <img src="/assets/team/paddy.jpg" width="478" height="640" alt="Paddy, FlowBuild AI" loading="lazy">
+        <div><span class="mono">Meta ads &amp; lead generation</span><h3>Paddy</h3>
+        <p>Paddy's background is Meta advertising: building campaigns that get the right buyers to stop scrolling and enquire. He runs your ads and keeps tuning them for more enquiries per euro.</p>
+        <ul class="tm__tags"><li>Meta ads specialist</li><li>Enquiry-focused campaigns</li><li>Runs &amp; optimises your ads</li></ul>
         </div>
-        <div class="frame-wrap">
-          <div class="frame" aria-hidden="true">
-            <div class="frame__bar">
-              <span class="frame__dots"><i></i><i></i><i></i></span>
-              <span class="frame__url">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
-                <span id="url"></span><span class="caret"></span>
-              </span>
-              <span class="frame__state" id="state">Brief</span>
-            </div>
-            <div class="frame__view">
-              <svg class="bp" viewBox="0 0 1440 900" preserveAspectRatio="none">
-                <rect x="0" y="0" width="1440" height="66" pathLength="1"/>
-                <rect x="40" y="22" width="170" height="22" pathLength="1"/>
-                <rect x="510" y="26" width="420" height="16" pathLength="1"/>
-                <rect x="1278" y="15" width="122" height="37" pathLength="1"/>
-                <rect x="578" y="270" width="284" height="14" pathLength="1"/>
-                <rect x="348" y="316" width="732" height="176" pathLength="1"/>
-                <rect x="500" y="514" width="430" height="100" pathLength="1"/>
-                <line x1="692" y1="634" x2="748" y2="634" pathLength="1"/>
-                <rect x="524" y="664" width="392" height="16" pathLength="1"/>
-                <rect x="482" y="724" width="266" height="50" pathLength="1"/>
-                <rect x="764" y="724" width="194" height="50" pathLength="1"/>
-                <text x="232" y="38">Nav · 5 links + book</text>
-                <text x="1100" y="420">The name, big</text>
-                <text x="980" y="755">One action: book</text>
-              </svg>
-              <div class="page">
-                <div class="page__grey"><img src="/assets/img/prestige-full.jpg" width="1000" height="5393" alt="" loading="lazy" decoding="async"></div>
-                <div class="page__colour"><img src="/assets/img/prestige-full.jpg" width="1000" height="5393" alt="" loading="lazy" decoding="async"></div>
-              </div>
-              <div class="scan"></div>
-              <div class="lead">
-                <div class="lead__tag"><span>New enquiry</span><span>Example</span></div>
-                <ol>
-                  <li><i>✉</i><span>Booking request<br><small>via prestigebarbers.ie</small></span><small>10:02</small></li>
-                  <li><i>↩</i><span>Text reply sent<br><small>answered in 41 seconds</small></span><small>10:02</small></li>
-                  <li><i>✓</i><span>Booked in<br><small>Saturday, 10:30</small></span><small>10:05</small></li>
-                </ol>
-              </div>
-            </div>
+      </article>
+      <article class="tm rv">
+        <img src="/assets/team/liam.jpg" width="478" height="640" alt="Liam Kieran, FlowBuild AI" loading="lazy">
+        <div><span class="mono">AI systems &amp; sales</span><h3>Liam</h3>
+        <p>Liam builds the systems behind every lead: CRM, instant replies, follow-up and booking. Before that, he spent years in sales, first selling, then managing sales teams. He knows what a good appointment looks like from the other side of the table.</p>
+        <ul class="tm__tags"><li>Degree in Business Management</li><li>Diploma in AI for Business</li><li>Salesperson &amp; sales manager</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap faq">
+    <div>
+      <div class="sec__label mono" style="margin-bottom:28px"><span><b>07</b> — Questions</span></div>
+      <h2 class="sw">Website design in Ireland: <span class="or">common questions.</span></h2>
+    </div>
+    <div class="faq__list">
+      <details class="faq__item"><summary>How much does a website cost in Ireland?</summary><div class="faq__a">You get a fixed quote before any work starts, based on the pages and features you need, so there are no surprises. Maintenance and hosting: a monthly fee, starting from the date your website goes live.</div></details>
+      <details class="faq__item"><summary>How long does it take to build a website?</summary><div class="faq__a">Most sites go live within weeks, not months, depending on how quickly content and feedback come back. You see a live preview early and review it as often as you like.</div></details>
+      <details class="faq__item"><summary>Do I own the website?</summary><div class="faq__a">Yes. The domain is registered in your name and the site is yours to keep. There's no lock-in.</div></details>
+      <details class="faq__item"><summary>Can you redesign my existing website?</summary><div class="faq__a">Yes, without losing what already works. We rebuild on your existing domain and redirect old pages so Google keeps finding you.</div></details>
+      <details class="faq__item"><summary>Will my website show up on Google?</summary><div class="faq__a">We make sure nothing on your site holds you back: every page is built to Google's standards and set up in Search Console and your Business Profile. Nobody can honestly guarantee a ranking, but you get a monthly report on how it's doing.</div></details>
+      <details class="faq__item"><summary>Do you build AI chat assistants as well?</summary><div class="faq__a">Yes. We build AI chat assistants and voice agents that answer questions, capture leads and book appointments. They work on a new site or plug into the one you already have. Try the live demo on this page.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY -->
+<section class="sec" id="contact">
+  <div class="wrap cf">
+    <div>
+      <div class="sec__label mono" style="margin-bottom:28px"><span><b>08</b> — Free quote</span></div>
+      <h2 class="sw">Get a website that <span class="or">wins you work.</span></h2>
+      <p class="lede rv">It comes straight to our WhatsApp. No pitch, no pressure.</p>
+      <ul class="cf__ticks rv">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg>Quick reply on WhatsApp</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg>Free quote, no obligation</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg>Irish-based team</li>
+      </ul>
+    </div>
+    <div class="rv">
+      <form class="wdform" id="inquiryForm" novalidate>
+        <div class="field"><label for="fname">Full name *</label><input type="text" id="fname" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="fbiz">Business name *</label><input type="text" id="fbiz" name="business" required autocomplete="organization"></div>
+        <div class="field"><label for="femail">Email address *</label><input type="email" id="femail" name="email" required autocomplete="email" inputmode="email"></div>
+        <div class="field"><label for="fphone">Phone number (optional)</label><input type="tel" id="fphone" name="phone" autocomplete="tel" inputmode="tel"></div>
+        <div class="field wide"><label for="ftype">Type of website *</label>
+          <select id="ftype" name="website_type" required>
+            <option value="" disabled selected>Choose one</option>
+            <option>Business Website</option><option>Restaurant / Café</option><option>Trades &amp; Services</option><option>Gym / Fitness</option><option>Architecture / Design Studio</option><option>E-Commerce / Online Shop</option><option>AI Chat / Voice Assistant</option><option>Something else</option>
+          </select>
+        </div>
+        <fieldset class="wide"><legend>Rough budget</legend>
+          <div class="pills">
+            <label><input type="radio" name="budget" value="€500–€1,000"><span>€500 to €1,000</span></label>
+            <label><input type="radio" name="budget" value="€1,000–€2,000"><span>€1,000 to €2,000</span></label>
+            <label><input type="radio" name="budget" value="€2,000+"><span>€2,000+</span></label>
+            <label><input type="radio" name="budget" value="Not sure yet"><span>Not sure yet</span></label>
           </div>
-
+        </fieldset>
+        <div class="field wide"><label for="fmsg">Tell us about your business *</label><textarea id="fmsg" name="message" rows="4" required></textarea></div>
+        <p class="form__err wide" id="cfErr" role="alert" hidden>Please fill in the fields marked with *.</p>
+        <div class="form__foot wide">
+          <button type="submit" class="btn btn--or" id="cfSubmit">Send enquiry <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p>Opens WhatsApp with your details filled in. Or email <a href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a>.</p>
         </div>
+      </form>
+      <div class="wddone" id="cfSuccess" hidden tabindex="-1">
+        <h3>Message sent.</h3>
+        <p>Send it from WhatsApp and we'll reply soon. No WhatsApp? Email <a href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a>.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-
-  <!-- 7 · PEOPLE -->
-  <section class="sec g-light" id="team" aria-labelledby="team-h">
-    <div class="sc-wrap">
-      <div class="sec__head sec__head--split">
-        <h2 id="team-h" data-sc-in>Meet the founders.</h2>
-      </div>
-      <div class="people" data-sc-in data-sc-stagger="80">
-        <div class="person">
-          <img src="/assets/team/liam.jpg" width="478" height="640" alt="Liam Kieran, co-founder of FlowBuild AI" loading="lazy">
-          <div>
-            <h3>Liam Kieran</h3>
-            <p class="person__role">Co-founder · Websites &amp; AI</p>
-            <p>Honours graduate in Business Management with a Diploma in AI for Business from UCD. Leads strategy and design, building the websites and AI systems that help small and mid-sized businesses win more work.</p>
-          </div>
-        </div>
-        <div class="person">
-          <img src="/assets/team/paddy.jpg" width="478" height="640" alt="Paddy Meade, co-founder of FlowBuild AI" loading="lazy">
-          <div>
-            <h3>Paddy Meade</h3>
-            <p class="person__role">Co-founder · Leads &amp; automation</p>
-            <p>Science graduate with years of experience across software development, automation and Meta advertising. Builds the campaigns that bring leads in and the workflows that turn them into booked jobs.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8 · FAQ -->
-  <section class="sec g-dark" id="faq" aria-labelledby="faq-h">
-    <div class="sc-wrap">
-      <div class="sec__head"><h2 id="faq-h" data-sc-in>Website design in Ireland: common questions.</h2></div>
-      <div class="faq">
-        <details class="faq__item">
-          <summary>How much does a website cost in Ireland?</summary>
-          <div class="faq__a"><p>You get a fixed quote before any work starts, based on the pages and features you need, so there are no surprises. Maintenance and hosting: a monthly fee, starting from the date your website goes live.</p></div>
-        </details>
-        <details class="faq__item">
-          <summary>How long does it take to build a website?</summary>
-          <div class="faq__a"><p>Most sites go live within weeks, not months, depending on how quickly content and feedback come back. You see a live preview early and review it as often as you like.</p></div>
-        </details>
-        <details class="faq__item">
-          <summary>Do I own the website?</summary>
-          <div class="faq__a"><p>Yes. The domain is registered in your name and the site is yours to keep. There's no lock-in.</p></div>
-        </details>
-        <details class="faq__item">
-          <summary>Can you redesign my existing website?</summary>
-          <div class="faq__a"><p>Yes, without losing what already works. We rebuild on your existing domain and redirect old pages so Google keeps finding you.</p></div>
-        </details>
-        <details class="faq__item">
-          <summary>Will my website show up on Google?</summary>
-          <div class="faq__a"><p>We make sure nothing on your site holds you back: every page is built to Google's standards and set up in Search Console and your Business Profile. Nobody can honestly guarantee a ranking, but you get a monthly report on how it's doing.</p></div>
-        </details>
-        <details class="faq__item">
-          <summary>Do you build AI chat assistants as well?</summary>
-          <div class="faq__a"><p>Yes. We build AI chat assistants and voice agents that answer questions, capture leads and book appointments. They work on a new site or plug into the one you already have. Try the live demo on this page.</p></div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9 · ENQUIRY FORM -->
-  <section class="sec g-light" id="contact" aria-labelledby="cf-h">
-    <div class="sc-wrap cf">
-      <div>
-        <h2 id="cf-h" data-sc-in>Get a website that wins you work.</h2>
-        <p class="lede">It comes straight to our WhatsApp. No pitch, no pressure.</p>
-        <ul class="cf__ticks">
-          <li>Quick reply on WhatsApp</li>
-          <li>Free quote, no obligation</li>
-          <li>Irish-based team</li>
-        </ul>
-      </div>
-      <div>
-        <form class="form" id="inquiryForm" novalidate>
-          <div class="field"><label for="fname">Full name *</label><input type="text" id="fname" name="name" required autocomplete="name"></div>
-          <div class="field"><label for="fbiz">Business name *</label><input type="text" id="fbiz" name="business" required autocomplete="organization"></div>
-          <div class="field"><label for="femail">Email address *</label><input type="email" id="femail" name="email" required autocomplete="email" inputmode="email"></div>
-          <div class="field"><label for="fphone">Phone number <span class="field__hint">(optional)</span></label><input type="tel" id="fphone" name="phone" autocomplete="tel" inputmode="tel"></div>
-          <div class="field wide"><label for="ftype">Type of website *</label>
-            <select id="ftype" name="website_type" required>
-              <option value="" disabled selected>Choose one</option>
-              <option>Business Website</option>
-              <option>Restaurant / Café</option>
-              <option>Trades &amp; Services</option>
-              <option>Gym / Fitness</option>
-              <option>Architecture / Design Studio</option>
-              <option>E-Commerce / Online Shop</option>
-              <option>AI Chat / Voice Assistant</option>
-              <option>Something else</option>
-            </select>
-          </div>
-          <fieldset class="wide">
-            <legend>Rough budget</legend>
-            <div class="pills">
-              <label><input type="radio" name="budget" value="€500–€1,000"><span>€500 to €1,000</span></label>
-              <label><input type="radio" name="budget" value="€1,000–€2,000"><span>€1,000 to €2,000</span></label>
-              <label><input type="radio" name="budget" value="€2,000+"><span>€2,000+</span></label>
-              <label><input type="radio" name="budget" value="Not sure yet"><span>Not sure yet</span></label>
-            </div>
-          </fieldset>
-          <div class="field wide"><label for="fmsg">Tell us about your business *</label><textarea id="fmsg" name="message" rows="4" required></textarea></div>
-          <p class="form__err" id="cfErr" role="alert" hidden>Please fill in the fields marked with *.</p>
-          <div class="form__foot">
-            <button type="submit" class="btn btn--primary" id="cfSubmit">Send enquiry
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-            <p>Opens WhatsApp with your details filled in. Or email <a class="link" href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a>.</p>
-          </div>
-        </form>
-        <div class="done" id="cfSuccess" hidden tabindex="-1">
-          <h3>Message sent.</h3>
-          <p>Send it from WhatsApp and we'll reply soon. No WhatsApp? Email <a class="link" href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a>.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10 · CLOSE -->
-  <section class="close g-dark" aria-labelledby="close-h">
-    <div class="sc-wrap">
-      <h2 id="close-h" data-sc-kinetic="lines">Ready for more enquiries?</h2>
-      <div class="close__act" data-sc-in>
-        <a href="https://links.flowbuildai.ie/widget/booking/MLznN883xY9UeIaBWpgO" class="btn btn--primary" data-book>Book a call
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <p>Fifteen minutes, no pitch. Or <a class="link" href="https://wa.me/353858764679?text=Hi%20FlowBuild%2C%20I%27m%20interested%20in%20getting%20a%20website." target="_blank" rel="noopener">message us on WhatsApp</a>.</p>
-      </div>
-      <footer class="foot">
-        <div>
-          <a href="/" class="mark" aria-label="FlowBuild AI home"><span>Flow<b>Build</b> AI</span></a>
-          <p>FlowBuild AI: website design in Ireland, plus the AI systems that turn visitors into customers.</p>
-        </div>
-        <div>
-          <h2>Services</h2>
-          <ul>
-            <li><a href="/web-design/">Website design</a></li>
-            <li><a href="/ai-systems.html">AI systems &amp; automation</a></li>
-            <li><a href="/b2b-outbound.html">B2B outbound</a></li>
-            <li><a href="/audit.html">Free scaling roadmap</a></li>
-          </ul>
-        </div>
-        <div>
-          <h2>Contact</h2>
-          <ul>
-            <li><a href="tel:+353858764679">+353 85 876 4679</a></li>
-            <li><a href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a></li>
-            <li><a href="https://wa.me/353858764679" target="_blank" rel="noopener">Message us on WhatsApp</a></li>
-            <li><a href="https://maps.google.com/?cid=15357603946865523882" target="_blank" rel="noopener">Enniskeen, Kingscourt, Co. Cavan, A82 RY70</a></li>
-            <li>Serving businesses across Ireland</li>
-          </ul>
-        </div>
-        <div class="foot__base"><span>© 2026 FlowBuild AI. All rights reserved.</span><span>Ireland</span></div>
-      </footer>
-    </div>
-  </section>
+<!-- FINAL -->
+<section class="final" id="final">
+  <div class="wrap">
+    <span class="mono">Website design · Ireland</span>
+    <h2 class="sw">Ready for more <span class="or">enquiries?</span></h2>
+    <p>Get a free quote from our web design team in Kingscourt, Co. Cavan. We build websites for businesses across Ireland.</p>
+    <a href="#contact" class="btn btn--or">Get a free quote <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
 
 </main>
 
+<footer class="fz">
+  <div class="wrap">
+    <div class="fz__g">
+      <div>
+        <a href="/" class="mark" aria-label="FlowBuild AI home"><span>Flow<b>Build</b><span class="ai"> AI</span></span></a>
+        <p class="fz__blurb">FlowBuild AI books sales appointments for Irish businesses: Meta ads, instant replies, qualifying calls and a full calendar, done for you. We also design websites.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="/">90-Day Done-For-You Sales System</a></li>
+          <li><a href="/web-design/">Website design</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="tel:+353858764679">+353 85 876 4679</a></li>
+          <li><a href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a></li>
+          <li><a href="https://wa.me/353858764679" target="_blank" rel="noopener">Message us on WhatsApp</a></li>
+          <li>Enniskeen, Kingscourt, Co. Cavan, A82 RY70</li>
+          <li>Serving businesses across Ireland</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fz__b"><span>© 2026 FlowBuild AI. All rights reserved.</span><span>Ireland</span></div>
+  </div>
+</footer>
 
-<script src="/assets/scrollcraft.js"></script>
-<script src="/assets/site.js"></script>
 <script>
-  // The build: step list, URL being typed and the frame's state label all read
-  // the act's --sc-p, which the engine publishes every frame.
+(function(){
+  // headline word reveal + scroll reveals
+  document.querySelectorAll('.sw').forEach(function(h){
+    (function walk(node){
+      [].slice.call(node.childNodes).forEach(function(n){
+        if(n.nodeType===3){
+          var f=document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function(t){
+            if(!t)return;
+            if(/^\s+$/.test(t)){f.appendChild(document.createTextNode(t));return}
+            var w=document.createElement('span');w.className='w';var i=document.createElement('span');i.textContent=t;w.appendChild(i);f.appendChild(w);
+          });
+          n.parentNode.replaceChild(f,n);
+        } else if(n.nodeType===1) walk(n);
+      });
+    })(h);
+    h.querySelectorAll('.w>span').forEach(function(s,i){s.style.transitionDelay=(i*45)+'ms'});
+  });
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12}):null;
+  document.querySelectorAll('.rv,.sw').forEach(function(el){io?io.observe(el):el.classList.add('in')});
+  var nav=document.getElementById('nav');function onS(){nav.classList.toggle('solid',scrollY>20)}addEventListener('scroll',onS,{passive:true});onS();
+  // Hero art: chips sit on points along the wave; a dot travels it on a loop and
+  // lights each chip as it passes. Illustrative only, so it carries no real data.
   (function () {
-    var act = document.getElementById('build'), steps = document.querySelectorAll('#steps li'),
-        url = document.getElementById('url'), state = document.getElementById('state'),
-        host = 'prestigebarbers.ie', cuts = [0.22, 0.40, 0.53, 0.74],
-        names = ['Brief', 'Design', 'Build', 'Live', 'Enquiry'], last = -1, lastN = -1;
-    function tick() {
-      var p = parseFloat(act.style.getPropertyValue('--sc-p')) || 0, i = 0;
-      while (i < cuts.length && p >= cuts[i]) i++;
-      if (i !== last) {
-        steps.forEach(function (li, k) { li.classList.toggle('on', k === i); });
-        state.textContent = names[i]; last = i;
-      }
-      var n = Math.round(Math.max(0, Math.min(1, (p - 0.04) / 0.14)) * host.length);
-      if (n !== lastN) { url.textContent = host.slice(0, n); lastN = n; }
-      requestAnimationFrame(tick);
+    var flow = document.getElementById('flow'); if (!flow) return;
+    var path = document.getElementById('flowPath'), dot = document.getElementById('flowDot'),
+        svg = flow.querySelector('svg'), chips = [].slice.call(flow.querySelectorAll('.chip')),
+        L = path.getTotalLength(), vb = svg.viewBox.baseVal;
+    chips.forEach(function (c) {
+      var pt = path.getPointAtLength(L * parseFloat(c.dataset.at));
+      c.style.setProperty('--x', (pt.x / vb.width * 100) + '%');
+      c.style.setProperty('--y', (pt.y / vb.height * 100) + '%');
+    });
+    // keep every chip inside the graphic (matters on narrow screens)
+    function clampChips() {
+      var W = flow.clientWidth;
+      chips.forEach(function (c) {
+        var pt = path.getPointAtLength(L * parseFloat(c.dataset.at)), x = pt.x / vb.width * W, half = c.offsetWidth / 2;
+        c.style.setProperty('--x', Math.max(half, Math.min(W - half, x)) + 'px');
+      });
     }
-    tick();
+    clampChips(); addEventListener('resize', clampChips);
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var DUR = 7000, HOLD = 1600, start = null, visible = true;
+    new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(flow);
+    function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+    function frame(now) {
+      if (visible) {
+        if (start === null) start = now;
+        var el = (now - start) % (DUR + HOLD), t = Math.min(1, el / DUR), p = ease(t),
+            pt = path.getPointAtLength(L * p);
+        dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y);
+        chips.forEach(function (c) { c.classList.toggle('on', el < DUR + HOLD - 500 && p >= parseFloat(c.dataset.at) - 0.02); });
+        flow.style.setProperty('--flow-y', (Math.min(scrollY, 900) * -0.06).toFixed(1) + 'px');
+      }
+      requestAnimationFrame(frame);
+    }
+    setTimeout(function () { flow.classList.add('run'); requestAnimationFrame(frame); }, 1700);
   })();
-
+  // video reviews: play in place
+  document.querySelectorAll('.vcard').forEach(function(b){b.addEventListener('click',function(){
+    var el;
+    if(b.dataset.yt){el=document.createElement('iframe');el.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.dataset.yt)+'?autoplay=1&rel=0&playsinline=1';el.allow='autoplay; fullscreen; picture-in-picture';el.allowFullscreen=true;el.title=b.getAttribute('aria-label')}
+    else{el=document.createElement('video');el.src=b.dataset.video;el.controls=true;el.autoplay=true;el.playsInline=true}
+    var box=document.createElement('div');box.className='vcard';box.appendChild(el);b.replaceWith(box);
+  })});
+})();
+</script>
+<script>
   // AI assistant: live chat demo, talks to /api/chat (Claude, server-side key).
   (function () {
     var body = document.getElementById('aiWidgetBody'), form = document.getElementById('aiForm'),

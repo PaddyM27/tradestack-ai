@@ -1,6 +1,6 @@
 # FlowBuild AI
 
-> FlowBuild AI is a web design and AI automation agency in Ireland, run by co-founders Liam Kieran and Paddy Meade. It designs custom websites for Irish businesses and builds the AI systems behind them: instant lead response, AI call answering, CRM and sales automation, quote follow-up, database reactivation, review requests and B2B outbound.
+> FlowBuild AI is a done-for-you sales system and appointment-setting agency in Ireland, run by co-founders Liam Kieran and Paddy Meade. For businesses selling €5,000+ contracts, it runs Meta ads, replies to every enquiry instantly, calls to qualify each lead and books sales calls into the client's calendar ("The 90-Day Done-For-You Sales System"). Each client's lowest forecast is guaranteed in writing. FlowBuild AI also designs custom websites for Irish businesses.
 
 - Phone and WhatsApp: 085 876 4679 (+353 85 876 4679)
 - Address: Enniskeen, Kingscourt, Co. Cavan, A82 RY70, Ireland
@@ -14,7 +14,7 @@
 
 ## Pages
 
-- [Home](https://www.flowbuildai.ie/): what FlowBuild AI does, recent client websites, the AI systems, client videos, the team and common questions
+- [Home](https://www.flowbuildai.ie/): The 90-Day Done-For-You Sales System: how it works, the lowest-forecast guarantee, who it is for, client videos, the founders and common questions
 - [Web Design](https://www.flowbuildai.ie/web-design/): custom website design for Irish businesses, the process from brief to go-live, portfolio, pricing approach and an enquiry form
 - [AI Systems](https://www.flowbuildai.ie/ai-systems.html): the twelve AI automation systems (AI receptionist, missed-call text back, instant lead response, CRM automation, follow-up and more)
 - [B2B Outbound](https://www.flowbuildai.ie/b2b-outbound.html): lead generation: outsourced SDR and cold email for B2B, plus Meta (Facebook and Instagram) ad campaigns, with every lead followed up automatically

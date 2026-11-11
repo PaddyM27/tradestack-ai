@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Website Design Ireland for Small Businesses | FlowBuild AI</title>
+<meta name="description" content="Website design in Ireland that turns visitors into enquiries: built around your customers, fast on every phone and set up properly with Google. Free quote.">
+<link rel="canonical" href="https://www.flowbuildai.ie/web-design/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1C1917">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FlowBuild AI">
+<meta property="og:locale" content="en_IE">
+<meta property="og:title" content="Website Design Ireland for Small Businesses | FlowBuild AI">
+<meta property="og:description" content="Custom websites for Irish businesses, designed from scratch around the one thing your site has to get people to do.">
+<meta property="og:url" content="https://www.flowbuildai.ie/web-design/">
+<meta property="og:image" content="https://www.flowbuildai.ie/og/web-design.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Website Design Ireland for Small Businesses | FlowBuild AI">
+<meta name="twitter:description" content="Custom websites for Irish businesses, designed from scratch around the one thing your site has to get people to do.">
+<meta name="twitter:image" content="https://www.flowbuildai.ie/og/web-design.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/scrollcraft.css">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://www.flowbuildai.ie/web-design/#service",
+      "name": "Website design for Irish businesses",
+      "serviceType": "Website design",
+      "description": "Custom website design and build for small businesses in Ireland: designed from scratch, hand-coded, hosted, set up with Google, with ongoing management, SEO, e-commerce, dashboards and AI chat assistants available.",
+      "provider": { "@id": "https://www.flowbuildai.ie/#org" },
+      "areaServed": { "@type": "Country", "name": "Ireland" },
+      "url": "https://www.flowbuildai.ie/web-design/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.flowbuildai.ie/web-design/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.flowbuildai.ie/" },
+        { "@type": "ListItem", "position": 2, "name": "Web Design", "item": "https://www.flowbuildai.ie/web-design/" }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.flowbuildai.ie/web-design/#webpage",
+      "url": "https://www.flowbuildai.ie/web-design/",
+      "name": "Website Design Ireland for Small Businesses | FlowBuild AI",
+      "isPartOf": { "@id": "https://www.flowbuildai.ie/#website" },
+      "breadcrumb": { "@id": "https://www.flowbuildai.ie/web-design/#breadcrumb" },
+      "about": { "@id": "https://www.flowbuildai.ie/web-design/#service" },
+      "inLanguage": "en-IE"
+    }
+  ]
+}
+</script>
+<style>
+  /* Hairlines must resolve per ground, not once at :root (engine default ink
+     is light, which made every border vanish on cream). */
+  .g-light, .g-dark { --sc-hairline: color-mix(in oklab, var(--sc-ink) 13%, transparent);
+                      --sc-hairline-strong: color-mix(in oklab, var(--sc-ink) 26%, transparent); }
+  .form .field :is(input, select, textarea) { background: var(--sc-canvas); }
+  .sc-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* ── hero ───────────────────────────────────────────────────────────── */
+  .hero { padding-bottom: clamp(3rem, 8vh, 6rem); }
+  .hero h1 { font-size: clamp(2.3rem, 1.1rem + 3.9vw, 4.6rem); max-width: 17ch; }
+  .hero__row { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between;
+               gap: var(--sc-6) var(--sc-8); margin-top: var(--sc-7); }
+  .hero__row .lede { margin: 0; max-width: 38ch; }
+  .hero__ctas { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sc-5) var(--sc-6); }
+  .proof { display: flex; flex-wrap: wrap; gap: var(--sc-3) var(--sc-7); margin: var(--sc-8) 0 0;
+           padding-top: var(--sc-5); border-top: 1px solid var(--sc-hairline);
+           font-size: var(--sc-t-sm); color: var(--sc-ink-soft); }
+  .proof strong { color: var(--sc-ink); font-weight: 600; }
+  .proof .stars { color: var(--tx-accent); letter-spacing: 0.1em; }
+  @media (max-width: 700px) { .hero h1 { font-size: clamp(2.1rem, 1.2rem + 4.6vw, 2.8rem); } .proof { gap: var(--sc-2); flex-direction: column; } }
+
+  /* ── AI assistant + live demo ───────────────────────────────────────── */
+  .aisec { display: grid; grid-template-columns: 1fr minmax(0, 27rem); gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
+  .aisec h2 { font-size: var(--h2); max-width: 14ch; }
+  .ai__points { list-style: none; margin: var(--sc-6) 0 var(--sc-7); padding: 0; display: grid; gap: var(--sc-5); }
+  .ai__points li { padding-left: 1.6rem; position: relative; }
+  .ai__points li::before { content: ""; position: absolute; left: 0; top: 0.5rem; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--amber); }
+  .ai__points strong { display: block; font-weight: 600; }
+  .ai__points span { color: var(--sc-ink-soft); line-height: 1.55; }
+  .chat { border-radius: 16px; overflow: hidden; background: var(--cream); color: var(--char);
+          box-shadow: 0 1px 0 #fff inset, 0 40px 80px -30px rgba(0,0,0,0.6); display: flex; flex-direction: column; height: min(32rem, 70vh); }
+  .chat__head { display: flex; align-items: center; gap: 0.7rem; padding: 0.9rem 1rem; background: var(--char); color: var(--cream); }
+  .chat__dot { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: #6DD38A; box-shadow: 0 0 0 3px rgba(109,211,138,0.2); }
+  .chat__head b { font: 700 0.95rem/1.2 var(--sc-font-text); }
+  .chat__head small { margin-left: auto; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber-lt); font-weight: 600; }
+  .chat__body { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.6rem; overscroll-behavior: contain; }
+  .ai-msg { max-width: 85%; padding: 0.65rem 0.85rem; border-radius: 14px; font-size: 0.92rem; line-height: 1.45; white-space: pre-wrap; }
+  .ai-msg-bot { background: var(--cream-2); border-bottom-left-radius: 4px; align-self: flex-start; }
+  .ai-msg-user { background: var(--amber); color: var(--char); border-bottom-right-radius: 4px; align-self: flex-end; }
+  .ai-msg-typing { align-self: flex-start; display: flex; gap: 4px; padding: 0.8rem 0.9rem; border-radius: 14px; background: var(--cream-2); }
+  .ai-typing-dot { width: 6px; height: 6px; border-radius: 50%; background: #7A726D; animation: dot 1s infinite var(--sc-ease-in-out); }
+  .ai-typing-dot:nth-child(2) { animation-delay: 0.15s; } .ai-typing-dot:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes dot { 0%, 60%, 100% { opacity: 0.3; } 30% { opacity: 1; } }
+  .chat__chips { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0 1rem 0.75rem; }
+  .ai-chip { min-height: 44px; padding: 0 0.85rem; border-radius: 999px; border: 1px solid #D8D0C6; background: #fff; color: var(--char);
+             font: 500 0.82rem/1 var(--sc-font-text); cursor: pointer; }
+  .ai-chip:hover { border-color: var(--amber-dk); }
+  .ai-chip:disabled { opacity: 0.5; cursor: default; }
+  .chat__form { display: flex; gap: 0.5rem; padding: 0.75rem; border-top: 1px solid #E4DDD3; background: #fff; }
+  .chat__form input { flex: 1; min-width: 0; min-height: 44px; padding: 0 0.85rem; border-radius: 10px; border: 1.5px solid #E4DDD3;
+                      font: 400 16px/1 var(--sc-font-text); color: var(--char); background: var(--cream); caret-color: var(--amber); }
+  .chat__form input:focus { outline: none; border-color: var(--amber); }
+  .chat__form button { width: 44px; height: 44px; flex: none; border-radius: 10px; border: 0; background: var(--amber); color: var(--char); cursor: pointer; display: grid; place-items: center; }
+  .chat__form button:disabled { opacity: 0.5; }
+  .chat__note { margin: var(--sc-3) 0 0; font-size: var(--sc-t-xs); color: var(--sc-ink-soft); }
+  @media (max-width: 860px) { .aisec { grid-template-columns: 1fr; } .chat { height: 30rem; } }
+
+  /* ── process: four steps on one rule ────────────────────────────────── */
+  .proc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sc-6); counter-reset: pr; }
+  .proc li { counter-increment: pr; position: relative; padding-top: var(--sc-7); }
+  .proc li::before { content: "Step " counter(pr, decimal-leading-zero); position: absolute; top: 0; left: 0;
+                     font: 600 var(--sc-t-xs)/1 var(--sc-font-text); letter-spacing: 0.12em; text-transform: uppercase; color: var(--tx-accent); }
+  .proc li::after { content: ""; position: absolute; top: 1.6rem; left: 0; right: calc(var(--sc-6) * -1); height: 1px; background: var(--sc-hairline-strong); }
+  .proc li:last-child::after { right: 0; }
+  .proc h3 { font-size: var(--sc-t-xl); margin-top: var(--sc-3); }
+  .proc p { color: var(--sc-ink-soft); line-height: 1.6; margin: var(--sc-3) 0 0; max-width: 30ch; }
+  @media (max-width: 860px) { .proc { grid-template-columns: 1fr 1fr; row-gap: var(--sc-7); } .proc li::after { right: 0; } }
+  @media (max-width: 520px) { .proc { grid-template-columns: 1fr; row-gap: var(--sc-6); } }
+
+  /* ── contact form ───────────────────────────────────────────────────── */
+  .cf { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+  .cf h2 { font-size: var(--h2); max-width: 12ch; }
+  .cf__ticks { list-style: none; margin: var(--sc-6) 0 0; padding: 0; display: grid; gap: var(--sc-3); }
+  .cf__ticks li { display: flex; gap: 0.7rem; align-items: center; font-weight: 500; }
+  .cf__ticks li::before { content: "✓"; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; flex: none; border-radius: 50%;
+                          background: var(--amber); color: var(--char); font-size: 0.8rem; font-weight: 700; }
+  .form { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sc-5); padding: clamp(1.25rem, 3vw, 2.25rem);
+          border-radius: 16px; background: var(--sc-surface); border: 1px solid var(--sc-hairline); }
+  .form .wide { grid-column: 1 / -1; }
+  .field.bad :is(input, select, textarea) { border-color: #D14343; }
+  .field__hint { font-size: var(--sc-t-xs); color: var(--sc-ink-soft); font-weight: 400; }
+  .form fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  .form legend { font-size: var(--sc-t-sm); font-weight: 600; margin-bottom: 0.5rem; padding: 0; }
+  .pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .pills label { position: relative; }
+  .pills input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .pills span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border-radius: 999px;
+                border: 1.5px solid var(--sc-hairline-strong); font-size: var(--sc-t-sm); font-weight: 500; cursor: pointer;
+                transition: background-color 140ms var(--sc-ease-out), border-color 140ms var(--sc-ease-out); }
+  .pills input:checked + span { background: var(--amber); border-color: var(--amber); color: var(--char); }
+  .pills input:focus-visible + span { outline: 2px solid var(--amber); outline-offset: 3px; }
+  .form__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: var(--sc-4) var(--sc-6); }
+  .form__foot p { margin: 0; font-size: var(--sc-t-xs); color: var(--sc-ink-soft); max-width: 36ch; }
+  .form__err { grid-column: 1 / -1; margin: 0; color: #D14343; font-size: var(--sc-t-sm); font-weight: 600; }
+  .form__err[hidden] { display: none; }
+  .done { padding: clamp(2rem, 5vw, 3.5rem); border-radius: 16px; background: var(--sc-surface); border: 1px solid var(--sc-hairline); }
+  .done h3 { font-size: var(--sc-t-2xl); }
+  .done p { color: var(--sc-ink-soft); line-height: 1.6; margin: var(--sc-4) 0 0; max-width: 40ch; }
+  @media (max-width: 860px) { .cf { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .form { grid-template-columns: 1fr; } }
+  /* ── THE BUILD (peak): pinned, every layer keyed off --sc-p ────────── */
+  .build { --s1: clamp(0, calc((var(--sc-p, 0) - 0.04) / 0.16), 1);
+           --s2: clamp(0, calc((var(--sc-p, 0) - 0.22) / 0.16), 1);
+           --s3: clamp(0, calc((var(--sc-p, 0) - 0.40) / 0.10), 1);
+           --s4: clamp(0, calc((var(--sc-p, 0) - 0.53) / 0.25), 1);
+           --s5: clamp(0, calc((var(--sc-p, 0) - 0.60) / 0.36), 1); }
+  .build [data-sc-stage] { display: grid; align-items: center; padding-top: var(--nav-h); }
+  .build__grid { display: grid; grid-template-columns: minmax(16rem, 0.78fr) 1.6fr; gap: clamp(2rem, 4vw, 5rem);
+                 align-items: center; width: 100%; }
+  .build h2 { font-size: var(--h2); margin-bottom: var(--sc-6); max-width: 12ch; }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sc-4); counter-reset: st; }
+  .steps li { counter-increment: st; display: grid; grid-template-columns: 2.2rem 1fr; gap: 0 var(--sc-3);
+              opacity: 0.34; transition: opacity 260ms var(--sc-ease-out); }
+  .steps li::before { content: "0" counter(st); grid-row: span 2; font: 600 var(--sc-t-xs)/1.9 var(--sc-font-text);
+              letter-spacing: 0.08em; color: var(--sc-ink-soft); }
+  .steps li.on { opacity: 1; }
+  .steps li.on::before { color: var(--tx-accent); }
+  .steps h3 { font: 700 var(--sc-t-base)/1.3 var(--sc-font-text); letter-spacing: -0.005em; }
+  .steps p { margin: 0.2rem 0 0; font-size: var(--sc-t-sm); line-height: 1.5; color: var(--sc-ink-soft); max-width: 36ch; }
+
+  .frame-wrap { position: relative; }
+  .frame { position: relative; border-radius: 12px; overflow: hidden; background: #0F0D0C;
+           box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 40px 80px -30px rgba(0,0,0,0.55), 0 12px 24px -12px rgba(0,0,0,0.4);
+           border: 1px solid rgba(250,249,246,0.1); }
+  .frame__bar { height: 2.4rem; display: flex; align-items: center; gap: 0.75rem; padding: 0 0.9rem;
+                background: #24201D; border-bottom: 1px solid rgba(250,249,246,0.08); }
+  .frame__dots { display: flex; gap: 6px; } .frame__dots i { width: 9px; height: 9px; border-radius: 50%; background: #4A433E; }
+  .frame__url { flex: 1; min-width: 0; max-width: 22rem; margin: 0 auto; height: 1.55rem; border-radius: 6px; background: #171412;
+                display: flex; align-items: center; gap: 0.45rem; padding: 0 0.7rem; color: #CFC6BC;
+                font: 500 0.78rem/1 var(--sc-font-text); white-space: nowrap; overflow: hidden; }
+  .frame__url svg { width: 0.75rem; height: 0.75rem; flex: none; opacity: var(--s4); color: #8FD18B; }
+  .frame__url .caret { width: 1px; height: 0.9rem; background: var(--amber); opacity: calc(1 - var(--s2)); }
+  .frame__state { font: 600 0.68rem/1 var(--sc-font-text); letter-spacing: 0.1em; text-transform: uppercase;
+                  color: var(--amber-lt); min-width: 4.5rem; text-align: right; }
+  .frame__view { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+  .bp { position: absolute; inset: 0; width: 100%; height: 100%; background-color: #12100F;
+        background-image: linear-gradient(rgba(232,101,42,0.07) 1px, transparent 1px),
+                          linear-gradient(90deg, rgba(232,101,42,0.07) 1px, transparent 1px);
+        background-size: 4.1667% 6.6667%; }
+  .bp rect, .bp line { fill: none; stroke: var(--amber-lt); stroke-width: 1.5; vector-effect: non-scaling-stroke;
+                       stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--s1)); }
+  .bp text { fill: #CFC6BC; font: 500 15px var(--sc-font-text); letter-spacing: 0.06em; text-transform: uppercase;
+             opacity: clamp(0, calc((var(--s1) - 0.6) * 2.5), 1); }
+  .page { position: absolute; inset: 0 0 auto 0; }
+  .page img { display: block; width: 100%; height: auto; }
+  .page__grey { position: relative; clip-path: inset(0 0 calc((1 - var(--s2)) * 100%) 0); }
+  .page__grey img { filter: grayscale(1) contrast(0.85) brightness(1.1); }
+  .page__colour { position: absolute; inset: 0; opacity: var(--s3); }
+  .scan { position: absolute; inset: 0; pointer-events: none; transform: translateY(calc(var(--s2) * 100%));
+          opacity: calc(var(--s1) * (1 - var(--s3))); }
+  .scan::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--amber);
+                  box-shadow: 0 0 0 1px rgba(232,101,42,0.25), 0 6px 18px rgba(232,101,42,0.45); }
+  /* the enquiry: the demo site fades out and the steps load in its place */
+  .page, .bp { opacity: calc(1 - clamp(0, calc(var(--s5) * 6), 1)); }
+  .lead { position: absolute; inset: 0; display: grid; align-content: center; gap: clamp(1rem, 2.4vw, 1.75rem);
+          padding: clamp(1.25rem, 4vw, 3.5rem); background: var(--cream); color: var(--char);
+          opacity: clamp(0, calc(var(--s5) * 6), 1); }
+  .lead__tag { display: flex; justify-content: space-between; font: 600 clamp(0.7rem, 0.6rem + 0.3vw, 0.85rem)/1 var(--sc-font-text);
+               letter-spacing: 0.12em; text-transform: uppercase; color: #6B625B; }
+  .lead ol { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(0.75rem, 1.8vw, 1.4rem); }
+  .lead li { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: clamp(0.75rem, 1.6vw, 1.25rem);
+             padding: clamp(0.75rem, 1.6vw, 1.15rem) clamp(0.9rem, 1.8vw, 1.4rem); border-radius: 14px; background: #fff;
+             box-shadow: 0 14px 30px -22px rgba(28,25,23,0.45); font-size: clamp(1rem, 0.8rem + 0.7vw, 1.4rem); font-weight: 600;
+             letter-spacing: -0.015em; line-height: 1.2;
+             opacity: clamp(0, calc((var(--s5) - var(--d)) * 5), 1);
+             transform: translateY(calc((1 - clamp(0, calc((var(--s5) - var(--d)) * 5), 1)) * 18px)); }
+  .lead li:nth-child(1) { --d: 0.15; } .lead li:nth-child(2) { --d: 0.42; } .lead li:nth-child(3) { --d: 0.68; }
+  .lead li i { width: clamp(2.4rem, 3.6vw, 3.25rem); height: clamp(2.4rem, 3.6vw, 3.25rem); border-radius: 50%; display: grid; place-items: center;
+               background: var(--cream-2); font-style: normal; font-size: clamp(1rem, 1.4vw, 1.3rem); font-weight: 400; }
+  .lead li:last-child i { background: var(--amber); color: var(--char); }
+  .lead li small { display: block; margin-top: 0.25rem; color: #6B625B; font-size: 0.68em; font-weight: 500; letter-spacing: 0; }
+  .lead li > small { margin: 0; font-variant-numeric: tabular-nums; }
+  @media (max-width: 860px) {
+    .build [data-sc-stage] { align-items: start; padding-top: calc(var(--nav-h) + 1.25rem); }
+    .build__grid { grid-template-columns: 1fr; gap: var(--sc-5); }
+    .build h2 { font-size: var(--sc-t-xl); margin-bottom: var(--sc-4); }
+    .build .eyebrow { margin-bottom: var(--sc-3); }
+    .steps { display: block; position: relative; min-height: 5.6rem; }
+    .steps li { position: absolute; inset: 0 0 auto; opacity: 0; }
+    .steps li.on { opacity: 1; }
+    .frame__view { aspect-ratio: 16 / 11; }
+    .lead { padding: 0.9rem; gap: 0.6rem; } .lead ol { gap: 0.45rem; } .lead li { padding: 0.5rem 0.7rem; font-size: 0.92rem; } .lead li i { width: 2rem; height: 2rem; } .lead li small { font-size: 0.72rem; }
+  }
+  @media (max-height: 700px) and (min-width: 861px) { .steps p { display: none; } }
+
+</style>
+
+
+
+
+<script type="application/ld+json" id="faq-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a website cost in Ireland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You get a fixed quote before any work starts, based on the pages and features you need, so there are no surprises. Maintenance and hosting: a monthly fee, starting from the date your website goes live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to build a website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most sites go live within weeks, not months, depending on how quickly content and feedback come back. You see a live preview early and review it as often as you like."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I own the website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The domain is registered in your name and the site is yours to keep. There's no lock-in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you redesign my existing website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, without losing what already works. We rebuild on your existing domain and redirect old pages so Google keeps finding you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my website show up on Google?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We make sure nothing on your site holds you back: every page is built to Google's standards and set up in Search Console and your Business Profile. Nobody can honestly guarantee a ranking, but you get a monthly report on how it's doing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you build AI chat assistants as well?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We build AI chat assistants and voice agents that answer questions, capture leads and book appointments. They work on a new site or plug into the one you already have. Try the live demo on this page."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<span data-sc-progress></span>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<header class="nav g-light" id="nav">
+  <div class="sc-wrap nav__in">
+    <a href="/" class="mark" aria-label="FlowBuild AI home">
+      <svg width="26" height="26" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <defs><linearGradient id="fbMark" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#5B2A1A"/><stop offset="55%" stop-color="#C4501B"/><stop offset="100%" stop-color="#F7935F"/></linearGradient></defs>
+        <path d="M6 54 C 6 42 20 42 28 48 C 36 54 50 54 54 40" stroke="#E8652A" stroke-width="6" stroke-linecap="round" opacity="0.35"/>
+        <path d="M6 42 C 6 28 22 28 32 36 C 42 44 58 44 58 28" stroke="url(#fbMark)" stroke-width="8" stroke-linecap="round"/>
+        <circle cx="58" cy="28" r="5.5" fill="#F7935F"/>
+      </svg>
+      <span>Flow<b>Build</b><span class="ai"> AI</span></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Main">
+      <a href="/b2b-outbound.html">Get More Leads</a>
+      <a href="/web-design/" aria-current="page">Win Them Over <small>(Web Design)</small></a>
+      <a href="/ai-systems.html">Never Miss a Lead</a>
+      <a href="/audit.html">Find Your Money Leaks</a>
+    </nav>
+    <a href="https://links.flowbuildai.ie/widget/booking/MLznN883xY9UeIaBWpgO" class="btn btn--primary" data-book>Book a call</a>
+    <button class="nav__menu" id="navMenu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 1 · TITLE PAGE -->
+  <section class="hero page-top g-light">
+    <div class="sc-wrap">
+      <p class="eyebrow">Website design · Ireland</p>
+      <h1 data-sc-kinetic="lines">Website design for Irish businesses that win the work.</h1>
+      <div class="hero__row" data-sc-in data-sc-stagger="70">
+        <p class="lede">Website design in Ireland that makes customers pick you, and makes it easy for them to get in touch.</p>
+        <div class="hero__ctas">
+          <a href="#contact" class="btn btn--primary">Get a free quote
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="#work" class="link">See the work</a>
+        </div>
+      </div>
+      <p class="proof" data-sc-in>
+        <span><span class="stars" aria-hidden="true">★★★★★</span> <strong>5★</strong> average client rating</span>
+        <span><strong>100%</strong> of clients satisfied</span>
+              </p>
+    </div>
+  </section>
+
+  <!-- 2 · THE WORK (pinned stack) -->
+  <section class="sec g-dark" id="work" aria-labelledby="work-h">
+    <div class="sc-wrap">
+      <div class="sec__head sec__head--split">
+        <h2 id="work-h" data-sc-in>Sites that make you the obvious choice.</h2>
+        <p class="lede" data-sc-in>Real Irish businesses, live today.</p>
+      </div>
+      <div class="works" data-sc-in data-sc-stagger="70">
+        <a class="site" href="https://www.prestigebarbers.ie/" target="_blank" rel="noopener">
+          <span class="win" aria-hidden="true">
+            <span class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><span class="win__url">prestigebarbers.ie</span><span class="win__hint">Scroll to explore</span></span>
+            <span class="win__view"><video class="win__vid" data-src="/assets/video/prestige-barbers.mp4" poster="/assets/img/prestige-poster.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><img class="win__over" src="/assets/video/prestige-barbers-over.webp" width="1100" height="688" alt="" loading="lazy" decoding="async"><img class="win__rest" src="/assets/img/prestige-rest.jpg" width="1000" height="4768" alt="" loading="lazy" decoding="async"></span>
+          </span>
+          <span class="site__cap"><span class="site__name">Prestige Barbers</span><span class="site__meta">Barbershop · Kingscourt, Co. Cavan</span><span class="site__go" aria-hidden="true">↗</span></span>
+          <span class="sr-only">Prestige Barbers website, designed by FlowBuild AI (opens in a new tab)</span>
+        </a>
+        <a class="site" href="https://www.rackzzpoolclub.ie/" target="_blank" rel="noopener">
+          <span class="win" aria-hidden="true">
+            <span class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><span class="win__url">rackzzpoolclub.ie</span><span class="win__hint">Scroll to explore</span></span>
+            <span class="win__view"><video class="win__vid" data-src="/assets/video/rackzz-pool-club.mp4" poster="/assets/img/rackzz-poster.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><img class="win__over" src="/assets/video/rackzz-pool-club-over.webp" width="1100" height="688" alt="" loading="lazy" decoding="async"><img class="win__rest" src="/assets/img/rackzz-rest.jpg" width="1000" height="4197" alt="" loading="lazy" decoding="async"></span>
+          </span>
+          <span class="site__cap"><span class="site__name">Rackzz Pool Club</span><span class="site__meta">Pool hall · Dundalk, Co. Louth</span><span class="site__go" aria-hidden="true">↗</span></span>
+          <span class="sr-only">Rackzz Pool Club website, designed by FlowBuild AI (opens in a new tab)</span>
+        </a>
+        <a class="site" href="https://www.saarchitects.ie/" target="_blank" rel="noopener">
+          <span class="win" aria-hidden="true">
+            <span class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><span class="win__url">saarchitects.ie</span><span class="win__hint">Scroll to explore</span></span>
+            <span class="win__view"><video class="win__vid" data-src="/assets/video/sa-architects.mp4" poster="/assets/img/sa-poster.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><img class="win__over" src="/assets/video/sa-architects-over.webp" width="1100" height="688" alt="" loading="lazy" decoding="async"><img class="win__rest" src="/assets/img/sa-rest.jpg" width="1000" height="1728" alt="" loading="lazy" decoding="async"></span>
+          </span>
+          <span class="site__cap"><span class="site__name">Smith &amp; Associates</span><span class="site__meta">Architecture practice</span><span class="site__go" aria-hidden="true">↗</span></span>
+          <span class="sr-only">Smith &amp; Associates website, designed by FlowBuild AI (opens in a new tab)</span>
+        </a>
+        <a class="site" href="https://www.homeperfectionrenovation.ie/" target="_blank" rel="noopener">
+          <span class="win" aria-hidden="true">
+            <span class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><span class="win__url">homeperfectionrenovation.ie</span><span class="win__hint">Scroll to explore</span></span>
+            <span class="win__view"><video class="win__vid" data-src="/assets/video/ab-home-perfection.mp4" poster="/assets/img/ab-poster.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><img class="win__over" src="/assets/video/ab-home-perfection-over.webp" width="1100" height="688" alt="" loading="lazy" decoding="async"><img class="win__rest" src="/assets/img/ab-rest.jpg" width="1000" height="3623" alt="" loading="lazy" decoding="async"></span>
+          </span>
+          <span class="site__cap"><span class="site__name">A&amp;B Home Perfection</span><span class="site__meta">Renovations · Dublin</span><span class="site__go" aria-hidden="true">↗</span></span>
+          <span class="sr-only">A&amp;B Home Perfection website, designed by FlowBuild AI (opens in a new tab)</span>
+        </a>
+      </div>
+      <div class="marquee" role="region" aria-label="Websites we have built and put live">
+        <div class="marquee__view">
+          <ul class="marquee__track">
+            <li><a href="https://www.prestigebarbers.ie/" target="_blank" rel="noopener"><img src="/assets/logos/prestige-barbers.png" width="330" height="28" alt="Prestige Barbers" style="--h:1.81rem" loading="lazy"></a></li>
+            <li><a href="https://www.saarchitects.ie/" target="_blank" rel="noopener"><img src="/assets/logos/smith-associates.png" width="640" height="229" alt="Smith &amp; Associates Architects" style="--h:3.02rem" loading="lazy"></a></li>
+            <li><a href="https://www.rackzzpoolclub.ie/" target="_blank" rel="noopener"><img src="/assets/logos/rackzz-pool-club.png" width="556" height="366" alt="Rackzz Pool Club" style="--h:3.76rem" loading="lazy"></a></li>
+            <li><a href="https://rfelectrical.ie/" target="_blank" rel="noopener"><img src="/assets/logos/rf-electrical.png" width="295" height="92" alt="RF Electrical" style="--h:2.90rem" loading="lazy"></a></li>
+            <li><a href="https://myfarewellwishes.ie/" target="_blank" rel="noopener"><img src="/assets/logos/my-farewell-wishes.png" width="460" height="74" alt="My Farewell Wishes" style="--h:2.29rem" loading="lazy"></a></li>
+            <li><a href="https://www.heffmech.ie/" target="_blank" rel="noopener"><img src="/assets/logos/heffmech.png" width="421" height="62" alt="Heffmech" style="--h:2.46rem" loading="lazy"></a></li>
+            <li><a href="https://www.liquidconsulting.co/" target="_blank" rel="noopener"><img src="/assets/logos/liquid-consulting.png" width="200" height="64" alt="Liquid Consulting" style="--h:2.91rem" loading="lazy"></a></li>
+            <li><a href="https://www.mdrecovery.ie/" target="_blank" rel="noopener"><img src="/assets/logos/md-recovery.png" width="640" height="259" alt="MD Recovery" style="--h:3.17rem" loading="lazy"></a></li>
+            <li><a href="https://www.homeperfectionrenovation.ie/" target="_blank" rel="noopener"><img src="/assets/logos/ab-home-perfection.png" width="324" height="233" alt="A&amp;B Home Perfection Renovations" style="--h:3.88rem" loading="lazy"></a></li>
+            <li><a href="https://www.slidala.com/" target="_blank" rel="noopener"><img src="/assets/logos/slidala.png" width="455" height="99" alt="Slí Dála B&amp;B" style="--h:2.55rem" loading="lazy"></a></li>
+            <li><a href="https://www.carrickmacrossaccommodation.ie/" target="_blank" rel="noopener"><img src="/assets/logos/kilmactrasna-cottage.png" width="439" height="62" alt="Kilmactrasna Cottage" style="--h:2.19rem" loading="lazy"></a></li>
+            <li><a href="https://www.prestigebarbers.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/prestige-barbers.png" width="330" height="28" alt="" style="--h:1.81rem" loading="lazy"></a></li>
+            <li><a href="https://www.saarchitects.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/smith-associates.png" width="640" height="229" alt="" style="--h:3.02rem" loading="lazy"></a></li>
+            <li><a href="https://www.rackzzpoolclub.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/rackzz-pool-club.png" width="556" height="366" alt="" style="--h:3.76rem" loading="lazy"></a></li>
+            <li><a href="https://rfelectrical.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/rf-electrical.png" width="295" height="92" alt="" style="--h:2.90rem" loading="lazy"></a></li>
+            <li><a href="https://myfarewellwishes.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/my-farewell-wishes.png" width="460" height="74" alt="" style="--h:2.29rem" loading="lazy"></a></li>
+            <li><a href="https://www.heffmech.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/heffmech.png" width="421" height="62" alt="" style="--h:2.46rem" loading="lazy"></a></li>
+            <li><a href="https://www.liquidconsulting.co/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/liquid-consulting.png" width="200" height="64" alt="" style="--h:2.91rem" loading="lazy"></a></li>
+            <li><a href="https://www.mdrecovery.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/md-recovery.png" width="640" height="259" alt="" style="--h:3.17rem" loading="lazy"></a></li>
+            <li><a href="https://www.homeperfectionrenovation.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/ab-home-perfection.png" width="324" height="233" alt="" style="--h:3.88rem" loading="lazy"></a></li>
+            <li><a href="https://www.slidala.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/slidala.png" width="455" height="99" alt="" style="--h:2.55rem" loading="lazy"></a></li>
+            <li><a href="https://www.carrickmacrossaccommodation.ie/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/logos/kilmactrasna-cottage.png" width="439" height="62" alt="" style="--h:2.19rem" loading="lazy"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · CAPABILITIES -->
+  <section class="sec g-light" id="services" aria-labelledby="cap-h">
+    <div class="sc-wrap">
+      <div class="sec__head sec__head--split">
+        <h2 id="cap-h" data-sc-in>More customers, less admin.</h2>
+        <p class="lede" data-sc-in>The website is the start.</p>
+      </div>
+      <ol class="ledger" data-sc-in data-sc-stagger="60">
+        <li><h3>Win trust in seconds</h3><p>A custom website built around your customers.</p></li>
+        <li><h3>Run the day from one screen</h3><p>Dashboards for bookings, stock or jobs.</p></li>
+        <li><h3>Sell while you sleep</h3><p>An online shop that takes orders after hours.</p></li>
+        <li><h3>Get found by locals</h3><p>Google Business Profile set up properly.</p></li>
+        <li><h3>Never think about it again</h3><p>Hosting, updates and security handled.</p></li>
+        <li><h3>Stop paying for every click</h3><p>SEO that builds free traffic over time.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4 · AI ASSISTANT + LIVE DEMO -->
+  <section class="sec g-dark" id="ai-assistants" aria-labelledby="ai-h">
+    <div class="sc-wrap aisec">
+      <div>
+        <p class="eyebrow">Already have a site?</p>
+        <h2 id="ai-h" data-sc-in>Never miss another enquiry.</h2>
+        <p class="lede" data-sc-in>An AI assistant that answers and books jobs, day or night.</p>
+        <ul class="ai__points" data-sc-in data-sc-stagger="60">
+          <li><strong>Book jobs while you work</strong><span>Answers visitors and books them in.</span></li>
+          <li><strong>Stop losing calls to voicemail</strong><span>Picks up when you can't.</span></li>
+          <li><strong>No rebuild needed</strong><span>Works on your current site or number.</span></li>
+        </ul>
+        <a href="/ai-systems.html" class="link arrow">See every AI system we build</a>
+      </div>
+      <div>
+        <div class="chat" role="region" aria-label="Live AI assistant demo">
+          <div class="chat__head"><span class="chat__dot" aria-hidden="true"></span><b>FlowBuild AI assistant</b><small>Live demo</small></div>
+          <div class="chat__body" id="aiWidgetBody" aria-live="polite">
+            <div class="ai-msg ai-msg-bot">Hi! I'm a live demo of the kind of AI assistant we build for businesses like yours. Ask me anything about FlowBuild, or just try me out.</div>
+          </div>
+          <div class="chat__chips" id="aiSuggest">
+            <button type="button" class="ai-chip" data-q="What do you actually do?">What do you do?</button>
+            <button type="button" class="ai-chip" data-q="How much does a website cost?">Pricing?</button>
+            <button type="button" class="ai-chip" data-q="How fast can you build my site?">How fast?</button>
+          </div>
+          <form class="chat__form" id="aiForm">
+            <input type="text" id="aiInput" placeholder="Type a message…" maxlength="400" autocomplete="off" aria-label="Message the AI demo">
+            <button type="submit" id="aiSend" aria-label="Send message"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          </form>
+        </div>
+        <p class="chat__note">Running live. Yours is trained on your business.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · CLIENT VIDEOS -->
+  <section class="sec g-light" id="clients" aria-labelledby="clients-h">
+    <div class="sc-wrap">
+      <div class="sec__head sec__head--center">
+        <p class="eyebrow">Video reviews</p>
+        <h2 id="clients-h" data-sc-in>What our clients say.</h2>
+      </div>
+      <div class="fan" data-fan>
+        <button class="fan__card" type="button" data-pos="l" data-video="/assets/testimonials/liquid-consulting.mp4" aria-label="Play Liquid Consulting client video, 29 seconds">
+          <img src="/assets/testimonials/liquid-consulting.jpg" width="900" height="506" alt="" loading="lazy">
+          <span class="fan__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        </button>
+        <button class="fan__card" type="button" data-pos="c" data-yt="abNIa5-ee1A" aria-label="Play Barbell &amp; Babies client video, 1 minute 53">
+          <img src="/assets/testimonials/barbell-babies.jpg" width="900" height="506" alt="" loading="lazy">
+          <span class="fan__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        </button>
+        <button class="fan__card" type="button" data-pos="r" data-video="/assets/testimonials/otk-logistics.mp4" aria-label="Play OTK Logistics client video, 44 seconds">
+          <img src="/assets/testimonials/otk-logistics.jpg" width="900" height="506" alt="" loading="lazy">
+          <span class="fan__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS: watch a website get built (pin) -->
+  <section class="build g-dark" id="build" data-sc-act="pin" data-sc-span="3.4" aria-labelledby="build-h">
+    <div data-sc-stage>
+      <div class="sc-wrap build__grid">
+        <div>
+          <h2 id="build-h">Watch a website get built.</h2>
+          <ol class="steps" id="steps">
+            <li><h3>Brief</h3><p>Twenty minutes on what your customers need.</p></li>
+            <li><h3>Design</h3><p>Built around the action you want them to take.</p></li>
+            <li><h3>Build</h3><p>Fast on every phone.</p></li>
+            <li><h3>Live</h3><p>Live on your domain, nothing to manage.</p></li>
+            <li><h3>Caught</h3><p>Every enquiry answered, booked and followed up.</p></li>
+          </ol>
+        </div>
+        <div class="frame-wrap">
+          <div class="frame" aria-hidden="true">
+            <div class="frame__bar">
+              <span class="frame__dots"><i></i><i></i><i></i></span>
+              <span class="frame__url">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                <span id="url"></span><span class="caret"></span>
+              </span>
+              <span class="frame__state" id="state">Brief</span>
+            </div>
+            <div class="frame__view">
+              <svg class="bp" viewBox="0 0 1440 900" preserveAspectRatio="none">
+                <rect x="0" y="0" width="1440" height="66" pathLength="1"/>
+                <rect x="40" y="22" width="170" height="22" pathLength="1"/>
+                <rect x="510" y="26" width="420" height="16" pathLength="1"/>
+                <rect x="1278" y="15" width="122" height="37" pathLength="1"/>
+                <rect x="578" y="270" width="284" height="14" pathLength="1"/>
+                <rect x="348" y="316" width="732" height="176" pathLength="1"/>
+                <rect x="500" y="514" width="430" height="100" pathLength="1"/>
+                <line x1="692" y1="634" x2="748" y2="634" pathLength="1"/>
+                <rect x="524" y="664" width="392" height="16" pathLength="1"/>
+                <rect x="482" y="724" width="266" height="50" pathLength="1"/>
+                <rect x="764" y="724" width="194" height="50" pathLength="1"/>
+                <text x="232" y="38">Nav · 5 links + book</text>
+                <text x="1100" y="420">The name, big</text>
+                <text x="980" y="755">One action: book</text>
+              </svg>
+              <div class="page">
+                <div class="page__grey"><img src="/assets/img/prestige-full.jpg" width="1000" height="5393" alt="" loading="lazy" decoding="async"></div>
+                <div class="page__colour"><img src="/assets/img/prestige-full.jpg" width="1000" height="5393" alt="" loading="lazy" decoding="async"></div>
+              </div>
+              <div class="scan"></div>
+              <div class="lead">
+                <div class="lead__tag"><span>New enquiry</span><span>Example</span></div>
+                <ol>
+                  <li><i>✉</i><span>Booking request<br><small>via prestigebarbers.ie</small></span><small>10:02</small></li>
+                  <li><i>↩</i><span>Text reply sent<br><small>answered in 41 seconds</small></span><small>10:02</small></li>
+                  <li><i>✓</i><span>Booked in<br><small>Saturday, 10:30</small></span><small>10:05</small></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 7 · PEOPLE -->
+  <section class="sec g-light" id="team" aria-labelledby="team-h">
+    <div class="sc-wrap">
+      <div class="sec__head sec__head--split">
+        <h2 id="team-h" data-sc-in>Meet the founders.</h2>
+      </div>
+      <div class="people" data-sc-in data-sc-stagger="80">
+        <div class="person">
+          <img src="/assets/team/liam.jpg" width="478" height="640" alt="Liam Kieran, co-founder of FlowBuild AI" loading="lazy">
+          <div>
+            <h3>Liam Kieran</h3>
+            <p class="person__role">Co-founder · Websites &amp; AI</p>
+            <p>Honours graduate in Business Management with a Diploma in AI for Business from UCD. Leads strategy and design, building the websites and AI systems that help small and mid-sized businesses win more work.</p>
+          </div>
+        </div>
+        <div class="person">
+          <img src="/assets/team/paddy.jpg" width="478" height="640" alt="Paddy Meade, co-founder of FlowBuild AI" loading="lazy">
+          <div>
+            <h3>Paddy Meade</h3>
+            <p class="person__role">Co-founder · Leads &amp; automation</p>
+            <p>Science graduate with years of experience across software development, automation and Meta advertising. Builds the campaigns that bring leads in and the workflows that turn them into booked jobs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · FAQ -->
+  <section class="sec g-dark" id="faq" aria-labelledby="faq-h">
+    <div class="sc-wrap">
+      <div class="sec__head"><h2 id="faq-h" data-sc-in>Website design in Ireland: common questions.</h2></div>
+      <div class="faq">
+        <details class="faq__item">
+          <summary>How much does a website cost in Ireland?</summary>
+          <div class="faq__a"><p>You get a fixed quote before any work starts, based on the pages and features you need, so there are no surprises. Maintenance and hosting: a monthly fee, starting from the date your website goes live.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>How long does it take to build a website?</summary>
+          <div class="faq__a"><p>Most sites go live within weeks, not months, depending on how quickly content and feedback come back. You see a live preview early and review it as often as you like.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>Do I own the website?</summary>
+          <div class="faq__a"><p>Yes. The domain is registered in your name and the site is yours to keep. There's no lock-in.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>Can you redesign my existing website?</summary>
+          <div class="faq__a"><p>Yes, without losing what already works. We rebuild on your existing domain and redirect old pages so Google keeps finding you.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>Will my website show up on Google?</summary>
+          <div class="faq__a"><p>We make sure nothing on your site holds you back: every page is built to Google's standards and set up in Search Console and your Business Profile. Nobody can honestly guarantee a ranking, but you get a monthly report on how it's doing.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>Do you build AI chat assistants as well?</summary>
+          <div class="faq__a"><p>Yes. We build AI chat assistants and voice agents that answer questions, capture leads and book appointments. They work on a new site or plug into the one you already have. Try the live demo on this page.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 · ENQUIRY FORM -->
+  <section class="sec g-light" id="contact" aria-labelledby="cf-h">
+    <div class="sc-wrap cf">
+      <div>
+        <h2 id="cf-h" data-sc-in>Get a website that wins you work.</h2>
+        <p class="lede">It comes straight to our WhatsApp. No pitch, no pressure.</p>
+        <ul class="cf__ticks">
+          <li>Quick reply on WhatsApp</li>
+          <li>Free quote, no obligation</li>
+          <li>Irish-based team</li>
+        </ul>
+      </div>
+      <div>
+        <form class="form" id="inquiryForm" novalidate>
+          <div class="field"><label for="fname">Full name *</label><input type="text" id="fname" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="fbiz">Business name *</label><input type="text" id="fbiz" name="business" required autocomplete="organization"></div>
+          <div class="field"><label for="femail">Email address *</label><input type="email" id="femail" name="email" required autocomplete="email" inputmode="email"></div>
+          <div class="field"><label for="fphone">Phone number <span class="field__hint">(optional)</span></label><input type="tel" id="fphone" name="phone" autocomplete="tel" inputmode="tel"></div>
+          <div class="field wide"><label for="ftype">Type of website *</label>
+            <select id="ftype" name="website_type" required>
+              <option value="" disabled selected>Choose one</option>
+              <option>Business Website</option>
+              <option>Restaurant / Café</option>
+              <option>Trades &amp; Services</option>
+              <option>Gym / Fitness</option>
+              <option>Architecture / Design Studio</option>
+              <option>E-Commerce / Online Shop</option>
+              <option>AI Chat / Voice Assistant</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <fieldset class="wide">
+            <legend>Rough budget</legend>
+            <div class="pills">
+              <label><input type="radio" name="budget" value="€500–€1,000"><span>€500 to €1,000</span></label>
+              <label><input type="radio" name="budget" value="€1,000–€2,000"><span>€1,000 to €2,000</span></label>
+              <label><input type="radio" name="budget" value="€2,000+"><span>€2,000+</span></label>
+              <label><input type="radio" name="budget" value="Not sure yet"><span>Not sure yet</span></label>
+            </div>
+          </fieldset>
+          <div class="field wide"><label for="fmsg">Tell us about your business *</label><textarea id="fmsg" name="message" rows="4" required></textarea></div>
+          <p class="form__err" id="cfErr" role="alert" hidden>Please fill in the fields marked with *.</p>
+          <div class="form__foot">
+            <button type="submit" class="btn btn--primary" id="cfSubmit">Send enquiry
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <p>Opens WhatsApp with your details filled in. Or email <a class="link" href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a>.</p>
+          </div>
+        </form>
+        <div class="done" id="cfSuccess" hidden tabindex="-1">
+          <h3>Message sent.</h3>
+          <p>Send it from WhatsApp and we'll reply soon. No WhatsApp? Email <a class="link" href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · CLOSE -->
+  <section class="close g-dark" aria-labelledby="close-h">
+    <div class="sc-wrap">
+      <h2 id="close-h" data-sc-kinetic="lines">Ready for more enquiries?</h2>
+      <div class="close__act" data-sc-in>
+        <a href="https://links.flowbuildai.ie/widget/booking/MLznN883xY9UeIaBWpgO" class="btn btn--primary" data-book>Book a call
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <p>Fifteen minutes, no pitch. Or <a class="link" href="https://wa.me/353858764679?text=Hi%20FlowBuild%2C%20I%27m%20interested%20in%20getting%20a%20website." target="_blank" rel="noopener">message us on WhatsApp</a>.</p>
+      </div>
+      <footer class="foot">
+        <div>
+          <a href="/" class="mark" aria-label="FlowBuild AI home"><span>Flow<b>Build</b> AI</span></a>
+          <p>FlowBuild AI: website design in Ireland, plus the AI systems that turn visitors into customers.</p>
+        </div>
+        <div>
+          <h2>Services</h2>
+          <ul>
+            <li><a href="/web-design/">Website design</a></li>
+            <li><a href="/ai-systems.html">AI systems &amp; automation</a></li>
+            <li><a href="/b2b-outbound.html">B2B outbound</a></li>
+            <li><a href="/audit.html">Free scaling roadmap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="tel:+353858764679">+353 85 876 4679</a></li>
+            <li><a href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a></li>
+            <li><a href="https://wa.me/353858764679" target="_blank" rel="noopener">Message us on WhatsApp</a></li>
+            <li><a href="https://maps.google.com/?cid=15357603946865523882" target="_blank" rel="noopener">Enniskeen, Kingscourt, Co. Cavan, A82 RY70</a></li>
+            <li>Serving businesses across Ireland</li>
+          </ul>
+        </div>
+        <div class="foot__base"><span>© 2026 FlowBuild AI. All rights reserved.</span><span>Ireland</span></div>
+      </footer>
+    </div>
+  </section>
+
+</main>
+
+
+<script src="/assets/scrollcraft.js"></script>
+<script src="/assets/site.js"></script>
+<script>
+  // The build: step list, URL being typed and the frame's state label all read
+  // the act's --sc-p, which the engine publishes every frame.
+  (function () {
+    var act = document.getElementById('build'), steps = document.querySelectorAll('#steps li'),
+        url = document.getElementById('url'), state = document.getElementById('state'),
+        host = 'prestigebarbers.ie', cuts = [0.22, 0.40, 0.53, 0.74],
+        names = ['Brief', 'Design', 'Build', 'Live', 'Enquiry'], last = -1, lastN = -1;
+    function tick() {
+      var p = parseFloat(act.style.getPropertyValue('--sc-p')) || 0, i = 0;
+      while (i < cuts.length && p >= cuts[i]) i++;
+      if (i !== last) {
+        steps.forEach(function (li, k) { li.classList.toggle('on', k === i); });
+        state.textContent = names[i]; last = i;
+      }
+      var n = Math.round(Math.max(0, Math.min(1, (p - 0.04) / 0.14)) * host.length);
+      if (n !== lastN) { url.textContent = host.slice(0, n); lastN = n; }
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+
+  // AI assistant: live chat demo, talks to /api/chat (Claude, server-side key).
+  (function () {
+    var body = document.getElementById('aiWidgetBody'), form = document.getElementById('aiForm'),
+        input = document.getElementById('aiInput'), send = document.getElementById('aiSend'),
+        suggest = document.getElementById('aiSuggest');
+    if (!body || !form) return;
+    var history = [], sending = false;
+    function addMsg(text, role) {
+      var el = document.createElement('div');
+      el.className = 'ai-msg ' + (role === 'user' ? 'ai-msg-user' : 'ai-msg-bot');
+      el.textContent = text;
+      body.appendChild(el);
+      body.scrollTop = body.scrollHeight;
+      return el;
+    }
+    function showTyping() {
+      var el = document.createElement('div');
+      el.className = 'ai-msg-typing'; el.id = 'aiTyping';
+      el.innerHTML = '<span class="ai-typing-dot"></span><span class="ai-typing-dot"></span><span class="ai-typing-dot"></span>';
+      body.appendChild(el);
+      body.scrollTop = body.scrollHeight;
+    }
+    function hideTyping() { var t = document.getElementById('aiTyping'); if (t) t.remove(); }
+    function lock(on) {
+      input.disabled = on; send.disabled = on;
+      suggest.querySelectorAll('.ai-chip').forEach(function (c) { c.disabled = on; });
+    }
+    async function sendMessage(text) {
+      text = text.trim();
+      if (!text || sending) return;
+      sending = true; lock(true);
+      addMsg(text, 'user');
+      input.value = '';
+      showTyping();
+      try {
+        var res = await fetch('/api/chat', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text, history: history })
+        });
+        var data = await res.json();
+        hideTyping();
+        var reply = data.reply || 'Sorry, something went wrong. Try again in a moment.';
+        addMsg(reply, 'bot');
+        history.push({ role: 'user', content: text }, { role: 'assistant', content: reply });
+      } catch (err) {
+        hideTyping();
+        addMsg("Couldn't reach the demo right now. Try again in a moment, or message us on WhatsApp.", 'bot');
+      } finally {
+        sending = false; lock(false);
+        input.focus({ preventScroll: true });
+      }
+    }
+    form.addEventListener('submit', function (e) { e.preventDefault(); sendMessage(input.value); });
+    suggest.querySelectorAll('.ai-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () { sendMessage(chip.dataset.q); });
+    });
+  })();
+
+  // Enquiry form: opens WhatsApp with the details filled in, and posts the
+  // same payload to the GHL inbound webhook so the lead lands in the CRM.
+  (function () {
+    var GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/v291tvqL2r0ctczRsesZ/webhook-trigger/502d5ca2-8da4-4117-98ca-205e7c9f0e8b';
+    var WHATSAPP_NUMBER = '353858764679';
+    var form = document.getElementById('inquiryForm'), err = document.getElementById('cfErr');
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var btn = document.getElementById('cfSubmit'), valid = true, first = null;
+      form.querySelectorAll('[required]').forEach(function (el) {
+        var empty = !el.value.trim();
+        el.closest('.field').classList.toggle('bad', empty);
+        el.setAttribute('aria-invalid', empty);
+        if (empty) { valid = false; first = first || el; }
+      });
+      err.hidden = valid;
+      if (!valid) { first.focus(); return; }
+      btn.disabled = true;
+      var name = document.getElementById('fname').value.trim(), checked = form.querySelector('input[name="budget"]:checked');
+      var payload = {
+        firstName:    name.split(' ')[0],
+        lastName:     name.split(' ').slice(1).join(' '),
+        name:         name,
+        email:        document.getElementById('femail').value.trim(),
+        phone:        document.getElementById('fphone').value.trim() || '',
+        business:     document.getElementById('fbiz').value.trim(),
+        website_type: document.getElementById('ftype').value,
+        budget:       checked ? checked.value : 'Not specified',
+        message:      document.getElementById('fmsg').value.trim(),
+        source:       'FlowBuild Website'
+      };
+      // Open WhatsApp synchronously (before any await) so it isn't blocked as a popup.
+      var waText = [
+        'New website enquiry from ' + payload.name + ' (' + payload.business + ')',
+        'Email: ' + payload.email,
+        payload.phone ? 'Phone: ' + payload.phone : null,
+        'Type: ' + payload.website_type,
+        'Budget: ' + payload.budget,
+        'Message: ' + payload.message
+      ].filter(Boolean).join('\n');
+      window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(waText), '_blank');
+      try {
+        await fetch(GHL_WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      } catch (e2) { console.error('GHL webhook error:', e2); }
+      form.hidden = true;
+      var done = document.getElementById('cfSuccess');
+      done.hidden = false; done.focus();
+    });
+  })();
+</script>
+</body>
+</html>
