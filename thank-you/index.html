@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>You're Booked In | FlowBuild AI</title>
+<meta name="description" content="Your call with FlowBuild AI is booked. Here's what to do next.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0A0A; --s1:#111110; --s2:#181716; --s3:#222120;
+  --ink:#F5F4F2; --muted:#A3A09B; --dim:#6E6B66;
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --or:#E8652A; --or-lt:#F7935F; --or-dk:#C4501B; --or-t:rgba(232,101,42,.12);
+  --ok:#4ADE80; --ok-t:rgba(74,222,128,.12);
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.narrow{max-width:760px;margin:0 auto}
+h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+:focus-visible{outline:2px solid var(--or-lt);outline-offset:3px;border-radius:6px}
+
+/* reveal: transform + opacity only */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font:600 15.5px/1 'Inter Tight',sans-serif;text-decoration:none;border:0;cursor:pointer;white-space:nowrap;transition:background .2s,box-shadow .2s,transform .2s}
+.btn--or{background:var(--or);color:#fff}
+.btn--or:hover{background:var(--or-lt)}
+.btn--line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line2)}
+.btn--line:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(1px)}
+
+/* nav */
+.nav{position:absolute;top:0;left:0;right:0;z-index:5}
+.nav__in{display:flex;align-items:center;justify-content:space-between;height:72px}
+.mark{display:inline-flex;align-items:center;gap:9px;text-decoration:none;white-space:nowrap;font-family:'Syne',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.02em;text-transform:uppercase}
+.mark b{color:var(--or)}
+.mark .ai{color:var(--muted);font-size:.8em}
+
+/* hero */
+.hero{position:relative;padding:150px 0 80px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none}
+.blob--1{width:620px;height:620px;right:-180px;top:-200px;background:radial-gradient(circle,rgba(247,147,95,.42),rgba(232,101,42,0) 70%)}
+.blob--2{width:420px;height:420px;left:-200px;top:120px;background:radial-gradient(circle,rgba(232,101,42,.2),rgba(232,101,42,0) 70%)}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 70% 60% at 50% 25%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 25%,#000 20%,transparent 75%)}
+.hero .narrow{position:relative;z-index:1}
+.ok{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:999px;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line2);font-size:13px;font-weight:600}
+.ok i{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--ok);color:#06150E}
+.hero h1{font-size:clamp(42px,6vw,72px);letter-spacing:-.045em;margin:24px 0 20px}
+.hero h1 span{color:var(--or)}
+.lede{font-size:19px;color:var(--muted);max-width:46ch;line-height:1.55}
+
+/* steps */
+.steps{list-style:none;display:grid;gap:14px;margin-top:48px;counter-reset:s}
+.step{position:relative;display:grid;grid-template-columns:auto 1fr;gap:20px;padding:26px 28px;border-radius:24px;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line),0 30px 60px -40px rgba(232,101,42,.35)}
+.step__n{font:500 12px var(--mono);letter-spacing:.06em;color:var(--or);padding-top:5px}
+.step h2{font-size:22px;letter-spacing:-.025em;line-height:1.2;margin-bottom:8px}
+.step p{color:var(--muted);font-size:16px;line-height:1.65}
+.step b{color:var(--ink);font-weight:600}
+.step--key{background:linear-gradient(160deg,rgba(247,147,95,.14),rgba(232,101,42,.04) 60%),var(--s1);box-shadow:inset 0 0 0 1px rgba(247,147,95,.3),0 30px 70px -36px rgba(232,101,42,.5)}
+
+/* sections */
+.sec{padding:72px 0;border-top:1px solid var(--line)}
+.sec .mono{color:var(--dim);display:block;margin-bottom:18px}
+.sec h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:22px}
+.list{list-style:none;display:grid;gap:14px}
+.list li{display:grid;grid-template-columns:22px 1fr;gap:12px;color:var(--muted);line-height:1.6}
+.list svg{color:var(--ok);margin-top:4px}
+.list b{color:var(--ink);font-weight:600}
+.help{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.note{margin-top:20px;font-size:14.5px;color:var(--dim)}
+
+/* footer */
+.fz{border-top:1px solid var(--line);padding:56px 0 36px}
+.fz__b{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--dim)}
+.fz a{text-decoration:none;color:var(--muted)}
+.fz a:hover{color:var(--ink)}
+
+@media (max-width:760px){
+  .wrap{padding:0 16px}
+  .mark{font-size:14px}
+  .mark svg{width:22px;height:22px}
+  .hero{padding:120px 0 56px}
+  .lede{font-size:17px}
+  .step{grid-template-columns:1fr;gap:10px;padding:22px 20px}
+  .step__n{padding-top:0}
+  .sec{padding:56px 0}
+  .help .btn{flex:1 1 100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2062397397707938');fbq('track','PageView');
+// Booking confirmed: GHL calendars redirect here after a booking. Fire Schedule once per browser session.
+try{if(!sessionStorage.getItem('fb_sched')){fbq('track','Schedule',{content_name:'Discovery call booked'});sessionStorage.setItem('fb_sched','1')}}catch(e){fbq('track','Schedule',{content_name:'Discovery call booked'})}
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=2062397397707938&ev=PageView&noscript=1"></noscript>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <a href="/" class="mark" aria-label="FlowBuild AI home">
+      <svg width="26" height="26" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <defs><linearGradient id="fbMark" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#5B2A1A"/><stop offset="55%" stop-color="#C4501B"/><stop offset="100%" stop-color="#F7935F"/></linearGradient></defs>
+        <path d="M6 54 C 6 42 20 42 28 48 C 36 54 50 54 54 40" stroke="#E8652A" stroke-width="6" stroke-linecap="round" opacity="0.35"/>
+        <path d="M6 42 C 6 28 22 28 32 36 C 42 44 58 44 58 28" stroke="url(#fbMark)" stroke-width="8" stroke-linecap="round"/>
+        <circle cx="58" cy="28" r="5.5" fill="#F7935F"/>
+      </svg>
+      <span>Flow<b>Build</b><span class="ai"> AI</span></span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="blob blob--1" aria-hidden="true"></div>
+    <div class="blob blob--2" aria-hidden="true"></div>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="narrow">
+        <span class="ok"><i><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg></i>Call booked</span>
+        <h1 >You're booked in. <span>Here's what to do next.</span></h1>
+        <p class="lede">Your call with FlowBuild AI is in the diary. Take 30 seconds to do the steps below, so nothing gets missed on the day.</p>
+
+        <!-- VIDEO SLOT: a thank-you video can go here later, between the intro and the steps. -->
+
+        <ol class="steps">
+          <li class="step step--key">
+            <span class="step__n">01</span>
+            <div>
+              <h2>Accept the calendar invite</h2>
+              <p>We've emailed you a confirmation and a calendar invite. Open it and tap <b>Yes</b> or <b>Accept</b> so the call is locked into your diary. Can't see it? Check your spam or promotions folder.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__n">02</span>
+            <div>
+              <h2>Save our number</h2>
+              <p>We may call or text from <b>+353 85 876 4679</b>. Save it as <b>FlowBuild AI</b> so you know it's us and the reminder doesn't get ignored.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__n">03</span>
+            <div>
+              <h2>Have a few rough numbers to hand</h2>
+              <p>Nothing formal. Roughly what a typical sale or job is worth to you, how many enquiries you get in a month, and how many of those you win. That's what lets us give you real answers on the call.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="narrow">
+        <span class="mono">On the call</span>
+        <h2 class="rv">What to expect</h2>
+        <ul class="list">
+          <li class="rv"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg><span><b>We look at your business first.</b> Where your customers come from today, and where the gaps are.</span></li>
+          <li class="rv"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg><span><b>You see the numbers before you spend a cent.</b> What a steady flow of booked sales calls could realistically look like for you.</span></li>
+          <li class="rv"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg><span><b>An honest answer on fit.</b> If we don't think we can make you money, we'll tell you straight.</span></li>
+          <li class="rv"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg><span><b>No obligation, no hard sell.</b> It's a conversation, not a pitch.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="narrow">
+        <span class="mono">Need to change something?</span>
+        <h2 class="rv">Reschedule or ask a question</h2>
+        <p class="lede rv">If the time no longer suits, use the reschedule link in your confirmation email, or just message us. We'd rather move it than have you miss it.</p>
+        <div class="help rv">
+          <a class="btn btn--or" href="https://wa.me/353858764679" target="_blank" rel="noopener">Message us on WhatsApp</a>
+          <a class="btn btn--line" href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a>
+        </div>
+        <p class="note rv">Or call <a href="tel:+353858764679">+353 85 876 4679</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="fz">
+  <div class="wrap fz__b">
+    <span>© 2026 FlowBuild AI. All rights reserved.</span>
+    <a href="/">flowbuildai.ie</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e,i){e.style.transitionDelay=Math.min(i,6)*70+'ms';io.observe(e)});
+})();
+</script>
+</body>
+</html>

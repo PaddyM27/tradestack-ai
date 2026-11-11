@@ -1,20 +1,23 @@
-// Vercel serverless function: home-improvement pilot application
-// 1. POSTs the application to a GHL Inbound Webhook (its own workflow, NOT the solar scan one)
+// Vercel serverless function: flowbuildai.ie WEBSITE application (generic funnel)
+// Kept separate from the home-improvement funnel on watch.flowbuildai.ie: its own
+// webhook, tags and source, so website leads never enter the home-improvement sequences.
+// 1. POSTs the application to its own GHL Inbound Webhook (generic website workflow)
 // 2. Emails the full application to the FlowBuild inbox via Resend, so nothing is lost
 //    even if the GHL webhook is missing or down.
 //
 // Env vars in Vercel:
-//   GHL_APPLY_WEBHOOK_URL  GHL Workflow Inbound Webhook for applications (optional but recommended)
+//   GHL_WEBSITE_APPLY_WEBHOOK_URL  GHL Inbound Webhook of the GENERIC website workflow
+//                                  (never the home-improvement one)
 //   RESEND_API_KEY         already set for /api/submit
 //   APPLY_NOTIFY_EMAIL     optional, defaults to info@flowbuildai.ie
 
-const GHL_APPLY_WEBHOOK_URL = process.env.GHL_APPLY_WEBHOOK_URL;
+const GHL_APPLY_WEBHOOK_URL = process.env.GHL_WEBSITE_APPLY_WEBHOOK_URL;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const NOTIFY = process.env.APPLY_NOTIFY_EMAIL || 'info@flowbuildai.ie';
 
 const LABELS = {
   challenge: 'Biggest challenge',
-  trade: 'Trade',
+  trade: 'Business type',
   job_value: 'Average job value',
   sales_team: 'Who sits the sales appointments',
   close_rate: 'Close rate on sales appointments',
@@ -103,8 +106,8 @@ async function toGHL(a) {
       challenge: a.challenge, challenge_phrase: a.challenge_phrase, trade: a.trade, job_value: a.job_value, sales_team: a.sales_team, close_rate: a.close_rate,
       capacity: a.capacity, ad_budget: a.ad_budget, areas: a.areas,
       fit: a.fit, fit_score: a.fit_score,
-      source: 'home-improvement-landing',
-      tags: `hi-pilot-application,fit-${a.fit}`,
+      source: 'flowbuild-website',
+      tags: `website-application,fit-${a.fit}`,
     }),
   });
   if (!r.ok) throw new Error(`GHL ${r.status}: ${await r.text()}`);
@@ -114,11 +117,11 @@ async function toEmail(a) {
   const rows = Object.keys(LABELS).map(k =>
     `<tr><td style="padding:8px 12px;color:#6b635c;border-bottom:1px solid #eee">${LABELS[k]}</td><td style="padding:8px 12px;border-bottom:1px solid #eee"><b>${esc(a[k] || '-')}</b></td></tr>`).join('');
   const html = `<div style="font-family:Arial,sans-serif;max-width:600px">
-    <h2 style="margin:0 0 4px">New pilot application: ${esc(a.company || a.name)}</h2>
+    <h2 style="margin:0 0 4px">New website application: ${esc(a.company || a.name)}</h2>
     <p style="margin:0 0 16px;color:#6b635c">Fit: <b style="color:${a.fit === 'strong' ? '#1f9d6b' : '#c4501b'}">${esc(a.fit)}</b> (score ${a.fit_score})</p>
     <p>${esc(a.name)}<br>${esc(a.email)}<br>${esc(a.phone)}${a.website ? '<br>' + esc(a.website) : ''}</p>
     <table style="border-collapse:collapse;width:100%;font-size:14px">${rows}</table>
-    <p style="color:#6b635c;font-size:12px;margin-top:16px">Consent to be contacted: yes. Source: home-improvement landing page.</p></div>`;
+    <p style="color:#6b635c;font-size:12px;margin-top:16px">Consent to be contacted: yes. Source: flowbuildai.ie website.</p></div>`;
   const r = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { Authorization: `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
@@ -126,7 +129,7 @@ async function toEmail(a) {
       from: 'FlowBuild AI <scan@flowbuildai.ie>',
       to: [NOTIFY],
       reply_to: a.email,
-      subject: `Pilot application (${a.fit}): ${a.company || a.name}`,
+      subject: `Website application (${a.fit}): ${a.company || a.name}`,
       html,
     }),
   });
