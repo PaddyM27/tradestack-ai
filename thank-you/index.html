@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>You're Booked In | FlowBuild AI</title>
-<meta name="description" content="Your call with FlowBuild AI is booked. Here's what to do next.">
+<meta name="description" content="Your call with FlowBuild AI is booked. Watch the short video, get straight answers to the common questions, and check us out before we talk.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0A0A0A">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -20,26 +20,31 @@
   --ink:#F5F4F2; --muted:#A3A09B; --dim:#6E6B66;
   --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
   --or:#E8652A; --or-lt:#F7935F; --or-dk:#C4501B; --or-t:rgba(232,101,42,.12);
-  --ok:#4ADE80; --ok-t:rgba(74,222,128,.12);
+  --ok:#4ADE80; --ok-t:rgba(74,222,128,.12); --no:#F87171;
   --mono:'JetBrains Mono',ui-monospace,monospace;
   --ease:cubic-bezier(.2,.7,.2,1);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+  --lift:0 30px 60px -40px rgba(232,101,42,.35);
 }
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
 a{color:inherit}
+img{display:block;max-width:100%}
 .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
-.narrow{max-width:760px;margin:0 auto}
-h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
+.narrow{max-width:820px;margin:0 auto}
+.mid{max-width:1040px;margin:0 auto}
+h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.04}
 .mono{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
-:focus-visible{outline:2px solid var(--or-lt);outline-offset:3px;border-radius:6px}
+.or{color:var(--or)}
+:focus-visible{outline:2px solid var(--or-lt);outline-offset:3px;border-radius:8px}
 
 /* reveal: transform + opacity only */
 .rv{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.in{opacity:1;transform:none}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font:600 15.5px/1 'Inter Tight',sans-serif;text-decoration:none;border:0;cursor:pointer;white-space:nowrap;transition:background .2s,box-shadow .2s,transform .2s}
-.btn--or{background:var(--or);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font:600 15.5px/1 'Inter Tight',sans-serif;text-decoration:none;border:0;cursor:pointer;white-space:nowrap;transition:background-color .2s,box-shadow .2s,transform .25s var(--spring)}
+.btn--or{background:var(--or);color:#fff;box-shadow:0 12px 30px -14px rgba(232,101,42,.7)}
 .btn--or:hover{background:var(--or-lt)}
 .btn--line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line2)}
 .btn--line:hover{box-shadow:inset 0 0 0 1px var(--ink)}
@@ -52,58 +57,172 @@ h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:1.02}
 .mark{display:inline-flex;align-items:center;gap:9px;text-decoration:none;white-space:nowrap;font-family:'Syne',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.02em;text-transform:uppercase}
 .mark b{color:var(--or)}
 .mark .ai{color:var(--muted);font-size:.8em}
+.nav__help{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav__help:hover{color:var(--ink)}
 
 /* hero */
-.hero{position:relative;padding:150px 0 80px;overflow:hidden}
+.hero{position:relative;padding:140px 0 72px;overflow:hidden}
 .blob{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none}
 .blob--1{width:620px;height:620px;right:-180px;top:-200px;background:radial-gradient(circle,rgba(247,147,95,.42),rgba(232,101,42,0) 70%)}
-.blob--2{width:420px;height:420px;left:-200px;top:120px;background:radial-gradient(circle,rgba(232,101,42,.2),rgba(232,101,42,0) 70%)}
-.grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 70% 60% at 50% 25%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 25%,#000 20%,transparent 75%)}
-.hero .narrow{position:relative;z-index:1}
+.blob--2{width:420px;height:420px;left:-200px;top:160px;background:radial-gradient(circle,rgba(232,101,42,.2),rgba(232,101,42,0) 70%)}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 70% 50% at 50% 20%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 50% at 50% 20%,#000 20%,transparent 75%)}
+.hero .wrap{position:relative;z-index:1}
 .ok{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:999px;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line2);font-size:13px;font-weight:600}
 .ok i{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--ok);color:#06150E}
-.hero h1{font-size:clamp(42px,6vw,72px);letter-spacing:-.045em;margin:24px 0 20px}
+.hero h1{font-size:clamp(40px,6vw,72px);letter-spacing:-.045em;margin:24px 0 20px}
 .hero h1 span{color:var(--or)}
-.lede{font-size:19px;color:var(--muted);max-width:46ch;line-height:1.55}
+.lede{font-size:19px;color:var(--muted);max-width:52ch;line-height:1.55}
+.lede b{color:var(--ink);font-weight:600}
+
+/* main video / founder note */
+.main-v{margin-top:40px}
+.main-v__tag{display:flex;align-items:center;gap:10px;margin-bottom:14px;color:var(--or)}
+.main-v__tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--or);box-shadow:0 0 0 4px var(--or-t)}
+.vcard{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;border-radius:20px;overflow:hidden;background:var(--s2);cursor:pointer;box-shadow:inset 0 0 0 1px var(--line2),0 40px 80px -50px rgba(232,101,42,.55);transition:transform .3s var(--spring)}
+button.vcard:hover{transform:translateY(-2px)}
+button.vcard:active{transform:translateY(1px)}
+.vcard img,.vcard video,.vcard iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.vcard::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,0) 55%);pointer-events:none}
+.vcard .pl{position:absolute;z-index:1;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;display:grid;place-items:center;background:var(--or);color:#fff;box-shadow:0 14px 34px -10px rgba(232,101,42,.8);transition:transform .25s var(--spring)}
+button.vcard:hover .pl{transform:scale(1.08)}
+.vcard .len{position:absolute;z-index:1;left:16px;bottom:14px;font:500 12px var(--mono);letter-spacing:.04em;color:#fff}
+.vcard.is-playing::after{display:none}
+
+.note{position:relative;padding:34px 36px;border-radius:24px;background:linear-gradient(160deg,rgba(247,147,95,.13),rgba(232,101,42,.03) 55%),var(--s1);box-shadow:inset 0 0 0 1px rgba(247,147,95,.28),0 40px 80px -46px rgba(232,101,42,.55)}
+.note__who{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.note__faces{display:flex}
+.note__faces img{width:46px;height:46px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--s1)}
+.note__faces img+img{margin-left:-12px}
+.note__who b{display:block;font-weight:600;font-size:16px}
+.note__who span{font-size:14px;color:var(--muted)}
+.note p{color:var(--muted);font-size:17px;line-height:1.7}
+.note p+p{margin-top:14px}
+.note p b{color:var(--ink);font-weight:600}
+.note__go{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
 
 /* steps */
-.steps{list-style:none;display:grid;gap:14px;margin-top:48px;counter-reset:s}
-.step{position:relative;display:grid;grid-template-columns:auto 1fr;gap:20px;padding:26px 28px;border-radius:24px;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line),0 30px 60px -40px rgba(232,101,42,.35)}
+.sec{padding:80px 0;border-top:1px solid var(--line)}
+.sec__eyebrow{display:block;color:var(--dim);margin-bottom:16px}
+.sec h2{font-size:clamp(30px,3.8vw,44px);margin-bottom:16px}
+.sec__intro{color:var(--muted);font-size:18px;max-width:58ch;line-height:1.6}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:24px 26px;border-radius:22px;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line),var(--lift)}
 .step__n{font:500 12px var(--mono);letter-spacing:.06em;color:var(--or);padding-top:5px}
-.step h2{font-size:22px;letter-spacing:-.025em;line-height:1.2;margin-bottom:8px}
-.step p{color:var(--muted);font-size:16px;line-height:1.65}
+.step h3{font-size:20px;letter-spacing:-.025em;line-height:1.25;margin-bottom:6px}
+.step p{color:var(--muted);font-size:15.5px;line-height:1.65}
 .step b{color:var(--ink);font-weight:600}
 .step--key{background:linear-gradient(160deg,rgba(247,147,95,.14),rgba(232,101,42,.04) 60%),var(--s1);box-shadow:inset 0 0 0 1px rgba(247,147,95,.3),0 30px 70px -36px rgba(232,101,42,.5)}
 
-/* sections */
-.sec{padding:72px 0;border-top:1px solid var(--line)}
-.sec .mono{color:var(--dim);display:block;margin-bottom:18px}
-.sec h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:22px}
-.list{list-style:none;display:grid;gap:14px}
-.list li{display:grid;grid-template-columns:22px 1fr;gap:12px;color:var(--muted);line-height:1.6}
+/* breakout Q&A */
+.qa{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px;align-items:start}
+.qa__item{border-radius:22px;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .25s,transform .3s var(--spring)}
+.qa__item:hover{box-shadow:inset 0 0 0 1px var(--line2),var(--lift)}
+.qa__item[open]{background:var(--s2);box-shadow:inset 0 0 0 1px rgba(247,147,95,.28),0 30px 70px -40px rgba(232,101,42,.5)}
+.qa__item summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;padding:24px 26px;border-radius:22px}
+.qa__item summary::-webkit-details-marker{display:none}
+.qa__item summary:active{transform:translateY(1px)}
+.qa__k{display:flex;align-items:center;gap:10px;color:var(--or);margin-bottom:10px}
+.qa__k .vtag{display:none;padding:3px 8px;border-radius:999px;background:var(--or-t);color:var(--or-lt);font-size:10.5px}
+.qa__item.has-video .qa__k .vtag{display:inline-block}
+.qa__q{font-size:20px;font-weight:600;letter-spacing:-.025em;line-height:1.25}
+.qa__s{display:block;margin-top:6px;font-size:15px;color:var(--muted)}
+.qa__ic{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px var(--line2);color:var(--muted);transition:transform .3s var(--spring),background-color .2s,color .2s;margin-top:2px}
+.qa__item summary:hover .qa__ic{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.qa__item[open] .qa__ic{transform:rotate(45deg);background:var(--or);color:#fff;box-shadow:none}
+.qa__a{padding:0 26px 26px;color:var(--muted);font-size:16px;line-height:1.7}
+.qa__a p+p{margin-top:12px}
+.qa__a b{color:var(--ink);font-weight:600}
+.qa__a .vslot{margin-bottom:18px}
+.qa__a .vslot .vcard{border-radius:14px}
+.qa__a .vslot .pl{width:52px;height:52px;margin:-26px 0 0 -26px}
+
+/* due diligence */
+.dd{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+.dd__c{display:flex;flex-direction:column;padding:26px;border-radius:22px;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line),var(--lift)}
+.dd__c .mono{color:var(--or);margin-bottom:14px}
+.dd__c h3{font-size:21px;letter-spacing:-.025em;line-height:1.2;margin-bottom:8px}
+.dd__c p{color:var(--muted);font-size:15.5px;line-height:1.65}
+.dd__c p b{color:var(--ink);font-weight:600}
+.dd__c a.lnk{margin-top:auto;padding-top:16px;font-weight:600;font-size:15px;text-decoration:underline;text-decoration-color:var(--or);text-underline-offset:5px;transition:color .2s}
+.dd__c a.lnk:hover{color:var(--or-lt)}
+.dd__c a.lnk:active{opacity:.7}
+.rating{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.rating b{font-size:44px;font-weight:600;letter-spacing:-.04em;line-height:1}
+.rating span{color:var(--or);letter-spacing:3px}
+.dd__c--honest{background:linear-gradient(160deg,rgba(247,147,95,.12),rgba(232,101,42,.02) 60%),var(--s1);box-shadow:inset 0 0 0 1px rgba(247,147,95,.26),0 30px 70px -40px rgba(232,101,42,.5)}
+
+.team{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+.tm{display:grid;grid-template-columns:120px 1fr;gap:22px;align-items:start;padding:24px;border-radius:22px;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line)}
+.tm img{width:120px;height:144px;object-fit:cover;border-radius:14px}
+.tm .mono{color:var(--or)}
+.tm h3{font-size:26px;letter-spacing:-.04em;margin:8px 0 0}
+.tm p{margin-top:10px;color:var(--muted);font-size:15.5px;line-height:1.65}
+
+.vrev{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.vrev .vcard{border-radius:16px;box-shadow:inset 0 0 0 1px var(--line2)}
+.vrev .pl{width:52px;height:52px;margin:-26px 0 0 -26px}
+.vcap{margin-top:12px;font-size:14px;color:var(--muted)}
+.vcap b{color:var(--ink);font-weight:600}
+.sub-h{margin-top:56px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.sub-h h3{font-size:24px;letter-spacing:-.03em}
+.sub-h span{font-size:14px;color:var(--dim)}
+
+/* fit */
+.fit{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px}
+.fit__p{padding:28px;border-radius:22px;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line)}
+.fit__p h3{font-size:20px;letter-spacing:-.025em;margin-bottom:16px}
+.list{list-style:none;display:grid;gap:12px}
+.list li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:var(--muted);line-height:1.6;font-size:16px}
 .list svg{color:var(--ok);margin-top:4px}
+.list--no svg{color:var(--no)}
 .list b{color:var(--ink);font-weight:600}
+.rule{margin-top:14px;padding:26px 30px;border-radius:22px;box-shadow:inset 0 0 0 1px var(--line);display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.rule .mono{color:var(--or)}
+.rule p{font-size:clamp(19px,2vw,24px);letter-spacing:-.025em;line-height:1.3}
+
+/* call flow */
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+.flow>div{padding:26px;border-radius:22px;background:var(--s1);box-shadow:inset 0 0 0 1px var(--line)}
+.flow .mono{color:var(--or)}
+.flow h3{font-size:20px;letter-spacing:-.025em;margin:12px 0 8px}
+.flow p{color:var(--muted);font-size:15.5px;line-height:1.65}
+.flow .here{background:linear-gradient(160deg,rgba(247,147,95,.14),rgba(232,101,42,.04) 60%),var(--s1);box-shadow:inset 0 0 0 1px rgba(247,147,95,.3)}
+
 .help{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.note{margin-top:20px;font-size:14.5px;color:var(--dim)}
+.small{margin-top:20px;font-size:14.5px;color:var(--dim)}
+.small a{color:var(--muted)}
 
 /* footer */
 .fz{border-top:1px solid var(--line);padding:56px 0 36px}
 .fz__b{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--dim)}
-.fz a{text-decoration:none;color:var(--muted)}
+.fz a{text-decoration:none;color:var(--muted);transition:color .2s}
 .fz a:hover{color:var(--ink)}
 
+@media (max-width:900px){
+  .dd{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .vrev{grid-template-columns:1fr}
+}
 @media (max-width:760px){
   .wrap{padding:0 16px}
   .mark{font-size:14px}
   .mark svg{width:22px;height:22px}
-  .hero{padding:120px 0 56px}
+  .nav__help{display:none}
+  .hero{padding:112px 0 56px}
   .lede{font-size:17px}
-  .step{grid-template-columns:1fr;gap:10px;padding:22px 20px}
+  .note{padding:24px 20px}
+  .steps,.qa,.team,.fit{grid-template-columns:1fr}
+  .step{grid-template-columns:1fr;gap:8px;padding:22px 20px}
   .step__n{padding-top:0}
-  .sec{padding:56px 0}
+  .qa__item summary{padding:20px}
+  .qa__a{padding:0 20px 22px}
+  .tm{grid-template-columns:84px 1fr;gap:16px;padding:20px}
+  .tm img{width:84px;height:104px}
+  .rule{grid-template-columns:1fr;gap:10px;padding:22px 20px}
+  .sec{padding:60px 0}
   .help .btn{flex:1 1 100%}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important}.rv{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 
 <!-- Meta Pixel -->
@@ -117,6 +236,13 @@ try{if(!sessionStorage.getItem('fb_sched')){fbq('track','Schedule',{content_name
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tick" viewBox="0 0 24 24"><path d="M5 12.5l4 4 10-10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></symbol>
+</svg>
+
 <header class="nav">
   <div class="wrap nav__in">
     <a href="/" class="mark" aria-label="FlowBuild AI home">
@@ -128,100 +254,298 @@ try{if(!sessionStorage.getItem('fb_sched')){fbq('track','Schedule',{content_name
       </svg>
       <span>Flow<b>Build</b><span class="ai"> AI</span></span>
     </a>
+    <a class="nav__help" href="#change">Need to reschedule?</a>
   </div>
 </header>
 
 <main>
+  <!-- 1. CONFIRM + MAIN VIDEO -->
   <section class="hero">
     <div class="blob blob--1" aria-hidden="true"></div>
     <div class="blob blob--2" aria-hidden="true"></div>
     <div class="grid-bg" aria-hidden="true"></div>
     <div class="wrap">
       <div class="narrow">
-        <span class="ok"><i><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg></i>Call booked</span>
-        <h1 >You're booked in. <span>Here's what to do next.</span></h1>
-        <p class="lede">Your call with FlowBuild AI is in the diary. Do these few things before the call, so nothing gets missed and you get the most out of it.</p>
+        <span class="ok"><i><svg width="14" height="14" aria-hidden="true"><use href="#i-tick"/></svg></i>Call booked</span>
+        <h1 id="hTitle">You're booked in. <span>Now do your homework on us.</span></h1>
+        <p class="lede">You'll probably look us up before the call. Good. This page gives you <b>straight answers</b> to what people usually want to know, so by the time we talk, you already know whether this is right for you.</p>
 
-        <!-- VIDEO SLOT: a thank-you video can go here later, between the intro and the steps. -->
-
-        <ol class="steps">
-          <li class="step step--key">
-            <span class="step__n">01</span>
-            <div>
-              <h2>Accept the calendar invite</h2>
-              <p>We've emailed you a confirmation and a calendar invite. Open it and tap <b>Yes</b> or <b>Accept</b> so the call is locked into your diary. Can't see it? Check your spam or promotions folder.</p>
+        <div class="main-v" id="mainV">
+          <span class="main-v__tag mono">Start here · 3 minutes</span>
+          <!-- Filled by script: plays VIDEOS.main once it's set, otherwise shows this note. -->
+          <div class="note" id="mainNote">
+            <div class="note__who">
+              <div class="note__faces"><img src="/assets/team/paddy.jpg" width="46" height="46" alt=""><img src="/assets/team/liam.jpg" width="46" height="46" alt=""></div>
+              <div><b>A quick note from Paddy &amp; Liam</b><span>Co-founders, FlowBuild AI</span></div>
             </div>
-          </li>
-          <li class="step">
-            <span class="step__n">02</span>
-            <div>
-              <h2>Save our number</h2>
-              <p>We may call or text from <b>+353 85 876 4679</b>. Save it as <b>FlowBuild AI</b> so you know it's us and the reminder doesn't get ignored.</p>
-            </div>
-          </li>
-          <li class="step">
-            <span class="step__n">03</span>
-            <div>
-              <h2>Read the emails we send before the call</h2>
-              <p>Over the next few days we'll email you some <b>short, useful reads</b> on how our service works and how we get results for businesses like yours. They're worth a few minutes: you'll come to the call knowing exactly how it all works, so we can spend the time on <b>your business</b>, not the basics.</p>
-            </div>
-          </li>
-          <li class="step">
-            <span class="step__n">04</span>
-            <div>
-              <h2>Have a few rough numbers to hand</h2>
-              <p>Nothing formal. Roughly what a typical sale or job is worth to you, how many enquiries you get in a month, and how many of those you win. That's what lets us give you real answers on the call.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="wrap">
-      <div class="narrow">
-        <span class="mono">On the call</span>
-        <h2 class="rv">What to expect</h2>
-        <ul class="list">
-          <li class="rv"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg><span><b>We look at your business first.</b> Where your customers come from today, and where the gaps are.</span></li>
-          <li class="rv"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg><span><b>You see the numbers before you spend a cent.</b> What a steady flow of booked sales calls could realistically look like for you.</span></li>
-          <li class="rv"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg><span><b>An honest answer on fit.</b> If we don't think we can make you money, we'll tell you straight.</span></li>
-          <li class="rv"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4 4 10-10"/></svg><span><b>No obligation, no hard sell.</b> It's a conversation, not a pitch.</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="wrap">
-      <div class="narrow">
-        <span class="mono">Need to change something?</span>
-        <h2 class="rv">Reschedule or ask a question</h2>
-        <p class="lede rv">If the time no longer suits, use the reschedule link in your confirmation email, or just message us. We'd rather move it than have you miss it.</p>
-        <div class="help rv">
-          <a class="btn btn--or" href="https://wa.me/353858764679" target="_blank" rel="noopener">Message us on WhatsApp</a>
-          <a class="btn btn--line" href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a>
+            <p>Thanks for booking. Here's the short version of what we do: we run your Facebook and Instagram ads, reply to every enquiry instantly, <b>our own team calls every lead</b> to qualify them, and we book the good ones into your calendar. <b>You only pay for qualified appointments that actually happen.</b></p>
+            <p>To be straight with you: we're a young company with a small number of founding places, and this isn't right for every business. If your jobs are small, you can't take on more work, or nobody's closing when they're in the room, more appointments won't fix that. We'll tell you so on the call.</p>
+            <p>That's why we do the numbers with you first. <b>If even your lowest forecast doesn't make you money, we won't take you on.</b> The answers below cover cost, the guarantee, what happens if it doesn't work, and who we are.</p>
+            <div class="note__go"><a class="btn btn--or" href="#answers">See the straight answers</a><a class="btn btn--line" href="#check">Check us out</a></div>
+          </div>
         </div>
-        <p class="note rv">Or call <a href="tel:+353858764679">+353 85 876 4679</a>.</p>
       </div>
     </div>
+  </section>
+
+  <!-- 2. LOGISTICS -->
+  <section class="sec" id="todo">
+    <div class="wrap"><div class="mid">
+      <span class="sec__eyebrow mono">Before the call</span>
+      <h2 class="rv">Four quick things <span class="or">so nothing gets missed.</span></h2>
+      <ol class="steps">
+        <li class="step step--key rv">
+          <span class="step__n">01</span>
+          <div><h3>Accept the calendar invite</h3><p>We've emailed you a confirmation and invite. Tap <b>Yes</b> or <b>Accept</b> so it's locked in. Can't see it? Check spam or promotions.</p></div>
+        </li>
+        <li class="step rv">
+          <span class="step__n">02</span>
+          <div><h3>Save our number</h3><p>We'll call or text from <b>+353 85 876 4679</b>. Save it as <b>FlowBuild AI</b> so the reminder doesn't get ignored.</p></div>
+        </li>
+        <li class="step rv">
+          <span class="step__n">03</span>
+          <div><h3>Read the emails we send</h3><p>Short, useful reads on how it works and how we get results. A few minutes now means we spend the call on <b>your business</b>, not the basics.</p></div>
+        </li>
+        <li class="step rv">
+          <span class="step__n">04</span>
+          <div><h3>Have rough numbers to hand</h3><p>What a typical job is worth, how many enquiries you get a month, and how many you win. Rough is fine.</p></div>
+        </li>
+      </ol>
+    </div></div>
+  </section>
+
+  <!-- 3. BREAKOUT Q&A -->
+  <section class="sec" id="answers">
+    <div class="wrap"><div class="mid">
+      <span class="sec__eyebrow mono">Before we talk</span>
+      <h2 class="rv">Straight answers <span class="or">to the questions people ask most.</span></h2>
+      <p class="sec__intro rv">Open the ones that matter to you. Anything we don't cover here, bring it to the call.</p>
+
+      <div class="qa">
+        <details class="qa__item rv" data-v="cost">
+          <summary><div><span class="qa__k mono">01 · Cost <span class="vtag">Video</span></span><span class="qa__q">What does it cost?</span><span class="qa__s">How you pay, and why we do it this way.</span></div><span class="qa__ic"><svg width="16" height="16" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+          <div class="qa__a"><div class="vslot"></div>
+            <p><b>No monthly retainer.</b> There's a small one-off setup, then you pay per qualified appointment that actually happens. <b>If they don't turn up, you don't pay.</b></p>
+            <p>Your ad budget goes straight to Meta from your own card, so you see every cent. We never mark it up.</p>
+            <p>Why this way? Most agencies get paid whether you get work or not. We only get paid when you're in front of a buyer. On the call we'll work out what it would cost for your business and what it should bring back.</p>
+          </div>
+        </details>
+
+        <details class="qa__item rv" data-v="guarantee">
+          <summary><div><span class="qa__k mono">02 · Guarantee <span class="vtag">Video</span></span><span class="qa__q">How does the guarantee actually work?</span><span class="qa__s">What it covers, and what it doesn't.</span></div><span class="qa__ic"><svg width="16" height="16" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+          <div class="qa__a"><div class="vslot"></div>
+            <p>Before you start, we research your area and forecast your best, average and lowest case. <b>Your lowest forecast becomes your guaranteed minimum number of qualified appointments, in writing.</b></p>
+            <p>If we're short at day 90, we keep running everything with <b>no extra management fee</b> until we hit it.</p>
+            <p>What it doesn't cover: we guarantee appointments, not sales. Closing is down to you, and it applies when you follow up with and turn up to every appointment we book.</p>
+          </div>
+        </details>
+
+        <details class="qa__item rv" data-v="risk">
+          <summary><div><span class="qa__k mono">03 · Risk <span class="vtag">Video</span></span><span class="qa__q">What if it doesn't work for my business?</span><span class="qa__s">The honest answer, and what happens next.</span></div><span class="qa__ic"><svg width="16" height="16" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+          <div class="qa__a"><div class="vslot"></div>
+            <p>It doesn't work for everyone. When it fails, it's usually for one of three reasons: <b>the jobs are too small</b> for the numbers to add up, <b>the business can't take on more work</b>, or <b>nobody's following up and closing</b>.</p>
+            <p>That's why we do the forecast first. If the lowest case doesn't make you money, we'll tell you not to do it. If we take you on and fall behind, the guarantee kicks in.</p>
+            <p>And <b>you own everything we build</b>: ad account, CRM, automations and leads. If we ever part ways, you keep all of it.</p>
+          </div>
+        </details>
+
+        <details class="qa__item rv" data-v="legit">
+          <summary><div><span class="qa__k mono">04 · Who we are <span class="vtag">Video</span></span><span class="qa__q">Who are you, and are you legit?</span><span class="qa__s">What you'll find when you look us up.</span></div><span class="qa__ic"><svg width="16" height="16" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+          <div class="qa__a"><div class="vslot"></div>
+            <p>We're <b>Paddy and Liam</b>, based in Kingscourt, Co. Cavan. Paddy runs the Meta ads. Liam builds the systems and comes from years in sales. You deal with us directly, nothing is handed off to an account manager.</p>
+            <p>We're a young company, so you won't find years of forum threads about us. What you will find: our Google reviews, video reviews from clients, and our address and phone number on every page. <a href="#check">See it all below</a>.</p>
+          </div>
+        </details>
+
+        <details class="qa__item rv" data-v="effort">
+          <summary><div><span class="qa__k mono">05 · Your part <span class="vtag">Video</span></span><span class="qa__q">What do I need to do?</span><span class="qa__s">Less than you'd think, but not nothing.</span></div><span class="qa__ic"><svg width="16" height="16" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+          <div class="qa__a"><div class="vslot"></div>
+            <p>You fund the ads, and give us about <b>an hour at the start</b> plus photos, approvals and access. We aim to go live <b>within 14 days</b> of getting those.</p>
+            <p>After that, your job is to <b>turn up to the appointments and close</b>. We handle the ads, the replies, the calls and the booking.</p>
+          </div>
+        </details>
+
+        <details class="qa__item rv" data-v="contract">
+          <summary><div><span class="qa__k mono">06 · Contract <span class="vtag">Video</span></span><span class="qa__q">Am I locked into a long contract?</span><span class="qa__s">And who owns what we build.</span></div><span class="qa__ic"><svg width="16" height="16" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+          <div class="qa__a"><div class="vslot"></div>
+            <p><b>No long contracts.</b> Whatever we build is yours: your ad account, your CRM, your automations and your leads.</p>
+            <p>We'll go through the exact terms on the call, in writing, before you sign anything.</p>
+          </div>
+        </details>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- 4. DUE DILIGENCE -->
+  <section class="sec" id="check">
+    <div class="wrap"><div class="mid">
+      <span class="sec__eyebrow mono">Check us out</span>
+      <h2 class="rv">Going to look us up? <span class="or">Here's where to look.</span></h2>
+      <p class="sec__intro rv">We'd rather point you to it than have you wonder.</p>
+
+      <div class="dd">
+        <div class="dd__c rv">
+          <span class="mono">Google reviews</span>
+          <div class="rating"><b>5.0</b><span aria-label="5 out of 5 stars">★★★★★</span></div>
+          <p>Rated by our clients on Google. Read them yourself, not just the ones we pick.</p>
+          <a class="lnk" href="https://www.google.com/maps/place/?q=place_id:ChIJaXIxsgZnqa0RqnwO7msrIdU" target="_blank" rel="noopener">Read our Google reviews ↗</a>
+        </div>
+        <div class="dd__c rv">
+          <span class="mono">Real people, real address</span>
+          <h3>Enniskeen, Kingscourt, Co.&nbsp;Cavan, A82&nbsp;RY70</h3>
+          <p>Ring us, text us or email us before the call. You'll get Paddy or Liam, not a call centre.</p>
+          <a class="lnk" href="tel:+353858764679">+353 85 876 4679</a>
+        </div>
+        <div class="dd__c dd__c--honest rv">
+          <span class="mono">The honest bit</span>
+          <h3>We're new. Here's how we take the risk off you.</h3>
+          <p>We're taking on a small number of founding clients, so we don't have a long track record yet. That's why you <b>pay only for appointments that happen</b>, your minimum is <b>guaranteed in writing</b>, and <b>you own everything</b>.</p>
+        </div>
+      </div>
+
+      <div class="team">
+        <article class="tm rv">
+          <img src="/assets/team/paddy.jpg" width="478" height="640" alt="Paddy, co-founder of FlowBuild AI" loading="lazy">
+          <div><span class="mono">Meta ads &amp; lead generation</span><h3>Paddy</h3>
+          <p>Builds and runs your Facebook and Instagram campaigns, and keeps tuning them for more enquiries per euro.</p></div>
+        </article>
+        <article class="tm rv">
+          <img src="/assets/team/liam.jpg" width="478" height="640" alt="Liam, co-founder of FlowBuild AI" loading="lazy">
+          <div><span class="mono">AI systems &amp; sales</span><h3>Liam</h3>
+          <p>Builds the CRM, instant replies, follow-up and booking. Spent years selling and managing sales teams, so he knows what a good appointment looks like.</p></div>
+        </article>
+      </div>
+
+      <div class="sub-h rv"><h3>In our clients' words</h3><span>Businesses we've built for</span></div>
+      <div class="vrev">
+        <div class="rv"><button class="vcard" type="button" data-video="/assets/testimonials/liquid-consulting.mp4" aria-label="Play Liquid Consulting client video, 29 seconds"><img src="/assets/testimonials/liquid-consulting.jpg" width="900" height="506" alt="" loading="lazy"><span class="pl" aria-hidden="true"><svg width="20" height="20"><use href="#i-play"/></svg></span></button><p class="vcap"><b>Liquid Consulting</b> · 29 sec</p></div>
+        <div class="rv"><button class="vcard" type="button" data-yt="abNIa5-ee1A" aria-label="Play Barbell &amp; Babies client video, 1 minute 53"><img src="/assets/testimonials/barbell-babies.jpg" width="900" height="506" alt="" loading="lazy"><span class="pl" aria-hidden="true"><svg width="20" height="20"><use href="#i-play"/></svg></span></button><p class="vcap"><b>Barbell &amp; Babies</b> · 1 min 53</p></div>
+        <div class="rv"><button class="vcard" type="button" data-video="/assets/testimonials/otk-logistics.mp4" aria-label="Play OTK Logistics client video, 44 seconds"><img src="/assets/testimonials/otk-logistics.jpg" width="900" height="506" alt="" loading="lazy"><span class="pl" aria-hidden="true"><svg width="20" height="20"><use href="#i-play"/></svg></span></button><p class="vcap"><b>OTK Logistics</b> · 44 sec</p></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- 5. FIT -->
+  <section class="sec">
+    <div class="wrap"><div class="mid">
+      <span class="sec__eyebrow mono">Is this a fit?</span>
+      <h2 class="rv">Worth a quick gut check <span class="or">before we talk.</span></h2>
+      <div class="fit">
+        <div class="fit__p rv">
+          <h3>Usually a good fit</h3>
+          <ul class="list">
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-tick"/></svg><span><b>Bigger-ticket work,</b> €5,000+ on average</span></li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-tick"/></svg><span><b>Room for more work</b> and someone to do it</span></li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-tick"/></svg><span><b>You close</b> when you're in the room</span></li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-tick"/></svg><span>Never run ads, or got burned by an agency? <b>That's fine.</b></span></li>
+          </ul>
+        </div>
+        <div class="fit__p rv">
+          <h3>Probably not right now</h3>
+          <ul class="list list--no">
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg><span>Small, cheap jobs where a visit isn't worth it</span></li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg><span>Already fully booked with no plan to grow</span></li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg><span>Won't put any budget behind ads</span></li>
+            <li><svg width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg><span>Looking for a magic button</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rule rv"><span class="mono">Our rule</span><p>If even your lowest forecast doesn't make you money, we'll tell you straight. And we won't take you on.</p></div>
+    </div></div>
+  </section>
+
+  <!-- 6. THE CALL -->
+  <section class="sec">
+    <div class="wrap"><div class="mid">
+      <span class="sec__eyebrow mono">What happens next</span>
+      <h2 class="rv">Two calls. <span class="or">No hard sell.</span></h2>
+      <div class="flow">
+        <div class="here rv"><span class="mono">Call 01 · Booked ✓</span><h3>We learn your business</h3><p>Your jobs, prices, close rate, area and capacity. Where customers come from today, and where the gaps are.</p></div>
+        <div class="rv"><span class="mono">Call 02 · If it fits</span><h3>You see the numbers</h3><p>Local research, your three forecasts, your guaranteed minimum and the full investment. Before you spend a cent.</p></div>
+        <div class="rv"><span class="mono">Then · Launch</span><h3>Appointments start landing</h3><p>We aim to go live within 14 days of getting your photos, approvals and access.</p></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- 7. CHANGE -->
+  <section class="sec" id="change">
+    <div class="wrap"><div class="mid">
+      <span class="sec__eyebrow mono">Need to change something?</span>
+      <h2 class="rv">Reschedule or ask a question</h2>
+      <p class="sec__intro rv">Use the reschedule link in your confirmation email, or just message us. We'd rather move it than have you miss it.</p>
+      <div class="help rv">
+        <a class="btn btn--or" href="https://wa.me/353858764679" target="_blank" rel="noopener">Message us on WhatsApp</a>
+        <a class="btn btn--line" href="mailto:info@flowbuildai.ie">info@flowbuildai.ie</a>
+      </div>
+      <p class="small rv">Or call <a href="tel:+353858764679">+353 85 876 4679</a>.</p>
+    </div></div>
   </section>
 </main>
 
 <footer class="fz">
   <div class="wrap fz__b">
-    <span>© 2026 FlowBuild AI. All rights reserved.</span>
+    <span>© 2026 FlowBuild AI · Enniskeen, Kingscourt, Co. Cavan, A82 RY70</span>
     <a href="/">flowbuildai.ie</a>
   </div>
 </footer>
 
 <script>
+/* ============================================================
+   VIDEOS: paste a YouTube video ID (unlisted is fine) or an
+   /assets/...mp4 path. Empty = written answer only.
+   e.g. main: 'dQw4w9WgXcQ'   or   cost: '/assets/video/cost.mp4'
+   ============================================================ */
+var VIDEOS = {
+  main:      '',  // "Watch this before our call" (2 to 3 min)
+  cost:      '',  // 01 What does it cost?
+  guarantee: '',  // 02 How the guarantee works
+  risk:      '',  // 03 What if it doesn't work?
+  legit:     '',  // 04 Who are you / are you legit?
+  effort:    '',  // 05 What do I need to do?
+  contract:  ''   // 06 Am I locked in?
+};
+
 (function(){
+  var isFile=function(v){return /\.(mp4|webm|mov)$/i.test(v)};
+  function card(src,label,len){
+    var b=document.createElement('button');b.type='button';b.className='vcard';b.setAttribute('aria-label','Play: '+label);
+    if(isFile(src)){b.dataset.video=src;var pv=document.createElement('video');pv.src=src+'#t=0.5';pv.preload='metadata';pv.muted=true;pv.playsInline=true;pv.setAttribute('aria-hidden','true');b.appendChild(pv)}else{b.dataset.yt=src;var im=document.createElement('img');im.src='https://i.ytimg.com/vi/'+encodeURIComponent(src)+'/hqdefault.jpg';im.alt='';im.loading='lazy';b.appendChild(im)}
+    var p=document.createElement('span');p.className='pl';p.setAttribute('aria-hidden','true');p.innerHTML='<svg width="20" height="20"><use href="#i-play"/></svg>';b.appendChild(p);
+    if(len){var l=document.createElement('span');l.className='len';l.textContent=len;b.appendChild(l)}
+    return b;
+  }
+  function play(b){
+    var el;
+    if(b.dataset.yt){el=document.createElement('iframe');el.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.dataset.yt)+'?autoplay=1&rel=0&playsinline=1';el.allow='autoplay; fullscreen; picture-in-picture';el.allowFullscreen=true;el.title=b.getAttribute('aria-label')}
+    else{el=document.createElement('video');el.src=b.dataset.video;el.controls=true;el.autoplay=true;el.playsInline=true}
+    var box=document.createElement('div');box.className='vcard is-playing';box.appendChild(el);b.replaceWith(box);
+  }
+  document.addEventListener('click',function(e){var b=e.target.closest('button.vcard');if(b)play(b)});
+
+  // Main video replaces the founder note once it exists (note text stays in the scripts for reference).
+  if(VIDEOS.main){var n=document.getElementById('mainNote');n.replaceWith(card(VIDEOS.main,'Watch this before our call','Watch first'))}
+
+  // Breakout videos sit above each written answer.
+  document.querySelectorAll('.qa__item').forEach(function(d){
+    var v=VIDEOS[d.dataset.v];if(!v)return;
+    d.classList.add('has-video');
+    d.querySelector('.vslot').appendChild(card(v,d.querySelector('.qa__q').textContent));
+  });
+
+  // Personalise the headline if the booking calendar passes a first name (?first_name=Sean or ?name=Sean Murphy).
+  try{
+    var q=new URLSearchParams(location.search),nm=(q.get('first_name')||q.get('name')||q.get('contact_name')||'').trim().split(/\s+/)[0];
+    if(nm&&/^[\p{L}'-]{1,30}$/u.test(nm)){
+      nm=nm.charAt(0).toUpperCase()+nm.slice(1);
+      var h=document.getElementById('hTitle');h.firstChild.textContent="You're booked in, "+nm+". ";
+    }
+  }catch(e){}
+
+  // Reveal on scroll
   var els=document.querySelectorAll('.rv');
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
-  els.forEach(function(e,i){e.style.transitionDelay=Math.min(i,6)*70+'ms';io.observe(e)});
+  els.forEach(function(e,i){e.style.transitionDelay=(i%4)*70+'ms';io.observe(e)});
 })();
 </script>
 </body>
