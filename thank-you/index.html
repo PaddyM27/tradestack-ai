@@ -111,6 +111,18 @@ button.vcard:hover .pl{transform:scale(1.08)}
 .step h3{font-size:20px;letter-spacing:-.025em;line-height:1.25;margin-bottom:6px}
 .step p{color:var(--muted);font-size:15.5px;line-height:1.65}
 .step b{color:var(--ink);font-weight:600}
+.host{display:grid;grid-template-columns:180px 1fr;gap:28px;align-items:center;margin-top:20px;padding:26px;border-radius:24px;background:linear-gradient(160deg,rgba(247,147,95,.14),rgba(232,101,42,.04) 60%),var(--s1);box-shadow:inset 0 0 0 1px rgba(247,147,95,.3),0 30px 70px -36px rgba(232,101,42,.5)}
+.host img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:18px;box-shadow:inset 0 0 0 1px var(--line2)}
+.host .mono{display:block;color:var(--or);margin-bottom:10px}
+.host h3{font-size:clamp(22px,2.6vw,28px);letter-spacing:-.03em;line-height:1.2;margin-bottom:12px}
+.host p{color:var(--muted);font-size:16px;line-height:1.7}
+.host p+p{margin-top:12px}
+.host p b{color:var(--ink);font-weight:600}
+.host .lnk{display:inline-block;margin-top:16px;font-weight:600;font-size:15px;color:var(--ink);text-decoration:underline;text-decoration-color:var(--or);text-underline-offset:5px;transition:color .2s}
+.host .lnk:hover{color:var(--or-lt)}
+.host .lnk:focus-visible{outline:2px solid var(--or);outline-offset:4px;border-radius:4px}
+.host .lnk:active{opacity:.7}
+@media (max-width:640px){.host{grid-template-columns:1fr;padding:22px}.host img{max-width:200px}}
 .step--key{background:linear-gradient(160deg,rgba(247,147,95,.14),rgba(232,101,42,.04) 60%),var(--s1);box-shadow:inset 0 0 0 1px rgba(247,147,95,.3),0 30px 70px -36px rgba(232,101,42,.5)}
 
 /* breakout Q&A */
@@ -233,6 +245,14 @@ fbq('init','2062397397707938');fbq('track','PageView');
 try{if(!sessionStorage.getItem('fb_sched')){fbq('track','Schedule',{content_name:'Discovery call booked'});sessionStorage.setItem('fb_sched','1')}}catch(e){fbq('track','Schedule',{content_name:'Discovery call booked'})}
 </script>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=2062397397707938&ev=PageView&noscript=1"></noscript>
+<!-- Main video: Wistia media oueewxqkt5 ("Welcome to Your Discovery Call Preparation"). To swap, change the media-id here and in the player below. -->
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/oueewxqkt5.js" async type="module"></script>
+<style>
+wistia-player[media-id='oueewxqkt5']:not(:defined){background:center / contain no-repeat url('https://fast.wistia.com/embed/medias/oueewxqkt5/swatch');display:block;filter:blur(5px);padding-top:41.88%}
+.wvid{position:relative;border-radius:20px;overflow:hidden;background:#000;box-shadow:inset 0 0 0 1px var(--line2),0 40px 80px -50px rgba(232,101,42,.55)}
+.wvid wistia-player{display:block;width:100%}
+</style>
 </head>
 <body>
 
@@ -267,21 +287,13 @@ try{if(!sessionStorage.getItem('fb_sched')){fbq('track','Schedule',{content_name
     <div class="wrap">
       <div class="narrow">
         <span class="ok"><i><svg width="14" height="14" aria-hidden="true"><use href="#i-tick"/></svg></i>Call booked</span>
-        <h1 id="hTitle">You're booked in. <span>Now do your homework on us.</span></h1>
-        <p class="lede">You'll probably look us up before the call. Good. This page gives you <b>straight answers</b> to what people usually want to know, so by the time we talk, you already know whether this is right for you.</p>
+        <h1 id="hTitle">You're booked in, <span>now watch this.</span></h1>
+        <p class="lede">Before we talk, Paddy and Liam walk you through <b>what happens on the call</b>, how it all works, and what to have ready, so we can spend the time on <b>your business</b> and you already know whether this is right for you.</p>
 
         <div class="main-v" id="mainV">
-          <span class="main-v__tag mono">Start here · 3 minutes</span>
-          <!-- Filled by script: plays VIDEOS.main once it's set, otherwise shows this note. -->
-          <div class="note" id="mainNote">
-            <div class="note__who">
-              <div class="note__faces"><img src="/assets/team/paddy.jpg" width="46" height="46" alt=""><img src="/assets/team/liam.jpg" width="46" height="46" alt=""></div>
-              <div><b>A quick note from Paddy &amp; Liam</b><span>Co-founders, FlowBuild AI</span></div>
-            </div>
-            <p>Thanks for booking. Here's the short version of what we do: we run your Facebook and Instagram ads, reply to every enquiry instantly, <b>our own team calls every lead</b> to qualify them, and we book the good ones into your calendar. Upfront, it's <b>a one-off setup fee, then you pay per qualified appointment that actually happens.</b></p>
-            <p>To be straight with you: this isn't right for every business. If your jobs are small, you can't take on more work, or nobody's closing when they're in the room, more appointments won't fix that. We'll tell you so on the call.</p>
-            <p>That's why we do the numbers with you first. <b>If even your lowest forecast doesn't make you money, we won't take you on.</b> The answers below cover cost, the guarantee, what happens if it doesn't work, and who we are.</p>
-            <div class="note__go"><a class="btn btn--or" href="#answers">See the straight answers</a><a class="btn btn--line" href="#check">Check us out</a></div>
+          <span class="main-v__tag mono">Start here · Watch before our call · 10 min</span>
+          <div class="wvid">
+            <wistia-player media-id="oueewxqkt5" aspect="2.388059701492537" player-color="E8652A"></wistia-player>
           </div>
         </div>
       </div>
@@ -311,6 +323,18 @@ try{if(!sessionStorage.getItem('fb_sched')){fbq('track','Schedule',{content_name
           <div><h3>Have rough numbers to hand</h3><p>What a typical job is worth, how many enquiries you get a month, and how many you win. Rough is fine.</p></div>
         </li>
       </ol>
+
+      <!-- Who's taking the call: put a face to the name so they turn up -->
+      <div class="host rv">
+        <img src="/assets/team/liam.jpg" width="478" height="640" alt="Liam, co-founder of FlowBuild AI" loading="lazy">
+        <div>
+          <span class="mono">Who you'll be talking to</span>
+          <h3>Liam is taking your call. He's expecting to see you there.</h3>
+          <p>Liam is one of the two co-founders, and he's set this time aside <b>just for you</b>. It won't be a sales rep reading a script. He spent years selling and managing sales teams, so he'll want to hear about your jobs, your area and what's working for you right now.</p>
+          <p>Please show up on time, somewhere you can talk for a few minutes. <b>Something come up? Just let him know</b> and he'll find a new time. That beats a no-show for both of you.</p>
+          <a class="lnk" href="#change">Need to move the call?</a>
+        </div>
+      </div>
     </div></div>
   </section>
 
@@ -492,7 +516,7 @@ try{if(!sessionStorage.getItem('fb_sched')){fbq('track','Schedule',{content_name
    e.g. main: 'dQw4w9WgXcQ'   or   cost: '/assets/video/cost.mp4'
    ============================================================ */
 var VIDEOS = {
-  main:      '',  // "Watch this before our call" (2 to 3 min)
+  main:      '',  // not used: main video is the Wistia embed at the top
   cost:      '',  // 01 What does it cost?
   guarantee: '',  // 02 How the guarantee works
   risk:      '',  // 03 What if it doesn't work?
@@ -518,8 +542,7 @@ var VIDEOS = {
   }
   document.addEventListener('click',function(e){var b=e.target.closest('button.vcard');if(b)play(b)});
 
-  // Main video replaces the founder note once it exists (note text stays in the scripts for reference).
-  if(VIDEOS.main){var n=document.getElementById('mainNote');n.replaceWith(card(VIDEOS.main,'Watch this before our call','Watch first'))}
+  // Main video is the Wistia embed at the top of the page (media oueewxqkt5), so VIDEOS.main is not used.
 
   // Breakout videos sit above each written answer.
   document.querySelectorAll('.qa__item').forEach(function(d){
@@ -533,7 +556,7 @@ var VIDEOS = {
     var q=new URLSearchParams(location.search),nm=(q.get('first_name')||q.get('name')||q.get('contact_name')||'').trim().split(/\s+/)[0];
     if(nm&&/^[\p{L}'-]{1,30}$/u.test(nm)){
       nm=nm.charAt(0).toUpperCase()+nm.slice(1);
-      var h=document.getElementById('hTitle');h.firstChild.textContent="You're booked in, "+nm+". ";
+      var h=document.getElementById('hTitle');h.firstChild.textContent="You're booked in, "+nm+", ";
     }
   }catch(e){}
 
